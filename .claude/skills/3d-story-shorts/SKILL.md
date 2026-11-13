@@ -1,0 +1,81 @@
+---
+name: 3d-story-shorts
+description: Make a ~60s vertical (9:16) 3D cartoon "story Short" from a true, surprising fact - research, script with sources, voiceover, 3D scenes with moving camera and one-word captions, rendered locally with Node.js. Use when the user wants a YouTube Short / TikTok / Reel video about a topic, or says "3d story short".
+---
+
+# 3D Story Shorts
+
+Topic -> true story -> script -> voice -> 3D scenes -> `final.mp4`. User approves 4 times, then runs one render button.
+
+## Workflow (do NOT skip approvals)
+
+### 0. Input
+Need: topic + audience. If missing, ask once. Keep chat replies short.
+
+### 1. Ideas (approval 1)
+Research the web (WebSearch). Give **5 true stories**, each: hook (first sentence), what happens on screen, the twist. User replies with a number or own idea.
+Good topics: hidden science, loopholes, old inventions, engineering stories.
+
+### 2. Script (approval 2)
+Output:
+- **Shot table**: time | voiceover line | on-screen (world, characters, props, camera).
+- **Fact list** with >=2 sources per claim. Save as `script.md`.
+Rules:
+- 55-65 s total, ~150 words, 10-16 shots of 3-6 s.
+- Hook = first sentence: strange action + one exact detail ("They painted the jail cell pink."). No intro, no "like and subscribe".
+- Real fact + story + twist. Mark any invented character/dialogue as fiction; never present it as history.
+- Ad-safe: no medical/money advice, no fake quotes from real people, no graphic injury.
+- Original characters/sets only; never copy another creator's scripts/characters/scenes.
+Iterate on plain-language changes until user says yes.
+
+### 3. Voice (approval 3)
+- **Own voice**: give a voice-over PDF/text of the script; user records WAV/MP3 and attaches it.
+- **AI voice**: only if a voice tool is connected (e.g. Higgsfield `generate_audio`/`list_voices`); play 3 short samples, user picks one, read whole script in that voice.
+Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check YouTube Studio's current disclosure rules for synthetic/altered content.
+
+### 4. Build (approval 4)
+1. Copy `template/` (this skill folder) to a new project folder `<slug>/`.
+2. Write `story.json` from the approved script (format below). Make every video different: new worlds, colours, camera moves.
+3. Timing: if real audio exists, get word times (e.g. whisper if available, else measure each line with `ffprobe` and spread words evenly) and fill `start`/`end` and optionally `words`. Total `end` of last shot = audio length.
+4. Run `node render.mjs --check` (after `npm install` and `npx playwright install chromium`). It writes `out/preview_shot_NN.png` for every shot. **Look at every preview image** (Read tool). Fix empty/dull/clipped shots: add props, move camera closer, change world, bigger characters. Repeat until all shots look good.
+5. Fast test: `SCALE=0.25 MAX_SECONDS=3 node render.mjs`.
+6. Deliver: project folder on user's computer (desktop app with folder access) or a zip. Tell user to **extract the zip** first.
+
+### 5. Render (user)
+- Install Node.js LTS from nodejs.org (once); check `node -v`.
+- Windows: double-click `render.bat` ("Windows protected your PC" -> More info -> Run anyway). Mac/Linux: `bash render.sh`.
+- Steps: [1/4] install tools (first time, minutes) -> [2/4] check -> [3/4] render frames (~1,800) -> [4/4] voiceover. Result: `final.mp4`; previous kept as `final_previous.mp4`.
+- ~2 min on a good PC, 10+ min on old laptops.
+
+## story.json format
+```json
+{ "title": "...", "fps": 30, "width": 1080, "height": 1920, "audio": "voiceover.mp3",
+  "shots": [{
+    "start": 0, "end": 4, "line": "voiceover text for this shot",
+    "words": [{"w":"They","t0":0,"t1":0.3}],            // optional exact word timing
+    "world": "office|prison|city|lab|space|desert|ocean",
+    "characters": [{"color":"#7ad0ff","pos":[x,y,z],"anim":"idle|wave|bounce|spin|walk"}],
+    "props": [{"type":"box|sphere|cylinder|cone|lamp","color":"#hex","pos":[x,y,z],"size":[w,h,d],"spin":1.0}],
+    "camera": {"from":[x,y,z],"to":[x,y,z],"look":[x,y,z]}   // camera moves from -> to during the shot
+}]}
+```
+- Characters ~1.9 units tall; camera z 5-8 shows 1-3 characters in 9:16. Always move the camera (`from` != `to`).
+- Shots must be contiguous (`end` of one = `start` of next).
+- Need a new world/prop/animation? Edit `scene.js` (`WORLDS`, `makeProp`, `animate`).
+- Captions: one word at a time, from `line` (or `words`).
+
+## Fixes for common problems
+| Problem | Do |
+|---|---|
+| "vulnerabilities" / "npm warn" | Ignore. Never `npm audit fix --force` |
+| Browser downloads, frame count never appears | render retries; else run `check.bat`, send `out\check_log.txt` |
+| RENDER FAILED | `check.bat`, send `out\check_log.txt` |
+| "node is not recognized" | Install Node LTS, restart PC |
+| Browser blocks `.bat` download | Deliver whole project as zip or write into user's folder |
+| Captions out of sync | Tell which line; re-time from real audio |
+| Shot empty/dull | Tell which shot; add props/light, camera closer |
+
+## Channel tips
+- Real fact + story + twist beats plain explainers and pure fiction.
+- Vary topic, locations, colours, camera - repetitive mass-produced uploads aren't monetized.
+- Keep `script.md` sources; post on schedule; track which topics hold viewers to the end, then "make another like the X video".
