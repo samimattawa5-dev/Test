@@ -2,79 +2,83 @@
 
 **These are stills of the planned video, rendered straight from the scene. Motion between stills is not visible: judge story, framing, text, facts and pacing. The full render happens only after this review.**
 
-- Length: 68.4 s
+- Length: 70.4 s
 - Voice before mixing: -16.0 LUFS (the final mix is normalised to about -14 LUFS)
 
 ## Spoken script and pictures, by shot
 
- 1. [0.0-3.4s] "A lost volcano may have helped bring the Black Death."  | world: harbour | characters: bo wow  (point), tomas wow  (lookup)
- 2. [3.4-5.0s] "You've never heard of it."  | world: space
- 3. [5.0-8.2s] "In some regions, up to sixty percent died."  | world: harbour
- 4. [8.2-11.2s] "Yet some big cities may have been spared. Why?"  | world: harbour | characters: mara worried  (shrug), tomas neutral  (shrug)
- 5. [11.2-14.8s] "In twenty twenty-five, two researchers followed the clues."  | world: lab | characters: hist   (talk), clim grin  (point)
- 6. [14.8-19.6s] "Clue one: ice cores. Around thirteen forty-five, a spike of sulphur."  | world: ice | characters: clim wow  (kneel)
- 7. [19.6-22.2s] "An eruption, or series of eruptions."  | world: space
- 8. [22.2-25.4s] "Clue two: pale blue rings in Pyrenees trees."  | world: lab | characters: hist wow  (inspect)
- 9. [25.4-27.1s] "Cold, wet summers."  | world: rainfield | characters: bo worried  (shiver), mara worried  (hug)
-10. [27.1-31.3s] "And writers saw strange clouds, and dark eclipses of the Moon."  | world: harbour | characters: hist wow  (lookup)
-11. [31.3-34.3s] "Crops could have failed across the Mediterranean."  | world: rainfield | characters: mara worried  (no)
-12. [34.3-36.2s] "So in thirteen forty-seven,"  | world: studio
-13. [36.2-40.4s] "Venice, Genoa and Pisa imported grain from the Black Sea."  | world: studio
-14. [40.4-42.0s] "Food for the hungry."  | world: harbourday | characters: tomas grin  (throw), bo grin  (cheer), mara grin  (cheer)
-15. [42.0-45.2s] "Less than two months after the last grain ships,"  | world: harbourday | characters: mara grin  (wave), tomas smile  (point)
-16. [45.2-48.2s] "Venice reported its first plague cases."  | world: studio
-17. [48.2-52.2s] "The ships most likely carried fleas, feeding on grain dust."  | world: harbour
-18. [52.2-57.7s] "Milan and Rome apparently did not need grain imports after thirteen forty-five."  | world: studio
-19. [57.7-60.1s] "They were most probably not affected."  | world: harbourday | characters: mara grin  (wave), folk grin  (cheer), tomas grin  (wave)
-20. [60.1-63.1s] "Nobody knows which volcano it was."  | world: space
-21. [63.1-66.5s] "So what brought the plague: the volcano, or the trade?"  | world: lab | characters: clim grin  (point), mara smile  (talk), hist smile  (nod)
-22. [66.5-68.4s] "Look at that Moon again."  | world: harbour | characters: bo wow  (point), tomas wow  (lookup)
+ 1. [0.0-3.5s] "The grain that saved them may have brought the Black Death."  | world: harbour | characters: bo wow  (point), tomas wow  (lookup)
+ 2. [3.5-6.6s] "And it may have started with a lost volcano."  | world: space
+ 3. [6.6-9.7s] "In some regions, up to sixty percent died."  | world: harbour
+ 4. [9.7-12.8s] "Yet some big cities may have been spared. Why?"  | world: harbour | characters: mara worried  (shrug), tomas neutral  (shrug)
+ 5. [12.8-16.4s] "In twenty twenty-five, two researchers followed the clues."  | world: lab | characters: hist   (talk), clim grin  (point)
+ 6. [16.4-21.1s] "Clue one: ice cores. Around thirteen forty-five, a spike of sulphur."  | world: ice | characters: clim wow  (kneel)
+ 7. [21.1-23.8s] "An eruption, or series of eruptions."  | world: space
+ 8. [23.8-27.0s] "Clue two: pale blue rings in Pyrenees trees."  | world: lab | characters: hist wow  (inspect)
+ 9. [27.0-28.6s] "Cold, wet summers."  | world: rainfield | characters: bo worried  (shiver), mara worried  (hug)
+10. [28.6-32.9s] "And writers saw strange clouds, and dark eclipses of the Moon."  | world: harbour | characters: hist wow  (lookup)
+11. [32.9-35.8s] "Crops could have failed across the Mediterranean."  | world: rainfield | characters: mara worried  (no)
+12. [35.8-37.7s] "So in thirteen forty-seven,"  | world: studio
+13. [37.7-41.9s] "Venice, Genoa and Pisa imported grain from the Black Sea."  | world: studio
+14. [41.9-43.5s] "Food for the hungry."  | world: harbourday | characters: tomas grin  (throw), bo grin  (cheer), mara grin  (cheer)
+15. [43.5-46.8s] "Less than two months after the last grain ships,"  | world: harbourday | characters: mara worried  (inspect), tomas worried  (point)
+16. [46.8-49.8s] "Venice reported its first plague cases."  | world: studio
+17. [49.8-53.7s] "The ships most likely carried fleas, feeding on grain dust."  | world: harbour
+18. [53.7-59.2s] "Milan and Rome apparently did not need grain imports after thirteen forty-five."  | world: studio
+19. [59.2-61.7s] "They were most probably not affected."  | world: harbourday | characters: mara grin  (wave), folk grin  (cheer), tomas grin  (wave)
+20. [61.7-64.6s] "Nobody knows which volcano it was."  | world: space
+21. [64.6-68.5s] "A starving city. Grain ships waiting. Would you let them in?"  | world: harbour | characters: clim grin  (point), mara worried  (shrug), hist worried  (no)
+22. [68.5-70.4s] "Look at that Moon again."  | world: harbour | characters: bo wow  (point), tomas wow  (lookup)
 
 ## On-screen text (besides word-by-word captions)
 
-- -0.6-3.6s title: A VOLCANO BROUGHT THE PLAGUE?
-- 1.0-3.4s badge: HYPOTHESIS · 2025 STUDY
-- 3.7-5.0s badge: THE VOLCANO: UNKNOWN
-- 6.5-8.2s counter: UP TO 60% [IN SOME REGIONS]
-- 10.6-11.2s title: WHY?
-- 11.4-13.1s counter: 2025 [DEC 2025 STUDY]
-- 13.1-14.8s badge: STUDY: BAUCH & BÜNTGEN · DEC 2025
-- 14.9-16.2s badge: CLUE 1: ICE CORES
-- 16.2-19.6s counter: AROUND 1345 [SULPHUR SPIKE]
-- 19.8-22.2s badge: ONE OR MORE ERUPTIONS · LIKELY TROPICAL
-- 22.3-25.4s badge: CLUE 2: PYRENEES TREE RINGS
-- 25.5-27.1s badge: COLD, WET SUMMERS
-- 27.3-31.3s badge: CLUE 3: WRITTEN ACCOUNTS
-- 31.5-34.3s badge: CROPS COULD HAVE FAILED
-- 34.5-36.7s counter: 1347 [GRAIN FROM THE BLACK SEA]
-- 42.3-45.2s counter: < 2 MONTHS [AFTER THE LAST GRAIN SHIPS]
-- 45.1-48.2s title: THE TWIST
-- 48.4-50.9s title: SAVED BY GRAIN. DOOMED BY GRAIN?
-- 50.9-52.2s badge: MOST LIKELY: FLEAS IN THE GRAIN DUST
-- 53.3-57.7s badge: APPARENTLY NO GRAIN IMPORTS NEEDED
-- 57.8-60.1s badge: MOST PROBABLY NOT AFFECTED · DEBATED
-- 60.2-63.1s title: WHICH VOLCANO?
-- 60.7-63.1s badge: HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS
-- 63.3-66.5s title: VOLCANO OR TRADE?
+- -0.6-3.7s title: SAVED BY GRAIN. DOOMED BY GRAIN?
+- 1.2-3.5s badge: A LOST VOLCANO STARTED IT? · HYPOTHESIS
+- 3.8-6.6s badge: THE VOLCANO: UNKNOWN
+- 8.1-9.7s counter: UP TO 60% [IN SOME REGIONS]
+- 12.1-12.8s title: WHY?
+- 13.0-14.6s counter: 2025 [DEC 2025 STUDY]
+- 14.6-16.4s badge: STUDY: BAUCH & BÜNTGEN · DEC 2025
+- 16.5-17.8s badge: CLUE 1: ICE CORES
+- 17.8-21.1s counter: AROUND 1345 [SULPHUR SPIKE]
+- 21.3-23.8s badge: ONE OR MORE ERUPTIONS · LIKELY TROPICAL
+- 23.9-27.0s badge: CLUE 2: PYRENEES TREE RINGS
+- 27.1-28.6s badge: COLD, WET SUMMERS
+- 28.8-32.9s badge: CLUE 3: WRITTEN ACCOUNTS
+- 33.1-35.8s badge: CROPS COULD HAVE FAILED
+- 36.0-38.2s counter: 1347 [GRAIN FROM THE BLACK SEA]
+- 43.7-46.8s timeline: < 2 MONTHS
+- 46.6-49.8s title: SAVED BY GRAIN. DOOMED BY GRAIN?
+- 47.1-49.8s badge: RED = PLAGUE REPORTED
+- 50.0-53.7s badge: MOST LIKELY: FLEAS IN THE GRAIN DUST
+- 54.9-59.2s badge: APPARENTLY NO GRAIN IMPORTS NEEDED
+- 54.1-59.2s badge: GREEN = NO GRAIN IMPORTS
+- 59.3-61.7s badge: MOST PROBABLY NOT AFFECTED · DEBATED
+- 61.8-64.6s title: WHICH VOLCANO?
+- 62.3-64.6s badge: HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS
+- 64.8-68.5s title: WOULD YOU LET THEM IN?
+- 65.6-68.5s badge: YES: FEED THE CITY
+- 66.2-68.5s badge: NO: CLOSE THE PORT
 
 - Style: mystery; captions: {"words": 3, "highlight": ["VOLCANO", "PLAGUE", "BLACK", "DEATH", "SULPHUR", "ERUPTION", "ERUPTIONS", "GRAIN", "FLEAS", "VENICE", "GENOA", "PISA", "MILAN", "ROM
 - Voice file: voiceover.wav; music/SFX bed: bed.wav
 
 ## Motion inside long shots (mean picture change start->end; under 0.03 = nearly frozen)
 
-- 0.0-3.4s: 0.058
-- 5.0-8.2s: 0.061
-- 8.2-11.2s: 0.084
-- 11.2-14.8s: 0.052
-- 14.8-19.6s: 0.051
-- 22.2-25.4s: 0.084
-- 27.1-31.3s: 0.064
-- 36.2-40.4s: 0.235
-- 42.0-45.2s: 0.043
-- 45.2-48.2s: 0.188
-- 48.2-52.2s: 0.063
-- 52.2-57.7s: 0.125
-- 63.1-66.5s: 0.092
+- 0.0-3.5s: 0.057
+- 3.5-6.6s: 0.149
+- 6.6-9.7s: 0.061
+- 9.7-12.8s: 0.090
+- 12.8-16.4s: 0.054
+- 16.4-21.1s: 0.064
+- 23.8-27.0s: 0.082
+- 28.6-32.9s: 0.057
+- 37.7-41.9s: 0.235
+- 43.5-46.8s: 0.051
+- 46.8-49.8s: 0.177
+- 49.8-53.7s: 0.048
+- 53.7-59.2s: 0.106
+- 64.6-68.5s: 0.091
 
 ## Fact list and sources (from script.md)
 

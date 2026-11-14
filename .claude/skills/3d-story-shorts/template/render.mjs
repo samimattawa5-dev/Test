@@ -67,7 +67,7 @@ if (process.argv.includes('--verify')) {
       const ov = r.overlays.find(v => v.t0 === o.t0 && v.type === o.type);
       if (!ov || ov.op < 0.5) fails.push(`${tm.toFixed(1)}s overlay "${o.text || o.label}" not visible`);
       else if (ov.x0 < 20 || ov.x1 > story.width - 20) fails.push(`${tm.toFixed(1)}s overlay "${ov.text}" touches the frame edge (x ${ov.x0.toFixed(0)}-${ov.x1.toFixed(0)})`); }
-    for (const w of (s.words || [])) { if (w.t1 - w.t0 < 0.12) continue; const tm = (w.t0 + w.t1) / 2;
+    for (const w of (s.words || [])) { if (w.t1 - w.t0 < 0.12) continue; const tm = (w.t0 + w.t1) / 2; if (s.capFrom !== undefined && tm < s.capFrom) continue;
       if (Math.round(tm * 2) % 3) continue; // sample about every 1.5 s of speech
       const r = await page.evaluate((x) => window.__verify(x), tm); if (!r.cap) fails.push(`${tm.toFixed(1)}s no caption while "${w.w}" is spoken`); }
     for (const tm of [s.start + 0.3, (s.start + s.end) / 2, s.end - 0.3]) { const r = await page.evaluate((x) => window.__verify(x), tm);

@@ -25,8 +25,8 @@ CAST = {
 def ch(name, pos, anim, **k): return dict(cast=name, pos=pos, anim=anim, **k)
 E = lambda **k: {**dict(type="earth", size=[3], pos=[0, 0, 0], spin=0.15, barren=False), **k}
 MOON = lambda **k: {**dict(type="moon", size=[12], pos=[-1.5, 15, -34], dark=True), **k}
-PLUME = lambda **k: {**dict(type="volcano", size=[10, 7], pos=[5.5, 1.5, -26], erupt=-20, loopPlume=True), **k}
-SHIP = lambda **k: {**dict(type="ship", size=[5], pos=[4.2, -0.3, -5.5], rot=[0, 0.25, 0], cross=True), **k}
+PLUME = lambda **k: {**dict(type="volcano", size=[12, 9], pos=[-9, 0, -30], erupt=-20, loopPlume=True), **k}
+SHIP = lambda **k: {**dict(type="ship", size=[4.5], pos=[2.9, -0.3, -3.6], rot=[0, 0.25, 0], cross=True), **k}
 
 # one shot per spoken line (21 lines), cut a hair before each line
 b = [0] + [round(lt(i)[0] - 0.12, 2) for i in range(2, 22)] + [END]
@@ -37,8 +37,8 @@ SH = [
  # 1 hook: red eclipsed Moon over the harbour, grain ship, the claim on frame 0
  dict(world="harbour", characters=[ch("bo", [-1.3, 0, 2.6], "point", expr="wow", wander=False), ch("tomas", [1.0, 0, 2.3], "lookup", expr="wow", wander=False)],
       props=[MOON(), SHIP(), PLUME()], camera={"from": [0, 1.0, 9.5], "to": [0, 1.2, 8.6], "look": [-0.6, 6.5, -10]}, energy=1, shimmer=True,
-      overlays=[dict(type="title", text="A VOLCANO BROUGHT THE PLAGUE?", t0=-0.6, t1=e(1) + 0.2, y=300, size=96),
-                dict(type="badge", text="HYPOTHESIS · 2025 STUDY", t0=1.0, t1=e(1), y=680, size=46, accent="#444444")]),
+      capFrom=e(1), overlays=[dict(type="title", text="SAVED BY GRAIN. DOOMED BY GRAIN?", t0=-0.6, t1=e(1) + 0.2, y=280, size=100, color="#FFE14D"),
+                dict(type="badge", text="A LOST VOLCANO STARTED IT? · HYPOTHESIS", t0=1.2, t1=e(1), y=560, size=44, accent="#6b4226")]),
  # 2 you've never heard of it: an unknown eruption somewhere in the tropics
  dict(world="space", props=[E(spin=0.3), dict(type="volcano", size=[0.8, 0.7], pos=[0.1, 0.05, 1.55], rot=[1.5, 0, 0], erupt=s(2) + 0.2)],
       camera={"from": [0.4, 0.4, 6.2], "to": [0.2, 0.2, 5.2], "look": [0, 0, 0.6]}, energy=1,
@@ -48,7 +48,7 @@ SH = [
       camera={"from": [0, 2.6, 8], "to": [0, 2.4, 7], "look": [0, 2.0, -2]}, energy=1,
       overlays=[dict(type="counter", **{"from": 60}, to=60, prefix="UP TO ", suffix="%", roll=False, size=130, label="IN SOME REGIONS", t0=wt("sixty", lt(3)[0]) - 0.2, t1=e(3), y=260)]),
  # 4 some big cities spared - why? (open loop, no names)
- dict(world="harbour", characters=[ch("mara", [-0.9, 0, 1.0], "shrug", expr="worried"), ch("tomas", [0.9, 0, 1.0], "shrug", expr="neutral")],
+ dict(world="harbour", characters=[ch("mara", [-0.65, 0, 1.0], "shrug", expr="worried", wander=False), ch("tomas", [0.9, 0, 1.0], "shrug", expr="neutral")],
       props=[dict(type="houses", size=[12], n=6, pos=[0, 0, -6])], camera={"from": [-1.5, 2.2, 8], "to": [1.5, 2.2, 7.5], "look": [0, 1.6, -2]}, energy=1,
       overlays=[dict(type="title", text="WHY?", t0=wt("why", lt(4)[0]) - 0.2, t1=e(4), y=300, size=150, color="#FFE14D")]),
  # 5 2025: two researchers follow the clues
@@ -58,7 +58,7 @@ SH = [
       overlays=[dict(type="counter", **{"from": 2025}, to=2025, roll=False, size=150, label="DEC 2025 STUDY", t0=s(5) + 0.2, t1=s(5) + 1.8, y=260),
                 dict(type="badge", text="STUDY: BAUCH & BÜNTGEN · DEC 2025", t0=s(5) + 1.8, t1=e(5), y=300, size=48, accent="#2f6db5")]),
  # 6 clue 1: ice core with a sulphur band around 1345
- dict(world="ice", characters=[ch("clim", [-0.9, 0, 0.8], "kneel", expr="wow", face=25)],
+ dict(world="ice", characters=[ch("clim", [-0.55, 0, 0.8], "kneel", expr="wow", face=25)],
       props=[dict(type="icecore", size=[0.32, 2.6], pos=[0.6, 1.2, 0.8], rot=[0, 0, 0.35], bandAt=0.12, glowAt=wt("spike", lt(6)[0]))],
       camera={"from": [0, 1.8, 6.2], "to": [0.2, 1.6, 5.4], "look": [0, 1.1, 0.5]}, energy=1,
       overlays=[dict(type="badge", text="CLUE 1: ICE CORES", t0=s(6) + 0.1, t1=wt("around", lt(6)[0]) - 0.1, y=420, size=50, accent="#2f9bff"),
@@ -85,10 +85,10 @@ SH = [
       props=[MOON(pos=[1.5, 8, -30]), SHIP(pos=[-3, -0.3, -5])], camera={"from": [1.2, 1.2, 7.5], "to": [0.4, 1.4, 6.6], "look": [0.6, 4.5, -8]}, energy=1,
       overlays=[dict(type="badge", text="CLUE 3: WRITTEN ACCOUNTS", t0=s(10) + 0.2, t1=e(10), y=440, size=50, accent="#2f9bff")]),
  # 11 crops could have failed
- dict(world="rainfield", characters=[ch("mara", [0.4, 0, 1.4], "no", expr="worried")],
+ dict(world="rainfield", characters=[ch("mara", [0.4, 0, 1.0], "no", expr="worried", wander=False)],
       props=[dict(type="wheat", size=[5], n=60, pos=[0, 0, -0.6], wilt=dict(t0=s(11) + 0.2, t1=e(11) - 0.3))],
-      camera={"from": [0, 1.6, 6.5], "to": [0, 1.4, 5.6], "look": [0, 0.9, 0]}, energy=1,
-      overlays=[dict(type="badge", text="CROPS COULD HAVE FAILED", t0=s(11) + 0.2, t1=e(11), y=420, size=50, accent="#8a6a2a")]),
+      camera={"from": [0, 1.7, 7.6], "to": [0, 1.6, 6.9], "look": [0, 1.0, 0]}, energy=1,
+      overlays=[dict(type="badge", text="CROPS COULD HAVE FAILED", t0=s(11) + 0.2, t1=e(11), y=330, size=50, accent="#8a6a2a")]),
  # 12 1347: Venice, Genoa and Pisa import Black Sea grain (map, routes draw on)
  dict(world="studio", props=[dict(type="map", size=[7.5], pos=[0, 0, 0], view=[4, 42],
         cities=[dict(id="tana", t0=s(12)), dict(id="venice", t0=wt("venice", lt(12)[0])), dict(id="genoa", t0=wt("genoa", lt(12)[0])), dict(id="pisa", t0=wt("pisa", lt(12)[0]))],
@@ -105,27 +105,28 @@ SH = [
       props=[SHIP(pos=[0.4, -0.3, -6.5], size=[4.5])] + [dict(type="sack", size=[0.55], pos=[x, 0.3, z]) for x, z in [(-2.2, 0.2), (-1.8, -0.4), (2.0, 0.0), (2.4, -0.5), (0, -1.2)]],
       camera={"from": [0, 2.2, 9.6], "to": [0, 2.1, 8.8], "look": [0, 1.9, -2]}, energy=2, shimmer=True),
  # 14 less than two months after the last grain ships (music drops)
- dict(world="harbourday", characters=[ch("mara", [-1.2, 0, 1.2], "wave", expr="grin"), ch("tomas", [1.2, 0, 1.0], "point", expr="smile")], props=[SHIP(pos=[-7, -0.3, -6.5], move=[0.4, -0.3, -6.5], size=[4.5])] + [dict(type="sack", size=[0.55], pos=[x, 0.3, z]) for x, z in [(-2.2, 0.2), (2.0, 0.0)]],
+ dict(world="harbourday", characters=[ch("mara", [-1.2, 0, 1.2], "inspect", expr="worried"), ch("tomas", [1.2, 0, 1.0], "point", expr="worried")], props=[SHIP(pos=[-7, -0.3, -6.5], move=[0.4, -0.3, -6.5], size=[4.5])] + [dict(type="sack", size=[0.55], pos=[x, 0.3, z]) for x, z in [(-2.2, 0.2), (2.0, 0.0)]],
       camera={"from": [0, 2.2, 9.6], "to": [0, 2.1, 8.8], "look": [0, 1.9, -2]}, drop=True,
-      overlays=[dict(type="counter", **{"from": 2}, to=2, prefix="< ", suffix=" MONTHS", roll=False, size=120, label="AFTER THE LAST GRAIN SHIPS", t0=s(14) + 0.3, t1=e(14), y=280)]),
+      overlays=[dict(type="timeline", text="< 2 MONTHS", left="LAST GRAIN SHIPS", right="VENICE: FIRST PLAGUE CASES", fill=1.6, t0=s(14) + 0.2, t1=e(14), y=250, size=110)]),
  # 15 the twist: Venice reports plague - map dot turns red, then shutters close
  dict(world="studio", props=[dict(type="map", size=[7.5], pos=[0, 0, 0], view=[4, 42],
-        legend="RED = PLAGUE REPORTED", labelSize=44, cities=[dict(id="tana"), dict(id="venice", redAt=wt("venice", lt(15)[0])), dict(id="genoa"), dict(id="pisa")],
+        labelSize=44, cities=[dict(id="tana"), dict(id="venice", redAt=wt("venice", lt(15)[0])), dict(id="genoa"), dict(id="pisa")],
         routes=[dict(to="venice", t0=0, t1=0.01, redAt=wt("venice", lt(15)[0])), dict(to="genoa", t0=0, t1=0.01), dict(to="pisa", t0=0, t1=0.01)])],
       camera={"from": [-1.8, 0.6, 5.8], "to": [-2.35, 0.75, 4.3], "look": [-2.35, 0.75, 0]}, kicks=[wt("venice", lt(15)[0])],
-      overlays=[dict(type="title", text="THE TWIST", t0=s(15) - 0.1, t1=e(15), y=280, size=124, color="#FFE14D")]),
+      overlays=[dict(type="title", text="SAVED BY GRAIN. DOOMED BY GRAIN?", t0=s(15) - 0.1, t1=e(15), y=250, size=100, color="#FFE14D"),
+                dict(type="badge", text="RED = PLAGUE REPORTED", t0=wt("venice", lt(15)[0]) + 0.2, t1=e(15), y=1480, size=44, accent="#c62828")]),
  # 16 fleas in the grain dust (no people)
- dict(world="harbour", props=[dict(type="sack", size=[1.4], pos=[0, 0, 0]), dict(type="rat", pos=[0.95, 0, 0.7], rot=[0, -2.6, 0], scale=1.4)]
-      + [dict(type="flea", pos=[x, y, z], scale=2.0, hop=dict(h=0.25, speed=1.4 + 0.2 * k, phase=0.17 * k, dx=0.0)) for k, (x, y, z) in enumerate([(-0.35, 1.1, 0.45), (0.15, 1.35, 0.4), (0.4, 0.9, 0.55), (-0.15, 0.7, 0.65), (0.6, 0.5, 0.6)])],
+ dict(world="harbour", props=[dict(type="sack", size=[1.4], pos=[0, 0, 0]), dict(type="rat", pos=[-1.25, 0, 0.75], rot=[0, 0.25, 0], scale=1.5)]
+      + [dict(type="flea", pos=[x, y, z], scale=1.3, hop=dict(h=0.3, speed=1.5 + 0.2 * k, phase=0.13 * k, dx=0.0)) for k, (x, y, z) in enumerate([(-0.35, 1.1, 0.45), (0.15, 1.35, 0.4), (0.4, 0.9, 0.55), (-0.15, 0.7, 0.65), (0.6, 0.5, 0.6), (0.3, 1.6, 0.3), (-0.5, 0.5, 0.6), (0.75, 1.2, 0.4), (0.0, 0.3, 0.75)])],
       camera={"from": [0.2, 1.6, 4.6], "to": [0.3, 1.4, 3.9], "look": [0.3, 0.9, 0]}, energy=1,
-      overlays=[dict(type="title", text="SAVED BY GRAIN. DOOMED BY GRAIN?", t0=s(16) + 0.1, t1=s(16) + 2.6, y=260, size=100, color="#FFE14D"),
-                dict(type="badge", text="MOST LIKELY: FLEAS IN THE GRAIN DUST", t0=s(16) + 2.6, t1=e(16), y=420, size=46, accent="#6b4226")]),
+      overlays=[dict(type="badge", text="MOST LIKELY: FLEAS IN THE GRAIN DUST", t0=s(16) + 0.2, t1=e(16), y=360, size=50, accent="#6b4226")]),
  # 17 Milan and Rome did not import: they stay gold
  dict(world="studio", props=[dict(type="map", size=[7.5], pos=[0, 0, 0], view=[4, 42],
-        legend="RED = PLAGUE   GREEN = SPARED", labelSize=44, cities=[dict(id="venice", redAt=0), dict(id="genoa", redAt=0, label=False), dict(id="pisa", redAt=0), dict(id="milan", side="l", safe=True, t0=wt("milan", lt(17)[0])), dict(id="rome", safe=True, t0=wt("rome", lt(17)[0]))],
-        routes=[dict(to="venice", t0=0, t1=0.01, redAt=0, faded=True, ship=False), dict(to="genoa", t0=0, t1=0.01, redAt=0, faded=True, ship=False), dict(to="pisa", t0=0, t1=0.01, redAt=0, faded=True, ship=False)])],
+        labelSize=44, cities=[dict(id="venice", redAt=0), dict(id="genoa", label=False), dict(id="pisa"), dict(id="milan", side="l", safe=True, t0=wt("milan", lt(17)[0])), dict(id="rome", safe=True, t0=wt("rome", lt(17)[0]))],
+        routes=[dict(to="venice", t0=0, t1=0.01, redAt=0, faded=True, ship=False), dict(to="genoa", t0=0, t1=0.01, faded=True, ship=False), dict(to="pisa", t0=0, t1=0.01, faded=True, ship=False)])],
       camera={"from": [-2.2, 0.5, 5.9], "to": [-2.3, 0.5, 5.3], "look": [-2.3, 0.5, 0]}, energy=1,
-      overlays=[dict(type="badge", text="APPARENTLY NO GRAIN IMPORTS NEEDED", t0=wt("apparently", lt(17)[0]), t1=e(17), y=300, size=46, accent="#2fbf71")]),
+      overlays=[dict(type="badge", text="APPARENTLY NO GRAIN IMPORTS NEEDED", t0=wt("apparently", lt(17)[0]), t1=e(17), y=300, size=46, accent="#2fbf71"),
+                dict(type="badge", text="GREEN = NO GRAIN IMPORTS", t0=wt("milan", lt(17)[0]) + 0.3, t1=e(17), y=1480, size=44, accent="#2fbf71")]),
  # 18 most probably not affected: lamps stay lit, people wave
  dict(world="harbourday", characters=[ch("mara", [-1.0, 0, 1.0], "wave", expr="grin"), ch("folk", [0.2, 0, 1.3], "cheer", expr="grin"), ch("tomas", [1.2, 0, 1.0], "wave", expr="grin")],
       props=[dict(type="houses", size=[12], n=6, pos=[0, 0, -4])], camera={"from": [1.2, 2.0, 8.6], "to": [-0.8, 2.0, 8.0], "look": [0, 1.5, 0]}, energy=1,
@@ -136,10 +137,12 @@ SH = [
       overlays=[dict(type="title", text="WHICH VOLCANO?", t0=s(19) + 0.1, t1=e(19), y=300, size=110, color="#FFE14D"),
                 dict(type="badge", text="HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS", t0=s(19) + 0.6, t1=e(19), y=560, size=46, accent="#444444")]),
  # 20 the volcano, or the trade? (split argument)
- dict(world="lab", characters=[ch("clim", [-1.2, 0, 1.0], "point", expr="grin"), ch("mara", [0.4, 0, 1.2], "talk", expr="smile"), ch("hist", [1.4, 0, 0.9], "nod", expr="smile")],
-      props=[dict(type="volcano", size=[0.6, 0.6], pos=[-1.9, 1.3, 0.3], erupt=s(20) + 0.3), dict(type="sack", size=[0.6], pos=[2.1, 0.3, 0.2])],
+ dict(world="harbour", characters=[ch("clim", [-1.2, 0, 1.0], "point", expr="grin"), ch("mara", [0.2, 0, 1.2], "shrug", expr="worried"), ch("hist", [1.3, 0, 0.9], "no", expr="worried")],
+      props=[SHIP(pos=[0.4, -0.3, -5.5]), dict(type="sack", size=[0.6], pos=[-2.1, 0.3, 0.2]), dict(type="sack", size=[0.5], pos=[2.2, 0.3, 0.0])],
       camera={"from": [0.8, 2.1, 8.6], "to": [-0.6, 2.1, 8.0], "look": [0, 1.4, 0]}, energy=2,
-      overlays=[dict(type="title", text="VOLCANO OR TRADE?", t0=s(20) + 0.2, t1=e(20), y=280, size=110, color="#FFE14D")]),
+      overlays=[dict(type="title", text="WOULD YOU LET THEM IN?", t0=s(20) + 0.2, t1=e(20), y=250, size=104, color="#FFE14D"),
+                dict(type="badge", text="YES: FEED THE CITY", t0=s(20) + 1.0, t1=e(20), y=520, size=46, accent="#2fbf71"),
+                dict(type="badge", text="NO: CLOSE THE PORT", t0=s(20) + 1.6, t1=e(20), y=640, size=46, accent="#c62828")]),
  # 21 look at that Moon again -> lands on frame 0
  dict(world="harbour", characters=[ch("bo", [-1.3, 0, 2.6], "point", expr="wow", wander=False), ch("tomas", [1.0, 0, 2.3], "lookup", expr="wow", wander=False)],
       props=[MOON(), SHIP(), PLUME()], camera={"from": [0, 1.4, 10.6], "to": [0, 1.0, 9.5], "look": [-0.6, 6.5, -10]}, energy=1),

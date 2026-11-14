@@ -68,6 +68,8 @@ def main():
             for c in pr.get("cities", []):
                 state = "RED (plague)" if c.get("redAt") is not None else "GREEN (spared)" if c.get("safe") else "gold"
                 items.append((sh["start"], "PICTURE", f"map: {c['id'].upper()} {state}" + (" on a route" if c["id"] in routed else "")))
+                if c.get("redAt") is not None and not any(c["id"] in x["line"].lower() and re.search(r"plague|death|cases", x["line"].lower()) for x in story["shots"]):
+                    items.append((sh["start"], "FLAG", f"the map marks {c['id'].title()} RED (plague) but no spoken line names plague in {c['id'].title()} - every coloured marker needs a sourced line; keep it neutral"))
                 if spared and c["id"] in words and (c.get("redAt") is not None or c["id"] in routed or not c.get("safe")):
                     items.append((sh["start"], "FLAG", f"the words say {c['id'].title()} was spared but the map shows it {state}" + (" on a route" if c["id"] in routed else "") + " - mark it safe (green) and off the routes"))
     issues = 0

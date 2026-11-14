@@ -318,7 +318,7 @@ export function makeProp(p) {
       m = new THREE.Group(); const R0 = s[0] / 2, th = s[1] || 0.3, nb = p.rings || 28, blue = p.blue ?? 0.62;
       const face = canvasTex(512, 512, (ctx, w) => { const c = w / 2; for (let i = nb; i >= 1; i--) { const r = i / nb * c * 0.98; ctx.beginPath(); ctx.arc(c + Math.sin(i) * 3, c + Math.cos(i * 1.3) * 3, r, 0, Math.PI * 2); ctx.fillStyle = i % 2 ? '#d9b27c' : '#c79a62'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#8a5a30'; ctx.stroke(); } });
       const bark = M.matte('#5a3b26', 0.95); const body = part(new THREE.CylinderGeometry(R0, R0, th, 48), [bark, new THREE.MeshStandardMaterial({ map: face, roughness: 0.8 }), bark]); m.add(body);
-      const band = new THREE.Mesh(new THREE.TorusGeometry(R0 * blue, R0 * 0.025, 8, 96), new THREE.MeshStandardMaterial({ color: '#8fd3ff', emissive: C('#8fd3ff'), emissiveIntensity: 2.2, transparent: true }));
+      const band = new THREE.Mesh(new THREE.TorusGeometry(R0 * blue, R0 * 0.025, 8, 96), new THREE.MeshStandardMaterial({ color: '#2f8fff', emissive: C('#2f8fff'), emissiveIntensity: 0.9, transparent: true }));
       band.rotation.x = Math.PI / 2; band.position.y = th / 2 + 0.005; band.name = 'blueband'; m.add(band); m.rotation.x = Math.PI / 2 - 0.25; break; }
     case 'wheat': { // a patch of stalks; wilt: {t0, t1} bends them over
       m = new THREE.Group(); const n = p.n || 40, W = s[0] || 4, r6 = rngFrom(Math.round(W * 31) + 3);
@@ -326,22 +326,30 @@ export function makeProp(p) {
         const h = 0.8 + r6() * 0.5; const stem = part(new THREE.CylinderGeometry(0.012, 0.018, h, 6), M.matte('#c9a24a', 0.8)); stem.position.y = h / 2; st.add(stem);
         const ear = part(new THREE.CapsuleGeometry(0.035, 0.16, 4, 8), M.matte('#e2bf5c', 0.7)); ear.position.y = h + 0.08; st.add(ear); st.name = 'stalk'; st.userData.ph = r6(); m.add(st); }
       break; }
-    case 'flea': { m = new THREE.Group(); const b = part(new THREE.SphereGeometry(0.08, 14, 10), M.gloss('#1e120b')); b.scale.set(1, 0.8, 1.3); m.add(b); m.scale.setScalar(p.scale || 1.8);
-      for (let k = 0; k < 6; k++) { const lg = part(new THREE.CylinderGeometry(0.008, 0.006, 0.14, 5), M.gloss('#3a2216'), false); lg.position.set((k % 2 ? 1 : -1) * 0.07, -0.05, (Math.floor(k / 2) - 1) * 0.05); lg.rotation.z = (k % 2 ? -1 : 1) * 0.8; m.add(lg); }
-      const eye = new THREE.Mesh(new THREE.SphereGeometry(0.018, 8, 6), new THREE.MeshBasicMaterial({ color: '#ffffff' })); eye.position.set(0.03, 0.03, 0.1); m.add(eye); break; }
-    case 'rat': { m = new THREE.Group(); const fur = M.fabric('#8a8580'); const body = part(new THREE.CapsuleGeometry(0.16, 0.3, 8, 12), fur); body.rotation.z = Math.PI / 2; body.position.y = 0.17; m.add(body);
+    case 'flea': { // small brown flea seen side-on: flat teardrop body, tiny head, long bent jumping legs
+      m = new THREE.Group(); const brown = M.matte('#8a5a2b', 0.75), dark = M.matte('#4a2c14', 0.8);
+      const b = part(new THREE.SphereGeometry(0.08, 16, 12), brown); b.scale.set(1.35, 1.05, 0.55); m.add(b);
+      for (let k = 0; k < 3; k++) { const seg = part(new THREE.TorusGeometry(0.075 - k * 0.012, 0.006, 4, 20, Math.PI), dark, false); seg.position.set(-0.03 + k * 0.035, 0.0, 0); seg.rotation.y = Math.PI / 2; seg.rotation.x = 0; seg.scale.set(1, 1.05, 1); m.add(seg); }
+      const hd = part(new THREE.SphereGeometry(0.03, 10, 8), dark); hd.position.set(0.11, 0.0, 0); m.add(hd);
+      for (let k = 0; k < 6; k++) { const side = k % 2 ? 1 : -1, row = Math.floor(k / 2), L = row === 0 ? 0.2 : 0.12;
+        const up = part(new THREE.CylinderGeometry(0.008, 0.007, L * 0.55, 5), dark, false), lo = part(new THREE.CylinderGeometry(0.007, 0.005, L * 0.6, 5), dark, false);
+        const leg = new THREE.Group(); leg.position.set(-0.05 + row * 0.06, -0.05, side * 0.035);
+        up.position.set(-L * 0.12, L * 0.18, 0); up.rotation.z = 0.9; lo.position.set(-L * 0.2, -L * 0.08, 0); lo.rotation.z = -0.5; leg.add(up, lo); m.add(leg); }
+      m.scale.setScalar(p.scale || 1.8); break; }
+    case 'rat': { m = new THREE.Group(); const fur = M.fabric(p.fur || '#5e5650'); const body = part(new THREE.CapsuleGeometry(0.16, 0.3, 8, 12), fur); body.rotation.z = Math.PI / 2; body.position.y = 0.17; m.add(body);
       const head = part(new THREE.SphereGeometry(0.13, 16, 12), fur); head.position.set(0.33, 0.22, 0); head.scale.set(1.3, 1, 1); m.add(head);
       for (const sg of [-1, 1]) { const ear = part(new THREE.SphereGeometry(0.06, 12, 8), M.skin('#e8a0a0')); ear.scale.set(0.4, 1, 1); ear.position.set(0.3, 0.33, 0.08 * sg); m.add(ear);
         const ey = part(new THREE.SphereGeometry(0.022, 8, 6), M.gloss('#111'), false); ey.position.set(0.43, 0.26, 0.06 * sg); m.add(ey); }
       const nose = part(new THREE.SphereGeometry(0.025, 8, 6), M.skin('#e88a9a'), false); nose.position.set(0.5, 0.21, 0); m.add(nose);
-      const tail = part(new THREE.TorusGeometry(0.25, 0.018, 6, 24, Math.PI), M.skin('#d9a0a0')); tail.position.set(-0.4, 0.12, 0); tail.rotation.z = Math.PI; m.add(tail); break; }
+      const tail = part(new THREE.TorusGeometry(0.32, 0.02, 6, 24, Math.PI * 1.2), M.skin('#d99a9a')); tail.position.set(-0.5, 0.14, 0); tail.rotation.z = Math.PI; m.add(tail); break; }
     case 'icecore': { m = new THREE.Group(); const L = s[1] || 2; const core = part(new THREE.CylinderGeometry(s[0] / 2, s[0] / 2, L, 24), new THREE.MeshPhysicalMaterial({ color: '#d8f0ff', roughness: 0.1, clearcoat: 1, transparent: true, opacity: 0.85 })); m.add(core);
       for (let k = -4; k <= 4; k++) { const ln = part(new THREE.CylinderGeometry(s[0] / 2 + 0.003, s[0] / 2 + 0.003, 0.01, 24, 1, true), M.matte('#a9c9df'), false); ln.position.y = k * L / 10; m.add(ln); }
       const band = new THREE.Mesh(new THREE.CylinderGeometry(s[0] / 2 + 0.006, s[0] / 2 + 0.006, L * 0.06, 24, 1, true), M.glow('#ffd84d', 2.5)); band.position.y = (p.bandAt ?? 0.1) * L; band.name = 'iceband'; m.add(band); m.rotation.z = p.lie ? Math.PI / 2 : 0; break; }
     case 'volcano': { // cone + smoke puffs that rise after erupt (global s)
       m = new THREE.Group(); const H = s[1] || 1.2, Rb = s[0] / 2; m.add(part(new THREE.ConeGeometry(Rb, H, 24, 1, true), M.matte('#5a4a42', 0.95)));
       const lava = part(new THREE.CircleGeometry(Rb * 0.18, 16), M.glow('#ff6a2a', 2.5), false); lava.rotation.x = -Math.PI / 2; lava.position.y = H / 2 - 0.02; m.add(lava);
-      for (let k = 0; k < 8; k++) { const puff = new THREE.Mesh(new THREE.SphereGeometry(Rb * (0.25 + k * 0.05), 16, 12), new THREE.MeshStandardMaterial({ color: '#8d8a8a', roughness: 1, transparent: true, opacity: 0 })); puff.position.y = H / 2; puff.name = 'puff'; puff.userData.k = k; m.add(puff); }
+      const smoke = canvasTex(128, 128, (ctx, w) => { for (let i = 0; i < 7; i++) { const x = w * (0.3 + 0.4 * ((i * 37) % 10) / 10), y = w * (0.3 + 0.4 * ((i * 53) % 10) / 10), r = w * (0.22 + 0.04 * (i % 3)); const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, 'rgba(255,255,255,0.55)'); g.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, w, w); } });
+      for (let k = 0; k < 14; k++) { const puff = new THREE.Sprite(new THREE.SpriteMaterial({ map: smoke, color: k % 3 ? '#5a5350' : '#7a706a', transparent: true, opacity: 0, depthWrite: false })); const sz = Rb * (0.35 + (k % 4) * 0.08); puff.scale.setScalar(sz); puff.position.y = H / 2; puff.name = 'puff'; puff.userData.k = k; puff.userData.sz = sz; m.add(puff); }
       m.children[0].position.y = 0; break; }
     case 'houses': { // a row of houses with lit windows; dark: {t0, t1, n} turns n windows off one by one
       m = new THREE.Group(); const n = p.n || 5, wdt = s[0] || 8, r7 = rngFrom(n * 7 + 1); const wins = [];
@@ -499,8 +507,8 @@ export function animateProp(m, t) {
   if (u.wilt) { const k = Math.max(0, Math.min(1, (t - u.wilt.t0) / (u.wilt.t1 - u.wilt.t0))); m.children.forEach(st => { if (st.name === 'stalk') st.rotation.x = k * (0.9 + st.userData.ph * 0.6) + Math.sin(t * 2 + st.userData.ph * 6) * 0.05; }); }
   else if (u.type === 'wheat') m.children.forEach(st => { if (st.name === 'stalk') st.rotation.x = Math.sin(t * 1.6 + st.userData.ph * 6) * 0.08; });
   if (u.hop) { const ph = (t * (u.hop.speed || 2.2) + (u.hop.phase || 0)) % 1; m.position.y = u.base.y + Math.sin(ph * Math.PI) * (u.hop.h || 0.6); m.position.x = u.base.x + (u.hop.dx || 0) * ((t * (u.hop.speed || 2.2) + (u.hop.phase || 0)) % 3) / 3; }
-  if (u.glowAt !== undefined) { const b = m.getObjectByName('blueband') || m.getObjectByName('iceband'); if (b) { const k = Math.max(0, Math.min(1, (t - u.glowAt) / 0.6)); b.material.emissiveIntensity = 0.2 + 2.6 * k; b.material.opacity = 0.25 + 0.75 * k; } }
-  if (u.erupt !== undefined) m.children.filter(c => c.name === 'puff').forEach(c => { let d = t - u.erupt - c.userData.k * 0.25; if (u.loopPlume && d > 0) d = d % 4; const on = d > 0; c.material.opacity = on ? Math.max(0, 0.85 - d * 0.18) : 0; c.position.y = (u.r || 0.6) + (on ? d * 0.55 : 0); c.position.x = on ? Math.sin(c.userData.k) * d * 0.15 : 0; });
+  if (u.glowAt !== undefined) { const b = m.getObjectByName('blueband') || m.getObjectByName('iceband'); if (b) { const k = Math.max(0, Math.min(1, (t - u.glowAt) / 0.6)); b.material.emissiveIntensity = (b.name === 'blueband' ? 0.15 + 0.85 * k : 0.2 + 2.6 * k); b.material.opacity = 0.25 + 0.75 * k; } }
+  if (u.erupt !== undefined) m.children.filter(c => c.name === 'puff').forEach(c => { let d = t - u.erupt - c.userData.k * 0.25; if (u.loopPlume && d > 0) d = d % 4; const on = d > 0; c.material.opacity = on ? Math.max(0, Math.min(1, d * 3) * (0.9 - d * 0.2)) : 0; c.position.y = (u.r || 0.6) + (on ? d * 0.55 : 0); c.position.x = on ? Math.sin(c.userData.k * 1.7) * d * 0.18 : 0; if (c.userData.sz) c.scale.setScalar(c.userData.sz * (1 + (on ? d * 0.45 : 0))); });
   if (u.dark && u.wins) { const k = (t - u.dark.t0) / (u.dark.t1 - u.dark.t0); const n = u.dark.n ?? u.wins.length; u.wins.forEach((w, i) => { const off = k >= 0 && i < Math.ceil(Math.min(1, k) * n); w.material.emissiveIntensity = off ? 0 : 2.2; w.material.color.set(off ? '#1c1a24' : '#ffcf7a'); if (u.shutters) w.userData.shutter.visible = off; }); }
   if (u.map) drawMap(u.map, t);
   if (u.ice) { const k = Math.max(0, Math.min(1, (t - u.ice.t0) / (u.ice.t1 - u.ice.t0))); const ang = Math.max(0.01, k * (u.ice.to || 60) * Math.PI / 180);

@@ -3,8 +3,8 @@ from kokoro_onnx import Kokoro
 d, out = sys.argv[1], sys.argv[2]
 k = Kokoro(f"{d}/kokoro-v1.0.onnx", f"{d}/voices-v1.0.bin")
 LINES = [
- "A lost volcano may have helped bring the Black Death.",
- "You've never heard of it.",
+ "The grain that saved them may have brought the Black Death.",
+ "And it may have started with a lost volcano.",
  "In some regions, up to sixty percent died.",
  "Yet some big cities may have been spared. Why?",
  "In twenty twenty-five, two researchers followed the clues.",
@@ -22,7 +22,7 @@ LINES = [
  "Milan and Rome apparently did not need grain imports after thirteen forty-five.",
  "They were most probably not affected.",
  "Nobody knows which volcano it was.",
- "So what brought the plague: the volcano, or the trade?",
+ "A starving city. Grain ships waiting. Would you let them in?",
  "Look at that Moon again.",
 ]
 style = k.get_voice_style("bm_george"); sr = 24000; chunks = []; t = 0.25; meta = []

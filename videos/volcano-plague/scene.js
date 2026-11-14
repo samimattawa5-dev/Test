@@ -303,6 +303,7 @@ let capKey = '';
 function drawCaptions(shot, t) {
   // search every shot: a word that starts just before a cut keeps its caption across the cut
   let g = null; for (const sh of story.shots) { g = groupsFor(sh).find(x => t >= x.t0 && t < x.t1); if (g) { shot = sh; break; } }
+  if (g && shot.capFrom !== undefined && t < shot.capFrom) g = null; // hold captions while a title is read alone
   if (!g) { if (capKey) { capEl.innerHTML = ''; capKey = ''; } return; }
   capEl.style.bottom = (shot.capBottom ?? 27) + '%'; // per-shot caption height: keep faces clear (render.mjs --verify reports covered faces)
   const key = shot.start + ':' + g.t0;
@@ -334,6 +335,10 @@ story.shots.forEach(sh => (sh.overlays || []).forEach(o => {
     el.innerHTML = o.text.split(' ').map(w => `<span style="display:inline-block;overflow:hidden;vertical-align:top;padding:0 10px"><span class="w" style="display:inline-block;font-size:${o.size || 112}px;line-height:1.1;-webkit-text-stroke:16px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);color:${o.color || '#fff'}">${w}</span></span>`).join('');
   } else if (o.type === 'counter') {
     el.innerHTML = `<div class="n" style="display:inline-block;font-size:${o.size || 170}px;line-height:1;color:${o.color || '#ffd84d'};-webkit-text-stroke:18px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);font-variant-numeric:tabular-nums"></div><br><div class="l" style="display:inline-block;margin-top:14px;font-size:60px;padding:10px 30px;border-radius:40px;background:${o.accent || story.accent || '#ff4d6d'};border:6px solid #120c18">${o.label || ''}</div>`;
+  } else if (o.type === 'timeline') { // a time gap as a bar: left event -> right event, fills over o.fill s, ends in o.endColor
+    el.innerHTML = `<div class="l" style="display:inline-block;font-size:${o.size || 110}px;line-height:1;color:${o.color || '#ffd84d'};-webkit-text-stroke:16px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);background:none;border:0">${o.text || ''}</div>
+      <div class="b" style="position:relative;margin:26px auto 0;width:860px;height:44px;border-radius:30px;background:#120c18;border:6px solid #120c18;box-shadow:0 8px 0 rgba(0,0,0,.4)"><div class="tf" style="position:absolute;left:0;top:0;bottom:0;width:0;border-radius:24px;background:${o.accent || '#e9b949'}"></div></div>
+      <div style="display:flex;justify-content:space-between;width:900px;margin:14px auto 0;font-size:${o.labelSize || 40}px;line-height:1.1;-webkit-text-stroke:10px #120c18;paint-order:stroke fill"><span class="ta" style="text-align:left;max-width:430px">${o.left || ''}</span><span class="tb" style="text-align:right;max-width:430px;opacity:0">${o.right || ''}</span></div>`;
   } else {
     el.innerHTML = `<div class="b" style="display:inline-block;max-width:800px;white-space:normal;line-height:1.15;font-size:${o.size || 58}px;padding:14px 34px;border-radius:50px;background:${o.accent || story.accent || '#2f47ff'};border:7px solid #120c18;box-shadow:0 10px 0 #120c18">${o.text}</div>`;
   }
@@ -351,6 +356,9 @@ function drawOverlays(t) {
       const v = o.from + (o.to - o.from) * e; el.querySelector('.n').textContent = (o.prefix || '') + (o.raw || (o.to >= 1000 && o.to <= 2100 && Number.isInteger(o.to)) ? String(Math.round(v)) : fmt(v)) + (o.suffix || ''); // years print without commas
       const p = spring(lt - 0.1); el.querySelector('.n').style.transform = `scale(${0.6 + 0.4 * p})`;
       el.querySelector('.l').style.transform = `scale(${spring(lt - 0.35)})`;
+    } else if (o.type === 'timeline') { const k = clamp01((lt - 0.3) / (o.fill || 1.6)), e2 = 1 - Math.pow(1 - k, 3);
+      const tf = el.querySelector('.tf'); tf.style.width = (e2 * 100) + '%'; tf.style.background = k >= 1 ? (o.endColor || '#e53935') : (o.accent || '#e9b949');
+      el.querySelector('.tb').style.opacity = k >= 1 ? 1 : 0; el.querySelector('.l').style.transform = `scale(${0.6 + 0.4 * spring(lt - 0.05)})`;
     } else { const p = spring(lt, 16, 0.5); el.querySelector('.b').style.transform = `scale(${p}) rotate(${(1 - p) * -8 + Math.sin(lt * 3) * 1.5}deg)`; }
   }
 }
