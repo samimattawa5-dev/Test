@@ -35,6 +35,29 @@ Besser mit deinem echten Chrome: Playwright-MCP-Erweiterung "Playwright MCP Brid
 5. BFB Zeitarbeit Küche/Service BMW — https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1004015435-S (bfb-zeitarbeit.de oder WhatsApp https://wa.me/499431798340)
 6. Diakonie Reinigung, Baierbrunner Str. 103 — https://www.arbeitsagentur.de/jobsuche/jobdetail/16569-0068010537-S (erst prüfen, ob noch aktiv; sonst nichts senden)
 
+## Neues Angebot (Workflow)
+Auslöser: Nutzer fügt Stellentext/Link ein ODER sagt "suche neue Angebote in meinem Postfach".
+1. Angebot lesen: Firma, Stelle, Ort (München/Umgebung), Vollzeit/Teilzeit, Bewerbungsweg (Formular, E-Mail, WhatsApp, Externe Seite).
+2. Passt es zu Profil (Gastronomie, Service, Reinigung, Catering, Verkauf, Küche, Sicherheit)? Wenn unklar oder weit weg: kurz nachfragen.
+3. Ablauf wie oben: Formular mit den Daten ausfüllen, Lebenslauf hochladen, Anschreiben nur wenn verlangt.
+4. Captcha/Login/Passwort/fehlende Angabe: STOPP und melden. Nie selbst lösen oder eingeben.
+5. Vor dem endgültigen Absenden kurz bestätigen lassen ("Jetzt absenden?"), außer der Nutzer hat für diese Stelle schon "sende ab" gesagt.
+6. Danach per Gmail-Connector prüfen, ob eine Bestätigung ankam (nur lesen).
+7. Statuszeile ergänzen: Stelle, Datum, gesendet / nicht möglich + Grund.
+
+## Postfach (Gmail-Connector, nur lesen)
+- Suche nach neuen Angeboten und Antworten: Absender hogapage, arbeitsagentur, softgarden, Bewerbung, Einladung, Vorstellungsgespräch.
+- Antworten von Firmen: Kurzfassung auf Arabisch, Entwurf einer Antwort auf Deutsch (kurz, höflich). Nur ENTWURF speichern, nie selbst senden.
+- Einladungen/Anrufe (z. B. DHL, Rückruf gewünscht): sofort melden.
+
+## Sprache
+Antworten an den Nutzer: Arabisch (kurz). Formulare, Anschreiben, E-Mails an Firmen: Deutsch.
+
 ## Status
-- 1: Formular vorbereitet, Cloud-Browser vom Captcha abgelehnt ("Browser check failed"), nicht gesendet.
-- 2–6: noch offen.
+- 1 Kistenpfennig: gesendet 14.11.2026 (Bestätigung per Softgarden).
+- 2 Food & more Küchenhilfe: gesendet 14.11.2026 (HOGAPAGE-Bestätigung).
+- 3 Food & more Barista: gesendet 14.11.2026 (HOGAPAGE-Bestätigung).
+- 4 Food & more Service: gesendet 14.11.2026 (HOGAPAGE-Bestätigung).
+- 5 BFB Zeitarbeit: unklar, keine Bestätigung gefunden.
+- 6 Diakonie: unklar, keine Bestätigung gefunden.
+- Offen: DHL (DPDHL) hat am 09.11. um Rückruf gebeten.
