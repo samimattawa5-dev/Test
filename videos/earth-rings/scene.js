@@ -5,6 +5,8 @@ const SC = Number(new URLSearchParams(location.search).get('scale') || 1);
 const W = Math.round(story.width * SC), H = Math.round(story.height * SC);
 const wrap = document.getElementById('wrap');
 const capEl = document.getElementById('cap');
+const flashEl = document.createElement('div'); flashEl.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none'; wrap.appendChild(flashEl);
+const vigEl = document.createElement('div'); vigEl.style.cssText = 'position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.35) 100%)'; wrap.appendChild(vigEl);
 const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
 renderer.setPixelRatio(1);
 renderer.setSize(W, H);
@@ -13,25 +15,44 @@ wrap.prepend(renderer.domElement);
 capEl.style.fontSize = Math.round(W * 0.14) + 'px';
 
 const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 100);
-const mat = (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.6 });
-const mesh = (g, c, shadow = true) => { const m = new THREE.Mesh(g, mat(c)); m.castShadow = shadow; m.receiveShadow = true; return m; };
+// cartoon look: 3-step toon shading + ink outline (normal-extruded back faces)
+const GRAD = (() => { const t = new THREE.DataTexture(new Uint8Array([110, 190, 255]), 3, 1, THREE.RedFormat); t.minFilter = t.magFilter = THREE.NearestFilter; t.needsUpdate = true; return t; })();
+const mat = (c) => new THREE.MeshToonMaterial({ color: c, gradientMap: GRAD });
+const INK_COLOR = story.ink || '#17121d';
+const FLAT = new Set(['PlaneGeometry', 'CircleGeometry', 'RingGeometry']);
+function inkMat(w) {
+  const m = new THREE.MeshBasicMaterial({ color: INK_COLOR, side: THREE.BackSide });
+  m.onBeforeCompile = (sh) => { sh.uniforms.inkW = { value: w }; sh.vertexShader = 'uniform float inkW;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed += normalize(normal) * inkW;'); };
+  m.customProgramCacheKey = () => 'ink';
+  return m;
+}
+const mesh = (g, c, shadow = true, ink = true) => {
+  const m = new THREE.Mesh(g, mat(c)); m.castShadow = shadow; m.receiveShadow = true;
+  if (ink && story.outline !== false && !FLAT.has(g.type)) {
+    g.computeBoundingSphere();
+    const o = new THREE.Mesh(g, inkMat(Math.min(0.07, Math.max(0.008, g.boundingSphere.radius * 0.05)))); o.castShadow = false; m.add(o);
+  }
+  return m;
+};
 
 // ---------- characters ----------
 function makeCharacter(color) {
-  const g = new THREE.Group();
+  const g = new THREE.Group(); const eyes = [];
   const body = mesh(new THREE.CapsuleGeometry(0.35, 0.6, 8, 16), color); body.position.y = 0.75; g.add(body);
   const head = mesh(new THREE.SphereGeometry(0.4, 24, 16), color); head.position.y = 1.55; g.add(head);
   for (const s of [-1, 1]) {
-    const eye = mesh(new THREE.SphereGeometry(0.1, 12, 12), '#ffffff'); eye.position.set(0.17 * s, 1.62, 0.34); g.add(eye);
-    const pup = mesh(new THREE.SphereGeometry(0.05, 12, 12), '#111111'); pup.position.set(0.17 * s, 1.62, 0.43); g.add(pup);
+    const eye = new THREE.Group(); eye.position.set(0.17 * s, 1.62, 0.34); g.add(eye); eyes.push(eye);
+    eye.add(mesh(new THREE.SphereGeometry(0.1, 16, 12), '#ffffff', false));
+    const pup = mesh(new THREE.SphereGeometry(0.05, 12, 12), '#111111', false, false); pup.position.z = 0.09; eye.add(pup);
     const arm = mesh(new THREE.CapsuleGeometry(0.09, 0.45, 6, 8), color); arm.position.set(0.48 * s, 0.95, 0); arm.geometry.translate(0, -0.2, 0); arm.name = s < 0 ? 'armL' : 'armR'; g.add(arm);
     const leg = mesh(new THREE.CapsuleGeometry(0.11, 0.3, 6, 8), '#333333'); leg.position.set(0.18 * s, 0.25, 0); g.add(leg);
   }
-  g.userData.head = head;
+  g.userData.head = head; g.userData.eyes = eyes; g.userData.seed = Math.random() * 3;
   return g;
 }
 function animate(g, anim, t, base) {
   g.position.copy(base); g.rotation.set(0, 0, 0);
+  const bl = ((t + g.userData.seed) % 2.6) < 0.13 ? 0.1 : 1; g.userData.eyes.forEach(e => { e.scale.y = bl; });
   const armL = g.getObjectByName('armL'), armR = g.getObjectByName('armR');
   if (anim === 'bounce') g.position.y = base.y + Math.abs(Math.sin(t * 6)) * 0.3;
   else if (anim === 'wave') armR.rotation.z = Math.PI * 0.8 + Math.sin(t * 10) * 0.4;
@@ -159,7 +180,8 @@ function wordsFor(shot) {
   const dur = shot.end - shot.start, step = dur / words.length;
   return words.map((w, i) => ({ w, t0: shot.start + i * step, t1: shot.start + (i + 1) * step }));
 }
-const ease = (x) => x * x * (3 - 2 * x);
+const ease = (x) => x * x * x * (x * (x * 6 - 15) + 10); // smootherstep
+const FPS = story.fps || 30;
 
 window.__total = story.shots[story.shots.length - 1].end;
 window.__ready = true;
@@ -172,6 +194,13 @@ window.renderFrame = (t) => {
   const cam = shot.camera, f = cam.from, to = cam.to || cam.from;
   camera.position.set(f[0] + (to[0] - f[0]) * k, f[1] + (to[1] - f[1]) * k, f[2] + (to[2] - f[2]) * k);
   camera.lookAt(...(cam.look || [0, 1, 0]));
+  const roll = (cam.roll !== undefined ? cam.roll : (story.shots.indexOf(shot) % 2 ? 2 : -2)) * Math.PI / 180;
+  camera.rotateZ(roll * (0.6 + 0.4 * k));
+  for (const kt of (shot.kicks || [])) { // impact shake: flips sign every frame, decays over 7 frames
+    const f = Math.round((t - kt) * FPS);
+    if (f >= 0 && f < 7) { const a = 0.06 * (1 - f / 7) * (f % 2 ? -1 : 1); camera.position.x += a; camera.position.y -= a * 0.6; camera.rotateZ(a * 0.4); }
+  }
+  flashEl.style.opacity = shot.flash ? Math.max(0, 1 - lt / 0.35).toFixed(3) : 0;
   renderer.render(scene, camera);
   const w = wordsFor(shot).find(x => t >= x.t0 && t < x.t1);
   capEl.textContent = w ? w.w.replace(/[.,!?]/g, '') : '';

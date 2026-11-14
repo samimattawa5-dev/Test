@@ -38,7 +38,7 @@ Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check Yo
 2. Write `story.json` from the approved script (format below). Make every video different: new worlds, colours, camera moves.
 3. Timing: if real audio exists, get word times (e.g. whisper if available, else measure each line with `ffprobe` and spread words evenly) and fill `start`/`end` and optionally `words`. Total `end` of last shot = audio length.
 4. Run `node render.mjs --check` (after `npm install` and `npx playwright install chromium`). It writes `out/preview_shot_NN.png` for every shot. **Look at every preview image** (Read tool). Fix empty/dull/clipped shots: add props, move camera closer, change world, bigger characters. Repeat until all shots look good.
-5. Fast test: `SCALE=0.25 MAX_SECONDS=3 node render.mjs`.
+5. Make the music/SFX bed (see below), then fast test: `SCALE=0.25 MAX_SECONDS=3 node render.mjs`.
 6. Deliver: project folder on user's computer (desktop app with folder access) or a zip. Tell user to **extract the zip** first.
 
 ### 5. Render (user)
@@ -69,6 +69,11 @@ Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check Yo
 - Timing without whisper: `ffmpeg -i voiceover.wav -af silencedetect=noise=-35dB:d=0.25 -f null -` gives the pauses; map them to sentences, put shot cuts in the middle of pauses, spread words inside each phrase by length.
 - In a cloud session, Higgsfield results download from `d8j0ntlcm91z4.cloudfront.net` (must be an allowed host). Headless render there: `CHROME_PATH=/opt/pw-browsers/chromium`. Always move the camera (`from` != `to`).
 - Shots must be contiguous (`end` of one = `start` of next).
+- Look (on by default): toon shading + ink outlines (`"outline": false` / `"ink": "#hex"` at top level), blinking eyes, vignette, smootherstep camera, small alternating camera roll (`camera.roll` in degrees to override).
+- Per-shot extras: `"flash": true` (white flash at shot start - use right after the hook), `"kicks": [t,...]` (impact shake + boom SFX at global seconds), `"energy": 0-2` (music intensity), `"drop": true` (music drops to pad - use on the twist), `"shimmer": true` (sparkle SFX).
+
+## Music + SFX (free, original, no credits)
+`python3 tools/make_bed.py story.json voiceover.wav bed.wav` (numpy) writes an original score (pad, arpeggio, bass, soft drums following each shot's `energy`/`drop`) + whooshes on cuts, booms on `kicks`, shimmers - ducked under the voice. Set `"bed": "bed.wav"` and `"mood": "wonder|tense|playful"` in story.json. `render.mjs` mixes voice + bed and normalises to -14 LUFS (YouTube/TikTok/Reels level). Generate the bed AFTER the timing is final.
 - Need a new world/prop/animation? Edit `scene.js` (`WORLDS`, `makeProp`, `animate`).
 - Captions: one word at a time, from `line` (or `words`).
 

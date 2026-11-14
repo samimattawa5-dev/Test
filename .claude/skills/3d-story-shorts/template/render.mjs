@@ -74,10 +74,14 @@ if (code !== 0) { say('ffmpeg failed:\n' + ffErr.slice(-2000)); process.exit(1);
 
 const final = path.join(ROOT, 'final.mp4');
 if (fs.existsSync(final)) fs.copyFileSync(final, path.join(ROOT, 'final_previous.mp4'));
-const args = hasAudio
-  ? ['-y', '-i', silent, '-i', path.join(ROOT, story.audio), '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', final]
-  : ['-y', '-i', silent, '-c', 'copy', final];
+const bed = story.bed && fs.existsSync(path.join(ROOT, story.bed)) ? path.join(ROOT, story.bed) : null; // music + sfx, already ducked
+let args;
+if (hasAudio && bed) args = ['-y', '-i', silent, '-i', path.join(ROOT, story.audio), '-i', bed, '-filter_complex',
+  '[1:a]aresample=48000,aformat=channel_layouts=stereo[v];[2:a]aresample=48000,aformat=channel_layouts=stereo[b];[v][b]amix=inputs=2:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11[a]',
+  '-map', '0:v:0', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', final];
+else if (hasAudio) args = ['-y', '-i', silent, '-i', path.join(ROOT, story.audio), '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', final];
+else args = ['-y', '-i', silent, '-c', 'copy', final];
 const r = spawnSync(ffmpegPath, args, { encoding: 'utf8' });
 if (r.status !== 0) { say('mux failed:\n' + r.stderr.slice(-2000)); process.exit(1); }
-say(`\n[4/4] ${hasAudio ? 'voiceover added' : 'no voiceover found (silent video)'}`);
+say(`\n[4/4] ${hasAudio ? 'voiceover added' + (bed ? ' + music/sfx bed' : '') + ', loudness -14 LUFS' : 'no voiceover found (silent video)'}`);
 say('DONE - final.mp4');
