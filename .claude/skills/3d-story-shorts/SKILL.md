@@ -142,3 +142,9 @@ For money on TikTok, plan 61-90 s; keep hair simple and spend detail on bodies, 
 - **Before voice:** `python3 ../claim-check/claims.py story.json script.md`.
 - **After render:** `node render.mjs --verify` checks every overlay is visible and inside the frame, captions are on while words
   are spoken, heads are not cut by the frame, and no head touches a prop. Fix every VERIFY FAIL before `/video-review`.
+
+## Agents (in .claude/agents/)
+- `viral-scriptwriter` - step 1-2 of this workflow: fresh topic, scored hooks, viral beat sheet, sourced fact list -> script.md.
+- `viral-predictor` - after the render: estimated % chance to go viral (with band and score) + the 3 changes that raise it most.
+- Characters act on their own now: calm poses (idle/talk/point/nod/lookup) rotate every ~2 s and characters step around their mark with moving legs.
+  Turn off per character with `"auto": false` / `"wander": false`, or for the whole video with `"autoActing": false`. Characters sitting on others (kid on shoulders) need both off.

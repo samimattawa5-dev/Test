@@ -75,6 +75,11 @@ Collect every SKILL GAP the panel named and merge duplicates. For each one:
 4. Link it from `3d-story-shorts/SKILL.md` so the next video uses it, and tell the user what was
    added and from where. Never install a skill that needs a paid key without asking.
 
+## 4b. Viral chance
+
+Run the `viral-predictor` agent (`.claude/agents/viral-predictor.md`) on the same pack. Put its
+VIRAL CHANCE line under the verdict. It is an estimate with a band, not a promise.
+
 ## 5. Verdict rules
 
 - **DO NOT PUBLISH** if the fact-checker or platform & policy reviewer says BLOCK (a false or

@@ -110,6 +110,8 @@ function animate(g, anim, t, base) {
   const blink = ((t + g.userData.seed) % 2.6) < 0.13; const bl = blink ? 0.1 : 1; g.userData.eyes.forEach(e => { e.scale.y = bl; });
   if (g.userData.lids) g.userData.lids.forEach(l => { l.rotation.x = blink ? 1.45 : -0.55; });
   const armL = g.getObjectByName('armL'), armR = g.getObjectByName('armR');
+  const legL = g.getObjectByName('legL'), legR = g.getObjectByName('legR'); if (legL) { legL.rotation.set(0, 0, 0); legR.rotation.set(0, 0, 0); }
+  const stride = (f, amp) => { if (legL) { legL.rotation.x = Math.sin(t * f) * amp; legR.rotation.x = -Math.sin(t * f) * amp; } };
   if (anim === 'bounce') g.position.y = base.y + Math.abs(Math.sin(t * 6)) * 0.3;
   else if (anim === 'wave') armR.rotation.z = Math.PI * 0.8 + Math.sin(t * 10) * 0.4;
   else if (anim === 'point') { armR.rotation.z = Math.PI * 0.45; armR.rotation.x = -0.6; g.userData.head.rotation.y = 0.3; }
@@ -118,18 +120,18 @@ function animate(g, anim, t, base) {
   else if (anim === 'shiver') { g.position.x = base.x + Math.sin(t * 60) * 0.03; armL.rotation.z = -0.6; armR.rotation.z = 0.6; }
   else if (anim === 'no') g.userData.head.rotation.y = Math.sin(t * 8) * 0.5;
   else if (anim === 'lookup') { g.userData.head.rotation.x = -0.5; armR.rotation.z = Math.PI * 0.7; }
-  else if (anim === 'run') { g.position.x = base.x + ((t * 1.5) % 4) - 2; g.rotation.y = Math.PI / 2; armL.rotation.x = Math.sin(t * 16) * 0.9; armR.rotation.x = -Math.sin(t * 16) * 0.9; g.position.y = base.y + Math.abs(Math.sin(t * 16)) * 0.1; }
-  else if (anim === 'walkto') { const w = Math.sin(t * 9); armL.rotation.x = w * 0.6; armR.rotation.x = -w * 0.6; g.position.y = base.y + Math.abs(w) * 0.05; }
+  else if (anim === 'run') { stride(16, 0.8); g.position.x = base.x + ((t * 1.5) % 4) - 2; g.rotation.y = Math.PI / 2; armL.rotation.x = Math.sin(t * 16) * 0.9; armR.rotation.x = -Math.sin(t * 16) * 0.9; g.position.y = base.y + Math.abs(Math.sin(t * 16)) * 0.1; }
+  else if (anim === 'walkto') { stride(9, 0.55); const w = Math.sin(t * 9); armL.rotation.x = w * 0.6; armR.rotation.x = -w * 0.6; g.position.y = base.y + Math.abs(w) * 0.05; }
   else if (anim === 'talk') { armR.rotation.x = -0.7 + Math.sin(t * 4) * 0.35; armR.rotation.z = 0.3; armL.rotation.x = -0.3 + Math.sin(t * 3 + 1) * 0.2; g.userData.head.rotation.x = Math.sin(t * 5) * 0.06; g.userData.head.rotation.y = Math.sin(t * 1.7) * 0.2; }
   else if (anim === 'cheer') { const j = Math.abs(Math.sin(t * 7)); g.position.y = base.y + j * 0.35; armL.rotation.z = -2.6 + Math.sin(t * 7) * 0.2; armR.rotation.z = 2.6 - Math.sin(t * 7) * 0.2; }
-  else if (anim === 'jump') { g.position.y = base.y + Math.max(0, Math.sin(t * 5)) * 0.6; armL.rotation.z = -1.2; armR.rotation.z = 1.2; }
+  else if (anim === 'jump') { if (legL) { const k = Math.max(0, Math.sin(t * 5)); legL.rotation.x = -k * 0.5; legR.rotation.x = -k * 0.5; } g.position.y = base.y + Math.max(0, Math.sin(t * 5)) * 0.6; armL.rotation.z = -1.2; armR.rotation.z = 1.2; }
   else if (anim === 'shrug') { const k = (Math.sin(t * 3) + 1) / 2; armL.rotation.z = -0.5 - k * 0.5; armR.rotation.z = 0.5 + k * 0.5; armL.rotation.x = armR.rotation.x = -0.5; g.userData.head.rotation.z = (k - 0.5) * 0.3; }
   else if (anim === 'nod') { g.userData.head.rotation.x = Math.abs(Math.sin(t * 5)) * 0.3; armR.rotation.x = -0.4; }
   else if (anim === 'throw') { const ph = (t * 1.2) % 1; armR.rotation.x = ph < 0.6 ? -2.6 * (ph / 0.6) : -2.6 + (ph - 0.6) * 6; g.rotation.y = -0.3; }
-  else if (anim === 'kneel') { g.position.y = base.y - 0.25; g.rotation.x = 0.15; armR.rotation.x = -1.0; g.userData.head.rotation.x = 0.4; }
+  else if (anim === 'kneel') { if (legL) { legL.rotation.x = -1.2; legR.rotation.x = 0.3; } g.position.y = base.y - 0.25; g.rotation.x = 0.15; armR.rotation.x = -1.0; g.userData.head.rotation.x = 0.4; }
   else if (anim === 'scared') { g.position.x = base.x + Math.sin(t * 40) * 0.02; armL.rotation.z = -2.2; armR.rotation.z = 2.2; armL.rotation.x = armR.rotation.x = -0.8; g.userData.head.rotation.x = -0.2; }
   else if (anim === 'hug') { armL.rotation.x = armR.rotation.x = -1.3; armL.rotation.z = 0.6; armR.rotation.z = -0.6; g.position.x = base.x + Math.sin(t * 40) * 0.015; }
-  else if (anim === 'walk') { g.position.x = base.x + Math.sin(t * 2) * 0.8; g.rotation.y = Math.cos(t * 2) > 0 ? Math.PI / 2 : -Math.PI / 2; armL.rotation.x = Math.sin(t * 8) * 0.6; armR.rotation.x = -Math.sin(t * 8) * 0.6; }
+  else if (anim === 'walk') { stride(8, 0.5); g.position.x = base.x + Math.sin(t * 2) * 0.8; g.rotation.y = Math.cos(t * 2) > 0 ? Math.PI / 2 : -Math.PI / 2; armL.rotation.x = Math.sin(t * 8) * 0.6; armR.rotation.x = -Math.sin(t * 8) * 0.6; }
   else { g.position.y = base.y + Math.sin(t * 2) * 0.03; g.userData.head.rotation.z = Math.sin(t * 1.5) * 0.08; }
   // breathing + small head life for every pose
   const sd = g.userData.seed || 0; g.userData.head.rotation.z += Math.sin(t * 1.3 + sd) * 0.04; g.userData.head.rotation.x += Math.sin(t * 0.9 + sd * 2) * 0.03;
@@ -234,6 +236,8 @@ function makeWorld(name, seed) {
 // ---------- cast: one fixed look per named character, reused in every shot ----------
 // story.cast = {"maya": {color, hair, outfit, glasses, ...}};  shot character = {"cast": "maya", pos, anim, expr?, actions?, to?, walk?}
 function castSpec(c) { return c.cast && story.cast && story.cast[c.cast] ? { ...story.cast[c.cast], ...c } : c; }
+const AUTO = { idle: ['idle', 'talk', 'point', 'nod', 'idle', 'shrug'], talk: ['talk', 'point', 'talk', 'nod'], nod: ['nod', 'talk', 'nod', 'point'], point: ['point', 'talk', 'point', 'nod'], lookup: ['lookup', 'point', 'lookup'] };
+const CALM = new Set(['idle', 'talk', 'point', 'nod', 'shrug', 'no', 'lookup', 'inspect']);
 // actions: [{t: 20.3, anim: 'cheer'}] switches the pose at a global time (acting timed to words)
 function animAt(c, t) { let a = c.anim; for (const x of (c.actions || [])) if (t >= x.t) a = x.anim; return a; }
 // walk: {t0, t1} moves the character from pos to "to" (eased), facing the walking direction
@@ -355,8 +359,16 @@ window.renderFrame = (t) => {
   const entry = scenes.find(s => t >= s.shot.start && t < s.shot.end) || scenes[scenes.length - 1];
   const { shot, scene, chars, props } = entry;
   const lt = t - shot.start, k = ease(Math.min(1, lt / (shot.end - shot.start)));
-  chars.forEach(o => { const b = baseAt(o, t), c = o.c, walking = c.walk && t > c.walk.t0 && t < c.walk.t1;
-    animate(o.g, walking ? 'walkto' : animAt(c, t), t, b);
+  chars.forEach((o, ci) => { let b = baseAt(o, t); const c = o.c, walking = c.walk && t > c.walk.t0 && t < c.walk.t1;
+    let a = walking ? 'walkto' : animAt(c, t);
+    // auto acting: calm poses change every ~2 s so nobody freezes through a line (off with "auto": false or story.autoActing: false)
+    const sd = (o.g.userData.seed || 0) * 3 + ci;
+    if (!walking && story.autoActing !== false && c.auto !== false && !c.actions && AUTO[a]) { const seg = Math.floor((t + sd) / 2.1); a = AUTO[a][(seg * 7 + ci * 3) % AUTO[a].length]; }
+    // wander: small steps around the mark, legs stepping while moving
+    let moving = 0;
+    if (!walking && c.wander !== false && story.autoActing !== false && CALM.has(a)) { const vx = Math.cos(t * 0.7 + sd); b = b.clone(); const edge = Math.abs(b.x) > 1.4 ? 0.35 : 1; b.x += Math.sin(t * 0.7 + sd) * 0.28 * edge; b.z += Math.sin(t * 0.5 + sd * 1.3) * 0.16; moving = Math.abs(vx); }
+    animate(o.g, a, t, b);
+    if (moving > 0.35 && o.g.getObjectByName('legL')) { const st = Math.sin(t * 7) * 0.35 * moving; o.g.getObjectByName('legL').rotation.x += st; o.g.getObjectByName('legR').rotation.x -= st; o.g.position.y += Math.abs(Math.sin(t * 7)) * 0.03 * moving; o.g.rotation.y += Math.sin(t * 0.7 + sd) * 0.35; }
     if (walking) o.g.rotation.y = Math.atan2(c.to[0] - c.pos[0], c.to[2] - c.pos[2]);
     else if (c.face !== undefined) o.g.rotation.y += c.face * Math.PI / 180; });
   props.forEach(p => { animateProp(p, t, k); if (SOFTSTYLE) SOFT.animateProp(p, t); });

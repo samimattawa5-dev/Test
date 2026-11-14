@@ -93,11 +93,13 @@ export function makeCharacter(spec) {
   const g = new THREE.Group(); const lids = [];
   // legs + shoes
   for (const s of [-1, 1]) {
-    const leg = part(new THREE.CapsuleGeometry(0.11, 0.36, 8, 16), pants); leg.position.set(0.15 * s, 0.33, 0); g.add(leg);
-    const cuff = part(new THREE.TorusGeometry(0.115, 0.025, 8, 20), pants); cuff.rotation.x = Math.PI / 2; cuff.position.set(0.15 * s, 0.17, 0); g.add(cuff);
-    const sh = part(new THREE.SphereGeometry(0.14, 24, 16), shoe); sh.scale.set(0.95, 0.62, 1.55); sh.position.set(0.15 * s, 0.08, 0.07); g.add(sh);
-    for (let k = 0; k < 3; k++) { const lc = part(new THREE.BoxGeometry(0.1, 0.012, 0.016), M.matte('#f2efe8', 0.8), false); lc.position.set(0.15 * s, 0.135 - k * 0.012, 0.1 + k * 0.035); lc.rotation.x = -0.5; g.add(lc); }
-    const sole = part(new THREE.CylinderGeometry(0.13, 0.13, 0.04, 24), M.matte('#efe8dc', 0.9)); sole.scale.set(1, 1, 1.6); sole.position.set(0.15 * s, 0.025, 0.07); g.add(sole);
+    const lg = new THREE.Group(); lg.position.set(0.15 * s, 0.52, 0); lg.name = s < 0 ? 'legL' : 'legR'; g.add(lg); // hip pivot: legs can swing
+    const addL = (o) => { o.position.sub(lg.position); lg.add(o); };
+    const leg = part(new THREE.CapsuleGeometry(0.11, 0.36, 8, 16), pants); leg.position.set(0.15 * s, 0.33, 0); addL(leg);
+    const cuff = part(new THREE.TorusGeometry(0.115, 0.025, 8, 20), pants); cuff.rotation.x = Math.PI / 2; cuff.position.set(0.15 * s, 0.17, 0); addL(cuff);
+    const sh = part(new THREE.SphereGeometry(0.14, 24, 16), shoe); sh.scale.set(0.95, 0.62, 1.55); sh.position.set(0.15 * s, 0.08, 0.07); addL(sh);
+    for (let k = 0; k < 3; k++) { const lc = part(new THREE.BoxGeometry(0.1, 0.012, 0.016), M.matte('#f2efe8', 0.8), false); lc.position.set(0.15 * s, 0.135 - k * 0.012, 0.1 + k * 0.035); lc.rotation.x = -0.5; addL(lc); }
+    const sole = part(new THREE.CylinderGeometry(0.13, 0.13, 0.04, 24), M.matte('#efe8dc', 0.9)); sole.scale.set(1, 1, 1.6); sole.position.set(0.15 * s, 0.025, 0.07); addL(sole);
   }
   // hips + torso (lathe profile)
   const hips = part(lathe([[0, 0.5], [0.27, 0.5], [0.31, 0.58], [0.31, 0.66], [0, 0.66]]), pants); g.add(hips);
