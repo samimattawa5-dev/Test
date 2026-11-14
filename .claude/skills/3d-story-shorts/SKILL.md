@@ -72,6 +72,11 @@ Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check Yo
 - Need a new world/prop/animation? Edit `scene.js` (`WORLDS`, `makeProp`, `animate`).
 - Captions: one word at a time, from `line` (or `words`).
 
+## Quality helpers (other skills in this repo)
+- `cartoon-3d-short` (MIT, mromidev/claude-animated-shorts): proven look values for this genre - camera rules (every hold creeps, cuts on big jumps, impact shakes), ink outlines, depth of field, light presets, character proportions, beat formula, readability traps. Borrow its rules/values to upgrade `scene.js`; its own pipeline needs Remotion. Its private reference frames were deliberately NOT installed - never copy another channel's frames or shots.
+- `ffmpeg-skill` (MIT, kajisho5/ffmpeg-skill): post-production on `final.mp4` - loudness to -14 LUFS, platform checks (`check.py --platform reels/youtube`), safe-zone look sheets, music bed with ducking. Needs FFmpeg 6.1+, Python 3.10+.
+- `3dviz-pro-max` (MIT, viettranx/3dviz-pro-max): how to make 3D objects convincing (silhouette, materials, lighting direction, visual anti-slop checklist). Use when a prop/world looks basic.
+
 ## Fixes for common problems
 | Problem | Do |
 |---|---|
