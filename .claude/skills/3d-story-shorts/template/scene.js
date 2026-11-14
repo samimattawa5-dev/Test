@@ -285,7 +285,8 @@ function groupsFor(shot) {
 }
 let capKey = '';
 function drawCaptions(shot, t) {
-  const g = groupsFor(shot).find(x => t >= x.t0 && t < x.t1);
+  // search every shot: a word that starts just before a cut keeps its caption across the cut
+  let g = null; for (const sh of story.shots) { g = groupsFor(sh).find(x => t >= x.t0 && t < x.t1); if (g) { shot = sh; break; } }
   if (!g) { if (capKey) { capEl.innerHTML = ''; capKey = ''; } return; }
   const key = shot.start + ':' + g.t0;
   if (key !== capKey) { capEl.innerHTML = g.map(x => `<span class="cw">${x.w}</span>`).join(' '); capKey = key; }

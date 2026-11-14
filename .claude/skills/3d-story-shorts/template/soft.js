@@ -257,7 +257,7 @@ export function makeProp(p) {
       const clouds = new THREE.Mesh(new THREE.SphereGeometry(r * 1.015, 64, 48), new THREE.MeshStandardMaterial({ map: CLOUD_TEX, transparent: true, depthWrite: false, roughness: 1 })); clouds.name = 'clouds'; m.add(clouds);
       m.add(atmosphere(r));
       if (p.equator) { const band = new THREE.Mesh(new THREE.TorusGeometry(r * 1.02, r * 0.03, 12, 128), M.glow(p.equator, 2.5)); band.rotation.x = Math.PI / 2; m.add(band); }
-      if (p.dots) { const r2 = rngFrom(21); for (let i = 0; i < p.dots; i++) { const a = r2() * Math.PI * 2, lat = (r2() - 0.5) * 0.5; const d = part(new THREE.SphereGeometry(r * 0.05, 12, 10), M.glow('#ffb347', 2)); d.position.set(Math.cos(a) * Math.cos(lat) * r * 1.01, Math.sin(lat) * r * 1.01, Math.sin(a) * Math.cos(lat) * r * 1.01); m.add(d); } }
+      if (p.dots) { const r2 = rngFrom(21); for (let i = 0; i < p.dots; i++) { const a = r2() * Math.PI * 2, lat = (r2() - 0.5) * 2 * (p.dotsLat ?? 0.25); const d = part(new THREE.SphereGeometry(r * 0.05, 12, 10), M.glow('#ffb347', 2)); d.position.set(Math.cos(a) * Math.cos(lat) * r * 1.01, Math.sin(lat) * r * 1.01, Math.sin(a) * Math.cos(lat) * r * 1.01); m.add(d); } }
       break; }
     case 'ring': { RING_TEX ??= ringTexture();
       m = new THREE.Mesh(new THREE.RingGeometry(s[0], s[1], 160, 1), new THREE.MeshStandardMaterial({ map: RING_TEX, transparent: true, side: THREE.DoubleSide, roughness: 0.8, emissive: C('#f3dfb2'), emissiveIntensity: 0.25, emissiveMap: RING_TEX, depthWrite: false }));
@@ -265,7 +265,7 @@ export function makeProp(p) {
       const uv = m.geometry.attributes.uv, pos = m.geometry.attributes.position; for (let i = 0; i < uv.count; i++) { const x = pos.getX(i), y = pos.getY(i); uv.setXY(i, 0.5 + x / (2 * s[1]), 0.5 + y / (2 * s[1])); }
       m.rotation.x = -Math.PI / 2; m.receiveShadow = true; break; }
     case 'shadowband': { // the ring's shadow on the globe: a dark band over the tropics (size [earthDiameter, bandHeight])
-      m = new THREE.Mesh(new THREE.CylinderGeometry(s[0] / 2 * 1.012, s[0] / 2 * 1.012, s[1] || s[0] * 0.25, 96, 1, true), new THREE.MeshBasicMaterial({ color: '#05060f', transparent: true, opacity: 0.55, depthWrite: false, side: THREE.DoubleSide }));
+      m = new THREE.Mesh(new THREE.CylinderGeometry(s[0] / 2 * 1.012, s[0] / 2 * 1.012, s[1] || s[0] * 0.25, 96, 1, true), new THREE.MeshBasicMaterial({ color: p.color || '#05060f', transparent: true, opacity: p.opacity ?? 0.55, depthWrite: false, side: THREE.DoubleSide }));
       break; }
     case 'frost': { m = part(new THREE.CircleGeometry(s[0] / 2, 64), new THREE.MeshPhysicalMaterial({ color: '#eef8ff', roughness: 0.15, clearcoat: 1, transparent: true, opacity: 0.9 }), false); m.rotation.x = -Math.PI / 2; m.position.y = 0.02; break; }
     case 'roche': { const pts = []; for (let i = 0; i <= 128; i++) { const a = i / 128 * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a) * s[0] / 2, 0, Math.sin(a) * s[0] / 2)); }
@@ -309,6 +309,7 @@ const SOFT_WORLDS = {
   prison: { sky: ['#ffd0de', '#ffe3ec', '#ffe3ec'], ground: ['#a8a8a8', '#8c8c8c'], room: '#f7a8c4', fog: '#ffe3ec' },
   ice:    { sky: ['#6f9cc9', '#b8d3ea', '#dcebf5'], ground: ['#e3edf4', '#c2d5e3'], fog: '#cfe0ec' },
   dusk:   { sky: ['#1b1440', '#5a2f6b', '#ff8a5c'], ground: ['#3a3846', '#2a2833'], fog: '#5a3d6b' },
+  duskfield: { sky: ['#140f38', '#4a2a66', '#ff9a66'], ground: ['#5a4a5e', '#3e3346'], fog: '#6a4a72' },
   city:   { sky: ['#4f9ae0', '#b9dcf5', '#f0f6fa'], ground: ['#6d6f78', '#5a5c66'], fog: '#cfe2f0' },
   ocean:  { sky: ['#4f9ae0', '#b9dcf5', '#f0f6fa'], ground: ['#2f7fbf', '#1f5f9a'], fog: '#cfe2f0' },
 };
@@ -329,20 +330,20 @@ export function setupScene(scene, worldName, seed) {
   const w = SOFT_WORLDS[worldName] || SOFT_WORLDS.office, space = worldName === 'space';
   scene.background = skyTex(w.sky, space || worldName === 'dusk');
   const room = !!w.room, bright = room || worldName === 'ice';
-  scene.environment = envTex; scene.environmentIntensity = space ? 0.25 : worldName === 'dusk' ? 0.35 : bright ? 0.4 : 0.6;
+  scene.environment = envTex; scene.environmentIntensity = space ? 0.25 : (worldName === 'dusk' || worldName === 'duskfield') ? 0.35 : bright ? 0.4 : 0.6;
   if (w.fog) scene.fog = new THREE.Fog(w.fog, 18, 70);
   // light rig: key (warm, soft shadow) + fill (sky) + rim (cool, behind)
   scene.add(new THREE.HemisphereLight(w.sky[1], w.ground ? w.ground[1] : '#000000', space ? 0.15 : bright ? 0.3 : 0.5));
-  const key = new THREE.DirectionalLight(space ? '#fff3e0' : (worldName === 'dusk' ? '#ffb27a' : '#fff1dc'), space ? 3.2 : bright ? 1.7 : 2.4);
+  const key = new THREE.DirectionalLight(space ? '#fff3e0' : ((worldName === 'dusk' || worldName === 'duskfield') ? '#ffb27a' : '#fff1dc'), space ? 3.2 : bright ? 1.7 : 2.4);
   key.position.set(space ? 8 : 5, space ? 3 : 8, space ? 6 : 5); key.castShadow = true; key.shadow.mapSize.set(2048, 2048); key.shadow.radius = 4; key.shadow.bias = -0.0004; key.shadow.normalBias = 0.02;
   Object.assign(key.shadow.camera, { left: -9, right: 9, top: 9, bottom: -9, near: 0.5, far: 40 }); scene.add(key);
   const rim = new THREE.DirectionalLight(space ? '#7fb2ff' : '#bcd6ff', space ? 1.2 : 1.1); rim.position.set(-5, 4, -6); scene.add(rim);
   const r = rngFrom(seed * 97 + 3), world = new THREE.Group(); scene.add(world);
   if (space) return;
   const gmat = new THREE.MeshStandardMaterial({ map: noiseTex(w.ground[0], w.ground[1], 8, 14, worldName === 'desert' ? 6 : 0), roughness: worldName === 'ice' ? 0.35 : 0.92 });
-  if (worldName === 'desert' || worldName === 'ice') {
+  if (worldName === 'desert' || worldName === 'ice' || worldName === 'duskfield') {
     world.add(displacedGround(140, worldName === 'desert' ? 3.2 : 2.2, 14, seed, gmat));
-    for (let i = 0; i < 14; i++) { const a = r() * Math.PI * 2, d = 8 + r() * 22; const rk = part(rockGeo(0.3 + r() * 1.1, i * 7 + seed, 2), M.matte(worldName === 'desert' ? '#b07d4f' : '#e9f3fa', worldName === 'ice' ? 0.25 : 0.95)); rk.position.set(Math.cos(a) * d, 0, -Math.abs(Math.sin(a) * d) - 4); world.add(rk); }
+    for (let i = 0; i < 14; i++) { const a = r() * Math.PI * 2, d = 8 + r() * 22; const rk = part(rockGeo(0.3 + r() * 1.1, i * 7 + seed, 2), M.matte(worldName === 'desert' ? '#b07d4f' : worldName === 'duskfield' ? '#4a3e52' : '#e9f3fa', worldName === 'ice' ? 0.25 : 0.95)); rk.position.set(Math.cos(a) * d, 0, -Math.abs(Math.sin(a) * d) - 4); world.add(rk); }
     if (worldName === 'desert') for (let i = 0; i < 5; i++) { const h = 4 + r() * 6; const mesa = part(new THREE.CylinderGeometry(2 + r() * 2, 3 + r() * 3, h, 9), M.matte('#b9774a', 0.95)); mesa.position.set((r() - 0.5) * 60, h / 2 - 0.5, -30 - r() * 20); world.add(mesa); }
     if (worldName === 'ice') for (let i = 0; i < 8; i++) { const h = 1.5 + r() * 3; const sp = part(new THREE.ConeGeometry(0.4 + r() * 0.5, h, 7), new THREE.MeshPhysicalMaterial({ color: '#cfeeff', roughness: 0.05, clearcoat: 1, transparent: true, opacity: 0.85 })); sp.position.set((r() - 0.5) * 16, h / 2 - 0.2, -5 - r() * 10); world.add(sp); }
   } else if (worldName === 'dusk' || worldName === 'city') {

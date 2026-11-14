@@ -1,0 +1,3747 @@
+{
+ "title": "Earth Had a Ring?",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "audio": "voiceover.wav",
+ "bed": "bed.wav",
+ "mood": "wonder",
+ "style": "soft",
+ "cast": {
+  "maya": {
+   "color": "#ff9f43",
+   "outfit": "labcoat",
+   "glasses": true,
+   "hair": {
+    "style": "bob",
+    "color": "#6b3e26"
+   }
+  },
+  "omar": {
+   "color": "#4a90e2",
+   "outfit": "labcoat",
+   "hair": {
+    "style": "spiky",
+    "color": "#222222"
+   },
+   "skin": "#c98e62"
+  },
+  "lina": {
+   "color": "#c77dff",
+   "hold": "clipboard",
+   "glasses": true,
+   "hair": {
+    "style": "bun",
+    "color": "#a0522d"
+   },
+   "skin": "#8f5a3a"
+  },
+  "sam": {
+   "color": "#4ecdc4",
+   "outfit": "explorer",
+   "skin": "#e8b48c"
+  },
+  "dad": {
+   "color": "#3c8a4f",
+   "hair": {
+    "style": "tuft",
+    "color": "#3a2a20"
+   },
+   "skin": "#e8b48c"
+  },
+  "mom": {
+   "color": "#ff7aa8",
+   "hair": {
+    "style": "long",
+    "color": "#3a2a20"
+   },
+   "skin": "#f6c9a8"
+  },
+  "kid": {
+   "color": "#ffd86b",
+   "hair": {
+    "style": "cap",
+    "color": "#e84a5f"
+   },
+   "skin": "#f6c9a8",
+   "scale": 0.7
+  }
+ },
+ "captions": {
+  "words": 3,
+  "active": "#FFE14D",
+  "key": "#5CFFB0",
+  "highlight": [
+   "SATURN",
+   "RING",
+   "RINGS",
+   "EQUATOR",
+   "ASTEROID",
+   "GRAVITY",
+   "SHADOW",
+   "COLDEST",
+   "TWIST",
+   "CRATERS",
+   "FREEZE",
+   "ROCHE",
+   "ORDOVICIAN",
+   "HYPOTHESIS",
+   "TROPICS"
+  ]
+ },
+ "shots": [
+  {
+   "start": 0,
+   "end": 1.4,
+   "line": "466 million years ago,",
+   "words": [
+    {
+     "w": "466",
+     "t0": 0.25,
+     "t1": 0.506
+    },
+    {
+     "w": "million",
+     "t0": 0.506,
+     "t1": 0.968
+    },
+    {
+     "w": "years",
+     "t0": 0.968,
+     "t1": 1.327
+    },
+    {
+     "w": "ago,",
+     "t0": 1.327,
+     "t1": 1.635
+    }
+   ],
+   "characters": [
+    {
+     "cast": "dad",
+     "pos": [
+      -0.9,
+      0,
+      -2.5
+     ],
+     "anim": "point"
+    },
+    {
+     "cast": "kid",
+     "pos": [
+      -0.9,
+      1.3,
+      -2.6
+     ],
+     "anim": "cheer",
+     "expr": "wow"
+    },
+    {
+     "cast": "mom",
+     "pos": [
+      1.0,
+      0,
+      -2.5
+     ],
+     "anim": "lookup",
+     "expr": "wow"
+    }
+   ],
+   "world": "duskfield",
+   "props": [
+    {
+     "type": "skyring",
+     "size": [
+      34
+     ],
+     "pos": [
+      0,
+      9,
+      -40
+     ],
+     "tilt": 0.55
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     0.6,
+     7.5
+    ],
+    "to": [
+     0,
+     0.7,
+     7.0
+    ],
+    "look": [
+     0,
+     13,
+     -20
+    ]
+   },
+   "energy": 1,
+   "shimmer": true,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "EARTH HAD A RING?",
+     "t0": 0.05,
+     "t1": 6.5,
+     "y": 330,
+     "size": 118
+    }
+   ]
+  },
+  {
+   "start": 1.4,
+   "end": 6.8,
+   "line": "Earth may have worn a ring like Saturn, and it may have helped freeze the planet.",
+   "words": [
+    {
+     "w": "Earth",
+     "t0": 1.635,
+     "t1": 1.994
+    },
+    {
+     "w": "may",
+     "t0": 1.994,
+     "t1": 2.25
+    },
+    {
+     "w": "have",
+     "t0": 2.25,
+     "t1": 2.558
+    },
+    {
+     "w": "worn",
+     "t0": 2.558,
+     "t1": 2.866
+    },
+    {
+     "w": "a",
+     "t0": 2.866,
+     "t1": 3.02
+    },
+    {
+     "w": "ring",
+     "t0": 3.02,
+     "t1": 3.327
+    },
+    {
+     "w": "like",
+     "t0": 3.327,
+     "t1": 3.635
+    },
+    {
+     "w": "Saturn,",
+     "t0": 3.635,
+     "t1": 4.097
+    },
+    {
+     "w": "and",
+     "t0": 4.097,
+     "t1": 4.353
+    },
+    {
+     "w": "it",
+     "t0": 4.353,
+     "t1": 4.558
+    },
+    {
+     "w": "may",
+     "t0": 4.558,
+     "t1": 4.815
+    },
+    {
+     "w": "have",
+     "t0": 4.815,
+     "t1": 5.122
+    },
+    {
+     "w": "helped",
+     "t0": 5.122,
+     "t1": 5.533
+    },
+    {
+     "w": "freeze",
+     "t0": 5.533,
+     "t1": 5.943
+    },
+    {
+     "w": "the",
+     "t0": 5.943,
+     "t1": 6.199
+    },
+    {
+     "w": "planet.",
+     "t0": 6.199,
+     "t1": 6.661
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.25,
+     "barren": true
+    },
+    {
+     "type": "ring",
+     "color": "#ffe6a8",
+     "size": [
+      2.2,
+      3.6
+     ],
+     "rot": [
+      0.35,
+      0,
+      0
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2,
+     12
+    ],
+    "to": [
+     6,
+     3.5,
+     9
+    ],
+    "look": [
+     0,
+     0,
+     0
+    ]
+   },
+   "flash": true,
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "466 MILLION YEARS AGO",
+     "t0": 1.6,
+     "t1": 4.3,
+     "y": 640,
+     "size": 50,
+     "accent": "#ff4d6d"
+    },
+    {
+     "type": "badge",
+     "text": "HYPOTHESIS \u00b7 MONASH 2024",
+     "t0": 4.3,
+     "t1": 6.8,
+     "y": 640,
+     "size": 46,
+     "accent": "#444444"
+    }
+   ]
+  },
+  {
+   "start": 6.8,
+   "end": 11.76,
+   "line": "Nobody saw it. Scientists found clues a ring could have left behind, in the rocks.",
+   "words": [
+    {
+     "w": "Nobody",
+     "t0": 6.941,
+     "t1": 7.323
+    },
+    {
+     "w": "saw",
+     "t0": 7.323,
+     "t1": 7.561
+    },
+    {
+     "w": "it.",
+     "t0": 7.561,
+     "t1": 7.8
+    },
+    {
+     "w": "Scientists",
+     "t0": 7.8,
+     "t1": 8.373
+    },
+    {
+     "w": "found",
+     "t0": 8.373,
+     "t1": 8.707
+    },
+    {
+     "w": "clues",
+     "t0": 8.707,
+     "t1": 9.041
+    },
+    {
+     "w": "a",
+     "t0": 9.041,
+     "t1": 9.184
+    },
+    {
+     "w": "ring",
+     "t0": 9.184,
+     "t1": 9.47
+    },
+    {
+     "w": "could",
+     "t0": 9.47,
+     "t1": 9.804
+    },
+    {
+     "w": "have",
+     "t0": 9.804,
+     "t1": 10.091
+    },
+    {
+     "w": "left",
+     "t0": 10.091,
+     "t1": 10.377
+    },
+    {
+     "w": "behind,",
+     "t0": 10.377,
+     "t1": 10.807
+    },
+    {
+     "w": "in",
+     "t0": 10.807,
+     "t1": 10.998
+    },
+    {
+     "w": "the",
+     "t0": 10.998,
+     "t1": 11.236
+    },
+    {
+     "w": "rocks.",
+     "t0": 11.236,
+     "t1": 11.618
+    }
+   ],
+   "characters": [
+    {
+     "cast": "maya",
+     "pos": [
+      -1.3,
+      0,
+      0.6
+     ],
+     "anim": "inspect",
+     "hold": "magnifier",
+     "expr": "wow",
+     "to": [
+      -0.9,
+      0,
+      1.0
+     ],
+     "walk": {
+      "t0": 6.8,
+      "t1": 8.4
+     }
+    },
+    {
+     "cast": "omar",
+     "pos": [
+      0.6,
+      0,
+      0.2
+     ],
+     "anim": "point",
+     "face": -30
+    },
+    {
+     "cast": "lina",
+     "pos": [
+      1.15,
+      0,
+      0.9
+     ],
+     "anim": "nod",
+     "expr": "smile",
+     "face": -20
+    }
+   ],
+   "world": "desert",
+   "props": [
+    {
+     "type": "crater",
+     "size": [
+      2.6
+     ],
+     "pos": [
+      0.4,
+      0.05,
+      -2
+     ]
+    },
+    {
+     "type": "box",
+     "color": "#b9774a",
+     "size": [
+      6,
+      0.5,
+      1
+     ],
+     "pos": [
+      0,
+      0.25,
+      -4
+     ]
+    },
+    {
+     "type": "box",
+     "color": "#8a5a3a",
+     "size": [
+      6,
+      0.5,
+      1
+     ],
+     "pos": [
+      0,
+      0.75,
+      -4
+     ]
+    },
+    {
+     "type": "box",
+     "color": "#c99a6a",
+     "size": [
+      6,
+      0.5,
+      1
+     ],
+     "pos": [
+      0,
+      1.25,
+      -4
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2.2,
+     8.5
+    ],
+    "to": [
+     -0.5,
+     1.8,
+     7.2
+    ],
+    "look": [
+     0,
+     1.0,
+     0
+    ]
+   },
+   "energy": 1
+  },
+  {
+   "start": 11.76,
+   "end": 16.75,
+   "line": "In 2024, a team at Monash University mapped twenty-one impact craters,",
+   "words": [
+    {
+     "w": "In",
+     "t0": 11.898,
+     "t1": 12.14
+    },
+    {
+     "w": "2024,",
+     "t0": 12.14,
+     "t1": 12.562
+    },
+    {
+     "w": "a",
+     "t0": 12.562,
+     "t1": 12.744
+    },
+    {
+     "w": "team",
+     "t0": 12.744,
+     "t1": 13.106
+    },
+    {
+     "w": "at",
+     "t0": 13.106,
+     "t1": 13.348
+    },
+    {
+     "w": "Monash",
+     "t0": 13.348,
+     "t1": 13.831
+    },
+    {
+     "w": "University",
+     "t0": 13.831,
+     "t1": 14.556
+    },
+    {
+     "w": "mapped",
+     "t0": 14.556,
+     "t1": 15.039
+    },
+    {
+     "w": "twenty-one",
+     "t0": 15.039,
+     "t1": 15.764
+    },
+    {
+     "w": "impact",
+     "t0": 15.764,
+     "t1": 16.247
+    },
+    {
+     "w": "craters,",
+     "t0": 16.247,
+     "t1": 16.851
+    }
+   ],
+   "characters": [
+    {
+     "cast": "maya",
+     "pos": [
+      -1.8,
+      0,
+      0.4
+     ],
+     "anim": "talk",
+     "expr": "grin"
+    },
+    {
+     "cast": "omar",
+     "pos": [
+      -0.6,
+      0,
+      0.9
+     ],
+     "anim": "point"
+    },
+    {
+     "cast": "lina",
+     "pos": [
+      0.6,
+      0,
+      0.9
+     ],
+     "anim": "nod"
+    },
+    {
+     "cast": "sam",
+     "pos": [
+      1.8,
+      0,
+      0.4
+     ],
+     "anim": "cheer",
+     "actions": [
+      {
+       "t": 11.76,
+       "anim": "idle"
+      },
+      {
+       "t": 15.039,
+       "anim": "cheer"
+      }
+     ]
+    }
+   ],
+   "world": "lab",
+   "props": [
+    {
+     "type": "box",
+     "color": "#e9eef2",
+     "size": [
+      3.2,
+      0.1,
+      1.4
+     ],
+     "pos": [
+      0,
+      1.05,
+      -1.2
+     ]
+    },
+    {
+     "type": "box",
+     "color": "#7d8a96",
+     "size": [
+      3,
+      1,
+      1.2
+     ],
+     "pos": [
+      0,
+      0.5,
+      -1.2
+     ]
+    },
+    {
+     "type": "earth",
+     "size": [
+      1.1
+     ],
+     "pos": [
+      0,
+      1.75,
+      -1.2
+     ],
+     "spin": 0.25,
+     "barren": true
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2.4,
+     9.5
+    ],
+    "to": [
+     0,
+     2.2,
+     8.6
+    ],
+    "look": [
+     0,
+     1.3,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "counter",
+     "from": 0,
+     "to": 21,
+     "label": "IMPACT CRATERS",
+     "t0": 15.039,
+     "t1": 16.75,
+     "y": 330,
+     "dur": 0.9
+    }
+   ]
+  },
+  {
+   "start": 16.75,
+   "end": 20.98,
+   "line": "all from the same slice of time: the Ordovician period.",
+   "words": [
+    {
+     "w": "all",
+     "t0": 16.851,
+     "t1": 17.153
+    },
+    {
+     "w": "from",
+     "t0": 17.153,
+     "t1": 17.515
+    },
+    {
+     "w": "the",
+     "t0": 17.515,
+     "t1": 17.817
+    },
+    {
+     "w": "same",
+     "t0": 17.817,
+     "t1": 18.179
+    },
+    {
+     "w": "slice",
+     "t0": 18.179,
+     "t1": 18.602
+    },
+    {
+     "w": "of",
+     "t0": 18.602,
+     "t1": 18.844
+    },
+    {
+     "w": "time:",
+     "t0": 18.844,
+     "t1": 19.267
+    },
+    {
+     "w": "the",
+     "t0": 19.267,
+     "t1": 19.569
+    },
+    {
+     "w": "Ordovician",
+     "t0": 19.569,
+     "t1": 20.293
+    },
+    {
+     "w": "period.",
+     "t0": 20.293,
+     "t1": 20.837
+    }
+   ],
+   "characters": [
+    {
+     "cast": "sam",
+     "pos": [
+      0,
+      0,
+      3
+     ],
+     "anim": "wave",
+     "expr": "grin"
+    }
+   ],
+   "world": "desert",
+   "props": [
+    {
+     "type": "crater",
+     "size": [
+      2.2
+     ],
+     "pos": [
+      -3,
+      0.05,
+      -2
+     ]
+    },
+    {
+     "type": "crater",
+     "size": [
+      2.2
+     ],
+     "pos": [
+      0,
+      0.05,
+      -3
+     ]
+    },
+    {
+     "type": "crater",
+     "size": [
+      2.2
+     ],
+     "pos": [
+      3,
+      0.05,
+      -2
+     ]
+    },
+    {
+     "type": "crater",
+     "size": [
+      2.2
+     ],
+     "pos": [
+      -2,
+      0.05,
+      1
+     ]
+    },
+    {
+     "type": "crater",
+     "size": [
+      2.2
+     ],
+     "pos": [
+      2,
+      0.05,
+      1
+     ]
+    },
+    {
+     "type": "crater",
+     "size": [
+      2.2
+     ],
+     "pos": [
+      0,
+      0.05,
+      -6
+     ]
+    },
+    {
+     "type": "crater",
+     "size": [
+      2.2
+     ],
+     "pos": [
+      -4,
+      0.05,
+      -5
+     ]
+    },
+    {
+     "type": "crater",
+     "size": [
+      2.2
+     ],
+     "pos": [
+      4,
+      0.05,
+      -5
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2,
+     9
+    ],
+    "to": [
+     0,
+     9,
+     8
+    ],
+    "look": [
+     0,
+     0,
+     -1
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "ORDOVICIAN PERIOD",
+     "t0": 19.369,
+     "t1": 20.98,
+     "y": 420,
+     "accent": "#2f6db5"
+    }
+   ]
+  },
+  {
+   "start": 20.98,
+   "end": 25.35,
+   "line": "Then they rewound plate tectonics, to see where each continent sat back then.",
+   "words": [
+    {
+     "w": "Then",
+     "t0": 21.117,
+     "t1": 21.387
+    },
+    {
+     "w": "they",
+     "t0": 21.387,
+     "t1": 21.656
+    },
+    {
+     "w": "rewound",
+     "t0": 21.656,
+     "t1": 22.061
+    },
+    {
+     "w": "plate",
+     "t0": 22.061,
+     "t1": 22.375
+    },
+    {
+     "w": "tectonics,",
+     "t0": 22.375,
+     "t1": 22.914
+    },
+    {
+     "w": "to",
+     "t0": 22.914,
+     "t1": 23.094
+    },
+    {
+     "w": "see",
+     "t0": 23.094,
+     "t1": 23.319
+    },
+    {
+     "w": "where",
+     "t0": 23.319,
+     "t1": 23.633
+    },
+    {
+     "w": "each",
+     "t0": 23.633,
+     "t1": 23.903
+    },
+    {
+     "w": "continent",
+     "t0": 23.903,
+     "t1": 24.397
+    },
+    {
+     "w": "sat",
+     "t0": 24.397,
+     "t1": 24.622
+    },
+    {
+     "w": "back",
+     "t0": 24.622,
+     "t1": 24.891
+    },
+    {
+     "w": "then.",
+     "t0": 24.891,
+     "t1": 25.206
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": -2.5,
+     "barren": true
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     0.5,
+     9
+    ],
+    "to": [
+     0,
+     1.5,
+     7.5
+    ],
+    "look": [
+     0,
+     0,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "REWIND: PLATE TECTONICS",
+     "t0": 21.28,
+     "t1": 25.35,
+     "y": 420,
+     "accent": "#7a5aa8"
+    }
+   ]
+  },
+  {
+   "start": 25.35,
+   "end": 29.66,
+   "line": "Every single crater landed within thirty degrees of the equator.",
+   "words": [
+    {
+     "w": "Every",
+     "t0": 25.486,
+     "t1": 25.862
+    },
+    {
+     "w": "single",
+     "t0": 25.862,
+     "t1": 26.292
+    },
+    {
+     "w": "crater",
+     "t0": 26.292,
+     "t1": 26.722
+    },
+    {
+     "w": "landed",
+     "t0": 26.722,
+     "t1": 27.153
+    },
+    {
+     "w": "within",
+     "t0": 27.153,
+     "t1": 27.583
+    },
+    {
+     "w": "thirty",
+     "t0": 27.583,
+     "t1": 28.013
+    },
+    {
+     "w": "degrees",
+     "t0": 28.013,
+     "t1": 28.497
+    },
+    {
+     "w": "of",
+     "t0": 28.497,
+     "t1": 28.712
+    },
+    {
+     "w": "the",
+     "t0": 28.712,
+     "t1": 28.98
+    },
+    {
+     "w": "equator.",
+     "t0": 28.98,
+     "t1": 29.518
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.25,
+     "barren": true,
+     "dots": 21,
+     "dotsLat": 0.45
+    },
+    {
+     "type": "shadowband",
+     "size": [
+      3,
+      1.5
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "color": "#ffb347",
+     "opacity": 0.22,
+     "appear": {
+      "t0": 25.650000000000002,
+      "t1": 26.650000000000002
+     }
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     3,
+     10
+    ],
+    "to": [
+     0,
+     1,
+     8
+    ],
+    "look": [
+     0,
+     0,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "ALL 21 WITHIN 30\u00b0 OF THE EQUATOR",
+     "t0": 26.953,
+     "t1": 29.66,
+     "y": 420,
+     "size": 44,
+     "accent": "#ff4d6d"
+    }
+   ]
+  },
+  {
+   "start": 29.66,
+   "end": 32.8,
+   "line": "But only about a third of the land was near the equator.",
+   "words": [
+    {
+     "w": "But",
+     "t0": 29.798,
+     "t1": 30.023
+    },
+    {
+     "w": "only",
+     "t0": 30.023,
+     "t1": 30.292
+    },
+    {
+     "w": "about",
+     "t0": 30.292,
+     "t1": 30.606
+    },
+    {
+     "w": "a",
+     "t0": 30.606,
+     "t1": 30.741
+    },
+    {
+     "w": "third",
+     "t0": 30.741,
+     "t1": 31.055
+    },
+    {
+     "w": "of",
+     "t0": 31.055,
+     "t1": 31.235
+    },
+    {
+     "w": "the",
+     "t0": 31.235,
+     "t1": 31.46
+    },
+    {
+     "w": "land",
+     "t0": 31.46,
+     "t1": 31.729
+    },
+    {
+     "w": "was",
+     "t0": 31.729,
+     "t1": 31.954
+    },
+    {
+     "w": "near",
+     "t0": 31.954,
+     "t1": 32.223
+    },
+    {
+     "w": "the",
+     "t0": 32.223,
+     "t1": 32.448
+    },
+    {
+     "w": "equator.",
+     "t0": 32.448,
+     "t1": 32.897
+    }
+   ],
+   "characters": [
+    {
+     "cast": "lina",
+     "pos": [
+      -1.2,
+      0,
+      1.0
+     ],
+     "anim": "throw",
+     "expr": "grin"
+    },
+    {
+     "cast": "omar",
+     "pos": [
+      0.3,
+      0,
+      1.4
+     ],
+     "anim": "shrug"
+    },
+    {
+     "cast": "maya",
+     "pos": [
+      1.5,
+      0,
+      0.8
+     ],
+     "anim": "talk"
+    }
+   ],
+   "world": "lab",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      1.6
+     ],
+     "pos": [
+      0.6,
+      2.6,
+      -2.2
+     ],
+     "spin": 0.6,
+     "barren": true,
+     "dots": 30,
+     "dotsLat": 1.4
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2.3,
+     9
+    ],
+    "to": [
+     0.3,
+     2.3,
+     8
+    ],
+    "look": [
+     0,
+     1.6,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "ONLY ~1/3 OF THE LAND NEAR THE EQUATOR",
+     "t0": 30.06,
+     "t1": 32.8,
+     "y": 380,
+     "size": 40,
+     "accent": "#2f9bff"
+    }
+   ]
+  },
+  {
+   "start": 32.8,
+   "end": 35.42,
+   "line": "Random space rocks would have hit everywhere.",
+   "words": [
+    {
+     "w": "Random",
+     "t0": 32.897,
+     "t1": 33.256
+    },
+    {
+     "w": "space",
+     "t0": 33.256,
+     "t1": 33.57
+    },
+    {
+     "w": "rocks",
+     "t0": 33.57,
+     "t1": 33.885
+    },
+    {
+     "w": "would",
+     "t0": 33.885,
+     "t1": 34.199
+    },
+    {
+     "w": "have",
+     "t0": 34.199,
+     "t1": 34.469
+    },
+    {
+     "w": "hit",
+     "t0": 34.469,
+     "t1": 34.693
+    },
+    {
+     "w": "everywhere.",
+     "t0": 34.693,
+     "t1": 35.277
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.5,
+     "barren": true,
+     "dots": 40,
+     "dotsLat": 1.4
+    }
+   ],
+   "camera": {
+    "from": [
+     3,
+     1,
+     9
+    ],
+    "to": [
+     -2,
+     1.5,
+     8
+    ],
+    "look": [
+     0,
+     0,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "RANDOM HITS: EVERYWHERE",
+     "t0": 33.0,
+     "t1": 35.42,
+     "y": 420,
+     "accent": "#555555"
+    }
+   ]
+  },
+  {
+   "start": 35.42,
+   "end": 39.6,
+   "line": "The odds of this pattern by chance: about one in twenty-five million.",
+   "words": [
+    {
+     "w": "The",
+     "t0": 35.557,
+     "t1": 35.795
+    },
+    {
+     "w": "odds",
+     "t0": 35.795,
+     "t1": 36.081
+    },
+    {
+     "w": "of",
+     "t0": 36.081,
+     "t1": 36.272
+    },
+    {
+     "w": "this",
+     "t0": 36.272,
+     "t1": 36.558
+    },
+    {
+     "w": "pattern",
+     "t0": 36.558,
+     "t1": 36.986
+    },
+    {
+     "w": "by",
+     "t0": 36.986,
+     "t1": 37.177
+    },
+    {
+     "w": "chance:",
+     "t0": 37.177,
+     "t1": 37.606
+    },
+    {
+     "w": "about",
+     "t0": 37.606,
+     "t1": 37.939
+    },
+    {
+     "w": "one",
+     "t0": 37.939,
+     "t1": 38.178
+    },
+    {
+     "w": "in",
+     "t0": 38.178,
+     "t1": 38.368
+    },
+    {
+     "w": "twenty-five",
+     "t0": 38.368,
+     "t1": 38.988
+    },
+    {
+     "w": "million.",
+     "t0": 38.988,
+     "t1": 39.464
+    }
+   ],
+   "characters": [
+    {
+     "cast": "maya",
+     "pos": [
+      -1.8,
+      0,
+      0.6
+     ],
+     "anim": "cheer",
+     "expr": "grin"
+    },
+    {
+     "cast": "omar",
+     "pos": [
+      -0.6,
+      0,
+      1.0
+     ],
+     "anim": "jump",
+     "expr": "wow"
+    },
+    {
+     "cast": "lina",
+     "pos": [
+      0.6,
+      0,
+      1.0
+     ],
+     "anim": "talk",
+     "expr": "wow"
+    },
+    {
+     "cast": "sam",
+     "pos": [
+      1.8,
+      0,
+      0.6
+     ],
+     "anim": "cheer",
+     "expr": "grin"
+    }
+   ],
+   "world": "lab",
+   "props": [],
+   "camera": {
+    "from": [
+     -1,
+     2.3,
+     9.5
+    ],
+    "to": [
+     1,
+     2.3,
+     9.0
+    ],
+    "look": [
+     0,
+     1.3,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "counter",
+     "from": 1,
+     "to": 25000000,
+     "prefix": "1 IN ",
+     "roll": false,
+     "size": 118,
+     "label": "ODDS BY CHANCE",
+     "t0": 37.839,
+     "t1": 39.6,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "start": 39.6,
+   "end": 44.15,
+   "line": "So here's the idea. A big rubble-pile asteroid passed too close to Earth.",
+   "words": [
+    {
+     "w": "So",
+     "t0": 39.744,
+     "t1": 39.94
+    },
+    {
+     "w": "here's",
+     "t0": 39.94,
+     "t1": 40.332
+    },
+    {
+     "w": "the",
+     "t0": 40.332,
+     "t1": 40.577
+    },
+    {
+     "w": "idea.",
+     "t0": 40.577,
+     "t1": 40.921
+    },
+    {
+     "w": "A",
+     "t0": 40.921,
+     "t1": 41.068
+    },
+    {
+     "w": "big",
+     "t0": 41.068,
+     "t1": 41.313
+    },
+    {
+     "w": "rubble-pile",
+     "t0": 41.313,
+     "t1": 41.95
+    },
+    {
+     "w": "asteroid",
+     "t0": 41.95,
+     "t1": 42.44
+    },
+    {
+     "w": "passed",
+     "t0": 42.44,
+     "t1": 42.832
+    },
+    {
+     "w": "too",
+     "t0": 42.832,
+     "t1": 43.078
+    },
+    {
+     "w": "close",
+     "t0": 43.078,
+     "t1": 43.421
+    },
+    {
+     "w": "to",
+     "t0": 43.421,
+     "t1": 43.617
+    },
+    {
+     "w": "Earth.",
+     "t0": 43.617,
+     "t1": 44.009
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.25,
+     "barren": true
+    },
+    {
+     "type": "breakup",
+     "pos": [
+      -7,
+      3,
+      2
+     ],
+     "move": [
+      -3.2,
+      1.2,
+      1.6
+     ],
+     "at": 999,
+     "spin": 0.8
+    }
+   ],
+   "camera": {
+    "from": [
+     -6,
+     3,
+     11
+    ],
+    "to": [
+     -1,
+     2,
+     10
+    ],
+    "look": [
+     -2,
+     1,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "RUBBLE-PILE ASTEROID",
+     "t0": 41.113,
+     "t1": 44.15,
+     "y": 420,
+     "accent": "#8d7b6a"
+    }
+   ]
+  },
+  {
+   "start": 44.15,
+   "end": 51.51,
+   "line": "Within about three thousand one hundred kilometres of the surface, Earth's gravity pulls harder on the near side of a rock than the far side.",
+   "words": [
+    {
+     "w": "Within",
+     "t0": 44.289,
+     "t1": 44.64
+    },
+    {
+     "w": "about",
+     "t0": 44.64,
+     "t1": 44.947
+    },
+    {
+     "w": "three",
+     "t0": 44.947,
+     "t1": 45.254
+    },
+    {
+     "w": "thousand",
+     "t0": 45.254,
+     "t1": 45.692
+    },
+    {
+     "w": "one",
+     "t0": 45.692,
+     "t1": 45.911
+    },
+    {
+     "w": "hundred",
+     "t0": 45.911,
+     "t1": 46.306
+    },
+    {
+     "w": "kilometres",
+     "t0": 46.306,
+     "t1": 46.832
+    },
+    {
+     "w": "of",
+     "t0": 46.832,
+     "t1": 47.008
+    },
+    {
+     "w": "the",
+     "t0": 47.008,
+     "t1": 47.227
+    },
+    {
+     "w": "surface,",
+     "t0": 47.227,
+     "t1": 47.665
+    },
+    {
+     "w": "Earth's",
+     "t0": 47.665,
+     "t1": 48.06
+    },
+    {
+     "w": "gravity",
+     "t0": 48.06,
+     "t1": 48.454
+    },
+    {
+     "w": "pulls",
+     "t0": 48.454,
+     "t1": 48.761
+    },
+    {
+     "w": "harder",
+     "t0": 48.761,
+     "t1": 49.112
+    },
+    {
+     "w": "on",
+     "t0": 49.112,
+     "t1": 49.288
+    },
+    {
+     "w": "the",
+     "t0": 49.288,
+     "t1": 49.507
+    },
+    {
+     "w": "near",
+     "t0": 49.507,
+     "t1": 49.77
+    },
+    {
+     "w": "side",
+     "t0": 49.77,
+     "t1": 50.033
+    },
+    {
+     "w": "of",
+     "t0": 50.033,
+     "t1": 50.208
+    },
+    {
+     "w": "a",
+     "t0": 50.208,
+     "t1": 50.34
+    },
+    {
+     "w": "rock",
+     "t0": 50.34,
+     "t1": 50.603
+    },
+    {
+     "w": "than",
+     "t0": 50.603,
+     "t1": 50.866
+    },
+    {
+     "w": "the",
+     "t0": 50.866,
+     "t1": 51.085
+    },
+    {
+     "w": "far",
+     "t0": 51.085,
+     "t1": 51.305
+    },
+    {
+     "w": "side.",
+     "t0": 51.305,
+     "t1": 51.611
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.25,
+     "barren": true
+    },
+    {
+     "type": "roche",
+     "size": [
+      5.2
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "type": "breakup",
+     "pos": [
+      -3.2,
+      1.2,
+      1.6
+     ],
+     "move": [
+      -2.4,
+      0.4,
+      1.2
+     ],
+     "at": 999,
+     "spin": 0.8
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     6,
+     10
+    ],
+    "to": [
+     0,
+     4,
+     9
+    ],
+    "look": [
+     -0.5,
+     0,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "ROCHE LIMIT \u2248 3,100 KM",
+     "t0": 44.747,
+     "t1": 53.33,
+     "y": 420,
+     "accent": "#ff6b6b"
+    }
+   ]
+  },
+  {
+   "start": 51.51,
+   "end": 53.33,
+   "line": "That's called the Roche limit.",
+   "words": [
+    {
+     "w": "That's",
+     "t0": 51.611,
+     "t1": 51.962
+    },
+    {
+     "w": "called",
+     "t0": 51.962,
+     "t1": 52.313
+    },
+    {
+     "w": "the",
+     "t0": 52.313,
+     "t1": 52.532
+    },
+    {
+     "w": "Roche",
+     "t0": 52.532,
+     "t1": 52.839
+    },
+    {
+     "w": "limit.",
+     "t0": 52.839,
+     "t1": 53.19
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.25,
+     "barren": true
+    },
+    {
+     "type": "roche",
+     "size": [
+      5.2
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "type": "breakup",
+     "pos": [
+      -2.4,
+      0.4,
+      1.2
+     ],
+     "move": [
+      -2.2,
+      0.1,
+      1.0
+     ],
+     "at": 52.51,
+     "spread": 0.25,
+     "spin": 0.8
+    }
+   ],
+   "camera": {
+    "from": [
+     -4,
+     1.5,
+     5
+    ],
+    "to": [
+     -3.5,
+     1,
+     4.2
+    ],
+    "look": [
+     -2.2,
+     0.2,
+     1
+    ]
+   },
+   "energy": 2
+  },
+  {
+   "start": 53.33,
+   "end": 58.07,
+   "line": "The asteroid was torn apart, and the pieces spread into a ring around the equator.",
+   "words": [
+    {
+     "w": "The",
+     "t0": 53.47,
+     "t1": 53.697
+    },
+    {
+     "w": "asteroid",
+     "t0": 53.697,
+     "t1": 54.152
+    },
+    {
+     "w": "was",
+     "t0": 54.152,
+     "t1": 54.379
+    },
+    {
+     "w": "torn",
+     "t0": 54.379,
+     "t1": 54.652
+    },
+    {
+     "w": "apart,",
+     "t0": 54.652,
+     "t1": 55.016
+    },
+    {
+     "w": "and",
+     "t0": 55.016,
+     "t1": 55.243
+    },
+    {
+     "w": "the",
+     "t0": 55.243,
+     "t1": 55.471
+    },
+    {
+     "w": "pieces",
+     "t0": 55.471,
+     "t1": 55.834
+    },
+    {
+     "w": "spread",
+     "t0": 55.834,
+     "t1": 56.198
+    },
+    {
+     "w": "into",
+     "t0": 56.198,
+     "t1": 56.471
+    },
+    {
+     "w": "a",
+     "t0": 56.471,
+     "t1": 56.607
+    },
+    {
+     "w": "ring",
+     "t0": 56.607,
+     "t1": 56.88
+    },
+    {
+     "w": "around",
+     "t0": 56.88,
+     "t1": 57.244
+    },
+    {
+     "w": "the",
+     "t0": 57.244,
+     "t1": 57.471
+    },
+    {
+     "w": "equator.",
+     "t0": 57.471,
+     "t1": 57.926
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.25,
+     "barren": true
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.4,
+      "speed": 0.8,
+      "phase": 0.0,
+      "y": 0.0
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.55,
+      "speed": 0.8,
+      "phase": 0.52,
+      "y": 0.05
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.6999999999999997,
+      "speed": 0.8,
+      "phase": 1.04,
+      "y": 0.1
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.8499999999999996,
+      "speed": 0.8,
+      "phase": 1.56,
+      "y": 0.0
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.4,
+      "speed": 0.8,
+      "phase": 2.08,
+      "y": 0.05
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.55,
+      "speed": 0.8,
+      "phase": 2.6,
+      "y": 0.1
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.6999999999999997,
+      "speed": 0.8,
+      "phase": 3.12,
+      "y": 0.0
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.8499999999999996,
+      "speed": 0.8,
+      "phase": 3.64,
+      "y": 0.05
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.4,
+      "speed": 0.8,
+      "phase": 4.16,
+      "y": 0.1
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.55,
+      "speed": 0.8,
+      "phase": 4.68,
+      "y": 0.0
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.6999999999999997,
+      "speed": 0.8,
+      "phase": 5.2,
+      "y": 0.05
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.8499999999999996,
+      "speed": 0.8,
+      "phase": 5.720000000000001,
+      "y": 0.1
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.4,
+      "speed": 0.8,
+      "phase": 6.24,
+      "y": 0.0
+     },
+     "spin": 3
+    },
+    {
+     "type": "rock",
+     "color": "#b8a48c",
+     "size": [
+      0.3
+     ],
+     "orbit": {
+      "radius": 2.55,
+      "speed": 0.8,
+      "phase": 6.76,
+      "y": 0.05
+     },
+     "spin": 3
+    },
+    {
+     "type": "ring",
+     "color": "#ffe6a8",
+     "size": [
+      2.2,
+      3.4
+     ],
+     "rot": [
+      0,
+      0,
+      0
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "appear": {
+      "t0": 54.83,
+      "t1": 57.77
+     }
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     6,
+     10
+    ],
+    "to": [
+     0,
+     3,
+     9
+    ],
+    "look": [
+     0,
+     0,
+     0
+    ]
+   },
+   "energy": 2,
+   "kicks": [
+    53.53
+   ],
+   "flash": true,
+   "shimmer": true
+  },
+  {
+   "start": 58.07,
+   "end": 62.97,
+   "line": "For millions of years, chunks fell out of that ring, which may be why the craters line up.",
+   "words": [
+    {
+     "w": "For",
+     "t0": 58.206,
+     "t1": 58.429
+    },
+    {
+     "w": "millions",
+     "t0": 58.429,
+     "t1": 58.875
+    },
+    {
+     "w": "of",
+     "t0": 58.875,
+     "t1": 59.053
+    },
+    {
+     "w": "years,",
+     "t0": 59.053,
+     "t1": 59.41
+    },
+    {
+     "w": "chunks",
+     "t0": 59.41,
+     "t1": 59.767
+    },
+    {
+     "w": "fell",
+     "t0": 59.767,
+     "t1": 60.035
+    },
+    {
+     "w": "out",
+     "t0": 60.035,
+     "t1": 60.257
+    },
+    {
+     "w": "of",
+     "t0": 60.257,
+     "t1": 60.436
+    },
+    {
+     "w": "that",
+     "t0": 60.436,
+     "t1": 60.703
+    },
+    {
+     "w": "ring,",
+     "t0": 60.703,
+     "t1": 61.016
+    },
+    {
+     "w": "which",
+     "t0": 61.016,
+     "t1": 61.328
+    },
+    {
+     "w": "may",
+     "t0": 61.328,
+     "t1": 61.551
+    },
+    {
+     "w": "be",
+     "t0": 61.551,
+     "t1": 61.729
+    },
+    {
+     "w": "why",
+     "t0": 61.729,
+     "t1": 61.952
+    },
+    {
+     "w": "the",
+     "t0": 61.952,
+     "t1": 62.175
+    },
+    {
+     "w": "craters",
+     "t0": 62.175,
+     "t1": 62.577
+    },
+    {
+     "w": "line",
+     "t0": 62.577,
+     "t1": 62.844
+    },
+    {
+     "w": "up.",
+     "t0": 62.844,
+     "t1": 63.067
+    }
+   ],
+   "characters": [
+    {
+     "cast": "sam",
+     "pos": [
+      0,
+      0,
+      1.0
+     ],
+     "anim": "run",
+     "expr": "worried"
+    },
+    {
+     "cast": "omar",
+     "pos": [
+      1.3,
+      0,
+      -0.2
+     ],
+     "anim": "scared",
+     "expr": "wow"
+    }
+   ],
+   "world": "desert",
+   "props": [
+    {
+     "type": "rock",
+     "color": "#7a6a5a",
+     "size": [
+      0.5
+     ],
+     "pos": [
+      -3,
+      0.3,
+      -1
+     ],
+     "fall": 8
+    },
+    {
+     "type": "rock",
+     "color": "#7a6a5a",
+     "size": [
+      0.5
+     ],
+     "pos": [
+      -1,
+      0.3,
+      -3
+     ],
+     "fall": 8
+    },
+    {
+     "type": "rock",
+     "color": "#7a6a5a",
+     "size": [
+      0.5
+     ],
+     "pos": [
+      1.5,
+      0.3,
+      -2
+     ],
+     "fall": 8
+    },
+    {
+     "type": "rock",
+     "color": "#7a6a5a",
+     "size": [
+      0.5
+     ],
+     "pos": [
+      3,
+      0.3,
+      -0.5
+     ],
+     "fall": 8
+    },
+    {
+     "type": "rock",
+     "color": "#7a6a5a",
+     "size": [
+      0.5
+     ],
+     "pos": [
+      -2,
+      0.3,
+      -5
+     ],
+     "fall": 8
+    },
+    {
+     "type": "rock",
+     "color": "#7a6a5a",
+     "size": [
+      0.5
+     ],
+     "pos": [
+      2.5,
+      0.3,
+      -4
+     ],
+     "fall": 8
+    },
+    {
+     "type": "rock",
+     "color": "#7a6a5a",
+     "size": [
+      0.5
+     ],
+     "pos": [
+      0,
+      0.3,
+      -1.5
+     ],
+     "fall": 8
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2.4,
+     9.5
+    ],
+    "to": [
+     0,
+     2.0,
+     8.6
+    ],
+    "look": [
+     0,
+     1.2,
+     0
+    ]
+   },
+   "energy": 2,
+   "kicks": [
+    59.27,
+    60.87
+   ]
+  },
+  {
+   "start": 62.97,
+   "end": 65.88,
+   "line": "Rocks from that time are full of meteorite debris.",
+   "words": [
+    {
+     "w": "Rocks",
+     "t0": 63.067,
+     "t1": 63.379
+    },
+    {
+     "w": "from",
+     "t0": 63.379,
+     "t1": 63.647
+    },
+    {
+     "w": "that",
+     "t0": 63.647,
+     "t1": 63.914
+    },
+    {
+     "w": "time",
+     "t0": 63.914,
+     "t1": 64.182
+    },
+    {
+     "w": "are",
+     "t0": 64.182,
+     "t1": 64.405
+    },
+    {
+     "w": "full",
+     "t0": 64.405,
+     "t1": 64.673
+    },
+    {
+     "w": "of",
+     "t0": 64.673,
+     "t1": 64.851
+    },
+    {
+     "w": "meteorite",
+     "t0": 64.851,
+     "t1": 65.342
+    },
+    {
+     "w": "debris.",
+     "t0": 65.342,
+     "t1": 65.743
+    }
+   ],
+   "characters": [
+    {
+     "cast": "omar",
+     "pos": [
+      -0.6,
+      0,
+      0.6
+     ],
+     "anim": "kneel",
+     "expr": "grin",
+     "face": 20
+    },
+    {
+     "cast": "lina",
+     "pos": [
+      0.9,
+      0,
+      0.6
+     ],
+     "anim": "nod",
+     "expr": "smile",
+     "face": -20
+    }
+   ],
+   "world": "desert",
+   "props": [
+    {
+     "type": "box",
+     "color": "#b9774a",
+     "size": [
+      5,
+      0.45,
+      1
+     ],
+     "pos": [
+      0,
+      0.22,
+      -1.6
+     ]
+    },
+    {
+     "type": "box",
+     "color": "#6e4a35",
+     "size": [
+      5,
+      0.45,
+      1
+     ],
+     "pos": [
+      0,
+      0.67,
+      -1.6
+     ]
+    },
+    {
+     "type": "box",
+     "color": "#c99a6a",
+     "size": [
+      5,
+      0.45,
+      1
+     ],
+     "pos": [
+      0,
+      1.12,
+      -1.6
+     ]
+    },
+    {
+     "type": "sphere",
+     "color": "#3a2e2a",
+     "size": [
+      0.12
+     ],
+     "pos": [
+      -2.0,
+      0.67,
+      -1.08
+     ]
+    },
+    {
+     "type": "sphere",
+     "color": "#3a2e2a",
+     "size": [
+      0.12
+     ],
+     "pos": [
+      -1.5,
+      0.67,
+      -1.08
+     ]
+    },
+    {
+     "type": "sphere",
+     "color": "#3a2e2a",
+     "size": [
+      0.12
+     ],
+     "pos": [
+      -1.0,
+      0.67,
+      -1.08
+     ]
+    },
+    {
+     "type": "sphere",
+     "color": "#3a2e2a",
+     "size": [
+      0.12
+     ],
+     "pos": [
+      -0.5,
+      0.67,
+      -1.08
+     ]
+    },
+    {
+     "type": "sphere",
+     "color": "#3a2e2a",
+     "size": [
+      0.12
+     ],
+     "pos": [
+      0.0,
+      0.67,
+      -1.08
+     ]
+    },
+    {
+     "type": "sphere",
+     "color": "#3a2e2a",
+     "size": [
+      0.12
+     ],
+     "pos": [
+      0.5,
+      0.67,
+      -1.08
+     ]
+    },
+    {
+     "type": "sphere",
+     "color": "#3a2e2a",
+     "size": [
+      0.12
+     ],
+     "pos": [
+      1.0,
+      0.67,
+      -1.08
+     ]
+    },
+    {
+     "type": "sphere",
+     "color": "#3a2e2a",
+     "size": [
+      0.12
+     ],
+     "pos": [
+      1.5,
+      0.67,
+      -1.08
+     ]
+    },
+    {
+     "type": "sphere",
+     "color": "#3a2e2a",
+     "size": [
+      0.12
+     ],
+     "pos": [
+      2.0,
+      0.67,
+      -1.08
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     1.8,
+     6.5
+    ],
+    "to": [
+     0,
+     1.4,
+     5.6
+    ],
+    "look": [
+     0,
+     0.8,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "METEORITE DEBRIS IN THE ROCKS",
+     "t0": 63.269999999999996,
+     "t1": 65.88,
+     "y": 420,
+     "size": 44,
+     "accent": "#6e4a35"
+    }
+   ]
+  },
+  {
+   "start": 65.88,
+   "end": 71.82,
+   "line": "Here's the twist: the ring may have lasted around forty million years, and cast a shadow over the tropics.",
+   "words": [
+    {
+     "w": "Here's",
+     "t0": 66.023,
+     "t1": 66.382
+    },
+    {
+     "w": "the",
+     "t0": 66.382,
+     "t1": 66.607
+    },
+    {
+     "w": "twist:",
+     "t0": 66.607,
+     "t1": 66.966
+    },
+    {
+     "w": "the",
+     "t0": 66.966,
+     "t1": 67.191
+    },
+    {
+     "w": "ring",
+     "t0": 67.191,
+     "t1": 67.46
+    },
+    {
+     "w": "may",
+     "t0": 67.46,
+     "t1": 67.685
+    },
+    {
+     "w": "have",
+     "t0": 67.685,
+     "t1": 67.954
+    },
+    {
+     "w": "lasted",
+     "t0": 67.954,
+     "t1": 68.314
+    },
+    {
+     "w": "around",
+     "t0": 68.314,
+     "t1": 68.673
+    },
+    {
+     "w": "forty",
+     "t0": 68.673,
+     "t1": 68.987
+    },
+    {
+     "w": "million",
+     "t0": 68.987,
+     "t1": 69.391
+    },
+    {
+     "w": "years,",
+     "t0": 69.391,
+     "t1": 69.751
+    },
+    {
+     "w": "and",
+     "t0": 69.751,
+     "t1": 69.975
+    },
+    {
+     "w": "cast",
+     "t0": 69.975,
+     "t1": 70.245
+    },
+    {
+     "w": "a",
+     "t0": 70.245,
+     "t1": 70.38
+    },
+    {
+     "w": "shadow",
+     "t0": 70.38,
+     "t1": 70.739
+    },
+    {
+     "w": "over",
+     "t0": 70.739,
+     "t1": 71.008
+    },
+    {
+     "w": "the",
+     "t0": 71.008,
+     "t1": 71.233
+    },
+    {
+     "w": "tropics.",
+     "t0": 71.233,
+     "t1": 71.682
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.25,
+     "barren": true
+    },
+    {
+     "type": "ring",
+     "color": "#ffe6a8",
+     "size": [
+      2.2,
+      3.6
+     ],
+     "rot": [
+      0.35,
+      0,
+      0
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "type": "shadowband",
+     "size": [
+      3,
+      0.9
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "appear": {
+      "t0": 67.807,
+      "t1": 69.607
+     }
+    }
+   ],
+   "camera": {
+    "from": [
+     3,
+     1.5,
+     10
+    ],
+    "to": [
+     -1,
+     1,
+     8.5
+    ],
+    "look": [
+     0,
+     0,
+     0
+    ]
+   },
+   "drop": true,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "THE TWIST",
+     "t0": 66.507,
+     "t1": 68.807,
+     "y": 330,
+     "size": 120,
+     "color": "#ffd84d"
+    },
+    {
+     "type": "badge",
+     "text": "RING: ~40 MILLION YEARS?",
+     "t0": 68.473,
+     "t1": 71.82,
+     "y": 420,
+     "accent": "#2f9bff"
+    }
+   ]
+  },
+  {
+   "start": 71.82,
+   "end": 77.86,
+   "line": "Millions of years later, Earth plunged into one of its coldest periods in 500 million years.",
+   "words": [
+    {
+     "w": "Millions",
+     "t0": 71.962,
+     "t1": 72.491
+    },
+    {
+     "w": "of",
+     "t0": 72.491,
+     "t1": 72.702
+    },
+    {
+     "w": "years",
+     "t0": 72.702,
+     "t1": 73.072
+    },
+    {
+     "w": "later,",
+     "t0": 73.072,
+     "t1": 73.495
+    },
+    {
+     "w": "Earth",
+     "t0": 73.495,
+     "t1": 73.865
+    },
+    {
+     "w": "plunged",
+     "t0": 73.865,
+     "t1": 74.341
+    },
+    {
+     "w": "into",
+     "t0": 74.341,
+     "t1": 74.658
+    },
+    {
+     "w": "one",
+     "t0": 74.658,
+     "t1": 74.922
+    },
+    {
+     "w": "of",
+     "t0": 74.922,
+     "t1": 75.134
+    },
+    {
+     "w": "its",
+     "t0": 75.134,
+     "t1": 75.398
+    },
+    {
+     "w": "coldest",
+     "t0": 75.398,
+     "t1": 75.874
+    },
+    {
+     "w": "periods",
+     "t0": 75.874,
+     "t1": 76.35
+    },
+    {
+     "w": "in",
+     "t0": 76.35,
+     "t1": 76.561
+    },
+    {
+     "w": "500",
+     "t0": 76.561,
+     "t1": 76.825
+    },
+    {
+     "w": "million",
+     "t0": 76.825,
+     "t1": 77.301
+    },
+    {
+     "w": "years.",
+     "t0": 77.301,
+     "t1": 77.724
+    }
+   ],
+   "characters": [
+    {
+     "cast": "mom",
+     "pos": [
+      -1.6,
+      0,
+      0.6
+     ],
+     "anim": "hug",
+     "outfit": "scarf",
+     "scarf": "#4a90e2",
+     "expr": "worried"
+    },
+    {
+     "cast": "kid",
+     "pos": [
+      -0.8,
+      0,
+      1.0
+     ],
+     "anim": "shiver",
+     "outfit": "scarf",
+     "expr": "worried"
+    },
+    {
+     "cast": "dad",
+     "pos": [
+      0.5,
+      0,
+      0.8
+     ],
+     "anim": "shiver",
+     "outfit": "scarf",
+     "scarf": "#e84a5f",
+     "expr": "worried"
+    },
+    {
+     "cast": "lina",
+     "pos": [
+      1.6,
+      0,
+      0.5
+     ],
+     "anim": "scared",
+     "outfit": "scarf",
+     "expr": "wow"
+    }
+   ],
+   "world": "ice",
+   "props": [
+    {
+     "type": "frost",
+     "size": [
+      9
+     ],
+     "pos": [
+      0,
+      0.02,
+      0
+     ],
+     "appear": {
+      "t0": 71.82,
+      "t1": 74.32,
+      "grow": true
+     }
+    },
+    {
+     "type": "sphere",
+     "color": "#ffffff",
+     "size": [
+      0.15
+     ],
+     "pos": [
+      -2,
+      0,
+      0
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#ffffff",
+     "size": [
+      0.15
+     ],
+     "pos": [
+      -0.5,
+      0,
+      -1
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#ffffff",
+     "size": [
+      0.15
+     ],
+     "pos": [
+      1,
+      0,
+      0.5
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#ffffff",
+     "size": [
+      0.15
+     ],
+     "pos": [
+      2,
+      0,
+      -0.5
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#ffffff",
+     "size": [
+      0.15
+     ],
+     "pos": [
+      0,
+      0,
+      1.5
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#ffffff",
+     "size": [
+      0.15
+     ],
+     "pos": [
+      -1.5,
+      0,
+      1
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#ffffff",
+     "size": [
+      0.15
+     ],
+     "pos": [
+      2.4,
+      0,
+      1.2
+     ],
+     "fall": 6
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2.6,
+     9.5
+    ],
+    "to": [
+     0,
+     2.0,
+     8.4
+    ],
+    "look": [
+     0,
+     1.1,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "ONE OF THE COLDEST IN 500M YEARS",
+     "t0": 75.098,
+     "t1": 77.86,
+     "y": 400,
+     "size": 42,
+     "accent": "#2f9bff"
+    }
+   ]
+  },
+  {
+   "start": 77.86,
+   "end": 84.17,
+   "line": "Did a ring help freeze the planet? It's still a hypothesis, and some scientists say the evidence isn't enough yet.",
+   "words": [
+    {
+     "w": "Did",
+     "t0": 78.004,
+     "t1": 78.227
+    },
+    {
+     "w": "a",
+     "t0": 78.227,
+     "t1": 78.361
+    },
+    {
+     "w": "ring",
+     "t0": 78.361,
+     "t1": 78.628
+    },
+    {
+     "w": "help",
+     "t0": 78.628,
+     "t1": 78.896
+    },
+    {
+     "w": "freeze",
+     "t0": 78.896,
+     "t1": 79.253
+    },
+    {
+     "w": "the",
+     "t0": 79.253,
+     "t1": 79.476
+    },
+    {
+     "w": "planet?",
+     "t0": 79.476,
+     "t1": 79.877
+    },
+    {
+     "w": "It's",
+     "t0": 79.877,
+     "t1": 80.145
+    },
+    {
+     "w": "still",
+     "t0": 80.145,
+     "t1": 80.457
+    },
+    {
+     "w": "a",
+     "t0": 80.457,
+     "t1": 80.591
+    },
+    {
+     "w": "hypothesis,",
+     "t0": 80.591,
+     "t1": 81.171
+    },
+    {
+     "w": "and",
+     "t0": 81.171,
+     "t1": 81.394
+    },
+    {
+     "w": "some",
+     "t0": 81.394,
+     "t1": 81.661
+    },
+    {
+     "w": "scientists",
+     "t0": 81.661,
+     "t1": 82.196
+    },
+    {
+     "w": "say",
+     "t0": 82.196,
+     "t1": 82.419
+    },
+    {
+     "w": "the",
+     "t0": 82.419,
+     "t1": 82.642
+    },
+    {
+     "w": "evidence",
+     "t0": 82.642,
+     "t1": 83.088
+    },
+    {
+     "w": "isn't",
+     "t0": 83.088,
+     "t1": 83.401
+    },
+    {
+     "w": "enough",
+     "t0": 83.401,
+     "t1": 83.757
+    },
+    {
+     "w": "yet.",
+     "t0": 83.757,
+     "t1": 84.025
+    }
+   ],
+   "characters": [
+    {
+     "cast": "maya",
+     "pos": [
+      -1.8,
+      0,
+      0.7
+     ],
+     "anim": "nod",
+     "expr": "grin"
+    },
+    {
+     "cast": "omar",
+     "pos": [
+      -0.6,
+      0,
+      1.0
+     ],
+     "anim": "talk",
+     "expr": "smile"
+    },
+    {
+     "cast": "lina",
+     "pos": [
+      0.6,
+      0,
+      1.0
+     ],
+     "anim": "no",
+     "expr": "worried"
+    },
+    {
+     "cast": "sam",
+     "pos": [
+      1.8,
+      0,
+      0.7
+     ],
+     "anim": "shrug",
+     "expr": "neutral"
+    }
+   ],
+   "world": "lab",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      1.0
+     ],
+     "pos": [
+      0,
+      3.4,
+      -2.6
+     ],
+     "spin": 0.5,
+     "barren": true
+    },
+    {
+     "type": "ring",
+     "color": "#ffe6a8",
+     "size": [
+      0.75,
+      1.15
+     ],
+     "pos": [
+      0,
+      3.4,
+      -2.6
+     ],
+     "rot": [
+      0.3,
+      0,
+      0
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     1,
+     2.3,
+     9.5
+    ],
+    "to": [
+     -1,
+     2.3,
+     9.0
+    ],
+    "look": [
+     0,
+     1.4,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "HYPOTHESIS \u00b7 NOT PROVEN YET",
+     "t0": 80.291,
+     "t1": 84.17,
+     "y": 380,
+     "size": 46,
+     "accent": "#444444"
+    }
+   ]
+  },
+  {
+   "start": 84.17,
+   "end": 87.54,
+   "line": "Look up tonight and picture a silver arch across the sky.",
+   "words": [
+    {
+     "w": "Look",
+     "t0": 84.305,
+     "t1": 84.595
+    },
+    {
+     "w": "up",
+     "t0": 84.595,
+     "t1": 84.788
+    },
+    {
+     "w": "tonight",
+     "t0": 84.788,
+     "t1": 85.223
+    },
+    {
+     "w": "and",
+     "t0": 85.223,
+     "t1": 85.464
+    },
+    {
+     "w": "picture",
+     "t0": 85.464,
+     "t1": 85.899
+    },
+    {
+     "w": "a",
+     "t0": 85.899,
+     "t1": 86.044
+    },
+    {
+     "w": "silver",
+     "t0": 86.044,
+     "t1": 86.43
+    },
+    {
+     "w": "arch",
+     "t0": 86.43,
+     "t1": 86.72
+    },
+    {
+     "w": "across",
+     "t0": 86.72,
+     "t1": 87.106
+    },
+    {
+     "w": "the",
+     "t0": 87.106,
+     "t1": 87.348
+    },
+    {
+     "w": "sky.",
+     "t0": 87.348,
+     "t1": 87.638
+    }
+   ],
+   "characters": [
+    {
+     "cast": "dad",
+     "pos": [
+      -0.9,
+      0,
+      -2.5
+     ],
+     "anim": "point",
+     "expr": "wow"
+    },
+    {
+     "cast": "kid",
+     "pos": [
+      -0.9,
+      1.3,
+      -2.6
+     ],
+     "anim": "cheer",
+     "expr": "grin"
+    },
+    {
+     "cast": "mom",
+     "pos": [
+      1.0,
+      0,
+      -2.5
+     ],
+     "anim": "lookup",
+     "expr": "wow"
+    }
+   ],
+   "world": "duskfield",
+   "props": [
+    {
+     "type": "skyring",
+     "size": [
+      34
+     ],
+     "pos": [
+      0,
+      9,
+      -40
+     ],
+     "tilt": 0.55
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     0.8,
+     8
+    ],
+    "to": [
+     0,
+     0.5,
+     6.8
+    ],
+    "look": [
+     0,
+     13.5,
+     -20
+    ]
+   },
+   "energy": 1,
+   "shimmer": true
+  },
+  {
+   "start": 87.54,
+   "end": 93.06,
+   "line": "Earth might have had one. Proof, or a one-in-twenty-five-million coincidence? Tell me below.",
+   "words": [
+    {
+     "w": "Earth",
+     "t0": 87.638,
+     "t1": 87.976
+    },
+    {
+     "w": "might",
+     "t0": 87.976,
+     "t1": 88.314
+    },
+    {
+     "w": "have",
+     "t0": 88.314,
+     "t1": 88.603
+    },
+    {
+     "w": "had",
+     "t0": 88.603,
+     "t1": 88.845
+    },
+    {
+     "w": "one.",
+     "t0": 88.845,
+     "t1": 89.135
+    },
+    {
+     "w": "Proof,",
+     "t0": 89.135,
+     "t1": 89.521
+    },
+    {
+     "w": "or",
+     "t0": 89.521,
+     "t1": 89.714
+    },
+    {
+     "w": "a",
+     "t0": 89.714,
+     "t1": 89.859
+    },
+    {
+     "w": "one-in-twenty-five-million",
+     "t0": 89.859,
+     "t1": 91.211
+    },
+    {
+     "w": "coincidence?",
+     "t0": 91.211,
+     "t1": 91.888
+    },
+    {
+     "w": "Tell",
+     "t0": 91.888,
+     "t1": 92.177
+    },
+    {
+     "w": "me",
+     "t0": 92.177,
+     "t1": 92.371
+    },
+    {
+     "w": "below.",
+     "t0": 92.371,
+     "t1": 92.757
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.25,
+     "barren": true
+    },
+    {
+     "type": "ring",
+     "color": "#ffe6a8",
+     "size": [
+      2.2,
+      3.6
+     ],
+     "rot": [
+      0.35,
+      0,
+      0
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     2,
+     1.5,
+     9
+    ],
+    "to": [
+     0,
+     3,
+     13
+    ],
+    "look": [
+     0,
+     0,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "PROOF OR COINCIDENCE?",
+     "t0": 89.03500000000001,
+     "t1": 93.057,
+     "y": 330,
+     "size": 100,
+     "color": "#ffd84d"
+    }
+   ]
+  }
+ ]
+}

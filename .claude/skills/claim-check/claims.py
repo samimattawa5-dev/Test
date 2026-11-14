@@ -18,15 +18,16 @@ WORDNUM = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seve
 def words_to_numbers(text):
     """'twenty-one' -> 21, 'twenty-five million' -> 25000000 (enough for script narration)."""
     out = []; toks = re.findall(r"[a-z]+|\d[\d,]*", text.lower().replace("-", " "))
-    cur = None
+    total = cur = None
     for t in toks + ["_end"]:
         if t in WORDNUM or re.fullmatch(r"\d[\d,]*", t):
             v = WORDNUM.get(t) or int(t.replace(",", ""))
-            if cur is None: cur = v
-            elif v in (100, 1000, 10**6, 10**9): cur *= v
+            total = total or 0; cur = cur or 0
+            if v == 100: cur = (cur or 1) * 100
+            elif v >= 1000: total += (cur or 1) * v; cur = 0
             else: cur += v
         else:
-            if cur is not None: out.append(cur); cur = None
+            if total is not None: out.append(total + (cur or 0)); total = cur = None
     return out
 
 def nums(text):
@@ -63,7 +64,9 @@ def main():
                 pat = re.search(r"(one of|among)[^.\n]{0,40}" + w, fl)
                 if pat: notes.append(f'"{w}" without the qualifier the source uses ("{pat.group(0)[:40]}...")')
                 elif w not in ("every",): notes.append(f'superlative "{w}" - check the source says exactly this')
-        if hypo and PROVEN.search(text) and not any(q in low for q in ("may", "might", "could", "idea", "if")):
+        pm = PROVEN.search(text)
+        if pm and re.search(r"\b(not|n't|never|isn't|aren't|unproven)\W+(yet\W+)?$", text[:pm.start()].lower()): pm = None
+        if hypo and pm and not any(q in low for q in ("may", "might", "could", "idea", "if")):
             notes.append(f'"{PROVEN.search(text).group(0)}" states the hypothesis as fact - add may/could or "scientists think"')
         tl = TIMELINK.search(text)
         if tl and tl.group(0).lower() != "then": notes.append(f'time link "{tl.group(0)}" - check the dates in the sources really line up')
