@@ -148,3 +148,9 @@ For money on TikTok, plan 61-90 s; keep hair simple and spend detail on bodies, 
 - `viral-predictor` - after the render: estimated % chance to go viral (with band and score) + the 3 changes that raise it most.
 - Characters act on their own now: calm poses (idle/talk/point/nod/lookup) rotate every ~2 s and characters step around their mark with moving legs.
   Turn off per character with `"auto": false` / `"wander": false`, or for the whole video with `"autoActing": false`. Characters sitting on others (kid on shoulders) need both off.
+
+## Motion-graphics frameworks (installed, use for overlays and 2D explainer beats)
+- `hyperframes` + `hyperframes-cli` + `motion-doctrine`/`cut-the-curve`/`seam-craft`/`captions-overlay` (HeyGen, Apache-2.0): HTML -> video with `window.seek(t)` like our engine; use its motion law (exit vector = entry vector, no idle wobble, carrier elements across cuts) and `reverse-any-video` to rebuild a reference video's grammar (never copy its content).
+- `manim-skill` (MIT): math/physics diagrams (Roche limit, orbits, graphs) rendered as clips to drop into a shot. Needs `pip install manim`.
+- iArt packs (MIT): `short-form-video`, `caption-animation`, `countdown-video`, `lower-thirds`, `explainer-video`, `diagram-animation`, `isometric-animation`, `whiteboard-animation`, `wrapped-video`, `kinetic-typography`, `threejs-animation`, `particle-system`, `shader-glsl`.
+- Not installed: Remotion skills (no licence file in the repo, and Remotion needs a paid company licence for teams over 3; we render with our own three.js engine) and HyperFrames `style-sampling` (paid Pro templates).
