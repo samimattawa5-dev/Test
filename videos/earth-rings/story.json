@@ -125,7 +125,17 @@
     ]
    },
    "energy": 1,
-   "shimmer": true
+   "shimmer": true,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "466 MILLION YEARS AGO",
+     "t0": 0.45,
+     "t1": 4.9,
+     "y": 400,
+     "size": 104
+    }
+   ]
   },
   {
    "start": 5.14,
@@ -201,7 +211,15 @@
       0,
       1
      ],
-     "anim": "idle"
+     "anim": "inspect",
+     "outfit": "labcoat",
+     "glasses": true,
+     "hold": "magnifier",
+     "expr": "wow",
+     "hair": {
+      "style": "bob",
+      "color": "#6b3e26"
+     }
     }
    ],
    "props": [
@@ -214,18 +232,6 @@
       1,
       0.05,
       -0.5
-     ]
-    },
-    {
-     "type": "sphere",
-     "color": "#9fd3ff",
-     "size": [
-      0.5
-     ],
-     "pos": [
-      -0.2,
-      1.1,
-      1.4
      ]
     }
    ],
@@ -319,7 +325,14 @@
       0,
       3
      ],
-     "anim": "wave"
+     "anim": "wave",
+     "outfit": "labcoat",
+     "glasses": true,
+     "expr": "grin",
+     "hair": {
+      "style": "bob",
+      "color": "#6b3e26"
+     }
     }
    ],
    "props": [
@@ -430,7 +443,18 @@
      -1
     ]
    },
-   "energy": 1
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "counter",
+     "to": 21,
+     "label": "IMPACT CRATERS",
+     "t0": 9.9,
+     "t1": 13.9,
+     "y": 380,
+     "from": 0
+    }
+   ]
   },
   {
    "start": 14.02,
@@ -538,7 +562,17 @@
      0
     ]
    },
-   "energy": 1
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "ALL NEAR THE EQUATOR",
+     "t0": 15.2,
+     "t1": 17.9,
+     "y": 430,
+     "accent": "#ff4d6d"
+    }
+   ]
   },
   {
    "start": 17.99,
@@ -624,7 +658,13 @@
       0,
       0.5
      ],
-     "anim": "bounce"
+     "anim": "bounce",
+     "outfit": "labcoat",
+     "expr": "wow",
+     "hair": {
+      "style": "spiky",
+      "color": "#222"
+     }
     },
     {
      "color": "#c77dff",
@@ -633,7 +673,14 @@
       0,
       0.5
      ],
-     "anim": "idle"
+     "anim": "idle",
+     "hold": "clipboard",
+     "glasses": true,
+     "expr": "worried",
+     "hair": {
+      "style": "bun",
+      "color": "#a0522d"
+     }
     }
    ],
    "props": [
@@ -686,7 +733,21 @@
      0
     ]
    },
-   "energy": 2
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "counter",
+     "to": 25000000,
+     "prefix": "1 IN ",
+     "size": 130,
+     "label": "ODDS BY CHANCE",
+     "t0": 20.3,
+     "t1": 22.8,
+     "y": 400,
+     "dur": 1.3,
+     "from": 1
+    }
+   ]
   },
   {
    "start": 22.85,
@@ -1177,7 +1238,9 @@
       0,
       1.5
      ],
-     "anim": "run"
+     "anim": "run",
+     "outfit": "explorer",
+     "expr": "worried"
     }
    ],
    "props": [
@@ -1454,7 +1517,18 @@
      0
     ]
    },
-   "drop": true
+   "drop": true,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "THE TWIST",
+     "t0": 36.2,
+     "t1": 38.6,
+     "y": 420,
+     "size": 120,
+     "color": "#ffd84d"
+    }
+   ]
   },
   {
    "start": 40.58,
@@ -1550,7 +1624,14 @@
       0,
       0.5
      ],
-     "anim": "shiver"
+     "anim": "shiver",
+     "outfit": "scarf",
+     "scarf": "#4a90e2",
+     "expr": "worried",
+     "hair": {
+      "style": "bun",
+      "color": "#3a2a20"
+     }
     },
     {
      "color": "#ffd86b",
@@ -1559,7 +1640,13 @@
       0,
       0.5
      ],
-     "anim": "shiver"
+     "anim": "shiver",
+     "outfit": "scarf",
+     "expr": "worried",
+     "hair": {
+      "style": "cap",
+      "color": "#e84a5f"
+     }
     }
    ],
    "props": [
@@ -1712,7 +1799,18 @@
      0
     ]
    },
-   "energy": 1
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "COLDEST IN 500 MILLION YEARS",
+     "t0": 42.4,
+     "t1": 46.7,
+     "y": 420,
+     "size": 46,
+     "accent": "#2f9bff"
+    }
+   ]
   },
   {
    "start": 46.88,
@@ -1788,7 +1886,13 @@
       0,
       0.5
      ],
-     "anim": "bounce"
+     "anim": "bounce",
+     "outfit": "labcoat",
+     "expr": "grin",
+     "hair": {
+      "style": "spiky",
+      "color": "#222"
+     }
     },
     {
      "color": "#c77dff",
@@ -1797,7 +1901,14 @@
       0,
       0.5
      ],
-     "anim": "no"
+     "anim": "no",
+     "hold": "clipboard",
+     "glasses": true,
+     "expr": "neutral",
+     "hair": {
+      "style": "bun",
+      "color": "#a0522d"
+     }
     }
    ],
    "props": [
@@ -1850,7 +1961,18 @@
      0
     ]
    },
-   "energy": 2
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "HYPOTHESIS \u00b7 MONASH 2024",
+     "t0": 49.1,
+     "t1": 50.9,
+     "y": 430,
+     "size": 46,
+     "accent": "#444"
+    }
+   ]
   },
   {
    "start": 50.99,
@@ -1926,7 +2048,12 @@
       0,
       2
      ],
-     "anim": "lookup"
+     "anim": "lookup",
+     "expr": "wow",
+     "hair": {
+      "style": "tuft",
+      "color": "#3a2a20"
+     }
     }
    ],
    "props": [

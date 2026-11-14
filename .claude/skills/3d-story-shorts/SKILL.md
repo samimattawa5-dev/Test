@@ -54,7 +54,14 @@ Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check Yo
     "start": 0, "end": 4, "line": "voiceover text for this shot",
     "words": [{"w":"They","t0":0,"t1":0.3}],            // optional exact word timing
     "world": "office|prison|city|lab|space|desert|ocean|ice|dusk",
-    "characters": [{"color":"#7ad0ff","pos":[x,y,z],"anim":"idle|wave|bounce|spin|walk|run|shiver|no|lookup"}],
+    "characters": [{"color":"#7ad0ff","pos":[x,y,z],"anim":"idle|wave|bounce|spin|walk|run|shiver|no|lookup|point|inspect",
+                    "skin":"#hex", "pants":"#hex", "shoes":"#hex",
+                    "hair":{"style":"tuft|bob|spiky|bun|cap|bald","color":"#hex"},
+                    "outfit":"labcoat|explorer|scarf|none", "scarf":"#hex", "glasses":true,
+                    "expr":"smile|grin|wow|worried|neutral", "hold":"magnifier|clipboard", "scale":1.0}],
+    "overlays": [{"type":"title","text":"466 MILLION YEARS AGO","t0":0.45,"t1":4.9,"y":400,"size":104,"color":"#fff"},
+                 {"type":"counter","from":0,"to":21,"prefix":"","suffix":"","label":"IMPACT CRATERS","t0":9.9,"t1":13.9,"y":380,"dur":1.1},
+                 {"type":"badge","text":"HYPOTHESIS · MONASH 2024","t0":49.1,"t1":50.9,"y":430,"accent":"#444"}],
     "props": [{"type":"box|sphere|cylinder|cone|torus|rock|ring|earth|crater|lamp","color":"#hex","pos":[x,y,z],"size":[w,h,d],
                "rot":[x,y,z], "spin":1.0, "glow":true,
                "move":[x,y,z],                                  // slide from pos to here during the shot
@@ -70,10 +77,12 @@ Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check Yo
 - In a cloud session, Higgsfield results download from `d8j0ntlcm91z4.cloudfront.net` (must be an allowed host). Headless render there: `CHROME_PATH=/opt/pw-browsers/chromium`. Always move the camera (`from` != `to`).
 - Shots must be contiguous (`end` of one = `start` of next).
 - Look (on by default): toon shading + ink outlines (`"outline": false` / `"ink": "#hex"` at top level), blinking eyes, vignette, smootherstep camera, small alternating camera roll (`camera.roll` in degrees to override).
+- Characters: give each recurring person a fixed look (same color/hair/outfit across shots) so viewers recognise them; match `expr` to the line (wow on surprises, worried on danger).
+- Overlays (motion graphics, times are global seconds, `y` in 1080x1920 px): keep `y` between 360 and 1420 (TikTok/Reels safe zone). Use a `counter` for every number the voice says, a `title` for the hook date/fact, a `badge` for labels - and a badge saying "hypothesis"/"theory" when a claim is not proven. Words reveal from a mask with a spring, counters tick with a pop label; each overlay gets a pop SFX automatically.
 - Per-shot extras: `"flash": true` (white flash at shot start - use right after the hook), `"kicks": [t,...]` (impact shake + boom SFX at global seconds), `"energy": 0-2` (music intensity), `"drop": true` (music drops to pad - use on the twist), `"shimmer": true` (sparkle SFX).
 
 ## Music + SFX (free, original, no credits)
-`python3 tools/make_bed.py story.json voiceover.wav bed.wav` (numpy) writes an original score (pad, arpeggio, bass, soft drums following each shot's `energy`/`drop`) + whooshes on cuts, booms on `kicks`, shimmers - ducked under the voice. Set `"bed": "bed.wav"` and `"mood": "wonder|tense|playful"` in story.json. `render.mjs` mixes voice + bed and normalises to -14 LUFS (YouTube/TikTok/Reels level). Generate the bed AFTER the timing is final.
+`python3 tools/make_bed.py story.json voiceover.wav bed.wav` (numpy) writes an original score (pad, arpeggio, bass, soft drums following each shot's `energy`/`drop`) + real CC0 SFX from `tools/sfx/` (whoosh on cuts, impact on `kicks`, riser into the `drop`, pop + ticks on overlays; credits in `tools/sfx/CREDITS.txt`) - music ducked under the voice. Set `"bed": "bed.wav"` and `"mood": "wonder|tense|playful"` in story.json. `render.mjs` mixes voice + bed and normalises to -14 LUFS (YouTube/TikTok/Reels level). Generate the bed AFTER the timing is final.
 - Need a new world/prop/animation? Edit `scene.js` (`WORLDS`, `makeProp`, `animate`).
 - Captions: one word at a time, from `line` (or `words`).
 

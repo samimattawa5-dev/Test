@@ -5,8 +5,10 @@ Needs numpy. Writes a 48 kHz stereo WAV the length of the voiceover.
 Music: chord pad + plucked arpeggio + sub bass + soft drums, sections follow the shots.
 SFX: whoosh on every cut, boom on every shot "kicks" time, shimmer on shots with "shimmer": true.
 """
-import json, sys, wave, subprocess
+import json, os, sys, wave, subprocess
 import numpy as np
+
+SFX_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sfx")  # real CC0 sounds (see sfx/CREDITS.txt)
 
 SR = 48000
 rng = np.random.default_rng(7)
@@ -109,11 +111,27 @@ def main():
         if e >= 2:
             for k in (0, 2): add(music, kick(), t0 + k * beat, 0.55)
             for k in range(8): add(music, hat(), t0 + k * beat / 2 + 0.003, 0.5 if k % 2 else 0.25, 0.5)
-    # SFX
+    # SFX: real CC0 recordings when tools/sfx/*.ogg exist, synth fallback otherwise
+    real = {}
+    for k in ("whoosh", "impact", "pop", "riser", "tick"):
+        f = os.path.join(SFX_DIR, k + ".ogg")
+        if os.path.exists(f):
+            x = read_wav(f); real[k] = x / (np.abs(x).max() + 1e-9)
+    W = real.get("whoosh"); I = real.get("impact"); Pp = real.get("pop"); Rs = real.get("riser"); Tk = real.get("tick")
     for i, s in enumerate(shots):
-        if i > 0: add(sfx, whoosh(), s["start"] - 0.25, 0.22, 0.4 if i % 2 else -0.4)
-        for kt in s.get("kicks", []): add(sfx, boom(), kt, 0.5)
+        if i > 0:
+            if W is not None: add(sfx, W, s["start"] - min(0.3, len(W) / SR / 2), 0.35, 0.4 if i % 2 else -0.4)
+            else: add(sfx, whoosh(), s["start"] - 0.25, 0.22, 0.4 if i % 2 else -0.4)
+        for kt in s.get("kicks", []):
+            add(sfx, boom(), kt, 0.4)
+            if I is not None: add(sfx, I, kt, 0.6)
         if s.get("shimmer"): add(sfx, shimmer(), s["start"] + 0.1, 0.6, 0.2)
+        if s.get("drop") and Rs is not None: add(sfx, Rs, s["start"] - len(Rs) / SR, 0.45)  # riser ends on the twist
+        for o in s.get("overlays", []):
+            if Pp is not None: add(sfx, Pp, o["t0"] + 0.05, 0.5)
+            if o.get("type") == "counter" and Tk is not None:
+                n = 8; d = o.get("dur", 1.1)
+                for j in range(n): add(sfx, Tk, o["t0"] + d * (1 - (1 - j / n) ** 0.5), 0.18)
     # duck music under the voice (sfx stays)
     win = int(0.05 * SR)
     venv = np.sqrt(np.convolve(voice ** 2, np.ones(win) / win, mode="same"))

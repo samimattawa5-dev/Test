@@ -1,0 +1,6 @@
+CC0 sound effects copied from the sound-effects skill (Barty-Bart/motion-graphics, MIT). Credits (CC0 needs none, kept as proof of source):
+- whoosh.ogg: "Whoosh" by qubodup (https://freesound.org/people/qubodup/sounds/60013/), CC0
+- pop.ogg: "POP SFX Neutral" by ethernel0 (https://freesound.org/people/ethernel0/sounds/776016/), CC0
+- riser.ogg: "Cinematic Riser #3 subtle" by BeaconStudio (https://freesound.org/people/BeaconStudio/sounds/859482/), CC0
+- impact.ogg: "soft_impact3" by peoplearehappy (https://freesound.org/people/peoplearehappy/sounds/841274/), CC0
+- tick.ogg: "Click / Tick" by Squirrel_404 (https://freesound.org/people/Squirrel_404/sounds/683048/), CC0
