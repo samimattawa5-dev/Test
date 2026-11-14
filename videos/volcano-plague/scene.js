@@ -330,7 +330,7 @@ OV.style.cssText = `z-index:3;position:absolute;left:0;top:0;width:${story.width
 wrap.appendChild(OV);
 const ovEls = [];
 story.shots.forEach(sh => (sh.overlays || []).forEach(o => {
-  const el = document.createElement('div'); el.style.cssText = `position:absolute;left:0;right:0;top:${o.y || 420}px;text-align:center;opacity:0`;
+  const el = document.createElement('div'); el.style.cssText = `position:absolute;left:65px;right:130px;top:${o.y || 420}px;text-align:center;opacity:0`;
   if (o.type === 'title') {
     el.innerHTML = o.text.split(' ').map(w => `<span style="display:inline-block;overflow:hidden;vertical-align:top;padding:0 10px"><span class="w" style="display:inline-block;font-size:${o.size || 112}px;line-height:1.1;-webkit-text-stroke:16px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);color:${o.color || '#fff'}">${w}</span></span>`).join('');
   } else if (o.type === 'counter') {

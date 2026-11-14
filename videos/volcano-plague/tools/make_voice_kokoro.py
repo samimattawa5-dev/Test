@@ -21,7 +21,7 @@ LINES = [
  "The ships most likely carried fleas, feeding on grain dust.",
  "Milan and Rome apparently did not need grain imports after thirteen forty-five.",
  "They were most probably not affected.",
- "Nobody knows which volcano it was. And some historians are not convinced.",
+ "Nobody knows which volcano it was. And some historians are cautious.",
  "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?",
  "And Europe's plague may have begun under a Moon like this.",
 ]

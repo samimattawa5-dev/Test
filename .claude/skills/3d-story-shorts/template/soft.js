@@ -347,7 +347,7 @@ export function makeProp(p) {
       const band = new THREE.Mesh(new THREE.CylinderGeometry(s[0] / 2 + 0.006, s[0] / 2 + 0.006, L * 0.06, 24, 1, true), M.glow('#ffd84d', 2.5)); band.position.y = (p.bandAt ?? 0.1) * L; band.name = 'iceband'; m.add(band); m.rotation.z = p.lie ? Math.PI / 2 : 0; break; }
     case 'volcano': { // cone + smoke puffs that rise after erupt (global s); big: true = full eruption (lava streams, glow, ash column, lava bombs)
       m = new THREE.Group(); const H = s[1] || 1.2, Rb = s[0] / 2, big = !!p.big;
-      const rockTex = big ? canvasTex(256, 256, (ctx, w, h) => { ctx.fillStyle = '#3b2f2b'; ctx.fillRect(0, 0, w, h); for (let i = 0; i < 9; i++) { const x0 = (i * 29 + 11) % w; ctx.beginPath(); ctx.moveTo(x0, 0); for (let y = 0; y <= h * (0.35 + 0.07 * (i % 5)); y += 8) ctx.lineTo(x0 + Math.sin(y * 0.05 + i) * 9, y); ctx.lineWidth = 5 + (i % 3) * 2; ctx.strokeStyle = '#ff5a1a'; ctx.shadowColor = '#ffb040'; ctx.shadowBlur = 10; ctx.stroke(); } }) : null;
+      const rockTex = big ? canvasTex(256, 256, (ctx, w, h) => { ctx.fillStyle = '#2b2422'; ctx.fillRect(0, 0, w, h); for (let i = 0; i < 400; i++) { ctx.fillStyle = i % 2 ? 'rgba(90,74,66,0.35)' : 'rgba(20,16,15,0.35)'; ctx.fillRect((i * 37) % w, (i * 53) % h, 6 + i % 9, 3 + i % 5); } ctx.fillStyle = '#ff7a2a'; ctx.fillRect(0, 0, w, 6); for (let i = 0; i < 5; i++) { const x0 = (i * 53 + 20) % w; ctx.beginPath(); ctx.moveTo(x0, 0); for (let y = 0; y <= h * (0.3 + 0.1 * (i % 4)); y += 8) ctx.lineTo(x0 + Math.sin(y * 0.05 + i) * 9, y); ctx.lineWidth = 3 + (i % 2) * 2; ctx.strokeStyle = '#ff5a1a'; ctx.shadowColor = '#ffb040'; ctx.shadowBlur = 10; ctx.stroke(); } }) : null;
       const coneM = big ? new THREE.MeshStandardMaterial({ map: rockTex, emissiveMap: rockTex, emissive: C('#ffffff'), emissiveIntensity: 0.9, roughness: 1, fog: false }) : M.matte('#5a4a42', 0.95);
       m.add(part(new THREE.ConeGeometry(Rb, H, 32, 1, !big), coneM));
       if (big) { const gl = new THREE.PointLight('#ff6a2a', 6, Rb * 6, 1.5); gl.position.y = H * 0.6; gl.name = 'vglow'; m.add(gl);
@@ -355,7 +355,7 @@ export function makeProp(p) {
         for (let k = 0; k < 10; k++) { const b = new THREE.Mesh(new THREE.SphereGeometry(Rb * 0.035, 8, 6), new THREE.MeshBasicMaterial({ color: '#ffb347', fog: false })); b.name = 'bomb'; b.userData.k = k; b.position.y = H / 2; m.add(b); } }
       const lava = part(new THREE.CircleGeometry(Rb * 0.18, 16), M.glow('#ff6a2a', 2.5), false); lava.rotation.x = -Math.PI / 2; lava.position.y = H / 2 - 0.02; m.add(lava);
       const smoke = canvasTex(128, 128, (ctx, w) => { for (let i = 0; i < 7; i++) { const x = w * (0.3 + 0.4 * ((i * 37) % 10) / 10), y = w * (0.3 + 0.4 * ((i * 53) % 10) / 10), r = w * (0.22 + 0.04 * (i % 3)); const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, 'rgba(255,255,255,0.55)'); g.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, w, w); } });
-      const NP = big ? 30 : 14; for (let k = 0; k < NP; k++) { const puff = new THREE.Sprite(new THREE.SpriteMaterial({ map: smoke, color: big ? (k % 4 === 0 ? '#8a4a32' : k % 2 ? '#2e2826' : '#4a403c') : k % 3 ? '#5a5350' : '#7a706a', transparent: true, opacity: 0, depthWrite: false, fog: !big })); const sz = Rb * (big ? 0.5 + (k % 5) * 0.12 : 0.35 + (k % 4) * 0.08); puff.scale.setScalar(sz); puff.position.y = H / 2; puff.name = 'puff'; puff.userData.k = k; puff.userData.sz = sz; m.add(puff); }
+      const NP = big ? 30 : 14; for (let k = 0; k < NP; k++) { const puff = new THREE.Sprite(new THREE.SpriteMaterial({ map: smoke, color: big ? (k % 4 === 0 ? '#c0704a' : k % 2 ? '#6d625c' : '#8d8079') : k % 3 ? '#5a5350' : '#7a706a', transparent: true, opacity: 0, depthWrite: false, fog: !big })); const sz = Rb * (big ? 0.5 + (k % 5) * 0.12 : 0.35 + (k % 4) * 0.08); puff.scale.setScalar(sz); puff.position.y = H / 2; puff.name = 'puff'; puff.userData.k = k; puff.userData.sz = sz; m.add(puff); }
       m.children[0].position.y = 0; break; }
     case 'houses': { // a row of houses with lit windows; dark: {t0, t1, n} turns n windows off one by one
       m = new THREE.Group(); const n = p.n || 5, wdt = s[0] || 8, r7 = rngFrom(n * 7 + 1); const wins = [];
@@ -387,7 +387,7 @@ export function makeProp(p) {
   if (p.rot) m.rotation.set(m.rotation.x + p.rot[0], m.rotation.y + p.rot[1], m.rotation.z + p.rot[2]);
   if (p.scale) m.scale.setScalar(p.scale);
   const keepMap = m.userData && m.userData.map; const keepWins = m.userData && m.userData.wins;
-  m.userData = { type: p.type, spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit, appear: p.appear, at: p.at, spread: p.spread, dotsReveal: p.dotsReveal, ice: p.ice, r: (s[0] || 1) / 2, dots: p.dots || 0, dotsLat: p.dotsLat ?? 0.25, map: keepMap, wins: keepWins, wilt: p.wilt, hop: p.hop, erupt: p.erupt, loopPlume: p.loopPlume, big: !!p.big, h: s[1] || 1.2, glowAt: p.glowAt, dark: p.dark, shutters: p.shutters };
+  m.userData = { type: p.type, spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit, appear: p.appear, at: p.at, spread: p.spread, dotsReveal: p.dotsReveal, ice: p.ice, r: (s[0] || 1) / 2, dots: p.dots || 0, dotsLat: p.dotsLat ?? 0.25, map: keepMap, wins: keepWins, wilt: p.wilt, hop: p.hop, erupt: p.erupt, loopPlume: p.loopPlume, big: !!p.big, h: s[1] || 1.2, glowAt: p.glowAt, dark: p.dark, shutters: p.shutters, shutters: p.shutters };
   return m;
 }
 
@@ -482,7 +482,7 @@ const LAND = [
  [[-1,34],[-1,35.5],[5,36.8],[9.8,37.3],[11.1,37],[10.4,35.8],[11,35.2],[10.2,34]],
 ];
 const WATER = [[[35,45.4],[36.6,45.4],[37.5,46.6],[39.2,47.2],[38.2,47.1],[35.5,46.3],[35,45.6]]];
-const CITY = { venice: [12.33, 45.44, 'VENICE', 'a'], genoa: [8.93, 44.41, 'GENOA', 'bl'], pisa: [10.4, 43.72, 'PISA', 'r'], milan: [9.19, 45.46, 'MILAN', 'a'], rome: [12.5, 41.9, 'ROME', 'r'], tana: [39.3, 47.1, 'BLACK SEA PORTS', 'a'] }; // label side: a above, b below, bl below-left, l left, r right
+const CITY = { venice: [12.33, 45.44, 'VENICE', 'a'], genoa: [8.93, 44.41, 'GENOA', 'bl'], pisa: [10.4, 43.72, 'PISA', 'r'], milan: [9.19, 45.46, 'MILAN', 'a'], rome: [12.5, 41.9, 'ROME', 'l'], tana: [39.3, 47.1, 'BLACK SEA PORTS', 'a'] }; // label side: a above, b below, bl below-left, l left, r right
 const ROUTE = { venice: [[39.3,47.1],[36.5,45.6],[33,44],[29,41.2],[26,39.8],[24.5,37.6],[21.5,36.3],[19,39],[17.5,41.8],[14.5,44],[12.6,45.3]], genoa: [[39.3,47.1],[36.5,45.6],[33,44],[29,41.2],[26,39.8],[24.5,37.6],[21.5,36.3],[17,37.6],[15.6,38.2],[12.5,39.8],[10.2,42.4],[9.2,44.1]], pisa: [[39.3,47.1],[36.5,45.6],[33,44],[29,41.2],[26,39.8],[24.5,37.6],[21.5,36.3],[17,37.6],[15.6,38.2],[12.5,39.8],[10.6,42.6],[10.25,43.6]] };
 function drawMap(st, t) {
   const tq = Math.round(t * 15) / 15; if (st.last === tq) return; st.last = tq;
@@ -517,7 +517,7 @@ export function animateProp(m, t) {
   if (u.erupt !== undefined && u.big) { const Rb = u.r || 1, H = u.h, e0 = t - u.erupt;
     m.children.forEach(c => {
       if (c.name === 'puff') { let d = e0 - c.userData.k * 0.12; if (u.loopPlume && d > 0) d = d % 3.6; const on = d > 0;
-        c.material.opacity = on ? Math.min(1, d * 2.5) * Math.max(0, 0.95 - d * 0.22) : 0; c.position.y = H / 2 + (on ? d * H * 0.75 : 0); c.position.x = on ? Math.sin(c.userData.k * 1.7) * d * Rb * 0.18 + d * Rb * 0.12 : 0;
+        c.material.opacity = on ? Math.min(1, d * 2.5) * Math.max(0, 1 - d * 0.18) : 0; c.position.y = H / 2 + (on ? d * H * 0.75 : 0); c.position.x = on ? Math.sin(c.userData.k * 1.7) * d * Rb * 0.18 + d * Rb * 0.12 : 0;
         c.scale.setScalar(c.userData.sz * (0.6 + (on ? d * 0.75 : 0))); }
       else if (c.name === 'bomb') { const k = c.userData.k; let d = e0 - k * 0.31; if (d > 0) d = d % 1.6; const on = e0 > 0 && d > 0;
         const ang = k * 2.4, v = Rb * (0.9 + (k % 3) * 0.25); c.visible = on; if (on) c.position.set(Math.cos(ang) * v * 0.45 * d, H / 2 + v * 1.6 * d - Rb * 1.4 * d * d, Math.sin(ang) * v * 0.3 * d); }

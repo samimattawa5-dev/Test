@@ -90,18 +90,18 @@
   "t1": 59.56
  },
  {
-  "line": "Nobody knows which volcano it was. And some historians are not convinced.",
+  "line": "Nobody knows which volcano it was. And some historians are cautious.",
   "t0": 59.84,
-  "t1": 64.797
+  "t1": 64.523
  },
  {
   "line": "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?",
-  "t0": 65.077,
-  "t1": 70.879
+  "t0": 64.803,
+  "t1": 70.605
  },
  {
   "line": "And Europe's plague may have begun under a Moon like this.",
-  "t0": 71.159,
-  "t1": 74.378
+  "t0": 70.885,
+  "t1": 74.103
  }
 ]
