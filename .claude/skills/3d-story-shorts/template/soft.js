@@ -259,7 +259,7 @@ export function makeProp(p) {
       const clouds = new THREE.Mesh(new THREE.SphereGeometry(r * 1.015, 64, 48), new THREE.MeshStandardMaterial({ map: CLOUD_TEX, transparent: true, depthWrite: false, roughness: 1 })); clouds.name = 'clouds'; m.add(clouds);
       m.add(atmosphere(r));
       if (p.equator) { const band = new THREE.Mesh(new THREE.TorusGeometry(r * 1.02, r * 0.03, 12, 128), M.glow(p.equator, 2.5)); band.rotation.x = Math.PI / 2; m.add(band); }
-      if (p.dots) { const r2 = rngFrom(21); for (let i = 0; i < p.dots; i++) { const a = r2() * Math.PI * 2, lat = (r2() - 0.5) * 2 * (p.dotsLat ?? 0.25); const d = part(new THREE.SphereGeometry(r * 0.05, 12, 10), M.glow('#ffb347', 2)); d.position.set(Math.cos(a) * Math.cos(lat) * r * 1.01, Math.sin(lat) * r * 1.01, Math.sin(a) * Math.cos(lat) * r * 1.01); m.add(d); } }
+      if (p.dots) { const r2 = rngFrom(21); for (let i = 0; i < p.dots; i++) { const a = r2() * Math.PI * 2, lat = (r2() - 0.5) * 2 * (p.dotsLat ?? 0.25); const d = part(new THREE.SphereGeometry(r * 0.05, 12, 10), M.glow('#ffb347', 2)); d.name = 'dot'; d.position.set(Math.cos(a) * Math.cos(lat) * r * 1.01, Math.sin(lat) * r * 1.01, Math.sin(a) * Math.cos(lat) * r * 1.01); m.add(d); } }
       break; }
     case 'ring': { RING_TEX ??= ringTexture();
       m = new THREE.Mesh(new THREE.RingGeometry(s[0], s[1], 160, 1), new THREE.MeshStandardMaterial({ map: RING_TEX, transparent: true, side: THREE.DoubleSide, roughness: 0.8, emissive: C('#f3dfb2'), emissiveIntensity: 0.25, emissiveMap: RING_TEX, depthWrite: false }));
@@ -298,7 +298,8 @@ export function makeProp(p) {
   if (p.glow && m.material && !m.material.emissiveIntensity) m.material = M.glow(p.color, 1.6);
   m.position.set(...(p.pos || [0, 0, 0]));
   if (p.rot) m.rotation.set(m.rotation.x + p.rot[0], m.rotation.y + p.rot[1], m.rotation.z + p.rot[2]);
-  m.userData = { type: p.type, spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit, appear: p.appear, at: p.at, spread: p.spread };
+  if (p.scale) m.scale.setScalar(p.scale);
+  m.userData = { type: p.type, spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit, appear: p.appear, at: p.at, spread: p.spread, dotsReveal: p.dotsReveal };
   return m;
 }
 
@@ -376,6 +377,7 @@ export function setupScene(scene, worldName, seed) {
 export function animateProp(m, t) {
   const cl = m.getObjectByName && m.getObjectByName('clouds'); if (cl) cl.rotation.y = t * 0.05;
   const u = m.userData;
+  if (u.dotsReveal) { const dots = m.children.filter(c => c.name === 'dot'); const k = Math.max(0, Math.min(1, (t - u.dotsReveal.t0) / (u.dotsReveal.t1 - u.dotsReveal.t0))); dots.forEach((d, i) => { d.visible = i < Math.round(k * dots.length); }); }
   if (u.type === 'breakup' && u.at !== undefined) { const d = Math.max(0, t - u.at);
     m.children.forEach((f, i) => { const k = d * (u.spread || 1.6); f.position.copy(f.userData.home).addScaledVector(f.userData.dir, k);
       f.scale.set(1 + Math.min(d, 0.6), 1, 1); f.rotation.set(t * (1 + i % 3), t * 0.7, 0); }); }

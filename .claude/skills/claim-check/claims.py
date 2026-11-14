@@ -51,6 +51,13 @@ def main():
                     items.append((o["t0"], "FLAG", f"counter rolls {o.get('from', 0):,} -> {o['to']:,}: in-between frames show numbers no source gives. Set \"roll\": false (pop the final value) or keep the roll under 1 s and say so."))
             else:
                 items.append((o["t0"], o["type"].upper(), o.get("text", "")))
+    # base rate: an odds / probability number needs its premise (the share of land, the expected rate) said near it
+    allvo = " ".join(s["line"].lower() for s in story["shots"])
+    for s in story["shots"]:
+        for o in s.get("overlays", []):
+            txt = (o.get("prefix", "") + " " + o.get("label", "") + " " + o.get("text", "")).lower()
+            if re.search(r"\b1 in\b|odds|chance", txt) and not re.search(r"\bonly\b|third|half|quarter|percent|%|expected|would have", allvo):
+                items.append((o["t0"], "FLAG", "odds shown without the base rate that makes them meaningful (e.g. how much land was near the equator) - add the premise in voice or a badge"))
     issues = 0
     print(f"Fact list: {len(fact_nums)} numbers, hypothesis topic: {'yes' if hypo else 'no'}\n")
     for t, kind, text in items:

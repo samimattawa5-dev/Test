@@ -58,6 +58,13 @@ if (process.argv.includes('--verify')) {
       for (const h of r.heads) if (!h.behind && (h.x < 60 || h.x > story.width - 60 || h.y < 150 || h.y > 1700)) fails.push(`${tm.toFixed(1)}s ${h.name} head at (${h.x.toFixed(0)}, ${h.y.toFixed(0)}) is cut by the frame`);
       for (const h of r.hits) fails.push(`${tm.toFixed(1)}s ${h}`); }
   }
+  // text big enough for a phone: badges >= 44 px, titles >= 90 px, counter labels use 60 px
+  for (const s of S) for (const o of (s.overlays || [])) { const sz = o.size ?? (o.type === 'title' ? 112 : o.type === 'counter' ? 170 : 58);
+    if ((o.type === 'badge' && sz < 44) || (o.type === 'title' && sz < 90)) fails.push(`${o.t0.toFixed(1)}s ${o.type} "${o.text}" is ${sz}px - too small on a phone`); }
+  // white-outs and flashes over spoken captions
+  for (let tm = 0.2; tm < total; tm += 0.5) { const r = await page.evaluate((x) => window.__verify(x), tm);
+    if (r.cap && r.flash > 0.6) fails.push(`${tm.toFixed(1)}s flash ${r.flash.toFixed(2)} over a caption`);
+    if (r.whiteFrac > 0.85) fails.push(`${tm.toFixed(1)}s frame is ${(r.whiteFrac * 100).toFixed(0)}% near-white (white-out)`); }
   const uniq = [...new Set(fails)]; uniq.forEach(f => say('VERIFY FAIL ' + f));
   say(uniq.length ? `VERIFY: ${uniq.length} problem(s)` : 'VERIFY OK');
   await browser.close(); server.close(); process.exit(uniq.length ? 1 : 0);
@@ -93,15 +100,36 @@ const code = await done;
 await browser.close(); server.close();
 if (code !== 0) { say('ffmpeg failed:\n' + ffErr.slice(-2000)); process.exit(1); }
 
+// clip-compositor: drop finished clips (Manim, HyperFrames, screen captures, B-roll) into the timeline.
+// story.inserts = [{file, t0, t1, mode: 'full'|'pip', x, y, w, from}] - times are global seconds, from = start inside the clip
+let picture = silent;
+if (Array.isArray(story.inserts) && story.inserts.length) {
+  const ins = story.inserts.filter(c => fs.existsSync(path.join(ROOT, c.file)));
+  if (ins.length !== story.inserts.length) say('WARNING: some inserts are missing and were skipped');
+  if (ins.length) {
+    const inputs = ['-i', silent]; let fc = '', last = '[0:v]';
+    ins.forEach((c, i) => {
+      inputs.push('-ss', String(c.from || 0), '-i', path.join(ROOT, c.file));
+      const sc = c.mode === 'pip' ? `scale=${c.w || 860}:-2` : `scale=${story.width}:${story.height}:force_original_aspect_ratio=decrease,pad=${story.width}:${story.height}:(ow-iw)/2:(oh-ih)/2:color=black`;
+      fc += `[${i + 1}:v]${sc},setpts=PTS-STARTPTS+${c.t0}/TB[c${i}];`;
+      const x = c.mode === 'pip' ? (c.x ?? '(W-w)/2') : 0, y = c.mode === 'pip' ? (c.y ?? 420) : 0;
+      fc += `${last}[c${i}]overlay=x=${x}:y=${y}:eof_action=pass:enable='between(t,${c.t0},${c.t1})'[o${i}];`; last = `[o${i}]`;
+    });
+    picture = path.join(OUT, 'composited.mp4');
+    const r = spawnSync(ffmpegPath, ['-y', ...inputs, '-filter_complex', fc.replace(/;$/, ''), '-map', last, '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'veryfast', picture], { encoding: 'utf8' });
+    if (r.status !== 0) { say('insert compositing failed:\n' + r.stderr.slice(-1500)); process.exit(1); }
+    say(`composited ${ins.length} insert(s)`);
+  }
+}
 const final = path.join(ROOT, 'final.mp4');
 if (fs.existsSync(final)) fs.copyFileSync(final, path.join(ROOT, 'final_previous.mp4'));
 const bed = story.bed && fs.existsSync(path.join(ROOT, story.bed)) ? path.join(ROOT, story.bed) : null; // music + sfx, already ducked
 let args;
-if (hasAudio && bed) args = ['-y', '-i', silent, '-i', path.join(ROOT, story.audio), '-i', bed, '-filter_complex',
+if (hasAudio && bed) args = ['-y', '-i', picture, '-i', path.join(ROOT, story.audio), '-i', bed, '-filter_complex',
   '[1:a]aresample=48000,aformat=channel_layouts=stereo[v];[2:a]aresample=48000,aformat=channel_layouts=stereo[b];[v][b]amix=inputs=2:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11[a]',
   '-map', '0:v:0', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', final];
-else if (hasAudio) args = ['-y', '-i', silent, '-i', path.join(ROOT, story.audio), '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', final];
-else args = ['-y', '-i', silent, '-c', 'copy', final];
+else if (hasAudio) args = ['-y', '-i', picture, '-i', path.join(ROOT, story.audio), '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', final];
+else args = ['-y', '-i', picture, '-c', 'copy', final];
 const r = spawnSync(ffmpegPath, args, { encoding: 'utf8' });
 if (r.status !== 0) { say('mux failed:\n' + r.stderr.slice(-2000)); process.exit(1); }
 say(`\n[4/4] ${hasAudio ? 'voiceover added' + (bed ? ' + music/sfx bed' : '') + ', loudness -14 LUFS' : 'no voiceover found (silent video)'}`);

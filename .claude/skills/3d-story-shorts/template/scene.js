@@ -16,7 +16,8 @@ const SC = Number(new URLSearchParams(location.search).get('scale') || 1);
 const W = Math.round(story.width * SC), H = Math.round(story.height * SC);
 const wrap = document.getElementById('wrap');
 const capEl = document.getElementById('cap');
-const flashEl = document.createElement('div'); flashEl.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none'; wrap.appendChild(flashEl);
+const flashEl = document.createElement('div'); flashEl.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:1';
+capEl.style.zIndex = 3; wrap.appendChild(flashEl);
 const vigEl = document.createElement('div'); vigEl.style.cssText = 'position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.35) 100%)'; wrap.appendChild(vigEl);
 const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
 renderer.setPixelRatio(1);
@@ -131,7 +132,7 @@ function animate(g, anim, t, base) {
   else if (anim === 'shiver') { g.position.x = base.x + Math.sin(t * 60) * 0.03; armL.rotation.z = -0.6; armR.rotation.z = 0.6; }
   else if (anim === 'no') g.userData.head.rotation.y = Math.sin(t * 8) * 0.5;
   else if (anim === 'lookup') { g.userData.head.rotation.x = -0.5; armR.rotation.z = Math.PI * 0.7; }
-  else if (anim === 'run') { stride(16, 0.8); g.position.x = base.x + ((t * 1.5) % 4) - 2; g.rotation.y = Math.PI / 2; armL.rotation.x = Math.sin(t * 16) * 0.9; armR.rotation.x = -Math.sin(t * 16) * 0.9; g.position.y = base.y + Math.abs(Math.sin(t * 16)) * 0.1; }
+  else if (anim === 'run') { stride(16, 0.8); g.position.x = base.x + ((t * 1.2) % 2.6) - 1.3; g.rotation.y = Math.PI / 4; armL.rotation.x = Math.sin(t * 16) * 0.9; armR.rotation.x = -Math.sin(t * 16) * 0.9; g.position.y = base.y + Math.abs(Math.sin(t * 16)) * 0.1; }
   else if (anim === 'walkto') { stride(9, 0.55); const w = Math.sin(t * 9); armL.rotation.x = w * 0.6; armR.rotation.x = -w * 0.6; g.position.y = base.y + Math.abs(w) * 0.05; }
   else if (anim === 'talk') { armR.rotation.x = -0.7 + Math.sin(t * 4) * 0.35; armR.rotation.z = 0.3; armL.rotation.x = -0.3 + Math.sin(t * 3 + 1) * 0.2; g.userData.head.rotation.x = Math.sin(t * 5) * 0.06; g.userData.head.rotation.y = Math.sin(t * 1.7) * 0.2; }
   else if (anim === 'cheer') { const j = Math.abs(Math.sin(t * 7)); g.position.y = base.y + j * 0.35; armL.rotation.z = -2.6 + Math.sin(t * 7) * 0.2; armR.rotation.z = 2.6 - Math.sin(t * 7) * 0.2; }
@@ -140,7 +141,7 @@ function animate(g, anim, t, base) {
   else if (anim === 'nod') { g.userData.head.rotation.x = Math.abs(Math.sin(t * 5)) * 0.3; armR.rotation.x = -0.4; }
   else if (anim === 'throw') { const ph = (t * 1.2) % 1; armR.rotation.x = ph < 0.6 ? -2.6 * (ph / 0.6) : -2.6 + (ph - 0.6) * 6; g.rotation.y = -0.3; }
   else if (anim === 'kneel') { if (legL) { legL.rotation.x = -1.2; legR.rotation.x = 0.3; } g.position.y = base.y - 0.25; g.rotation.x = 0.15; armR.rotation.x = -1.0; g.userData.head.rotation.x = 0.4; }
-  else if (anim === 'scared') { g.position.x = base.x + Math.sin(t * 40) * 0.02; armL.rotation.z = -2.2; armR.rotation.z = 2.2; armL.rotation.x = armR.rotation.x = -0.8; g.userData.head.rotation.x = -0.2; }
+  else if (anim === 'scared') { g.position.x = base.x + Math.sin(t * 40) * 0.02; armL.rotation.x = armR.rotation.x = -2.5; armL.rotation.z = -0.35; armR.rotation.z = 0.35; g.userData.head.rotation.x = -0.25; g.position.y = base.y - 0.05; }
   else if (anim === 'hug') { armL.rotation.x = armR.rotation.x = -1.3; armL.rotation.z = 0.6; armR.rotation.z = -0.6; g.position.x = base.x + Math.sin(t * 40) * 0.015; }
   else if (anim === 'walk') { stride(8, 0.5); g.position.x = base.x + Math.sin(t * 2) * 0.8; g.rotation.y = Math.cos(t * 2) > 0 ? Math.PI / 2 : -Math.PI / 2; armL.rotation.x = Math.sin(t * 8) * 0.6; armR.rotation.x = -Math.sin(t * 8) * 0.6; }
   else { g.position.y = base.y + Math.sin(t * 2) * 0.03; g.userData.head.rotation.z = Math.sin(t * 1.5) * 0.08; }
@@ -322,7 +323,7 @@ const FPS = story.fps || 30;
 function spring(t, w = 14, z = 0.62) { if (t <= 0) return 0; const wd = w * Math.sqrt(1 - z * z); return 1 - Math.exp(-z * w * t) * (Math.cos(wd * t) + (z * w / wd) * Math.sin(wd * t)); }
 const clamp01 = (x) => Math.max(0, Math.min(1, x));
 const OV = document.createElement('div');
-OV.style.cssText = `position:absolute;left:0;top:0;width:${story.width}px;height:${story.height}px;transform-origin:0 0;transform:scale(${SC});pointer-events:none;font-family:"Arial Black","Arial Bold",Impact,sans-serif;font-weight:900;color:#fff`;
+OV.style.cssText = `z-index:3;position:absolute;left:0;top:0;width:${story.width}px;height:${story.height}px;transform-origin:0 0;transform:scale(${SC});pointer-events:none;font-family:"Arial Black","Arial Bold",Impact,sans-serif;font-weight:900;color:#fff`;
 wrap.appendChild(OV);
 const ovEls = [];
 story.shots.forEach(sh => (sh.overlays || []).forEach(o => {
@@ -361,7 +362,10 @@ window.__verify = (t) => {
     return { name: o.c.cast || o.c.color, x: (q.x + 1) / 2 * story.width, y: (1 - q.y) / 2 * story.height, behind: q.z > 1 }; });
   const hits = []; entry.chars.forEach(o => { const hp = new THREE.Vector3(); o.g.userData.head.getWorldPosition(hp);
     entry.props.forEach(p => { const box = new THREE.Box3().setFromObject(p); if (!box.isEmpty() && box.distanceToPoint(hp) < 0.25) hits.push((o.c.cast || o.c.color) + ' head touches a ' + (p.userData.type || 'prop')); }); });
-  return { overlays: ovEls.map(({ o, el }) => ({ ...vis(el), t0: o.t0, t1: o.t1, type: o.type })), cap: capEl.textContent.trim(), heads, hits };
+  const cv = document.createElement('canvas'); cv.width = 27; cv.height = 48; const cx = cv.getContext('2d'); cx.drawImage(renderer.domElement, 0, 0, 27, 48);
+  const px = cx.getImageData(0, 0, 27, 48).data; let bright = 0; for (let i = 0; i < px.length; i += 4) if (px[i] + px[i + 1] + px[i + 2] > 3 * 235) bright++;
+  return { overlays: ovEls.map(({ o, el }) => ({ ...vis(el), t0: o.t0, t1: o.t1, type: o.type, size: o.size, label: o.label })), cap: capEl.textContent.trim(), heads, hits,
+    flash: Number(flashEl.style.opacity || 0), whiteFrac: bright / (27 * 48) };
 };
 window.__total = story.shots[story.shots.length - 1].end;
 await document.fonts.load('900 100px Montserrat').catch(() => {});
@@ -393,7 +397,7 @@ window.renderFrame = (t) => {
     if (f >= 0 && f < 7) { const a = 0.06 * (1 - f / 7) * (f % 2 ? -1 : 1); camera.position.x += a; camera.position.y -= a * 0.6; camera.rotateZ(a * 0.4); }
   }
   drawOverlays(t);
-  flashEl.style.opacity = shot.flash ? Math.max(0, 1 - lt / 0.35).toFixed(3) : 0;
+  flashEl.style.opacity = shot.flash ? (0.55 * Math.max(0, 1 - lt / 0.25)).toFixed(3) : 0; // capped: never washes out captions
   if (SOFTSTYLE) SOFT.render(scene, camera); else renderer.render(scene, camera);
   drawCaptions(shot, t);
 };

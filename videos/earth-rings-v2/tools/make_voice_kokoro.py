@@ -3,15 +3,15 @@ from kokoro_onnx import Kokoro
 d, out = sys.argv[1], sys.argv[2]
 k = Kokoro(f"{d}/kokoro-v1.0.onnx", f"{d}/voices-v1.0.bin")
 LINES = [
- "466 million years ago, Earth may have worn a ring like Saturn, and it may have helped freeze the planet.",
+ "466 million years ago, Earth may have worn a ring like Saturn, and it may have helped plunge the planet into an ice age.",
  "Scientists found clues a ring could have left behind, in the rocks.",
- "In 2024, a team at Monash University mapped twenty-one impact craters from the same period. Every single one landed within thirty degrees of the equator.",
+ "In 2024, a team at Monash University mapped twenty-one impact craters from the same period. Every single one landed within thirty degrees of the equator, though only about a third of the land was there.",
  "The odds of that by chance: about one in twenty-five million.",
  "The idea: a rubble-pile asteroid flew inside Earth's Roche limit, and gravity tore it into a ring.",
  "For millions of years, chunks may have fallen out of that ring, which could explain the craters.",
  "Here's the twist: the ring may have shaded the tropics. Millions of years later, Earth plunged into one of its coldest periods in 500 million years.",
  "It's still a hypothesis, and some scientists say the evidence isn't enough yet.",
- "Look up tonight and picture a silver arch. Earth might have had one. Proof, or coincidence? Tell me below.",
+ "Look up tonight and picture a silver arch. Earth might have had one. Proof, or coincidence? Tell me below, and follow for more of Earth's lost secrets.",
 ]
 style = k.get_voice_style("bm_george"); sr = 24000; chunks = []; t = 0.25; meta = []
 chunks.append(np.zeros(int(0.25 * sr), dtype=np.float32))

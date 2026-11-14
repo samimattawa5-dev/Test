@@ -58,6 +58,13 @@ if (process.argv.includes('--verify')) {
       for (const h of r.heads) if (!h.behind && (h.x < 60 || h.x > story.width - 60 || h.y < 150 || h.y > 1700)) fails.push(`${tm.toFixed(1)}s ${h.name} head at (${h.x.toFixed(0)}, ${h.y.toFixed(0)}) is cut by the frame`);
       for (const h of r.hits) fails.push(`${tm.toFixed(1)}s ${h}`); }
   }
+  // text big enough for a phone: badges >= 44 px, titles >= 90 px, counter labels use 60 px
+  for (const s of S) for (const o of (s.overlays || [])) { const sz = o.size ?? (o.type === 'title' ? 112 : o.type === 'counter' ? 170 : 58);
+    if ((o.type === 'badge' && sz < 44) || (o.type === 'title' && sz < 90)) fails.push(`${o.t0.toFixed(1)}s ${o.type} "${o.text}" is ${sz}px - too small on a phone`); }
+  // white-outs and flashes over spoken captions
+  for (let tm = 0.2; tm < total; tm += 0.5) { const r = await page.evaluate((x) => window.__verify(x), tm);
+    if (r.cap && r.flash > 0.6) fails.push(`${tm.toFixed(1)}s flash ${r.flash.toFixed(2)} over a caption`);
+    if (r.whiteFrac > 0.85) fails.push(`${tm.toFixed(1)}s frame is ${(r.whiteFrac * 100).toFixed(0)}% near-white (white-out)`); }
   const uniq = [...new Set(fails)]; uniq.forEach(f => say('VERIFY FAIL ' + f));
   say(uniq.length ? `VERIFY: ${uniq.length} problem(s)` : 'VERIFY OK');
   await browser.close(); server.close(); process.exit(uniq.length ? 1 : 0);
