@@ -58,10 +58,23 @@ def main():
             txt = (o.get("prefix", "") + " " + o.get("label", "") + " " + o.get("text", "")).lower()
             if re.search(r"\b1 in\b|odds|chance", txt) and not re.search(r"\bonly\b|third|half|quarter|percent|%|expected|would have", allvo):
                 items.append((o["t0"], "FLAG", "odds shown without the base rate that makes them meaningful (e.g. how much land was near the equator) - add the premise in voice or a badge"))
+    # picture claims: what the map says (city colours, routes) must agree with the words in the same shot
+    for sh in story["shots"]:
+        for pr in sh.get("props", []):
+            if pr.get("type") != "map": continue
+            words = (sh["line"] + " " + " ".join(o.get("text", "") for o in sh.get("overlays", []))).lower()
+            spared = re.search(r"not affected|spared|did not need|didn't need|no grain", words)
+            routed = {r.get("to") for r in pr.get("routes", []) if not r.get("faded")}
+            for c in pr.get("cities", []):
+                state = "RED (plague)" if c.get("redAt") is not None else "GREEN (spared)" if c.get("safe") else "gold"
+                items.append((sh["start"], "PICTURE", f"map: {c['id'].upper()} {state}" + (" on a route" if c["id"] in routed else "")))
+                if spared and c["id"] in words and (c.get("redAt") is not None or c["id"] in routed or not c.get("safe")):
+                    items.append((sh["start"], "FLAG", f"the words say {c['id'].title()} was spared but the map shows it {state}" + (" on a route" if c["id"] in routed else "") + " - mark it safe (green) and off the routes"))
     issues = 0
     print(f"Fact list: {len(fact_nums)} numbers, hypothesis topic: {'yes' if hypo else 'no'}\n")
     for t, kind, text in items:
         if kind == "FLAG": print(f"[{t:5.1f}s] FIX    {text}"); issues += 1; continue
+        if kind == "PICTURE": print(f"[{t:5.1f}s] pic    {text}"); continue
         low = text.lower(); notes = []
         for n in nums(text):
             if n not in fact_nums and n > 3: notes.append(f"number {n:,.0f} not found in the fact list")

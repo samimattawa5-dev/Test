@@ -19,7 +19,7 @@ LINES = [
  "Less than two months after the last grain ships,",
  "Venice reported its first plague cases.",
  "The ships most likely carried fleas, feeding on grain dust.",
- "Milan and Rome did not need to import grain.",
+ "Milan and Rome apparently did not need grain imports after thirteen forty-five.",
  "They were most probably not affected.",
  "Nobody knows which volcano it was.",
  "So what brought the plague: the volcano, or the trade?",

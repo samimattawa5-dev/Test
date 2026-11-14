@@ -95,9 +95,12 @@ def main():
                 L.append(f"- {o['t0']:.1f}-{o['t1']:.1f}s {o['type']}: {txt}")
         L += ["", f"- Style: {story.get('preset') or story.get('style', 'toon')}; captions: {json.dumps(story.get('captions', {}))[:160]}",
               f"- Voice file: {story.get('audio')}; music/SFX bed: {story.get('bed')}", ""]
+    mj = os.path.join(folder, "out", "motion.json")
+    if pre and os.path.exists(mj):
+        L += ["## Motion inside long shots (mean picture change start->end; under 0.03 = nearly frozen)", ""] + [f"- {m['start']:.1f}-{m['end']:.1f}s: {m['motion']:.3f}" + ("  <- nearly frozen" if m["motion"] < 0.03 else "") for m in json.load(open(mj))] + [""]
     if script:
         m = re.search(r"## Fact list.*", script, re.S)
-        L += ["## Fact list and sources (from script.md)", "", (m.group(0) if m else script)[:6000], ""]
+        L += ["## Fact list and sources (from script.md)", "", (m.group(0) if m else script)[:16000], ""]
     credits = None
     for p in (os.path.join(folder, "tools/sfx/CREDITS.txt"), "tools/sfx/CREDITS.txt"):
         if os.path.exists(p): credits = open(p).read(); break

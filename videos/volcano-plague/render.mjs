@@ -51,6 +51,10 @@ if (process.argv.includes('--stills')) {
   for (const tt of times) { const hook = String(tt).startsWith('h'); const t = Number(String(tt).replace('h', ''));
     await page.evaluate((x) => window.renderFrame(x), Math.min(t, total - 0.05));
     await page.screenshot({ path: path.join(dir, (hook ? 'hook_' : 't_') + String(Math.round(t * 10)).padStart(4, '0') + '.png') }); }
+  // motion score per shot longer than 3 s: how much the picture changes inside it (0 = frozen)
+  const motion = []; for (const s of story.shots) { if (s.end - s.start < 3) continue; const m = await page.evaluate(([a, b]) => window.__motion(a, b), [s.start + 0.4, s.end - 0.4]);
+    motion.push({ start: s.start, end: s.end, motion: Math.round(m * 1000) / 1000 }); }
+  fs.writeFileSync(path.join(OUT, 'motion.json'), JSON.stringify(motion, null, 1));
   say(`STILLS ${times.length} -> ${dir}`); await browser.close(); server.close(); process.exit(0);
 }
 
@@ -76,7 +80,11 @@ if (process.argv.includes('--verify')) {
   // white-outs and flashes over spoken captions
   for (let tm = 0.2; tm < total; tm += 0.5) { const r = await page.evaluate((x) => window.__verify(x), tm);
     if (r.cap && r.flash > 0.6) fails.push(`${tm.toFixed(1)}s flash ${r.flash.toFixed(2)} over a caption`);
-    if (r.whiteFrac > 0.85) fails.push(`${tm.toFixed(1)}s frame is ${(r.whiteFrac * 100).toFixed(0)}% near-white (white-out)`); }
+    if (r.whiteFrac > 0.85) fails.push(`${tm.toFixed(1)}s frame is ${(r.whiteFrac * 100).toFixed(0)}% near-white (white-out)`); 
+    if (r.capBox) { const cb = r.capBox;
+      if (cb.x0 < 20 || cb.x1 > story.width - 20) fails.push(`${tm.toFixed(1)}s caption "${cb.text}" runs off the frame`);
+      for (const ov of r.overlays) if (ov.op > 0.5 && ov.x0 < cb.x1 && ov.x1 > cb.x0 && ov.y0 < cb.y1 && ov.y1 > cb.y0) fails.push(`${tm.toFixed(1)}s caption collides with ${ov.type} "${ov.text}"`);
+      for (const h of r.heads) if (!h.behind && h.x > cb.x0 - 40 && h.x < cb.x1 + 40 && h.y > cb.y0 - 70 && h.y < cb.y1 + 40) fails.push(`${tm.toFixed(1)}s caption covers ${h.name}'s face`); } }
   // long holds: a shot over 5.5 s needs something new inside it (overlay, action, walk, appear, counter)
   for (const s of S) { const len = s.end - s.start, busy = (s.overlays || []).length + (s.characters || []).filter(c => c.actions || c.walk).length + (s.props || []).filter(p => p.appear || p.move || p.dotsReveal || p.ice || p.routes || p.dark || p.wilt || p.erupt !== undefined || p.hop || p.glowAt !== undefined).length;
     if (len > 5.5 && busy < 2) fails.push(`${s.start.toFixed(1)}s shot holds ${len.toFixed(1)} s with too little new on screen - cut it or add a beat`); }

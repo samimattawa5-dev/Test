@@ -15,7 +15,8 @@ def main():
     else:  # before the render: plan from story.json, cover comes later
         dur = story["shots"][-1]["end"]; print(f"final.mp4 missing or older than story.json: duration {dur:.1f} s taken from story.json (re-run after the render)")
     script = open(os.path.join(d, "script.md"), encoding="utf-8").read() if os.path.exists(os.path.join(d, "script.md")) else ""
-    srcs = sorted(set(re.findall(r"\[([^\]]+)\]\((https?://[^)]+)\)", script)))[:6]
+    srcs = list(dict.fromkeys(re.findall(r"\[([^\]]+)\]\((https?://[^)]+)\)", script)))  # every cited source, deduplicated
+    doi = re.findall(r"DOI\s*(10\.\S+?)[,)\s]", script)
     titles = [o["text"] for s in story["shots"] for o in s.get("overlays", []) if o["type"] == "title"]
     voice_ai = story.get("voice_human") is not True  # TTS unless story.json says "voice_human": true
     credits = ""
@@ -31,7 +32,7 @@ def main():
               "- [ ] YouTube: Upload -> Details -> **Altered or synthetic content: Yes**",
               "- [ ] Instagram: Advanced settings -> **AI info / Label as AI** ON",
               "- [ ] Every caption ends with: `AI voiceover`"]
-    L += ["", "## Sources to cite (caption or first comment)", ""] + [f"- {t}: {u}" for t, u in srcs]
+    L += ["", "## Sources to cite (caption or first comment)", ""] + ([f"- Primary paper: https://doi.org/{doi[0]}"] if doi else []) + [f"- {t}: {u}" for t, u in srcs]
     L += ["", "## TikTok", "", "Caption (write with /tt-caption, lint with caption.py):", "```", "TODO", "```",
           "", "## YouTube Shorts", "", "Title (/yt-package, under 60 chars): TODO", "", "Description (/yt-seo):", "```", "TODO", "```",
           "", "## Instagram Reels", "", "Caption (/ig-caption, max 5 hashtags):", "```", "TODO", "```",

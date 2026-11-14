@@ -2,7 +2,7 @@
 
 **These are stills of the planned video, rendered straight from the scene. Motion between stills is not visible: judge story, framing, text, facts and pacing. The full render happens only after this review.**
 
-- Length: 66.3 s
+- Length: 68.4 s
 - Voice before mixing: -16.0 LUFS (the final mix is normalised to about -14 LUFS)
 
 ## Spoken script and pictures, by shot
@@ -18,16 +18,17 @@
  9. [25.4-27.1s] "Cold, wet summers."  | world: rainfield | characters: bo worried  (shiver), mara worried  (hug)
 10. [27.1-31.3s] "And writers saw strange clouds, and dark eclipses of the Moon."  | world: harbour | characters: hist wow  (lookup)
 11. [31.3-34.3s] "Crops could have failed across the Mediterranean."  | world: rainfield | characters: mara worried  (no)
-12. [34.3-40.4s] "So in thirteen forty-seven, Venice, Genoa and Pisa imported grain from the Black Sea."  | world: studio
-13. [40.4-42.0s] "Food for the hungry."  | world: harbourday | characters: tomas grin  (throw), bo grin  (jump), mara grin  (cheer)
-14. [42.0-45.2s] "Less than two months after the last grain ships,"  | world: harbourday
-15. [45.2-48.2s] "Venice reported its first plague cases."  | world: studio
-16. [48.2-52.2s] "The ships most likely carried fleas, feeding on grain dust."  | world: harbour
-17. [52.2-55.5s] "Milan and Rome did not need to import grain."  | world: studio
-18. [55.5-58.0s] "They were most probably not affected."  | world: harbourday | characters: mara grin  (wave), folk grin  (cheer), bo grin  (jump)
-19. [58.0-60.9s] "Nobody knows which volcano it was."  | world: space
-20. [60.9-64.4s] "So what brought the plague: the volcano, or the trade?"  | world: lab | characters: clim grin  (point), mara smile  (talk), hist smile  (nod)
-21. [64.4-66.3s] "Look at that Moon again."  | world: harbour | characters: bo wow  (point), tomas wow  (lookup)
+12. [34.3-36.2s] "So in thirteen forty-seven,"  | world: studio
+13. [36.2-40.4s] "Venice, Genoa and Pisa imported grain from the Black Sea."  | world: studio
+14. [40.4-42.0s] "Food for the hungry."  | world: harbourday | characters: tomas grin  (throw), bo grin  (cheer), mara grin  (cheer)
+15. [42.0-45.2s] "Less than two months after the last grain ships,"  | world: harbourday | characters: mara grin  (wave), tomas smile  (point)
+16. [45.2-48.2s] "Venice reported its first plague cases."  | world: studio
+17. [48.2-52.2s] "The ships most likely carried fleas, feeding on grain dust."  | world: harbour
+18. [52.2-57.7s] "Milan and Rome apparently did not need grain imports after thirteen forty-five."  | world: studio
+19. [57.7-60.1s] "They were most probably not affected."  | world: harbourday | characters: mara grin  (wave), folk grin  (cheer), tomas grin  (wave)
+20. [60.1-63.1s] "Nobody knows which volcano it was."  | world: space
+21. [63.1-66.5s] "So what brought the plague: the volcano, or the trade?"  | world: lab | characters: clim grin  (point), mara smile  (talk), hist smile  (nod)
+22. [66.5-68.4s] "Look at that Moon again."  | world: harbour | characters: bo wow  (point), tomas wow  (lookup)
 
 ## On-screen text (besides word-by-word captions)
 
@@ -36,7 +37,7 @@
 - 3.7-5.0s badge: THE VOLCANO: UNKNOWN
 - 6.5-8.2s counter: UP TO 60% [IN SOME REGIONS]
 - 10.6-11.2s title: WHY?
-- 11.4-13.1s counter: 2025 [NEW STUDY]
+- 11.4-13.1s counter: 2025 [DEC 2025 STUDY]
 - 13.1-14.8s badge: STUDY: BAUCH & BÜNTGEN · DEC 2025
 - 14.9-16.2s badge: CLUE 1: ICE CORES
 - 16.2-19.6s counter: AROUND 1345 [SULPHUR SPIKE]
@@ -45,18 +46,35 @@
 - 25.5-27.1s badge: COLD, WET SUMMERS
 - 27.3-31.3s badge: CLUE 3: WRITTEN ACCOUNTS
 - 31.5-34.3s badge: CROPS COULD HAVE FAILED
-- 34.5-40.4s counter: 1347 [GRAIN FROM THE BLACK SEA]
+- 34.5-36.7s counter: 1347 [GRAIN FROM THE BLACK SEA]
 - 42.3-45.2s counter: < 2 MONTHS [AFTER THE LAST GRAIN SHIPS]
 - 45.1-48.2s title: THE TWIST
-- 48.5-52.2s badge: MOST LIKELY: FLEAS IN THE GRAIN DUST
-- 53.3-55.5s badge: NO GRAIN IMPORTS NEEDED
-- 55.6-58.0s badge: MOST PROBABLY NOT AFFECTED
-- 58.1-60.9s title: WHICH VOLCANO?
-- 58.6-60.9s badge: HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS
-- 61.1-64.4s title: VOLCANO OR TRADE?
+- 48.4-50.9s title: SAVED BY GRAIN. DOOMED BY GRAIN?
+- 50.9-52.2s badge: MOST LIKELY: FLEAS IN THE GRAIN DUST
+- 53.3-57.7s badge: APPARENTLY NO GRAIN IMPORTS NEEDED
+- 57.8-60.1s badge: MOST PROBABLY NOT AFFECTED · DEBATED
+- 60.2-63.1s title: WHICH VOLCANO?
+- 60.7-63.1s badge: HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS
+- 63.3-66.5s title: VOLCANO OR TRADE?
 
 - Style: mystery; captions: {"words": 3, "highlight": ["VOLCANO", "PLAGUE", "BLACK", "DEATH", "SULPHUR", "ERUPTION", "ERUPTIONS", "GRAIN", "FLEAS", "VENICE", "GENOA", "PISA", "MILAN", "ROM
 - Voice file: voiceover.wav; music/SFX bed: bed.wav
+
+## Motion inside long shots (mean picture change start->end; under 0.03 = nearly frozen)
+
+- 0.0-3.4s: 0.058
+- 5.0-8.2s: 0.061
+- 8.2-11.2s: 0.084
+- 11.2-14.8s: 0.052
+- 14.8-19.6s: 0.051
+- 22.2-25.4s: 0.084
+- 27.1-31.3s: 0.064
+- 36.2-40.4s: 0.235
+- 42.0-45.2s: 0.043
+- 45.2-48.2s: 0.188
+- 48.2-52.2s: 0.063
+- 52.2-57.7s: 0.110
+- 63.1-66.5s: 0.092
 
 ## Fact list and sources (from script.md)
 
@@ -80,7 +98,35 @@ Primary study: M. Bauch & U. Büntgen, "Climate-driven changes in Mediterranean 
 - **"Most" (5 hits):** each one is the source's own qualifier, quoted word for word ("most likely", "most probably").
 - **"First" (1 hit):** "first plague cases" in Venice is fact 8.
 - **"Never" (1 hit):** "You've never heard of it" is about the viewer, not a factual claim.
-- **
+- **"Number 47" (1 hit):** the parser misreads spoken years such as "thirteen forty-seven".
+
+Re-run once the real story.json exists.
+
+**Fiction note:** the cartoon characters (Hist, Clim, Bo, Mara, Tomas), the harbour, the scribe on the balcony and all of their reactions are illustrative. They are not real people or depictions of recorded events. The researchers' names appear only on the source badge.
+
+## VIRAL CHECKLIST
+
+- [x] **Sound-off hook:** frame 1 shows the red eclipsed Moon over the harbour and grain ship with "A VOLCANO BROUGHT THE PLAGUE?" (5 words, a question, no date).
+- [x] **Stake under 3 s:** "may have helped bring the Black Death" is said by about 2.5 s. The open loop ("some big cities may have been spared. Why?") holds until 55 s, and the twist is not given away in the first 10 s.
+- [x] **Credibility beat early:** 13.8 s, with the 2025 counter and the badge "BAUCH & BÜNTGEN · COMMUNICATIONS EARTH & ENVIRONMENT · DEC 2025".
+- [x] **Visual every 2-4 s:** 21 shots in 71 s, none longer than 4.5 s.
+- [x] **Every number shown:** 60% (counter plus 6 of 10 windows going dark), 2025, around 1345, 1347, under 2 months (counter plus calendar). All counters pop with roll: false.
+- [x] **Twist shown as an event:** 45-55 s (63-78 %). The last ship docks, the Venice dot turns red, shutters slam, fleas hop out of the grain dust. Milan and Rome stay gold at 55-62 s (78-87 %).
+- [x] **No gore and no sick people:** the plague is shown only through dark windows, shutters, an empty street, a red map dot, fleas and a cartoon rat.
+- [x] **Comment trigger:** "the volcano, or the trade?" with a split argument on screen. Either answer is defensible.
+- [x] **Loop:** "Look at that Moon again" lands on frame 1's composition. There is no "follow" line.
+- [x] **Length:** 165 words, about 66 s at 150 wpm and 71 s by words/2.6 + 0.3 s per sentence, inside 64-72 s. Re-time after the TTS run.
+- [x] **Hypothesis labelled:** in the voice ("may have", "around", "eruption, or series of eruptions", "could have", "most likely", "most probably", "nobody knows") and on screen ("HYPOTHESIS" badges at 1.0 s and 61.9 s).
+
+## New sets needed
+
+1. **Medieval harbour with one cargo ship** (quay, ropes, a few house fronts with shutters and lamps). Used in shots 1, 10, 13-15 and 21, as a night version and a day version.
+2. **Red eclipsed Moon:** a large sphere with a dark red emissive material and a drifting cloud layer. Shots 1, 10 and 21.
+3. **Tree-ring cross-section:** a cylinder slab with a ring texture and one pale blue band that can light up. Shot 8.
+4. **Wheat stalks** for duskfield: thin cones with a wilt/tip animation. Shots 9 and 11 (could be cones in the existing duskfield world).
+5. **2D Italy map insert** (via clip-compositor): routes into Venice, Genoa and Pisa, with Milan and Rome marked. Shot 17.
+6. **Small props:** grain sacks (boxes), cartoon fleas (dark spheres with legs) and a cartoon rat. Shots 13 and 16.
+
 
 ## Licences
 
@@ -97,7 +143,7 @@ Primary study: M. Bauch & U. Büntgen, "Climate-driven changes in Mediterranean 
 
 # Upload: A Volcano Brought the Plague?
 
-- File: final.mp4, 66.3 s, 1080x1920. Cover: cover.jpg (from 0.2 s).
+- File: final.mp4, 68.4 s, 1080x1920. Cover: cover.jpg (from 0.2 s).
 - On-screen hook: A VOLCANO BROUGHT THE PLAGUE?
 - TikTok Creator Rewards: over 60 s - upload as rendered, no in-app trim
 
@@ -110,12 +156,18 @@ Primary study: M. Bauch & U. Büntgen, "Climate-driven changes in Mediterranean 
 
 ## Sources to cite (caption or first comment)
 
-- BBC Science Focus: https://www.sciencefocus.com/news/massive-volcanic-eruptions-black-death
+- Primary paper: https://doi.org/10.1038/s43247-025-02964-0.
 - Cambridge: https://www.cam.ac.uk/stories/volcanoes-black-death
-- EurekAlert: https://www.eurekalert.org/news-releases/1107493
-- KTVZ/CNN: https://ktvz.com/?p=1588763
 - Live Science: https://www.livescience.com/planet-earth/volcanic-eruption-triggered-butterfly-effect-that-led-to-the-black-death-researchers-find
+- EurekAlert: https://www.eurekalert.org/news-releases/1107493
 - Medievalists.net: https://www.medievalists.net/2025/12/volcanic-eruption-set-the-stage-for-the-black-death-researchers-find/
+- BBC Science Focus: https://www.sciencefocus.com/news/massive-volcanic-eruptions-black-death
+- KTVZ/CNN: https://ktvz.com/?p=1588763
+- New Atlas: https://newatlas.com/biology/volcanic-eruptions-black-death
+- The Debrief: https://thedebrief.org/volcanoes-famine-and-grain-ships-how-climate-driven-trade-may-have-brought-the-black-death-to-europe/
+- Scimex: https://www.scimex.org/newsfeed/did-volcanic-activity-related-famine-set-the-black-death-in-motion-in-europe
+- ScienceDaily: https://www.sciencedaily.com/releases/2025/12/251208014623.htm
+- Modern Medieval: https://buttondown.com/ModernMedieval/archive/a-volcano-caused-the-black-death
 
 ## TikTok
 

@@ -1,6 +1,6 @@
 # Upload: A Volcano Brought the Plague?
 
-- File: final.mp4, 66.3 s, 1080x1920. Cover: cover.jpg (from 0.2 s).
+- File: final.mp4, 68.4 s, 1080x1920. Cover: cover.jpg (from 0.2 s).
 - On-screen hook: A VOLCANO BROUGHT THE PLAGUE?
 - TikTok Creator Rewards: over 60 s - upload as rendered, no in-app trim
 
@@ -13,12 +13,18 @@
 
 ## Sources to cite (caption or first comment)
 
-- BBC Science Focus: https://www.sciencefocus.com/news/massive-volcanic-eruptions-black-death
+- Primary paper: https://doi.org/10.1038/s43247-025-02964-0.
 - Cambridge: https://www.cam.ac.uk/stories/volcanoes-black-death
-- EurekAlert: https://www.eurekalert.org/news-releases/1107493
-- KTVZ/CNN: https://ktvz.com/?p=1588763
 - Live Science: https://www.livescience.com/planet-earth/volcanic-eruption-triggered-butterfly-effect-that-led-to-the-black-death-researchers-find
+- EurekAlert: https://www.eurekalert.org/news-releases/1107493
 - Medievalists.net: https://www.medievalists.net/2025/12/volcanic-eruption-set-the-stage-for-the-black-death-researchers-find/
+- BBC Science Focus: https://www.sciencefocus.com/news/massive-volcanic-eruptions-black-death
+- KTVZ/CNN: https://ktvz.com/?p=1588763
+- New Atlas: https://newatlas.com/biology/volcanic-eruptions-black-death
+- The Debrief: https://thedebrief.org/volcanoes-famine-and-grain-ships-how-climate-driven-trade-may-have-brought-the-black-death-to-europe/
+- Scimex: https://www.scimex.org/newsfeed/did-volcanic-activity-related-famine-set-the-black-death-in-motion-in-europe
+- ScienceDaily: https://www.sciencedaily.com/releases/2025/12/251208014623.htm
+- Modern Medieval: https://buttondown.com/ModernMedieval/archive/a-volcano-caused-the-black-death
 
 ## TikTok
 

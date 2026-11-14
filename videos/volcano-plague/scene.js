@@ -296,7 +296,7 @@ function groupsFor(shot) {
   const ws = wordsFor(shot).map(x => ({ ...x, w: x.w.replace(/[.,!?:;"]/g, '') })).filter(x => x.w);
   const raw = wordsFor(shot); const gs = []; let cur = [];
   ws.forEach((x, i) => { cur.push(x); const endPunct = /[.,!?:;]$/.test(raw[i]?.w || ''); if (cur.length >= CAP.words || endPunct || i === ws.length - 1) { gs.push(cur); cur = []; } });
-  gs.forEach((g, i) => { g.t0 = g[0].t0; g.t1 = i < gs.length - 1 ? gs[i + 1][0].t0 : g[g.length - 1].t1 + 0.25; });
+  gs.forEach((g, i) => { g.t0 = g[0].t0; g.t1 = Math.min(shot.end, i < gs.length - 1 ? gs[i + 1][0].t0 : g[g.length - 1].t1 + 0.25); });
   groupsCache.set(shot, gs); return gs;
 }
 let capKey = '';
@@ -304,8 +304,10 @@ function drawCaptions(shot, t) {
   // search every shot: a word that starts just before a cut keeps its caption across the cut
   let g = null; for (const sh of story.shots) { g = groupsFor(sh).find(x => t >= x.t0 && t < x.t1); if (g) { shot = sh; break; } }
   if (!g) { if (capKey) { capEl.innerHTML = ''; capKey = ''; } return; }
+  capEl.style.bottom = (shot.capBottom ?? 27) + '%'; // per-shot caption height: keep faces clear (render.mjs --verify reports covered faces)
   const key = shot.start + ':' + g.t0;
-  if (key !== capKey) { capEl.innerHTML = g.map(x => `<span class="cw">${x.w}</span>`).join(' '); capKey = key; }
+  if (key !== capKey) { capEl.innerHTML = g.map(x => `<span class="cw">${x.w}</span>`).join(' '); capKey = key;
+    const longest = Math.max(...g.map(x => x.w.length)); capEl.style.fontSize = Math.round(W * CAP.size * Math.min(1, 9 / Math.max(9, longest))) + 'px'; }
   const pop = spring(t - g.t0, 18, 0.55);
   capEl.style.transform = `translateY(${(1 - pop) * 30}px) scale(${0.8 + 0.2 * pop})`;
   [...capEl.children].forEach((el, i) => {
@@ -365,8 +367,10 @@ window.__verify = (t) => {
   const cv = document.createElement('canvas'); cv.width = 27; cv.height = 48; const cx = cv.getContext('2d'); cx.drawImage(renderer.domElement, 0, 0, 27, 48);
   const px = cx.getImageData(0, 0, 27, 48).data; let bright = 0; for (let i = 0; i < px.length; i += 4) if (px[i] + px[i + 1] + px[i + 2] > 3 * 235) bright++;
   return { overlays: ovEls.map(({ o, el }) => ({ ...vis(el), t0: o.t0, t1: o.t1, type: o.type, size: o.size, label: o.label })), cap: capEl.textContent.trim(), heads, hits,
-    flash: Number(flashEl.style.opacity || 0), whiteFrac: bright / (27 * 48) };
+    flash: Number(flashEl.style.opacity || 0), whiteFrac: bright / (27 * 48), capBox: capEl.textContent.trim() ? vis(capEl) : null };
 };
+window.__motion = (t0, t1) => { const grab = (t) => { window.renderFrame(t); const c = document.createElement('canvas'); c.width = 36; c.height = 64; const x = c.getContext('2d'); x.drawImage(renderer.domElement, 0, 0, 36, 64); return x.getImageData(0, 0, 36, 64).data; };
+  const a = grab(t0), b = grab(t1); let d = 0; for (let i = 0; i < a.length; i += 4) d += Math.abs(a[i] - b[i]) + Math.abs(a[i + 1] - b[i + 1]) + Math.abs(a[i + 2] - b[i + 2]); return d / (36 * 64 * 3 * 255); };
 window.__total = story.shots[story.shots.length - 1].end;
 await document.fonts.load('900 100px Montserrat').catch(() => {});
 window.__ready = true;
