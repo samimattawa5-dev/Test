@@ -81,6 +81,16 @@ Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check Yo
 - `cartoon-3d-short` (MIT, mromidev/claude-animated-shorts): proven look values for this genre - camera rules (every hold creeps, cuts on big jumps, impact shakes), ink outlines, depth of field, light presets, character proportions, beat formula, readability traps. Borrow its rules/values to upgrade `scene.js`; its own pipeline needs Remotion. Its private reference frames were deliberately NOT installed - never copy another channel's frames or shots.
 - `ffmpeg-skill` (MIT, kajisho5/ffmpeg-skill): post-production on `final.mp4` - loudness to -14 LUFS, platform checks (`check.py --platform reels/youtube`), safe-zone look sheets, music bed with ducking. Needs FFmpeg 6.1+, Python 3.10+.
 - `3dviz-pro-max` (MIT, viettranx/3dviz-pro-max): how to make 3D objects convincing (silhouette, materials, lighting direction, visual anti-slop checklist). Use when a prop/world looks basic.
+- Motion graphics (MIT, charlie947/motion-graphics-skills + Barty-Bart/motion-graphics), all built as HTML with `window.seek(t)` - same idea as our `renderFrame(t)`, so their recipes port directly into `index.html` overlays:
+  - `motion-effects`: 16 effects (masked type, elastic type, chart morph, glass focus, particle logo...) - use for title cards, number reveals, end card.
+  - `title-sequence-3d`: cinematic 3D opener (camera through a lit scene, title lands) - use to upgrade the hook shot.
+  - `animated-chart`: counters, bars that become a line - use when the script says a number ("1 in 25 million").
+  - `explainer-high-energy`: spring/track/kf easing helpers, motion blur by sub-frames, HUD frame, transitions carried by a shape.
+  - `vox-explainer`: paper-card documentary look, label call-outs, counters.
+  - `sound-effects`: real CC0 SFX library (whoosh, pop, impact, riser) + measured mix (-16 LUFS, beat grid). Prefer it over the synth SFX in `tools/make_bed.py` when the user wants a richer sound; needs `pip install librosa soundfile numpy scipy matplotlib` in a venv.
+  - `reel-export`: safe zone for TikTok/Reels (text between y 360 and 1420, nothing in the right 120 px) + upload-clean H.264 settings.
+  - `brand-intake`: writes brand.md + MOTION.md for a channel's look; run once per channel.
+  Rules they share that apply here: one object turning into another beats a fade; stagger elements by a beat; every frame from time alone; label invented numbers; sound is never optional.
 
 ## Fixes for common problems
 | Problem | Do |
