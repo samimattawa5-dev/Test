@@ -2,6 +2,16 @@ import * as THREE from 'three';
 import * as SOFT from '/soft.js';
 
 const story = await (await fetch('/story.json')).json();
+// style-presets: one word sets look, captions, music mood and accent colours (fields already in story.json win)
+const PRESETS = {
+  'science-explainer': { style: 'soft', mood: 'wonder', bloom: 0.35, exposure: 0.95, accent: '#2f9bff', vignette: 0.25, captions: { active: '#FFE14D', key: '#5CFFB0' } },
+  'mystery': { style: 'soft', mood: 'tense', bloom: 0.25, exposure: 0.72, accent: '#ff4d6d', vignette: 0.5, captions: { active: '#ff4d4d', key: '#ffd0d0' } },
+  'collage-history': { style: 'toon', mood: 'playful', outline: true, accent: '#e84a5f', vignette: 0.2, captions: { active: '#ffd84d', key: '#ff8a65' } },
+  'money-explainer': { style: 'soft', mood: 'tense', bloom: 0.3, exposure: 0.9, accent: '#2fbf71', vignette: 0.3, captions: { active: '#5CFF8F', key: '#FFE14D' } },
+  'kids-cartoon': { style: 'toon', mood: 'playful', outline: true, accent: '#ff7aa8', vignette: 0.15, captions: { active: '#ff7aa8', key: '#7ad0ff' } },
+};
+if (story.preset && PRESETS[story.preset]) { const P = PRESETS[story.preset];
+  for (const [k, v] of Object.entries(P)) if (k === 'captions') story.captions = { ...v, ...(story.captions || {}) }; else if (story[k] === undefined) story[k] = v; }
 const SC = Number(new URLSearchParams(location.search).get('scale') || 1);
 const W = Math.round(story.width * SC), H = Math.round(story.height * SC);
 const wrap = document.getElementById('wrap');
@@ -19,6 +29,7 @@ capEl.style.fontSize = Math.round(W * CAP.size) + 'px';
 const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 200);
 const SOFTSTYLE = story.style === 'soft'; // semi-realistic cartoon look (soft.js)
 if (SOFTSTYLE) { SOFT.init(renderer, story, W, H); vigEl.style.background = 'radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 60%, rgba(0,0,0,.28) 100%)'; }
+if (story.vignette !== undefined) vigEl.style.background = `radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,${story.vignette}) 100%)`;
 // cartoon look: 3-step toon shading + ink outline (normal-extruded back faces)
 const GRAD = (() => { const t = new THREE.DataTexture(new Uint8Array([110, 190, 255]), 3, 1, THREE.RedFormat); t.minFilter = t.magFilter = THREE.NearestFilter; t.needsUpdate = true; return t; })();
 const mat = (c) => new THREE.MeshToonMaterial({ color: c, gradientMap: GRAD });
@@ -319,9 +330,9 @@ story.shots.forEach(sh => (sh.overlays || []).forEach(o => {
   if (o.type === 'title') {
     el.innerHTML = o.text.split(' ').map(w => `<span style="display:inline-block;overflow:hidden;vertical-align:top;padding:0 10px"><span class="w" style="display:inline-block;font-size:${o.size || 112}px;line-height:1.1;-webkit-text-stroke:16px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);color:${o.color || '#fff'}">${w}</span></span>`).join('');
   } else if (o.type === 'counter') {
-    el.innerHTML = `<div class="n" style="display:inline-block;font-size:${o.size || 170}px;line-height:1;color:${o.color || '#ffd84d'};-webkit-text-stroke:18px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);font-variant-numeric:tabular-nums"></div><br><div class="l" style="display:inline-block;margin-top:14px;font-size:60px;padding:10px 30px;border-radius:40px;background:${o.accent || '#ff4d6d'};border:6px solid #120c18">${o.label || ''}</div>`;
+    el.innerHTML = `<div class="n" style="display:inline-block;font-size:${o.size || 170}px;line-height:1;color:${o.color || '#ffd84d'};-webkit-text-stroke:18px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);font-variant-numeric:tabular-nums"></div><br><div class="l" style="display:inline-block;margin-top:14px;font-size:60px;padding:10px 30px;border-radius:40px;background:${o.accent || story.accent || '#ff4d6d'};border:6px solid #120c18">${o.label || ''}</div>`;
   } else {
-    el.innerHTML = `<div class="b" style="display:inline-block;font-size:${o.size || 58}px;padding:14px 34px;border-radius:50px;background:${o.accent || '#2f47ff'};border:7px solid #120c18;box-shadow:0 10px 0 #120c18">${o.text}</div>`;
+    el.innerHTML = `<div class="b" style="display:inline-block;font-size:${o.size || 58}px;padding:14px 34px;border-radius:50px;background:${o.accent || story.accent || '#2f47ff'};border:7px solid #120c18;box-shadow:0 10px 0 #120c18">${o.text}</div>`;
   }
   OV.appendChild(el); ovEls.push({ o, el });
 }));
