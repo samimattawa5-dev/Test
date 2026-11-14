@@ -4,7 +4,7 @@ d, out = sys.argv[1], sys.argv[2]
 k = Kokoro(f"{d}/kokoro-v1.0.onnx", f"{d}/voices-v1.0.bin")
 LINES = [
  "A lost volcano may have helped bring the Black Death.",
- "Through the grain that saved them.",
+ "Through the grain meant to save them.",
  "In some regions, up to sixty percent died.",
  "Yet some big cities may have been spared. Why?",
  "A twenty twenty-five study. Clue one: ice cores.",
@@ -22,8 +22,8 @@ LINES = [
  "Milan and Rome apparently did not need grain imports after thirteen forty-five.",
  "They were most probably not affected.",
  "Nobody knows which volcano it was. And some historians are not convinced.",
- "A starving city. Grain ships waiting. Would you let them in?",
- "Look at that Moon again.",
+ "Your city is starving. Grain ships arrive. Nobody knows about plague. Open the port?",
+ "And it may all have started under a Moon like this.",
 ]
 style = k.get_voice_style("bm_george"); sr = 24000; chunks = []; t = 0.25; meta = []
 chunks.append(np.zeros(int(0.25 * sr), dtype=np.float32))
