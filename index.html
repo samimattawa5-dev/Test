@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Makkas Coiffure München</title>
+<meta name="description" content="Makkas Coiffure, Friseursalon in München. Termin anfragen und Route öffnen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav__row">
+    <a class="nav__mark" href="#top">Makkas Coiffure</a>
+    <a class="btn btn--primary" href="#termin">Termin anfragen</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <div class="hero__word">
+        <h1>Makkas Coiffure</h1>
+      </div>
+      <div class="hero__foot">
+        <p class="lead">Ihr Friseursalon in München.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#termin">Termin anfragen</a>
+          <a class="btn btn--secondary" href="https://maps.app.goo.gl/LuYtTtotiB77e3S4A?g_st=ic" rel="noopener">Route öffnen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="plate">
+    <div class="container">
+      <div data-slot="salon" data-alt="Der Salon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Tailor%27s_scissors_-_Macedonian_tailoring_craft.jpg/1280px-Tailor%27s_scissors_-_Macedonian_tailoring_craft.jpg" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Tailor%27s_scissors_-_Macedonian_tailoring_craft.jpg/960px-Tailor%27s_scissors_-_Macedonian_tailoring_craft.jpg 960w, https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Tailor%27s_scissors_-_Macedonian_tailoring_craft.jpg/1280px-Tailor%27s_scissors_-_Macedonian_tailoring_craft.jpg 1280w, https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Tailor%27s_scissors_-_Macedonian_tailoring_craft.jpg/1920px-Tailor%27s_scissors_-_Macedonian_tailoring_craft.jpg 1920w" sizes="(min-width: 1440px) 1312px, 100vw" width="5184" height="3456" alt="Zwei alte eiserne Scheren auf Packpapier">
+      </div>
+      <figcaption class="label">Platzhalterfoto, wird durch Fotos des Salons ersetzt.</figcaption>
+    </div>
+  </figure>
+
+  <section class="statement" aria-labelledby="h-statement">
+    <div class="container statement__grid">
+      <h2 id="h-statement">Handwerk, Linie für Linie.</h2>
+      <div class="statement__demo" aria-hidden="true">
+        <span class="guide g1"><span>Oberlänge</span></span>
+        <span class="guide g2"><span>Mittellänge</span></span>
+        <span class="guide g3"><span>Grundlinie</span></span>
+        Coiffure
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" aria-labelledby="h-visit">
+    <div class="container">
+      <h2 id="h-visit">Besuchen Sie uns.</h2>
+      <div class="visit__grid">
+        <div class="visit__box">
+          <span class="label">Adresse</span>
+          <p>München</p>
+          <p class="visit__missing">Straße und Hausnummer folgen.</p>
+          <p><a href="https://maps.app.goo.gl/LuYtTtotiB77e3S4A?g_st=ic" rel="noopener">Route in Google Maps</a></p>
+        </div>
+        <div class="visit__box">
+          <span class="label">Öffnungszeiten</span>
+          <p class="visit__missing">Öffnungszeiten folgen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="termin" aria-labelledby="h-book">
+    <div class="container book__grid">
+      <div>
+        <h2 id="h-book">Termin anfragen.</h2>
+      </div>
+      <form class="form" data-endpoint="" novalidate>
+        <div class="form__row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Telefon</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="wish">Wunschtermin</label>
+          <textarea id="wish" name="wish" rows="3"></textarea>
+        </div>
+        <div>
+          <button class="btn btn--primary" type="submit">Anfrage senden</button>
+        </div>
+        <p class="form__help" id="form-help" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="foot__grid">
+      <p class="foot__mark">Makkas Coiffure</p>
+      <ul>
+        <li><a href="#termin">Termin anfragen</a></li>
+        <li><a href="https://maps.app.goo.gl/LuYtTtotiB77e3S4A?g_st=ic" rel="noopener">Route öffnen</a></li>
+      </ul>
+      <p class="label">München</p>
+    </div>
+    <p class="label foot__credit">Foto: <a href="https://commons.wikimedia.org/wiki/File:Tailor%27s_scissors_-_Macedonian_tailoring_craft.jpg">Wikimedia Commons</a> (Platzhalter).</p>
+  </div>
+</footer>
+
+<script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
+document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });
+document.querySelectorAll('form[data-endpoint]').forEach((form) => {
+  const help = form.querySelector('.form__help');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const bad = [...form.querySelectorAll('[required]')].filter((f) => !f.value.trim());
+    form.querySelectorAll('[required]').forEach((f) => f.setAttribute('aria-invalid', bad.includes(f) ? 'true' : 'false'));
+    if (bad.length) { help.textContent = 'Bitte Name und Telefon angeben.'; bad[0].focus(); return; }
+    help.textContent = 'Das Formular ist noch nicht angeschlossen. Bitte rufen Sie uns an.';
+  });
+});</script>
+</body>
+</html>
