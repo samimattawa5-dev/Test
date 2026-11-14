@@ -64,7 +64,7 @@
 
 ## Motion inside long shots (mean picture change start->end; under 0.03 = nearly frozen)
 
-- 0.0-3.9s: 0.093
+- 0.0-3.9s: 0.089
 - 6.4-9.6s: 0.061
 - 9.6-12.6s: 0.089
 - 14.4-17.6s: 0.047
@@ -77,7 +77,7 @@
 - 51.8-57.3s: 0.088
 - 59.7-65.0s: 0.287
 - 65.0-71.0s: 0.097
-- 71.0-74.7s: 0.085
+- 71.0-74.7s: 0.083
 
 ## Fact list and sources (from script.md)
 
@@ -109,15 +109,15 @@ Re-run once the real story.json exists.
 
 ## VIRAL CHECKLIST (round 3, checked against the pre-render stills)
 
-- [x] **Sound-off hook:** frame 1 shows the lit blood-red Moon over the harbour, the grain ship and two grain sacks, title "A VOLCANO MAY HAVE STARTED THE BLACK DEATH" (hedged with "may") and badge "HYPOTHESIS · 2025 STUDY" from 0.0 s; a volcano plume behind the Moon. Word captions start after the title shot (the title carries the line).
+- [x] **Sound-off hook:** frame 1 shows the lit blood-red Moon over the harbour, the grain ship and two grain sacks, title "A VOLCANO MAY HAVE BROUGHT THE BLACK DEATH TO EUROPE" (hedged, scoped to Europe, fully drawn at 0.0 s) and badge "HYPOTHESIS · 2025 STUDY"; an erupting volcano (lava streams, glow, ash column) beside the Moon. Word captions start after the title shot (the title carries the line).
 - [x] **Stake under 3 s:** "A lost volcano may have helped bring the Black Death" (0-3.5 s), then "Through the grain meant to save them" over the grain ships. Open loop: "some big cities may have been spared. Why?"
 - [x] **Credibility beat early:** badge "2025 STUDY: BAUCH & BÜNTGEN" over the ice-core action (about 12 s); no separate intro shot.
 - [x] **Every number shown:** 60% (counter + windows going dark), around 1345 (counter + glowing band in the ice core), 1347 (counter + map routes), under 2 months (timeline bar LAST SHIP -> VENICE: PLAGUE turning red).
 - [x] **Twist shown as an event:** the harbour street goes dark and shutters close under "VENICE: FIRST PLAGUE CASES"; then fleas hop out of a grain sack; then the map: Venice red, Genoa and Pisa gold (also imported, no plague claim made), Milan and Rome green with the key "GREEN: APPARENTLY NO IMPORTS NEEDED".
 - [x] **Doubt said aloud:** "Nobody knows which volcano it was. And some historians are not convinced." + badge "HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS".
 - [x] **Turn on the word:** on "problem" the picture cuts from the sunny quay to the night harbour, a flea hops off a sack, faces drop.
-- [x] **Comment trigger (no hindsight):** "Your city is starving. Grain ships arrive. Nobody knows about plague. Open the port?" with YES: FEED THE CITY / NO: CLOSE IT.
-- [x] **Loop:** "And it may all have started under a Moon like this." The last shot pulls back into frame 1's exact camera, Moon, ship, sacks and characters.
+- [x] **Comment trigger (no hindsight):** "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?" with YES: FEED THE CITY / NO: CLOSE IT.
+- [x] **Loop:** "And Europe's plague may have begun under a Moon like this." The last shot pulls back into frame 1's exact camera, Moon, ship, sacks and characters.
 - [x] **Length:** about 75 s (over the 61 s Creator Rewards floor).
 
 ## New sets needed
