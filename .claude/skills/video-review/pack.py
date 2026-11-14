@@ -111,6 +111,13 @@ def main():
     if video and os.path.exists(chk):
         r = run([sys.executable, chk, video] + (["--story", story_p] if story else []))
         L += ["## tt-check", "", "```", r.stdout.strip(), "```", ""]
+    dec = os.path.join(folder, "DECISIONS.md")
+    if os.path.exists(dec): L += ["## Settled decisions (DECISIONS.md) - see CRITERIA.md section E", "", open(dec, encoding="utf-8").read(), ""]
+    if pre:  # the automatic checks, so reviewers do not re-report what is already verified
+        v = run(["node", "render.mjs", "--verify"], cwd=folder); c = run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "claim-check", "claims.py"), story_p, script_p])
+        L += ["## Automatic checks", "", "```", (v.stdout + v.stderr).strip()[-1500:], "```", "", "claim-check (items to check by hand):", "```", "\n".join(x for x in c.stdout.splitlines() if "CHECK" in x or "FIX" in x or "item(s)" in x) or "none", "```", ""]
+    crit = os.path.join(os.path.dirname(os.path.abspath(__file__)), "CRITERIA.md")
+    L += ["## Review criteria", "", f"Judge against {os.path.abspath(crit)} (platform facts, story rules, how to read a pre-render pack, score anchors).", ""]
     up = os.path.join(folder, "UPLOAD.md")
     L += ["## Upload plan (UPLOAD.md)", "", open(up).read() if os.path.exists(up) else "not written yet - run upload-pack/make_upload.py before publishing", ""]
     open(f"{out}/PACK.md", "w").write("\n".join(L))

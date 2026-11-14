@@ -141,6 +141,42 @@ Re-run once the real story.json exists.
   - impact.ogg: "soft_impact3" by peoplearehappy (https://freesound.org/people/peoplearehappy/sounds/841274/), CC0
   - tick.ogg: "Click / Tick" by Squirrel_404 (https://freesound.org/people/Squirrel_404/sounds/683048/), CC0
 
+## Settled decisions (DECISIONS.md) - see CRITERIA.md section E
+
+# Settled decisions (volcano-plague)
+
+1. **Hook = the volcano claim, scoped to Europe**: "A VOLCANO MAY HAVE BROUGHT THE BLACK DEATH TO EUROPE".
+   Round 1 tried the paradox title ("SAVED BY GRAIN. DOOMED BY GRAIN?"); round 2 reviewers found it too
+   abstract for frame 0. The grain paradox is line 2 (3.4 s) and the twist at about 42 s.
+   Fact-checker + policy (round 4) required "to Europe", not "started".
+2. **Volcano visible in frame 0**: an erupting cone (lava streams, glow, ash column) left of the red Moon.
+3. **Only Venice is red** on the map: fact 8 covers only Venice's first cases. Genoa and Pisa are gold
+   (importers, fact 7). Milan and Rome green with "NO GRAIN IMPORTS NEEDED" (fact 10).
+4. **Comment question**: "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?"
+   (no hindsight; two sides).
+5. **Length about 75 s** - over the 61 s Creator Rewards floor on purpose; do not cut below 62 s.
+6. **Hedges stay** exactly as the sources use them (may, up to, most likely, apparently, most probably, debated).
+7. **Cartoon style and cast** (Hist, Clim, Mara, Tomas, Bo, folk) are fixed for this channel.
+
+
+## Automatic checks
+
+```
+Story "A Volcano Brought the Plague?": 23 shots, 74.678s, 2240 frames, audio: voiceover.wav
+VERIFY OK
+```
+
+claim-check (items to check by hand):
+```
+[ 44.8s] CHECK  VO: "Venice reported its first plague cases." -> superlative "first" - check the source says exactly this
+[ 45.0s] CHECK  BADGE: "VENICE: FIRST PLAGUE CASES" -> superlative "first" - check the source says exactly this
+2 item(s) to check by hand. No item here is proof of an error; each needs a look at the source.
+```
+
+## Review criteria
+
+Judge against /home/user/Test/.claude/skills/video-review/CRITERIA.md (platform facts, story rules, how to read a pre-render pack, score anchors).
+
 ## Upload plan (UPLOAD.md)
 
 # Upload: A Volcano Brought the Plague?

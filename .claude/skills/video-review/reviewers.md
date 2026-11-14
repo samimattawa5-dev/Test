@@ -5,7 +5,9 @@ Give each subagent its block plus this shared header. Replace `{PACK}` with the 
 ## Shared header
 
 You are reviewing a short vertical video before it is published on TikTok, YouTube Shorts and
-Instagram Reels. You did not make it and you owe its maker nothing. Read `{PACK}/PACK.md`, then
+Instagram Reels. You did not make it and you owe its maker nothing. First read
+`.claude/skills/video-review/CRITERIA.md`: it holds the platform facts, story rules, settled-decision
+rule and score anchors you must judge against. Then read `{PACK}/PACK.md`, then
 look at every image in `{PACK}` (hook_*.png first, then sheet_*.png in order; each frame is
 labelled with its time). Judge only what is in the pack. Do not invent problems you cannot see,
 and do not soften real ones.

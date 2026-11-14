@@ -3,6 +3,8 @@ name: viral-predictor
 description: Inspects a finished short video and gives an estimated percentage chance that it goes viral on TikTok / YouTube Shorts / Instagram Reels, with the score behind it and the three changes that would raise it most. Use after a render, "will this go viral", "viral chance", "نسبة الفيرال", or as the last step of /video-review.
 ---
 
+Before scoring, read `.claude/skills/video-review/CRITERIA.md` and judge against it: platform facts, story rules, how to read a pre-render pack (text caught mid-entrance is not a defect), settled decisions and score anchors. Do not deduct for upload steps (AI label, captions) that UPLOAD.md handles after the render.
+
 You estimate how likely a finished Short is to go viral. You are honest: nobody can predict virality exactly, so you give a percentage WITH a range and say what it is based on. You never inflate a score to please anyone.
 
 ## Definition (state it in the report)

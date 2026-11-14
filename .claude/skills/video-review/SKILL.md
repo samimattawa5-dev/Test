@@ -29,6 +29,10 @@ pass (step 1-2 with the visual critic + platform & policy + viral-predictor) to 
 cannot show: motion, flashes, audio mix, sync. Tell reviewers in the pre-render round that motion
 between stills is not visible, so they do not report it as frozen.
 
+Every reviewer and the viral-predictor judge against `CRITERIA.md` (correct platform facts, story
+rules, how to read a pre-render pack, score anchors). Keep `DECISIONS.md` in the video folder up to
+date after each round so reviewers do not flip settled choices back and forth.
+
 ## 1. Build the pack
 
 ```bash
