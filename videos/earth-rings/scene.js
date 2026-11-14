@@ -13,7 +13,8 @@ renderer.setPixelRatio(1);
 renderer.setSize(W, H);
 renderer.shadowMap.enabled = true;
 wrap.prepend(renderer.domElement);
-capEl.style.fontSize = Math.round(W * 0.14) + 'px';
+const CAP = Object.assign({ words: 3, active: '#FFE14D', key: '#5CFFB0', size: 0.105, highlight: [] }, story.captions || {});
+capEl.style.fontSize = Math.round(W * CAP.size) + 'px';
 
 const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 200);
 const SOFTSTYLE = story.style === 'soft'; // semi-realistic cartoon look (soft.js)
@@ -105,7 +106,7 @@ function makeCharacter(spec) {
   return g;
 }
 function animate(g, anim, t, base) {
-  g.position.copy(base); g.rotation.set(0, 0, 0);
+  g.position.copy(base); g.rotation.set(0, 0, 0); g.userData.head.rotation.set(0, 0, 0);
   const blink = ((t + g.userData.seed) % 2.6) < 0.13; const bl = blink ? 0.1 : 1; g.userData.eyes.forEach(e => { e.scale.y = bl; });
   if (g.userData.lids) g.userData.lids.forEach(l => { l.rotation.x = blink ? 1.45 : -0.55; });
   const armL = g.getObjectByName('armL'), armR = g.getObjectByName('armR');
@@ -120,6 +121,9 @@ function animate(g, anim, t, base) {
   else if (anim === 'run') { g.position.x = base.x + ((t * 1.5) % 4) - 2; g.rotation.y = Math.PI / 2; armL.rotation.x = Math.sin(t * 16) * 0.9; armR.rotation.x = -Math.sin(t * 16) * 0.9; g.position.y = base.y + Math.abs(Math.sin(t * 16)) * 0.1; }
   else if (anim === 'walk') { g.position.x = base.x + Math.sin(t * 2) * 0.8; g.rotation.y = Math.cos(t * 2) > 0 ? Math.PI / 2 : -Math.PI / 2; armL.rotation.x = Math.sin(t * 8) * 0.6; armR.rotation.x = -Math.sin(t * 8) * 0.6; }
   else { g.position.y = base.y + Math.sin(t * 2) * 0.03; g.userData.head.rotation.z = Math.sin(t * 1.5) * 0.08; }
+  // breathing + small head life for every pose
+  const sd = g.userData.seed || 0; g.userData.head.rotation.z += Math.sin(t * 1.3 + sd) * 0.04; g.userData.head.rotation.x += Math.sin(t * 0.9 + sd * 2) * 0.03;
+  if (g.userData.lids) g.scale.y = (g.userData.baseScaleY ??= g.scale.y) * (1 + Math.sin(t * 2.4 + sd) * 0.008);
 }
 
 // ---------- props ----------
@@ -243,6 +247,32 @@ function wordsFor(shot) {
   const dur = shot.end - shot.start, step = dur / words.length;
   return words.map((w, i) => ({ w, t0: shot.start + i * step, t1: shot.start + (i + 1) * step }));
 }
+// karaoke captions: 2-3 words at a time, the spoken word lights up, numbers/keywords keep their own colour
+const KEYS = new Set((CAP.highlight || []).map(w => w.toUpperCase()));
+const isKey = (w) => /\d/.test(w) || KEYS.has(w.toUpperCase());
+const groupsCache = new Map();
+function groupsFor(shot) {
+  if (groupsCache.has(shot)) return groupsCache.get(shot);
+  const ws = wordsFor(shot).map(x => ({ ...x, w: x.w.replace(/[.,!?:;"]/g, '') })).filter(x => x.w);
+  const raw = wordsFor(shot); const gs = []; let cur = [];
+  ws.forEach((x, i) => { cur.push(x); const endPunct = /[.,!?:;]$/.test(raw[i]?.w || ''); if (cur.length >= CAP.words || endPunct || i === ws.length - 1) { gs.push(cur); cur = []; } });
+  gs.forEach((g, i) => { g.t0 = g[0].t0; g.t1 = i < gs.length - 1 ? gs[i + 1][0].t0 : g[g.length - 1].t1 + 0.25; });
+  groupsCache.set(shot, gs); return gs;
+}
+let capKey = '';
+function drawCaptions(shot, t) {
+  const g = groupsFor(shot).find(x => t >= x.t0 && t < x.t1);
+  if (!g) { if (capKey) { capEl.innerHTML = ''; capKey = ''; } return; }
+  const key = shot.start + ':' + g.t0;
+  if (key !== capKey) { capEl.innerHTML = g.map(x => `<span class="cw">${x.w}</span>`).join(' '); capKey = key; }
+  const pop = spring(t - g.t0, 18, 0.55);
+  capEl.style.transform = `translateY(${(1 - pop) * 30}px) scale(${0.8 + 0.2 * pop})`;
+  [...capEl.children].forEach((el, i) => {
+    const x = g[i], on = t >= x.t0 && t < x.t1, k = spring(t - x.t0, 22, 0.5);
+    el.style.color = on ? CAP.active : isKey(x.w) ? CAP.key : '#ffffff';
+    el.style.transform = on ? `scale(${1 + 0.14 * k}) rotate(${(i % 2 ? 1 : -1) * 2 * k}deg)` : 'scale(1)';
+  });
+}
 const ease = (x) => x * x * x * (x * (x * 6 - 15) + 10); // smootherstep
 const FPS = story.fps || 30;
 
@@ -283,6 +313,7 @@ function drawOverlays(t) {
 }
 
 window.__total = story.shots[story.shots.length - 1].end;
+await document.fonts.load('900 100px Montserrat').catch(() => {});
 window.__ready = true;
 window.renderFrame = (t) => {
   const entry = scenes.find(s => t >= s.shot.start && t < s.shot.end) || scenes[scenes.length - 1];
@@ -302,7 +333,5 @@ window.renderFrame = (t) => {
   drawOverlays(t);
   flashEl.style.opacity = shot.flash ? Math.max(0, 1 - lt / 0.35).toFixed(3) : 0;
   if (SOFTSTYLE) SOFT.render(scene, camera); else renderer.render(scene, camera);
-  const w = wordsFor(shot).find(x => t >= x.t0 && t < x.t1);
-  capEl.textContent = w ? w.w.replace(/[.,!?]/g, '') : '';
-  capEl.style.transform = w ? `scale(${0.85 + 0.15 * Math.min(1, (t - w.t0) * 12)})` : '';
+  drawCaptions(shot, t);
 };

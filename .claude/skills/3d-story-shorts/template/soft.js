@@ -94,12 +94,26 @@ export function makeCharacter(spec) {
   // legs + shoes
   for (const s of [-1, 1]) {
     const leg = part(new THREE.CapsuleGeometry(0.11, 0.36, 8, 16), pants); leg.position.set(0.15 * s, 0.33, 0); g.add(leg);
+    const cuff = part(new THREE.TorusGeometry(0.115, 0.025, 8, 20), pants); cuff.rotation.x = Math.PI / 2; cuff.position.set(0.15 * s, 0.17, 0); g.add(cuff);
     const sh = part(new THREE.SphereGeometry(0.14, 24, 16), shoe); sh.scale.set(0.95, 0.62, 1.55); sh.position.set(0.15 * s, 0.08, 0.07); g.add(sh);
+    for (let k = 0; k < 3; k++) { const lc = part(new THREE.BoxGeometry(0.1, 0.012, 0.016), M.matte('#f2efe8', 0.8), false); lc.position.set(0.15 * s, 0.135 - k * 0.012, 0.1 + k * 0.035); lc.rotation.x = -0.5; g.add(lc); }
     const sole = part(new THREE.CylinderGeometry(0.13, 0.13, 0.04, 24), M.matte('#efe8dc', 0.9)); sole.scale.set(1, 1, 1.6); sole.position.set(0.15 * s, 0.025, 0.07); g.add(sole);
   }
   // hips + torso (lathe profile)
   const hips = part(lathe([[0, 0.5], [0.27, 0.5], [0.31, 0.58], [0.31, 0.66], [0, 0.66]]), pants); g.add(hips);
   const torso = part(lathe([[0, 0.62], [0.31, 0.63], [0.34, 0.78], [0.35, 0.98], [0.32, 1.14], [0.22, 1.24], [0.09, 1.28], [0, 1.28]]), shirt); g.add(torso);
+  const hem = part(new THREE.CylinderGeometry(0.315, 0.315, 0.05, 32, 1, true), M.fabric(lerpC(C(shirtC), C('#000000'), 0.18).getStyle())); hem.position.y = 0.655; hem.material.side = THREE.DoubleSide; g.add(hem);
+  if (c.outfit !== 'labcoat') for (let k = 0; k < 3; k++) { const b = part(new THREE.SphereGeometry(0.022, 10, 8), M.gloss(lerpC(C(shirtC), C('#ffffff'), 0.55).getStyle()), false); b.scale.z = 0.5; b.position.set(0, 0.86 + k * 0.12, 0.345 - k * 0.005); g.add(b); }
+  // belt + buckle, pants pockets and side seams, chest pocket, shoulder seams
+  const belt = part(new THREE.CylinderGeometry(0.318, 0.318, 0.06, 32), M.gloss('#3a2a22')); belt.position.y = 0.62; g.add(belt);
+  const buckle = part(new THREE.BoxGeometry(0.1, 0.07, 0.025), M.metal('#d4b26a')); buckle.position.set(0, 0.62, 0.32); g.add(buckle);
+  for (const s of [-1, 1]) {
+    const pk = part(new THREE.BoxGeometry(0.11, 0.02, 0.09), M.fabric(lerpC(C(pantsC), C('#000000'), 0.25).getStyle()), false); pk.position.set(0.22 * s, 0.56, 0.2); pk.rotation.set(0.5, 0.6 * s, 0); g.add(pk);
+    const seam = part(new THREE.BoxGeometry(0.012, 0.42, 0.012), M.fabric(lerpC(C(pantsC), C('#ffffff'), 0.2).getStyle()), false); seam.position.set(0.255 * s, 0.33, 0); g.add(seam);
+    const sh = part(new THREE.SphereGeometry(0.13, 16, 12), c.outfit === 'labcoat' ? M.fabric('#f4f4ef') : shirt); sh.scale.set(1, 0.7, 1); sh.position.set(0.33 * s, 1.16, 0); g.add(sh);
+  }
+  if (c.outfit !== 'labcoat' && c.outfit !== 'explorer') { const cp = part(new THREE.BoxGeometry(0.12, 0.12, 0.015), M.fabric(lerpC(C(shirtC), C('#000000'), 0.12).getStyle()), false); cp.position.set(0.17, 1.0, 0.335); cp.rotation.y = 0.35; g.add(cp);
+    const pf = part(new THREE.BoxGeometry(0.125, 0.035, 0.02), M.fabric(lerpC(C(shirtC), C('#000000'), 0.2).getStyle()), false); pf.position.set(0.17, 1.065, 0.34); pf.rotation.y = 0.35; g.add(pf); }
   const collar = part(new THREE.TorusGeometry(0.12, 0.035, 12, 24), shirt); collar.rotation.x = Math.PI / 2; collar.position.y = 1.27; g.add(collar);
   const neck = part(new THREE.CylinderGeometry(0.085, 0.095, 0.16, 16), skin); neck.position.y = 1.33; g.add(neck);
   if (c.outfit === 'labcoat') {
@@ -126,11 +140,14 @@ export function makeCharacter(spec) {
   for (const s of [-1, 1]) {
     const eye = new THREE.Group(); eye.position.set(0.165 * s, 0.07, 0.36); head.add(eye);
     eye.add(part(new THREE.SphereGeometry(0.115, 32, 24), white, false));
-    const iris = part(new THREE.SphereGeometry(0.07, 24, 16), irisM, false); iris.scale.z = 0.45; iris.position.z = 0.085; eye.add(iris);
-    const pupil = part(new THREE.SphereGeometry(0.038, 16, 12), pupilM, false); pupil.scale.z = 0.4; pupil.position.z = 0.112; eye.add(pupil);
-    const h1 = new THREE.Mesh(new THREE.SphereGeometry(0.017, 10, 8), hl); h1.position.set(0.025, 0.03, 0.12); eye.add(h1);
+    const iris = part(new THREE.SphereGeometry(0.08, 28, 18), irisM, false); iris.scale.z = 0.45; iris.position.z = 0.08; eye.add(iris);
+    const ring = part(new THREE.TorusGeometry(0.078, 0.008, 8, 28), M.gloss('#1a1420'), false); ring.position.z = 0.1; eye.add(ring);
+    const pupil = part(new THREE.SphereGeometry(0.042, 16, 12), pupilM, false); pupil.scale.z = 0.4; pupil.position.z = 0.112; eye.add(pupil);
+    const h1 = new THREE.Mesh(new THREE.SphereGeometry(0.022, 10, 8), hl); h1.position.set(0.03, 0.035, 0.118); eye.add(h1);
     const h2 = new THREE.Mesh(new THREE.SphereGeometry(0.008, 8, 6), hl); h2.position.set(-0.02, -0.025, 0.118); eye.add(h2);
     const lid = part(new THREE.SphereGeometry(0.122, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2), skin, false); lid.rotation.x = -0.55; eye.add(lid); lids.push(lid);
+    const lashy = ['bob', 'bun', 'long', 'curly'].includes(c.hair?.style) || c.lashes;
+    if (lashy) for (let k = 0; k < 3; k++) { const la = part(new THREE.CapsuleGeometry(0.008, 0.05, 4, 6), M.gloss('#1a1420'), false); const a = (0.35 + k * 0.25) * s; la.position.set(Math.sin(a) * 0.115 * 0.9 + 0.03 * s, 0.03, Math.cos(a) * 0.115); la.rotation.set(-0.6, 0, -a * 1.4); lid.add(la); }
     const brow = part(new THREE.CapsuleGeometry(0.024, 0.13, 6, 10), hair, false); brow.rotation.z = Math.PI / 2 + 0.08 * s; brow.position.set(0.17 * s, 0.24, 0.37); brow.name = 'brow' + s; head.add(brow);
   }
   // mouth
@@ -146,10 +163,13 @@ export function makeCharacter(spec) {
   // hair styles
   const hs = c.hair?.style || ['bob', 'spiky', 'bun', 'curly', 'tuft'][hsh % 5];
   const cap = (r, tl, y = 0.03, z = -0.03, rx = -0.3) => { const m = part(new THREE.SphereGeometry(r, 40, 24, 0, Math.PI * 2, 0, tl), hair); m.position.set(0, y, z); m.rotation.x = rx; head.add(m); return m; };
-  if (hs === 'bob') { cap(0.49, Math.PI * 0.62); for (let i = -2; i <= 2; i++) { const b = part(new THREE.SphereGeometry(0.12, 20, 14), hair); b.position.set(i * 0.1, 0.32 - Math.abs(i) * 0.03, 0.33); b.scale.set(1, 0.7, 0.8); head.add(b); } }
+  // hair stays simple (one or two smooth masses); the detail budget goes to the body
+  if (hs === 'bob' || hs === 'long') { cap(0.49, Math.PI * 0.58, 0.03, -0.04, -0.35);
+    const fringe = part(new THREE.SphereGeometry(0.3, 24, 16), hair); fringe.scale.set(1.25, 0.38, 0.6); fringe.position.set(0.04, 0.3, 0.3); fringe.rotation.z = -0.15; head.add(fringe);
+    if (hs === 'long') { const back = part(new THREE.CapsuleGeometry(0.3, 0.35, 10, 16), hair); back.scale.z = 0.55; back.position.set(0, -0.2, -0.25); head.add(back); } }
   else if (hs === 'bun') { cap(0.475, Math.PI * 0.5, 0.04, -0.02, -0.15); const bun = part(new THREE.SphereGeometry(0.16, 24, 16), hair); bun.position.set(0, 0.47, -0.18); head.add(bun); }
-  else if (hs === 'curly') { cap(0.47, Math.PI * 0.45, 0.05, -0.02, -0.15); const r = rngFrom(hsh); for (let i = 0; i < 26; i++) { const a = r() * Math.PI * 2, el = 0.15 + r() * 0.9; const b = part(new THREE.SphereGeometry(0.09 + r() * 0.04, 14, 10), hair); b.position.set(Math.cos(a) * Math.sin(el) * 0.47, Math.cos(el) * 0.47 + 0.05, Math.sin(a) * Math.sin(el) * 0.47 - 0.03); if (b.position.z > 0.25 && b.position.y < 0.3) continue; head.add(b); } }
-  else if (hs === 'spiky') { cap(0.47, Math.PI * 0.42, 0.06, -0.02, -0.2); for (let i = 0; i < 9; i++) { const a = (i / 9) * Math.PI * 2; const t = part(new THREE.ConeGeometry(0.085, 0.28, 12), hair); t.position.set(Math.cos(a) * 0.22, 0.42, Math.sin(a) * 0.22 - 0.04); t.rotation.set(Math.sin(a) * 0.6, 0, -Math.cos(a) * 0.6); head.add(t); } }
+  else if (hs === 'curly') { cap(0.47, Math.PI * 0.45, 0.05, -0.02, -0.15); const r = rngFrom(hsh); for (let i = 0; i < 9; i++) { const a = r() * Math.PI * 2, el = 0.15 + r() * 0.9; const b = part(new THREE.SphereGeometry(0.09 + r() * 0.04, 14, 10), hair); b.position.set(Math.cos(a) * Math.sin(el) * 0.47, Math.cos(el) * 0.47 + 0.05, Math.sin(a) * Math.sin(el) * 0.47 - 0.03); if (b.position.z > 0.25 && b.position.y < 0.3) continue; head.add(b); } }
+  else if (hs === 'spiky') { cap(0.47, Math.PI * 0.42, 0.06, -0.02, -0.2); for (let i = 0; i < 5; i++) { const a = (i / 5) * Math.PI * 2; const t = part(new THREE.ConeGeometry(0.1, 0.26, 12), hair); t.position.set(Math.cos(a) * 0.22, 0.42, Math.sin(a) * 0.22 - 0.04); t.rotation.set(Math.sin(a) * 0.6, 0, -Math.cos(a) * 0.6); head.add(t); } }
   else if (hs === 'tuft') { cap(0.465, Math.PI * 0.3, 0.06, -0.05, -0.4); for (let i = 0; i < 3; i++) { const t = part(new THREE.CapsuleGeometry(0.04, 0.16, 6, 8), hair); t.position.set(-0.06 + i * 0.06, 0.5, 0.05); t.rotation.set(0.4, 0, (i - 1) * 0.5); head.add(t); } }
   else if (hs === 'cap') { const capM = M.fabric(hairC); const d = part(new THREE.SphereGeometry(0.48, 40, 24, 0, Math.PI * 2, 0, Math.PI * 0.45), capM); d.position.y = 0.04; head.add(d);
     const brim = part(new THREE.CylinderGeometry(0.26, 0.26, 0.03, 32, 1, false, -Math.PI / 2, Math.PI), capM); brim.position.set(0, 0.2, 0.34); brim.scale.z = 1.2; head.add(brim);
@@ -168,6 +188,8 @@ export function makeCharacter(spec) {
     const sleeveM = c.outfit === 'labcoat' ? M.fabric('#f4f4ef') : shirt;
     const up = part(new THREE.CapsuleGeometry(0.09, 0.22, 8, 12), sleeveM); up.position.y = -0.16; arm.add(up);
     const fore = part(new THREE.CapsuleGeometry(0.07, 0.2, 8, 12), skin); fore.position.y = -0.42; arm.add(fore);
+    const fold = part(new THREE.TorusGeometry(0.093, 0.012, 6, 20), sleeveM); fold.rotation.x = Math.PI / 2; fold.position.y = -0.12; arm.add(fold);
+    const scuff = part(new THREE.TorusGeometry(0.088, 0.022, 8, 20), sleeveM); scuff.rotation.x = Math.PI / 2; scuff.position.y = -0.3; arm.add(scuff);
     const hand = new THREE.Group(); hand.position.y = -0.6; arm.add(hand);
     const palm = part(new THREE.SphereGeometry(0.08, 20, 14), skin); palm.scale.set(1, 1.1, 0.7); hand.add(palm);
     for (let f = 0; f < 4; f++) { const fg = part(new THREE.CapsuleGeometry(0.02, 0.07, 6, 8), skin); fg.position.set((-0.045 + f * 0.03) * s, -0.1, 0.005); fg.rotation.x = 0.15; hand.add(fg); }

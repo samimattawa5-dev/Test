@@ -118,3 +118,10 @@ Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check Yo
 - Real fact + story + twist beats plain explainers and pure fiction.
 - Vary topic, locations, colours, camera - repetitive mass-produced uploads aren't monetized.
 - Keep `script.md` sources; post on schedule; track which topics hold viewers to the end, then "make another like the X video".
+
+## After the render: review and publish (skills in this repo)
+1. `/video-review` - pack + 5 independent reviewers (+ optional real viewers on a private review page) -> PUBLISH / FIX FIRST / DO NOT PUBLISH.
+2. `/tt-check` - TikTok specs, safe zone, loudness, Creator Rewards length (> 60 s).
+3. Captions per platform: `/tt-caption` (TikTok), `/ig-caption` (Instagram), `/yt-package` + `/yt-seo` (YouTube title, description).
+4. Scripts for the next video can start from `/tt-script`, `/ig-reel` or `/yt-script` (scored hooks), then come back here to build.
+For money on TikTok, plan 61-90 s; keep hair simple and spend detail on bodies, props and worlds.

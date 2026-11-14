@@ -7,9 +7,12 @@
   html,body{margin:0;background:#000;overflow:hidden}
   #wrap{position:relative}
   canvas{display:block}
-  #cap{position:absolute;left:0;right:0;bottom:27%;text-align:center;color:#fff;
-       font:900 150px/1 "Arial Black",Impact,sans-serif;text-transform:uppercase;
-       -webkit-text-stroke:10px #000;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.5)}
+  @font-face{font-family:"Montserrat";font-weight:900;src:url(/node_modules/@fontsource/montserrat/files/montserrat-latin-900-normal.woff2) format("woff2")}
+  @font-face{font-family:"Montserrat";font-weight:800;src:url(/node_modules/@fontsource/montserrat/files/montserrat-latin-800-normal.woff2) format("woff2")}
+  #cap{position:absolute;left:4%;right:4%;bottom:27%;text-align:center;color:#fff;
+       font:900 150px/1.05 "Montserrat","Arial Black",Impact,sans-serif;text-transform:uppercase;letter-spacing:-0.01em}
+  #cap .cw{display:inline-block;margin:0 .12em;-webkit-text-stroke:.11em #0d0a12;paint-order:stroke fill;
+       text-shadow:0 .07em 0 #0d0a12,0 .12em .18em rgba(0,0,0,.45);transform-origin:50% 80%}
 </style>
 <script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
 </head>
