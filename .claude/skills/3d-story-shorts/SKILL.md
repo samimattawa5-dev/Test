@@ -53,13 +53,21 @@ Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check Yo
   "shots": [{
     "start": 0, "end": 4, "line": "voiceover text for this shot",
     "words": [{"w":"They","t0":0,"t1":0.3}],            // optional exact word timing
-    "world": "office|prison|city|lab|space|desert|ocean",
-    "characters": [{"color":"#7ad0ff","pos":[x,y,z],"anim":"idle|wave|bounce|spin|walk"}],
-    "props": [{"type":"box|sphere|cylinder|cone|lamp","color":"#hex","pos":[x,y,z],"size":[w,h,d],"spin":1.0}],
+    "world": "office|prison|city|lab|space|desert|ocean|ice|dusk",
+    "characters": [{"color":"#7ad0ff","pos":[x,y,z],"anim":"idle|wave|bounce|spin|walk|run|shiver|no|lookup"}],
+    "props": [{"type":"box|sphere|cylinder|cone|torus|rock|ring|earth|crater|lamp","color":"#hex","pos":[x,y,z],"size":[w,h,d],
+               "rot":[x,y,z], "spin":1.0, "glow":true,
+               "move":[x,y,z],                                  // slide from pos to here during the shot
+               "fall":8,                                        // loop-falling from this height
+               "orbit":{"radius":2.5,"speed":0.8,"phase":0,"y":0},
+               "equator":"#ff4d4d", "dots":21}],                 // earth only: glowing equator band, crater dots
     "camera": {"from":[x,y,z],"to":[x,y,z],"look":[x,y,z]}   // camera moves from -> to during the shot
 }]}
 ```
-- Characters ~1.9 units tall; camera z 5-8 shows 1-3 characters in 9:16. Always move the camera (`from` != `to`).
+- Characters ~1.9 units tall; camera z 5-8 shows 1-3 characters in 9:16. An `earth` of size 3 needs camera distance ~10-12 to fit the 9:16 width.
+- Preview all shots at once: after `--check`, `ffmpeg -pattern_type glob -i 'out/preview_shot_*.png' -vf "scale=270:480,tile=7x2" -frames:v 1 out/sheet.png`, then Read `out/sheet.png`.
+- Timing without whisper: `ffmpeg -i voiceover.wav -af silencedetect=noise=-35dB:d=0.25 -f null -` gives the pauses; map them to sentences, put shot cuts in the middle of pauses, spread words inside each phrase by length.
+- In a cloud session, Higgsfield results download from `d8j0ntlcm91z4.cloudfront.net` (must be an allowed host). Headless render there: `CHROME_PATH=/opt/pw-browsers/chromium`. Always move the camera (`from` != `to`).
 - Shots must be contiguous (`end` of one = `start` of next).
 - Need a new world/prop/animation? Edit `scene.js` (`WORLDS`, `makeProp`, `animate`).
 - Captions: one word at a time, from `line` (or `words`).

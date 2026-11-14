@@ -36,18 +36,50 @@ function animate(g, anim, t, base) {
   if (anim === 'bounce') g.position.y = base.y + Math.abs(Math.sin(t * 6)) * 0.3;
   else if (anim === 'wave') armR.rotation.z = Math.PI * 0.8 + Math.sin(t * 10) * 0.4;
   else if (anim === 'spin') g.rotation.y = t * 2;
+  else if (anim === 'shiver') { g.position.x = base.x + Math.sin(t * 60) * 0.03; armL.rotation.z = -0.6; armR.rotation.z = 0.6; }
+  else if (anim === 'no') g.userData.head.rotation.y = Math.sin(t * 8) * 0.5;
+  else if (anim === 'lookup') { g.userData.head.rotation.x = -0.5; armR.rotation.z = Math.PI * 0.7; }
+  else if (anim === 'run') { g.position.x = base.x + ((t * 1.5) % 4) - 2; g.rotation.y = Math.PI / 2; armL.rotation.x = Math.sin(t * 16) * 0.9; armR.rotation.x = -Math.sin(t * 16) * 0.9; g.position.y = base.y + Math.abs(Math.sin(t * 16)) * 0.1; }
   else if (anim === 'walk') { g.position.x = base.x + Math.sin(t * 2) * 0.8; g.rotation.y = Math.cos(t * 2) > 0 ? Math.PI / 2 : -Math.PI / 2; armL.rotation.x = Math.sin(t * 8) * 0.6; armR.rotation.x = -Math.sin(t * 8) * 0.6; }
   else { g.position.y = base.y + Math.sin(t * 2) * 0.03; g.userData.head.rotation.z = Math.sin(t * 1.5) * 0.08; }
 }
 
 // ---------- props ----------
+function glowMat(c) { return new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.8, roughness: 0.4, side: THREE.DoubleSide, transparent: true, opacity: 0.9 }); }
 function makeProp(p) {
   const s = p.size || [1, 1, 1];
   let m;
   switch (p.type) {
-    case 'sphere': m = mesh(new THREE.SphereGeometry(s[0] / 2, 24, 16), p.color); break;
+    case 'sphere': m = mesh(new THREE.SphereGeometry(s[0] / 2, 32, 24), p.color); break;
     case 'cylinder': m = mesh(new THREE.CylinderGeometry(s[0] / 2, s[0] / 2, s[1], 24), p.color); break;
     case 'cone': m = mesh(new THREE.ConeGeometry(s[0] / 2, s[1], 24), p.color); break;
+    case 'torus': m = mesh(new THREE.TorusGeometry(s[0], s[1] || 0.1, 16, 64), p.color); break;
+    case 'rock': m = mesh(new THREE.DodecahedronGeometry(s[0] / 2, 0), p.color); break;
+    case 'ring': { // flat glowing planetary ring: size [inner, outer]
+      m = new THREE.Mesh(new THREE.RingGeometry(s[0], s[1], 96, 1), glowMat(p.color));
+      m.rotation.x = -Math.PI / 2; break;
+    }
+    case 'earth': { // size [diameter]
+      m = new THREE.Group();
+      const r = s[0] / 2;
+      m.add(mesh(new THREE.SphereGeometry(r, 48, 32), p.color || '#2f7fd8'));
+      let q = 7; const rnd = () => ((q = (q * 9301 + 49297) % 233280) / 233280);
+      for (let i = 0; i < 14; i++) {
+        const c = mesh(new THREE.SphereGeometry(r * (0.18 + rnd() * 0.22), 16, 12), rnd() > 0.3 ? '#4caf50' : '#e9d8a6', false);
+        const th = rnd() * Math.PI * 2, ph = 0.4 + rnd() * 2.3;
+        c.position.set(Math.sin(ph) * Math.cos(th) * r * 0.9, Math.cos(ph) * r * 0.9, Math.sin(ph) * Math.sin(th) * r * 0.9);
+        c.scale.setScalar(1); m.add(c);
+      }
+      if (p.equator) { const band = new THREE.Mesh(new THREE.TorusGeometry(r * 1.01, r * 0.05, 12, 96), glowMat(p.equator)); band.rotation.x = Math.PI / 2; m.add(band); }
+      if (p.dots) for (let i = 0; i < p.dots; i++) { const a = (i / p.dots) * Math.PI * 2 + rnd(); const lat = (rnd() - 0.5) * 0.5; const d = mesh(new THREE.SphereGeometry(r * 0.06, 10, 8), '#3a2a1a', false); d.position.set(Math.cos(a) * Math.cos(lat) * r, Math.sin(lat) * r, Math.sin(a) * Math.cos(lat) * r); m.add(d); }
+      break;
+    }
+    case 'crater': { // size [diameter]
+      m = new THREE.Group();
+      const rim = mesh(new THREE.TorusGeometry(s[0] / 2, s[0] * 0.08, 12, 48), p.color || '#8a6a4a'); rim.rotation.x = Math.PI / 2; rim.scale.z = 0.6; m.add(rim);
+      const pit = mesh(new THREE.CircleGeometry(s[0] / 2, 32), '#3b2b1d', false); pit.rotation.x = -Math.PI / 2; pit.position.y = 0.02; m.add(pit);
+      break;
+    }
     case 'lamp': {
       m = new THREE.Group();
       const pole = mesh(new THREE.CylinderGeometry(0.05, 0.05, 2, 8), '#444'); pole.position.y = 1; m.add(pole);
@@ -56,9 +88,18 @@ function makeProp(p) {
     }
     default: m = mesh(new THREE.BoxGeometry(...s), p.color);
   }
+  if (p.glow && m.material) m.material = glowMat(p.color);
   m.position.set(...(p.pos || [0, 0, 0]));
-  m.userData.spin = p.spin || 0;
+  if (p.rot) m.rotation.set(m.rotation.x + p.rot[0], m.rotation.y + p.rot[1], m.rotation.z + p.rot[2]);
+  m.userData = { spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit };
   return m;
+}
+function animateProp(m, t, k) {
+  const u = m.userData, b = u.base;
+  if (u.spin) m.rotation.y = u.baseRot.y + t * u.spin;
+  if (u.move) { const to = u.move; m.position.set(b.x + (to[0] - b.x) * k, b.y + (to[1] - b.y) * k, b.z + (to[2] - b.z) * k); }
+  if (u.fall) { const h = u.fall; const ph = ((t * 0.6 + b.x * 0.37 + b.z * 0.21) % 1 + 1) % 1; m.position.y = b.y + h * (1 - ph); m.rotation.x = t * 3; }
+  if (u.orbit) { const o = u.orbit, a = t * (o.speed || 1) + (o.phase || 0); m.position.set(Math.cos(a) * o.radius, (o.y || 0), Math.sin(a) * o.radius); }
 }
 
 // ---------- worlds ----------
@@ -69,12 +110,14 @@ const WORLDS = {
   lab:      { sky: '#d9f5e5', floor: '#b8c9c0', wall: '#e9fff3', deco: 'room' },
   space:    { sky: '#0a0a2a', floor: '#2a2a4a', wall: null, deco: 'stars' },
   desert:   { sky: '#ffd9a0', floor: '#e6b872', wall: null, deco: 'dunes' },
-  ocean:    { sky: '#7fd0ff', floor: '#2f7fbf', wall: null, deco: 'dunes' }
+  ocean:    { sky: '#7fd0ff', floor: '#2f7fbf', wall: null, deco: 'dunes' },
+  ice:      { sky: '#cfe6f5', floor: '#eef6fb', wall: null, deco: 'dunes' },
+  dusk:     { sky: '#3a2b5c', floor: '#2b2b38', wall: null, deco: 'city' }
 };
 function makeWorld(name, seed) {
   const w = WORLDS[name] || WORLDS.office;
   const g = new THREE.Group();
-  const floor = mesh(new THREE.PlaneGeometry(60, 60), w.floor); floor.rotation.x = -Math.PI / 2; g.add(floor);
+  if (w.deco !== 'stars') { const floor = mesh(new THREE.PlaneGeometry(120, 120), w.floor); floor.rotation.x = -Math.PI / 2; g.add(floor); }
   let s = seed * 9301 + 49297; const rnd = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
   if (w.deco === 'room') {
     const back = mesh(new THREE.BoxGeometry(14, 6, 0.3), w.wall); back.position.set(0, 3, -4); g.add(back);
@@ -83,10 +126,10 @@ function makeWorld(name, seed) {
   } else if (w.deco === 'city') {
     for (let i = 0; i < 40; i++) { const h = 3 + rnd() * 14; const b = mesh(new THREE.BoxGeometry(1.5 + rnd() * 2, h, 1.5 + rnd() * 2), '#' + Math.floor(120 + rnd() * 100).toString(16) + Math.floor(120 + rnd() * 100).toString(16) + 'c0'); b.position.set((rnd() - 0.5) * 40, h / 2, -5 - rnd() * 25); g.add(b); }
   } else if (w.deco === 'stars') {
-    const pts = []; for (let i = 0; i < 400; i++) pts.push((rnd() - 0.5) * 80, rnd() * 30, -10 - rnd() * 40);
+    const pts = []; for (let i = 0; i < 400; i++) { const a = rnd() * Math.PI * 2, b = Math.acos(2 * rnd() - 1), R = 45; pts.push(R * Math.sin(b) * Math.cos(a), R * Math.cos(b), R * Math.sin(b) * Math.sin(a)); }
     const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
     g.add(new THREE.Points(geo, new THREE.PointsMaterial({ color: '#ffffff', size: 0.25 })));
-    const planet = mesh(new THREE.SphereGeometry(3, 32, 24), '#c77dff'); planet.position.set(5, 6, -15); g.add(planet);
+    
   } else {
     for (let i = 0; i < 14; i++) { const d = mesh(new THREE.SphereGeometry(2 + rnd() * 3, 16, 12), w.floor); d.scale.y = 0.35; d.position.set((rnd() - 0.5) * 40, 0, -6 - rnd() * 25); g.add(d); }
   }
@@ -98,7 +141,7 @@ const scenes = story.shots.map((shot, i) => {
   const scene = new THREE.Scene();
   const wd = WORLDS[shot.world] || WORLDS.office;
   scene.background = new THREE.Color(wd.sky);
-  scene.fog = new THREE.Fog(wd.sky, 15, 50);
+  if (wd.deco !== 'stars') scene.fog = new THREE.Fog(wd.sky, 15, 60);
   scene.add(new THREE.HemisphereLight('#ffffff', '#667788', 1.1));
   const sun = new THREE.DirectionalLight('#ffffff', 2.2); sun.position.set(4, 8, 5); sun.castShadow = true;
   sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8 });
@@ -125,7 +168,7 @@ window.renderFrame = (t) => {
   const { shot, scene, chars, props } = entry;
   const lt = t - shot.start, k = ease(Math.min(1, lt / (shot.end - shot.start)));
   chars.forEach(o => animate(o.g, o.c.anim, t, o.base));
-  props.forEach(p => { if (p.userData.spin) p.rotation.y = t * p.userData.spin; });
+  props.forEach(p => animateProp(p, t, k));
   const cam = shot.camera, f = cam.from, to = cam.to || cam.from;
   camera.position.set(f[0] + (to[0] - f[0]) * k, f[1] + (to[1] - f[1]) * k, f[2] + (to[2] - f[2]) * k);
   camera.lookAt(...(cam.look || [0, 1, 0]));
