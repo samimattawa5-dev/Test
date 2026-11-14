@@ -77,6 +77,14 @@ if (process.argv.includes('--verify')) {
   for (let tm = 0.2; tm < total; tm += 0.5) { const r = await page.evaluate((x) => window.__verify(x), tm);
     if (r.cap && r.flash > 0.6) fails.push(`${tm.toFixed(1)}s flash ${r.flash.toFixed(2)} over a caption`);
     if (r.whiteFrac > 0.85) fails.push(`${tm.toFixed(1)}s frame is ${(r.whiteFrac * 100).toFixed(0)}% near-white (white-out)`); }
+  // long holds: a shot over 5.5 s needs something new inside it (overlay, action, walk, appear, counter)
+  for (const s of S) { const len = s.end - s.start, busy = (s.overlays || []).length + (s.characters || []).filter(c => c.actions || c.walk).length + (s.props || []).filter(p => p.appear || p.move || p.dotsReveal || p.ice).length;
+    if (len > 5.5 && busy < 2) fails.push(`${s.start.toFixed(1)}s shot holds ${len.toFixed(1)} s with too little new on screen - cut it or add a beat`); }
+  // art must match the numbers: a "21 ... 30°" claim needs 21 crater dots inside +-30 degrees
+  for (const s of S) { const claim = (s.overlays || []).map(o => (o.text || '') + ' ' + (o.label || '') + ' ' + (o.to || '')).join(' ');
+    const earth = (s.props || []).find(p => p.type === 'earth' && p.dots);
+    if (earth && /21/.test(claim) && earth.dots !== 21) fails.push(`${s.start.toFixed(1)}s globe shows ${earth.dots} crater dots but the text says 21`);
+    if (earth && /30°/.test(claim) && (earth.dotsLat ?? 0.25) * 180 / Math.PI > 30) fails.push(`${s.start.toFixed(1)}s crater dots reach ${((earth.dotsLat) * 180 / Math.PI).toFixed(0)}° but the text says within 30°`); }
   const uniq = [...new Set(fails)]; uniq.forEach(f => say('VERIFY FAIL ' + f));
   say(uniq.length ? `VERIFY: ${uniq.length} problem(s)` : 'VERIFY OK');
   await browser.close(); server.close(); process.exit(uniq.length ? 1 : 0);

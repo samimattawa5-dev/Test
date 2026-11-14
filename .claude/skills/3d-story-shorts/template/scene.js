@@ -136,7 +136,7 @@ function animate(g, anim, t, base) {
   else if (anim === 'walkto') { stride(9, 0.55); const w = Math.sin(t * 9); armL.rotation.x = w * 0.6; armR.rotation.x = -w * 0.6; g.position.y = base.y + Math.abs(w) * 0.05; }
   else if (anim === 'talk') { armR.rotation.x = -0.7 + Math.sin(t * 4) * 0.35; armR.rotation.z = 0.3; armL.rotation.x = -0.3 + Math.sin(t * 3 + 1) * 0.2; g.userData.head.rotation.x = Math.sin(t * 5) * 0.06; g.userData.head.rotation.y = Math.sin(t * 1.7) * 0.2; }
   else if (anim === 'cheer') { const j = Math.abs(Math.sin(t * 7)); g.position.y = base.y + j * 0.35; armL.rotation.z = -2.6 + Math.sin(t * 7) * 0.2; armR.rotation.z = 2.6 - Math.sin(t * 7) * 0.2; }
-  else if (anim === 'jump') { if (legL) { const k = Math.max(0, Math.sin(t * 5)); legL.rotation.x = -k * 0.5; legR.rotation.x = -k * 0.5; } g.position.y = base.y + Math.max(0, Math.sin(t * 5)) * 0.6; armL.rotation.z = -1.2; armR.rotation.z = 1.2; }
+  else if (anim === 'jump') { if (legL) { const k = Math.max(0, Math.sin(t * 5)); legL.rotation.x = -k * 0.5; legR.rotation.x = -k * 0.5; } g.position.y = base.y + Math.max(0, Math.sin(t * 5)) * 0.6; armL.rotation.x = armR.rotation.x = -2.7; armL.rotation.z = -0.25; armR.rotation.z = 0.25; }
   else if (anim === 'shrug') { const k = (Math.sin(t * 3) + 1) / 2; armL.rotation.z = -0.5 - k * 0.5; armR.rotation.z = 0.5 + k * 0.5; armL.rotation.x = armR.rotation.x = -0.5; g.userData.head.rotation.z = (k - 0.5) * 0.3; }
   else if (anim === 'nod') { g.userData.head.rotation.x = Math.abs(Math.sin(t * 5)) * 0.3; armR.rotation.x = -0.4; }
   else if (anim === 'throw') { const ph = (t * 1.2) % 1; armR.rotation.x = ph < 0.6 ? -2.6 * (ph / 0.6) : -2.6 + (ph - 0.6) * 6; g.rotation.y = -0.3; }
@@ -333,7 +333,7 @@ story.shots.forEach(sh => (sh.overlays || []).forEach(o => {
   } else if (o.type === 'counter') {
     el.innerHTML = `<div class="n" style="display:inline-block;font-size:${o.size || 170}px;line-height:1;color:${o.color || '#ffd84d'};-webkit-text-stroke:18px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);font-variant-numeric:tabular-nums"></div><br><div class="l" style="display:inline-block;margin-top:14px;font-size:60px;padding:10px 30px;border-radius:40px;background:${o.accent || story.accent || '#ff4d6d'};border:6px solid #120c18">${o.label || ''}</div>`;
   } else {
-    el.innerHTML = `<div class="b" style="display:inline-block;font-size:${o.size || 58}px;padding:14px 34px;border-radius:50px;background:${o.accent || story.accent || '#2f47ff'};border:7px solid #120c18;box-shadow:0 10px 0 #120c18">${o.text}</div>`;
+    el.innerHTML = `<div class="b" style="display:inline-block;max-width:800px;white-space:normal;line-height:1.15;font-size:${o.size || 58}px;padding:14px 34px;border-radius:50px;background:${o.accent || story.accent || '#2f47ff'};border:7px solid #120c18;box-shadow:0 10px 0 #120c18">${o.text}</div>`;
   }
   OV.appendChild(el); ovEls.push({ o, el });
 }));

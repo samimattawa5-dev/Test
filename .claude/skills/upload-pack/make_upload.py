@@ -8,12 +8,16 @@ def main():
     d = sys.argv[1]; cover_t = float(sys.argv[sys.argv.index("--cover") + 1]) if "--cover" in sys.argv else 0.2
     story = json.load(open(os.path.join(d, "story.json")))
     final = os.path.join(d, "final.mp4")
-    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", final], capture_output=True, text=True).stdout.strip() or 0)
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(cover_t), "-i", final, "-frames:v", "1", "-q:v", "2", os.path.join(d, "cover.jpg")])
+    # a final.mp4 older than story.json is a previous cut: plan from story.json instead
+    if os.path.exists(final) and os.path.getmtime(final) >= os.path.getmtime(os.path.join(d, "story.json")):
+        dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", final], capture_output=True, text=True).stdout.strip() or 0)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(cover_t), "-i", final, "-frames:v", "1", "-q:v", "2", os.path.join(d, "cover.jpg")])
+    else:  # before the render: plan from story.json, cover comes later
+        dur = story["shots"][-1]["end"]; print(f"final.mp4 missing or older than story.json: duration {dur:.1f} s taken from story.json (re-run after the render)")
     script = open(os.path.join(d, "script.md"), encoding="utf-8").read() if os.path.exists(os.path.join(d, "script.md")) else ""
     srcs = sorted(set(re.findall(r"\[([^\]]+)\]\((https?://[^)]+)\)", script)))[:6]
     titles = [o["text"] for s in story["shots"] for o in s.get("overlays", []) if o["type"] == "title"]
-    voice_ai = True  # every pipeline voice so far is TTS; set False only for a human recording
+    voice_ai = story.get("voice_human") is not True  # TTS unless story.json says "voice_human": true
     credits = ""
     for p in ("tools/sfx/CREDITS.txt",):
         if os.path.exists(os.path.join(d, p)): credits = open(os.path.join(d, p)).read().strip()
@@ -32,7 +36,7 @@ def main():
           "", "## YouTube Shorts", "", "Title (/yt-package, under 60 chars): TODO", "", "Description (/yt-seo):", "```", "TODO", "```",
           "", "## Instagram Reels", "", "Caption (/ig-caption, max 5 hashtags):", "```", "TODO", "```",
           "", "## Licences", "", "- Music: original, generated in code (tools/make_bed.py).",
-          "- Voice: " + ("AI text-to-speech - see the voice tool's licence (Kokoro: Apache-2.0)." if voice_ai else "human recording."),
+          "- Voice: " + (story.get("voice", "AI text-to-speech - name model, voice and licence") if voice_ai else "human recording."),
           "- Sound effects:", "```", credits or "none", "```",
           "", "## Before you press publish", "", "- [ ] /video-review verdict is PUBLISH", "- [ ] tt-check: 0 fail",
           "- [ ] AI labels switched on (above)", "- [ ] Cover readable at thumbnail size", "- [ ] Captions pasted, no TODO left"]

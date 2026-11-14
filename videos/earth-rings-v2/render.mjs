@@ -42,6 +42,18 @@ const frames = Math.round(total * fps);
 const hasAudio = story.audio && fs.existsSync(path.join(ROOT, story.audio));
 say(`Story "${story.title}": ${story.shots.length} shots, ${total}s, ${frames} frames, audio: ${hasAudio ? story.audio : 'none'}`);
 
+if (process.argv.includes('--stills')) {
+  // pre-render review: stills at given times (STILLS="0,0.5,1"), default hook frames + one every 2 s, no video encode
+  const dir = path.join(OUT, 'stills'); fs.mkdirSync(dir, { recursive: true });
+  for (const f of fs.readdirSync(dir)) fs.unlinkSync(path.join(dir, f));
+  const times = process.env.STILLS ? process.env.STILLS.split(',').map(Number)
+    : [0, 0.5, 1, 2, 3].map(x => 'h' + x).concat([...Array(Math.ceil(total / 2)).keys()].map(i => i * 2));
+  for (const tt of times) { const hook = String(tt).startsWith('h'); const t = Number(String(tt).replace('h', ''));
+    await page.evaluate((x) => window.renderFrame(x), Math.min(t, total - 0.05));
+    await page.screenshot({ path: path.join(dir, (hook ? 'hook_' : 't_') + String(Math.round(t * 10)).padStart(4, '0') + '.png') }); }
+  say(`STILLS ${times.length} -> ${dir}`); await browser.close(); server.close(); process.exit(0);
+}
+
 if (process.argv.includes('--verify')) {
   // after-render QA: every planned overlay visible in its window, captions present while words are spoken,
   // heads inside the frame (x 60-1020, y 150-1700), no head touching a prop
@@ -65,6 +77,14 @@ if (process.argv.includes('--verify')) {
   for (let tm = 0.2; tm < total; tm += 0.5) { const r = await page.evaluate((x) => window.__verify(x), tm);
     if (r.cap && r.flash > 0.6) fails.push(`${tm.toFixed(1)}s flash ${r.flash.toFixed(2)} over a caption`);
     if (r.whiteFrac > 0.85) fails.push(`${tm.toFixed(1)}s frame is ${(r.whiteFrac * 100).toFixed(0)}% near-white (white-out)`); }
+  // long holds: a shot over 5.5 s needs something new inside it (overlay, action, walk, appear, counter)
+  for (const s of S) { const len = s.end - s.start, busy = (s.overlays || []).length + (s.characters || []).filter(c => c.actions || c.walk).length + (s.props || []).filter(p => p.appear || p.move || p.dotsReveal || p.ice).length;
+    if (len > 5.5 && busy < 2) fails.push(`${s.start.toFixed(1)}s shot holds ${len.toFixed(1)} s with too little new on screen - cut it or add a beat`); }
+  // art must match the numbers: a "21 ... 30°" claim needs 21 crater dots inside +-30 degrees
+  for (const s of S) { const claim = (s.overlays || []).map(o => (o.text || '') + ' ' + (o.label || '') + ' ' + (o.to || '')).join(' ');
+    const earth = (s.props || []).find(p => p.type === 'earth' && p.dots);
+    if (earth && /21/.test(claim) && earth.dots !== 21) fails.push(`${s.start.toFixed(1)}s globe shows ${earth.dots} crater dots but the text says 21`);
+    if (earth && /30°/.test(claim) && (earth.dotsLat ?? 0.25) * 180 / Math.PI > 30) fails.push(`${s.start.toFixed(1)}s crater dots reach ${((earth.dotsLat) * 180 / Math.PI).toFixed(0)}° but the text says within 30°`); }
   const uniq = [...new Set(fails)]; uniq.forEach(f => say('VERIFY FAIL ' + f));
   say(uniq.length ? `VERIFY: ${uniq.length} problem(s)` : 'VERIFY OK');
   await browser.close(); server.close(); process.exit(uniq.length ? 1 : 0);

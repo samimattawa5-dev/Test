@@ -102,12 +102,14 @@ def main():
     for p in (os.path.join(folder, "tools/sfx/CREDITS.txt"), "tools/sfx/CREDITS.txt"):
         if os.path.exists(p): credits = open(p).read(); break
     L += ["## Licences", "", "- Music: original, generated in code by tools/make_bed.py (no third-party music).",
-          "- Voice: AI text-to-speech - see the voice tool's licence (Kokoro: Apache-2.0); needs the platform AI label",
+          "- Voice: " + ((story or {}).get("voice") or "AI text-to-speech - name the model, voice and licence in story.json \"voice\"") + "; needs the platform AI label",
           "- Sound effects: " + (credits.strip().replace("\n", "\n  ") if credits else "unknown - ask the maker"), ""]
     chk = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tt-check", "check.py")
     if video and os.path.exists(chk):
         r = run([sys.executable, chk, video] + (["--story", story_p] if story else []))
         L += ["## tt-check", "", "```", r.stdout.strip(), "```", ""]
+    up = os.path.join(folder, "UPLOAD.md")
+    L += ["## Upload plan (UPLOAD.md)", "", open(up).read() if os.path.exists(up) else "not written yet - run upload-pack/make_upload.py before publishing", ""]
     open(f"{out}/PACK.md", "w").write("\n".join(L))
     sheets = sorted(f for f in os.listdir(out) if f.startswith("sheet_"))
     print(f"pack -> {out}/  (PACK.md, {len(sheets)} sheets, hook frames{' , PRE-RENDER' if pre else ''})")
