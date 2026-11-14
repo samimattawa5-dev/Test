@@ -155,3 +155,9 @@ For money on TikTok, plan 61-90 s; keep hair simple and spend detail on bodies, 
 - iArt packs (MIT): `short-form-video`, `caption-animation`, `countdown-video`, `lower-thirds`, `explainer-video`, `diagram-animation`, `isometric-animation`, `whiteboard-animation`, `wrapped-video`, `kinetic-typography`, `threejs-animation`, `particle-system`, `shader-glsl`.
 - Not installed: Remotion skills (no licence file in the repo; Remotion needs a paid company licence for teams over 3) -> replaced by our `clip-compositor` (`"inserts"` in story.json). HyperFrames `style-sampling` (paid Pro templates) -> replaced by our `style-presets` (`"preset"` in story.json).
 - After `/video-review` says PUBLISH: `python3 ../upload-pack/make_upload.py <video-folder>` writes UPLOAD.md (AI-label switches per app, sources, captions to fill, licences) + cover.jpg.
+
+## Review loop (fast)
+1. story.json + voice + bed ready -> `claim-check` -> `node render.mjs --verify`.
+2. **Pre-render review:** `python3 ../video-review/pack.py . --prerender` -> 6 reviewers + `viral-predictor` on the stills -> fix -> repeat.
+3. Full render once.
+4. Short post-render pass (visual critic, platform & policy, viral-predictor) on `final.mp4` -> `upload-pack`.

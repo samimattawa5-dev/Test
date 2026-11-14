@@ -42,6 +42,18 @@ const frames = Math.round(total * fps);
 const hasAudio = story.audio && fs.existsSync(path.join(ROOT, story.audio));
 say(`Story "${story.title}": ${story.shots.length} shots, ${total}s, ${frames} frames, audio: ${hasAudio ? story.audio : 'none'}`);
 
+if (process.argv.includes('--stills')) {
+  // pre-render review: stills at given times (STILLS="0,0.5,1"), default hook frames + one every 2 s, no video encode
+  const dir = path.join(OUT, 'stills'); fs.mkdirSync(dir, { recursive: true });
+  for (const f of fs.readdirSync(dir)) fs.unlinkSync(path.join(dir, f));
+  const times = process.env.STILLS ? process.env.STILLS.split(',').map(Number)
+    : [0, 0.5, 1, 2, 3].map(x => 'h' + x).concat([...Array(Math.ceil(total / 2)).keys()].map(i => i * 2));
+  for (const tt of times) { const hook = String(tt).startsWith('h'); const t = Number(String(tt).replace('h', ''));
+    await page.evaluate((x) => window.renderFrame(x), Math.min(t, total - 0.05));
+    await page.screenshot({ path: path.join(dir, (hook ? 'hook_' : 't_') + String(Math.round(t * 10)).padStart(4, '0') + '.png') }); }
+  say(`STILLS ${times.length} -> ${dir}`); await browser.close(); server.close(); process.exit(0);
+}
+
 if (process.argv.includes('--verify')) {
   // after-render QA: every planned overlay visible in its window, captions present while words are spoken,
   // heads inside the frame (x 60-1020, y 150-1700), no head touching a prop

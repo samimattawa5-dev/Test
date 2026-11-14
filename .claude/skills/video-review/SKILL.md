@@ -16,6 +16,19 @@ description: >-
 The builder never grades its own video. Every reviewer starts cold, sees only the pack, and does
 one job. The verdict comes from rules below, not from the average mood.
 
+## 0. Review BEFORE the render (default - saves a full render per round)
+
+```bash
+python3 pack.py <video-folder> --prerender          # stills from the scene engine, no encode
+```
+
+Same pack format (hook frames, a still every 2 s, PACK.md with script, text, facts, licences),
+marked PRE-RENDER. Run the whole panel (6 reviewers + viral-predictor) on it, fix, repeat until
+no BLOCK and the fixes are cosmetic, and only then render. After the render, run a SHORT final
+pass (step 1-2 with the visual critic + platform & policy + viral-predictor) to catch what stills
+cannot show: motion, flashes, audio mix, sync. Tell reviewers in the pre-render round that motion
+between stills is not visible, so they do not report it as frozen.
+
 ## 1. Build the pack
 
 ```bash
