@@ -31,7 +31,7 @@ SHIP = lambda **k: {**dict(type="ship", size=[4.5], pos=[2.9, -0.3, -3.6], rot=[
 # one shot per spoken line (21 lines), cut a hair before each line
 b = [0] + [round(lt(i)[0] - 0.12, 2) for i in range(2, 22)] + [END]
 SPLIT12 = round(wt("venice", lt(12)[0]) - 0.1, 2)
-SPLIT13 = round(wt("problem", lt(13)[0]) - 0.35, 2)
+SPLIT13 = round(wt("problem", lt(13)[0]) - 0.05, 2)
 s = lambda i: b[i - 1]; e = lambda i: b[i]   # shot i start / end
 
 SACKS1 = [dict(type="sack", size=[0.5], pos=[-0.2, 0.25, 1.4]), dict(type="sack", size=[0.42], pos=[0.45, 0.21, 1.2])]
@@ -40,9 +40,9 @@ SH = [
  dict(world="harbour", characters=[ch("bo", [-1.3, 0, 2.6], "point", expr="wow", wander=False), ch("tomas", [0.85, 0, 2.3], "lookup", expr="wow", wander=False)],
       props=[MOON(), SHIP(pos=[0.3, -0.3, -4.2]), PLUME(), dict(type="sack", size=[0.5], pos=[-0.2, 0.25, 1.4]), dict(type="sack", size=[0.42], pos=[0.45, 0.21, 1.2])], camera={"from": [0, 1.0, 10.6], "to": [0, 1.2, 8.4], "look": [-0.4, 5.6, -10]}, energy=1, shimmer=True,
       capFrom=e(1), overlays=[dict(type="title", text="A VOLCANO MAY HAVE STARTED THE BLACK DEATH", t0=-0.6, t1=e(1) + 0.2, y=230, size=96),
-                dict(type="badge", text="HYPOTHESIS · 2025 STUDY", t0=-0.6, t1=e(1), y=600, size=44, accent="#444444")]),
+                dict(type="badge", text="HYPOTHESIS · 2025 STUDY", t0=-0.6, t1=e(1), y=650, size=44, accent="#444444")]),
  # 2 you've never heard of it: an unknown eruption somewhere in the tropics
- dict(world="harbourday", characters=[ch("tomas", [-1.1, 0, 1.0], "throw", expr="grin"), ch("mara", [1.1, 0, 1.0], "cheer", expr="grin")],
+ dict(world="harbourday", characters=[ch("tomas", [-0.9, 0, 1.0], "throw", expr="grin"), ch("mara", [0.85, 0, 1.0], "cheer", expr="grin", wander=False)],
       props=[SHIP(pos=[0.3, -0.3, -5.0], size=[4.5])] + [dict(type="sack", size=[0.55], pos=[x, 0.3, z]) for x, z in [(-0.3, 1.6), (0.4, 1.4), (-2.2, 0.2), (2.2, 0.0)]],
       camera={"from": [0, 1.4, 7.2], "to": [0, 1.2, 5.8], "look": [0, 1.2, 0]}, energy=2,
       overlays=[dict(type="badge", text="GRAIN SHIPS · 1347", t0=s(2) + 0.2, t1=e(2), y=420, size=52, accent="#c99a2e")]),
@@ -79,7 +79,7 @@ SH = [
       overlays=[dict(type="badge", text="CLUE 2: PYRENEES TREE RINGS", t0=s(8) + 0.1, t1=e(8), y=380, size=50, accent="#2f9bff")]),
  # 9 cold, wet summers
  dict(world="rainfield", characters=[ch("bo", [-0.6, 0, 1.0], "shiver", expr="worried"), ch("mara", [0.6, 0, 0.8], "hug", expr="worried")],
-      props=[dict(type="frost", size=[7], pos=[0, 0.05, 0], appear=dict(t0=s(9), t1=e(9), grow=True))] + [dict(type="box", color="#bfe6ff", size=[0.025, 0.32, 0.025], pos=[-2.6 + (k * 0.37) % 5.2, 0, -1.5 + (k * 0.61) % 3.2], fall=9 + k % 4) for k in range(46)],
+      props=[dict(type="frost", size=[7], pos=[0, 0.05, 0], appear=dict(t0=s(9), t1=e(9), grow=True))] + [dict(type="box", color="#bfe6ff", size=[0.025, 0.32, 0.025], pos=[-2.6 + (k * 0.37) % 5.2, 0, -2.8 + (k * 0.61) % 2.0], fall=9 + k % 4) for k in range(46)],
       camera={"from": [0, 2.0, 7], "to": [0, 1.9, 6.4], "look": [0, 1.1, 0]}, energy=1,
       overlays=[dict(type="badge", text="COLD, WET SUMMERS", t0=s(9) + 0.1, t1=e(9), y=420, size=54, accent="#4a6a8a")]),
  # 10 clue 3: writers saw strange clouds and dark lunar eclipses
@@ -107,7 +107,7 @@ SH = [
       props=[SHIP(pos=[0.4, -0.3, -6.5], size=[4.5])] + [dict(type="sack", size=[0.55], pos=[x, 0.3, z]) for x, z in [(-2.2, 0.2), (-1.8, -0.4), (2.0, 0.0), (2.4, -0.5), (0, -1.2)]],
       camera={"from": [0, 2.2, 9.6], "to": [0, 2.1, 8.8], "look": [0, 1.9, -2]}, energy=2, shimmer=True),
  # 13b "...may have been the problem": hard cut to night, a flea hops off the sack, faces drop
- dict(world="harbour", characters=[ch("tomas", [-0.9, 0, 1.2], "lookup", expr="worried", wander=False), ch("mara", [1.0, 0, 1.0], "scared", expr="worried", wander=False)],
+ dict(world="harbour", characters=[ch("tomas", [-0.7, 0, 1.2], "lookup", expr="worried", wander=False), ch("mara", [0.75, 0, 1.0], "scared", expr="worried", wander=False)],
       props=[dict(type="sack", size=[0.9], pos=[0.05, 0, 1.6]), SHIP(pos=[0.4, -0.3, -5.5])] + [dict(type="flea", pos=[x, y, z], scale=1.6, hop=dict(h=0.35, speed=1.6 + 0.3 * k, phase=0.2 * k, dx=0.0)) for k, (x, y, z) in enumerate([(0.0, 1.0, 1.9), (0.3, 0.7, 1.9), (-0.25, 0.6, 2.0)])],
       camera={"from": [0, 1.6, 6.2], "to": [0, 1.3, 4.8], "look": [0, 0.9, 1.4]}, drop=True),
  # 14 less than two months after the last grain ships (night harbour, the ship sails away)
