@@ -32,8 +32,8 @@ a { text-decoration-color: var(--color-accent); }
 
 /* plate */
 .plate { padding-bottom: var(--section-gap-s); }
-.plate [data-slot] { aspect-ratio: 21 / 9; min-height: 240px; }
-.plate [data-slot] > img { object-position: 50% 55%; }
+.plate [data-slot] { aspect-ratio: 16 / 9; min-height: 240px; }
+.plate [data-slot] > img { object-position: 50% 30%; }
 .plate figcaption { margin-top: var(--space-sm); }
 
 /* statement */
@@ -44,6 +44,9 @@ a { text-decoration-color: var(--color-accent); }
 .statement__demo .guide { position: absolute; left: 0; right: 0; border-top: var(--rule-hair) solid var(--color-guide); }
 .statement__demo .guide span { position: absolute; right: 0; top: var(--space-2xs); background: var(--color-paper); font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; line-height: 1.2; letter-spacing: 0; white-space: nowrap; color: var(--color-accent); }
 .statement__demo .g1 { top: 24%; } .statement__demo .g2 { top: 50%; } .statement__demo .g3 { top: 78%; }
+
+.services { list-style: none; margin: var(--space-xl) 0 0; padding: 0; border-top: 3px double var(--color-rule-2); }
+.services li { padding-block: var(--space-sm); border-bottom: var(--rule-hair) solid var(--color-rule); font-size: var(--text-lg); }
 
 /* hours */
 .visit { padding-block: var(--section-gap-s); background: var(--color-paper-2); border-block: var(--rule-hair) solid var(--color-rule); }
