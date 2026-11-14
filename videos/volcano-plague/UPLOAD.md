@@ -1,7 +1,7 @@
 # Upload: A Volcano Brought the Plague?
 
-- File: final.mp4, 68.4 s, 1080x1920. Cover: cover.jpg (from 0.2 s).
-- On-screen hook: A VOLCANO BROUGHT THE PLAGUE?
+- File: final.mp4, 71.8 s, 1080x1920. Cover: cover.jpg (from 0.2 s).
+- On-screen hook: DID A VOLCANO BRING THE BLACK DEATH?
 - TikTok Creator Rewards: over 60 s - upload as rendered, no in-app trim
 
 ## Disclosure (switch these ON)

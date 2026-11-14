@@ -1,6 +1,6 @@
 # A Volcano Brought the Plague? (~66-71 s, 165 words)
 
-**Topic:** a volcanic eruption (or series of eruptions) around 1345 may have set off the chain that brought the Black Death to Europe (Bauch & Büntgen, *Communications Earth & Environment*, Dec 2025). **Audience:** general, 13+, English. **Platforms:** TikTok, YouTube Shorts, Instagram Reels. **Target:** 64-72 s, Kokoro British male, slightly slow. **Length estimate:** 165 words = 66 s at 150 wpm; 71 s by words/2.6 + 0.3 s per sentence. **Hook formula:** curiosity gap + direct address ("A lost volcano may have helped bring the Black Death. You've never heard of it."), hookscore **76.6 STRONG**.
+**Topic:** a volcanic eruption (or series of eruptions) around 1345 may have set off the chain that brought the Black Death to Europe (Bauch & Büntgen, *Communications Earth & Environment*, Dec 2025). **Audience:** general, 13+, English. **Platforms:** TikTok, YouTube Shorts, Instagram Reels. **Target:** 64-72 s, Kokoro British male, slightly slow. **Length estimate:** 165 words = 66 s at 150 wpm; 71 s by words/2.6 + 0.3 s per sentence. **Hook formula:** curiosity gap ("A lost volcano may have helped bring the Black Death. Through the grain that saved them."), hookscore **76.6 STRONG**.
 
 Frame 1, sound off: a dark red eclipsed Moon over a medieval harbour at dusk, a grain ship in silhouette at the quay. On-screen claim: **"A VOLCANO BROUGHT THE PLAGUE?"** The twist is not given away in the first 10 s. The open loop is "some big cities may have been spared. Why?", and Milan and Rome are not named until 55 s.
 
@@ -71,19 +71,17 @@ Re-run once the real story.json exists.
 
 **Fiction note:** the cartoon characters (Hist, Clim, Bo, Mara, Tomas), the harbour, the scribe on the balcony and all of their reactions are illustrative. They are not real people or depictions of recorded events. The researchers' names appear only on the source badge.
 
-## VIRAL CHECKLIST
+## VIRAL CHECKLIST (round 3, checked against the pre-render stills)
 
-- [x] **Sound-off hook:** frame 1 shows the red eclipsed Moon over the harbour and grain ship with "A VOLCANO BROUGHT THE PLAGUE?" (5 words, a question, no date).
-- [x] **Stake under 3 s:** "may have helped bring the Black Death" is said by about 2.5 s. The open loop ("some big cities may have been spared. Why?") holds until 55 s, and the twist is not given away in the first 10 s.
-- [x] **Credibility beat early:** 13.8 s, with the 2025 counter and the badge "BAUCH & BÜNTGEN · COMMUNICATIONS EARTH & ENVIRONMENT · DEC 2025".
-- [x] **Visual every 2-4 s:** 21 shots in 71 s, none longer than 4.5 s.
-- [x] **Every number shown:** 60% (counter plus 6 of 10 windows going dark), 2025, around 1345, 1347, under 2 months (counter plus calendar). All counters pop with roll: false.
-- [x] **Twist shown as an event:** 45-55 s (63-78 %). The last ship docks, the Venice dot turns red, shutters slam, fleas hop out of the grain dust. Milan and Rome stay gold at 55-62 s (78-87 %).
-- [x] **No gore and no sick people:** the plague is shown only through dark windows, shutters, an empty street, a red map dot, fleas and a cartoon rat.
-- [x] **Comment trigger:** "the volcano, or the trade?" with a split argument on screen. Either answer is defensible.
-- [x] **Loop:** "Look at that Moon again" lands on frame 1's composition. There is no "follow" line.
-- [x] **Length:** 165 words, about 66 s at 150 wpm and 71 s by words/2.6 + 0.3 s per sentence, inside 64-72 s. Re-time after the TTS run.
-- [x] **Hypothesis labelled:** in the voice ("may have", "around", "eruption, or series of eruptions", "could have", "most likely", "most probably", "nobody knows") and on screen ("HYPOTHESIS" badges at 1.0 s and 61.9 s).
+- [x] **Sound-off hook:** frame 1 shows the lit blood-red Moon over the harbour, the grain ship and two grain sacks, title "DID A VOLCANO BRING THE BLACK DEATH?" (a question) and badge "HYPOTHESIS · 2025 STUDY" from 0.0 s. Captions on from 0.0 s.
+- [x] **Stake under 3 s:** "A lost volcano may have helped bring the Black Death" (0-3.5 s), then "Through the grain that saved them" over the grain ships. Open loop: "some big cities may have been spared. Why?"
+- [x] **Credibility beat early:** badge "2025 STUDY: BAUCH & BÜNTGEN" over the ice-core action (about 12 s); no separate intro shot.
+- [x] **Every number shown:** 60% (counter + windows going dark), around 1345 (counter + glowing band in the ice core), 1347 (counter + map routes), under 2 months (timeline bar LAST SHIP -> VENICE: PLAGUE turning red).
+- [x] **Twist shown as an event:** the harbour street goes dark and shutters close under "VENICE: FIRST PLAGUE CASES"; then fleas hop out of a grain sack; then the map: Venice red, Genoa and Pisa gold (also imported, no plague claim made), Milan and Rome green with the key "GREEN: APPARENTLY NO IMPORTS NEEDED".
+- [x] **Doubt said aloud:** "Nobody knows which volcano it was. And some historians are not convinced." + badge "HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS".
+- [x] **Comment trigger:** "A starving city. Grain ships waiting. Would you let them in?" with YES: FEED THE CITY / NO: CLOSE THE PORT.
+- [x] **Loop:** "Look at that Moon again" lands on frame 1's composition.
+- [x] **Length:** about 72 s (over the 61 s Creator Rewards floor).
 
 ## New sets needed
 
