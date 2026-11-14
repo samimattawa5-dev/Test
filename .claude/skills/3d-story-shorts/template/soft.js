@@ -345,11 +345,17 @@ export function makeProp(p) {
     case 'icecore': { m = new THREE.Group(); const L = s[1] || 2; const core = part(new THREE.CylinderGeometry(s[0] / 2, s[0] / 2, L, 24), new THREE.MeshPhysicalMaterial({ color: '#d8f0ff', roughness: 0.1, clearcoat: 1, transparent: true, opacity: 0.85 })); m.add(core);
       for (let k = -4; k <= 4; k++) { const ln = part(new THREE.CylinderGeometry(s[0] / 2 + 0.003, s[0] / 2 + 0.003, 0.01, 24, 1, true), M.matte('#a9c9df'), false); ln.position.y = k * L / 10; m.add(ln); }
       const band = new THREE.Mesh(new THREE.CylinderGeometry(s[0] / 2 + 0.006, s[0] / 2 + 0.006, L * 0.06, 24, 1, true), M.glow('#ffd84d', 2.5)); band.position.y = (p.bandAt ?? 0.1) * L; band.name = 'iceband'; m.add(band); m.rotation.z = p.lie ? Math.PI / 2 : 0; break; }
-    case 'volcano': { // cone + smoke puffs that rise after erupt (global s)
-      m = new THREE.Group(); const H = s[1] || 1.2, Rb = s[0] / 2; m.add(part(new THREE.ConeGeometry(Rb, H, 24, 1, true), M.matte('#5a4a42', 0.95)));
+    case 'volcano': { // cone + smoke puffs that rise after erupt (global s); big: true = full eruption (lava streams, glow, ash column, lava bombs)
+      m = new THREE.Group(); const H = s[1] || 1.2, Rb = s[0] / 2, big = !!p.big;
+      const rockTex = big ? canvasTex(256, 256, (ctx, w, h) => { ctx.fillStyle = '#3b2f2b'; ctx.fillRect(0, 0, w, h); for (let i = 0; i < 9; i++) { const x0 = (i * 29 + 11) % w; ctx.beginPath(); ctx.moveTo(x0, 0); for (let y = 0; y <= h * (0.35 + 0.07 * (i % 5)); y += 8) ctx.lineTo(x0 + Math.sin(y * 0.05 + i) * 9, y); ctx.lineWidth = 5 + (i % 3) * 2; ctx.strokeStyle = '#ff5a1a'; ctx.shadowColor = '#ffb040'; ctx.shadowBlur = 10; ctx.stroke(); } }) : null;
+      const coneM = big ? new THREE.MeshStandardMaterial({ map: rockTex, emissiveMap: rockTex, emissive: C('#ffffff'), emissiveIntensity: 0.9, roughness: 1, fog: false }) : M.matte('#5a4a42', 0.95);
+      m.add(part(new THREE.ConeGeometry(Rb, H, 32, 1, !big), coneM));
+      if (big) { const gl = new THREE.PointLight('#ff6a2a', 6, Rb * 6, 1.5); gl.position.y = H * 0.6; gl.name = 'vglow'; m.add(gl);
+        const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: canvasTex(128, 128, (ctx, w) => { const g = ctx.createRadialGradient(w / 2, w / 2, 0, w / 2, w / 2, w / 2); g.addColorStop(0, 'rgba(255,140,60,0.9)'); g.addColorStop(1, 'rgba(255,80,20,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, w, w); }), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false })); halo.scale.setScalar(Rb * 1.6); halo.position.y = H / 2 + Rb * 0.15; halo.name = 'vhalo'; m.add(halo);
+        for (let k = 0; k < 10; k++) { const b = new THREE.Mesh(new THREE.SphereGeometry(Rb * 0.035, 8, 6), new THREE.MeshBasicMaterial({ color: '#ffb347', fog: false })); b.name = 'bomb'; b.userData.k = k; b.position.y = H / 2; m.add(b); } }
       const lava = part(new THREE.CircleGeometry(Rb * 0.18, 16), M.glow('#ff6a2a', 2.5), false); lava.rotation.x = -Math.PI / 2; lava.position.y = H / 2 - 0.02; m.add(lava);
       const smoke = canvasTex(128, 128, (ctx, w) => { for (let i = 0; i < 7; i++) { const x = w * (0.3 + 0.4 * ((i * 37) % 10) / 10), y = w * (0.3 + 0.4 * ((i * 53) % 10) / 10), r = w * (0.22 + 0.04 * (i % 3)); const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, 'rgba(255,255,255,0.55)'); g.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, w, w); } });
-      for (let k = 0; k < 14; k++) { const puff = new THREE.Sprite(new THREE.SpriteMaterial({ map: smoke, color: k % 3 ? '#5a5350' : '#7a706a', transparent: true, opacity: 0, depthWrite: false })); const sz = Rb * (0.35 + (k % 4) * 0.08); puff.scale.setScalar(sz); puff.position.y = H / 2; puff.name = 'puff'; puff.userData.k = k; puff.userData.sz = sz; m.add(puff); }
+      const NP = big ? 30 : 14; for (let k = 0; k < NP; k++) { const puff = new THREE.Sprite(new THREE.SpriteMaterial({ map: smoke, color: big ? (k % 4 === 0 ? '#8a4a32' : k % 2 ? '#2e2826' : '#4a403c') : k % 3 ? '#5a5350' : '#7a706a', transparent: true, opacity: 0, depthWrite: false, fog: !big })); const sz = Rb * (big ? 0.5 + (k % 5) * 0.12 : 0.35 + (k % 4) * 0.08); puff.scale.setScalar(sz); puff.position.y = H / 2; puff.name = 'puff'; puff.userData.k = k; puff.userData.sz = sz; m.add(puff); }
       m.children[0].position.y = 0; break; }
     case 'houses': { // a row of houses with lit windows; dark: {t0, t1, n} turns n windows off one by one
       m = new THREE.Group(); const n = p.n || 5, wdt = s[0] || 8, r7 = rngFrom(n * 7 + 1); const wins = [];
@@ -381,7 +387,7 @@ export function makeProp(p) {
   if (p.rot) m.rotation.set(m.rotation.x + p.rot[0], m.rotation.y + p.rot[1], m.rotation.z + p.rot[2]);
   if (p.scale) m.scale.setScalar(p.scale);
   const keepMap = m.userData && m.userData.map; const keepWins = m.userData && m.userData.wins;
-  m.userData = { type: p.type, spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit, appear: p.appear, at: p.at, spread: p.spread, dotsReveal: p.dotsReveal, ice: p.ice, r: (s[0] || 1) / 2, dots: p.dots || 0, dotsLat: p.dotsLat ?? 0.25, map: keepMap, wins: keepWins, wilt: p.wilt, hop: p.hop, erupt: p.erupt, loopPlume: p.loopPlume, glowAt: p.glowAt, dark: p.dark, shutters: p.shutters };
+  m.userData = { type: p.type, spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit, appear: p.appear, at: p.at, spread: p.spread, dotsReveal: p.dotsReveal, ice: p.ice, r: (s[0] || 1) / 2, dots: p.dots || 0, dotsLat: p.dotsLat ?? 0.25, map: keepMap, wins: keepWins, wilt: p.wilt, hop: p.hop, erupt: p.erupt, loopPlume: p.loopPlume, big: !!p.big, h: s[1] || 1.2, glowAt: p.glowAt, dark: p.dark, shutters: p.shutters };
   return m;
 }
 
@@ -508,7 +514,16 @@ export function animateProp(m, t) {
   else if (u.type === 'wheat') m.children.forEach(st => { if (st.name === 'stalk') st.rotation.x = Math.sin(t * 1.6 + st.userData.ph * 6) * 0.08; });
   if (u.hop) { const ph = (t * (u.hop.speed || 2.2) + (u.hop.phase || 0)) % 1; m.position.y = u.base.y + Math.sin(ph * Math.PI) * (u.hop.h || 0.6); m.position.x = u.base.x + (u.hop.dx || 0) * ((t * (u.hop.speed || 2.2) + (u.hop.phase || 0)) % 3) / 3; }
   if (u.glowAt !== undefined) { const b = m.getObjectByName('blueband') || m.getObjectByName('iceband'); if (b) { const k = Math.max(0, Math.min(1, (t - u.glowAt) / 0.6)); b.material.emissiveIntensity = (b.name === 'blueband' ? 0.15 + 0.85 * k : 0.2 + 2.6 * k); b.material.opacity = 0.25 + 0.75 * k; } }
-  if (u.erupt !== undefined) m.children.filter(c => c.name === 'puff').forEach(c => { let d = t - u.erupt - c.userData.k * 0.25; if (u.loopPlume && d > 0) d = d % 4; const on = d > 0; c.material.opacity = on ? Math.max(0, Math.min(1, d * 3) * (0.9 - d * 0.2)) : 0; c.position.y = (u.r || 0.6) + (on ? d * 0.55 : 0); c.position.x = on ? Math.sin(c.userData.k * 1.7) * d * 0.18 : 0; if (c.userData.sz) c.scale.setScalar(c.userData.sz * (1 + (on ? d * 0.45 : 0))); });
+  if (u.erupt !== undefined && u.big) { const Rb = u.r || 1, H = u.h, e0 = t - u.erupt;
+    m.children.forEach(c => {
+      if (c.name === 'puff') { let d = e0 - c.userData.k * 0.12; if (u.loopPlume && d > 0) d = d % 3.6; const on = d > 0;
+        c.material.opacity = on ? Math.min(1, d * 2.5) * Math.max(0, 0.95 - d * 0.22) : 0; c.position.y = H / 2 + (on ? d * H * 0.75 : 0); c.position.x = on ? Math.sin(c.userData.k * 1.7) * d * Rb * 0.18 + d * Rb * 0.12 : 0;
+        c.scale.setScalar(c.userData.sz * (0.6 + (on ? d * 0.75 : 0))); }
+      else if (c.name === 'bomb') { const k = c.userData.k; let d = e0 - k * 0.31; if (d > 0) d = d % 1.6; const on = e0 > 0 && d > 0;
+        const ang = k * 2.4, v = Rb * (0.9 + (k % 3) * 0.25); c.visible = on; if (on) c.position.set(Math.cos(ang) * v * 0.45 * d, H / 2 + v * 1.6 * d - Rb * 1.4 * d * d, Math.sin(ang) * v * 0.3 * d); }
+      else if (c.name === 'vglow') c.intensity = e0 > 0 ? 5 + 2.5 * Math.sin(t * 9) * Math.sin(t * 3.7) : 1.5;
+      else if (c.name === 'vhalo') c.material.opacity = e0 > 0 ? 0.75 + 0.25 * Math.sin(t * 7) : 0.3; }); }
+  else if (u.erupt !== undefined) m.children.filter(c => c.name === 'puff').forEach(c => { let d = t - u.erupt - c.userData.k * 0.25; if (u.loopPlume && d > 0) d = d % 4; const on = d > 0; c.material.opacity = on ? Math.max(0, Math.min(1, d * 3) * (0.9 - d * 0.2)) : 0; c.position.y = (u.r || 0.6) + (on ? d * 0.55 : 0); c.position.x = on ? Math.sin(c.userData.k * 1.7) * d * 0.18 : 0; if (c.userData.sz) c.scale.setScalar(c.userData.sz * (1 + (on ? d * 0.45 : 0))); });
   if (u.dark && u.wins) { const k = (t - u.dark.t0) / (u.dark.t1 - u.dark.t0); const n = u.dark.n ?? u.wins.length; u.wins.forEach((w, i) => { const off = k >= 0 && i < Math.ceil(Math.min(1, k) * n); w.material.emissiveIntensity = off ? 0 : 2.2; w.material.color.set(off ? '#1c1a24' : '#ffcf7a'); if (u.shutters) w.userData.shutter.visible = off; }); }
   if (u.map) drawMap(u.map, t);
   if (u.ice) { const k = Math.max(0, Math.min(1, (t - u.ice.t0) / (u.ice.t1 - u.ice.t0))); const ang = Math.max(0.01, k * (u.ice.to || 60) * Math.PI / 180);

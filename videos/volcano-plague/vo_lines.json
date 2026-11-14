@@ -1,107 +1,107 @@
 [
  {
-  "line": "A lost volcano may have helped bring the Black Death.",
+  "line": "A lost volcano may have helped bring the Black Death to Europe.",
   "t0": 0.25,
-  "t1": 3.24
+  "t1": 3.75
  },
  {
   "line": "Through the grain meant to save them.",
-  "t0": 3.52,
-  "t1": 5.752
+  "t0": 4.03,
+  "t1": 6.261
  },
  {
   "line": "In some regions, up to sixty percent died.",
-  "t0": 6.032,
-  "t1": 8.915
+  "t0": 6.541,
+  "t1": 9.424
  },
  {
   "line": "Yet some big cities may have been spared. Why?",
-  "t0": 9.195,
-  "t1": 11.972
+  "t0": 9.704,
+  "t1": 12.482
  },
  {
-  "line": "A twenty twenty-five study. Clue one: ice cores.",
-  "t0": 12.252,
-  "t1": 15.565
+  "line": "Clue one: ice cores.",
+  "t0": 12.762,
+  "t1": 14.252
  },
  {
   "line": "Around thirteen forty-five, a spike of sulphur.",
-  "t0": 15.845,
-  "t1": 18.802
+  "t0": 14.531,
+  "t1": 17.488
  },
  {
   "line": "An eruption, or series of eruptions.",
-  "t0": 19.082,
-  "t1": 21.44
+  "t0": 17.768,
+  "t1": 20.127
  },
  {
   "line": "Clue two: pale blue rings in Pyrenees trees.",
-  "t0": 21.72,
-  "t1": 24.629
+  "t0": 20.407,
+  "t1": 23.316
  },
  {
   "line": "Cold, wet summers.",
-  "t0": 24.909,
-  "t1": 26.29
+  "t0": 23.596,
+  "t1": 24.977
  },
  {
   "line": "And writers saw strange clouds, and dark eclipses of the Moon.",
-  "t0": 26.57,
-  "t1": 30.527
+  "t0": 25.257,
+  "t1": 29.214
  },
  {
   "line": "Crops could have failed across the Mediterranean.",
-  "t0": 30.807,
-  "t1": 33.492
+  "t0": 29.494,
+  "t1": 32.178
  },
  {
   "line": "So in thirteen forty-seven, Venice, Genoa and Pisa imported grain from the Black Sea.",
-  "t0": 33.772,
-  "t1": 39.571
+  "t0": 32.458,
+  "t1": 38.258
  },
  {
   "line": "Food for the hungry. And that may have been the problem.",
-  "t0": 39.851,
-  "t1": 42.699
+  "t0": 38.538,
+  "t1": 41.386
  },
  {
   "line": "Less than two months after the last grain ships,",
-  "t0": 42.979,
-  "t1": 45.958
+  "t0": 41.666,
+  "t1": 44.644
  },
  {
   "line": "Venice reported its first plague cases.",
-  "t0": 46.238,
-  "t1": 48.989
+  "t0": 44.924,
+  "t1": 47.675
  },
  {
   "line": "The ships most likely carried fleas, feeding on grain dust.",
-  "t0": 49.269,
-  "t1": 52.938
+  "t0": 47.955,
+  "t1": 51.625
  },
  {
   "line": "Milan and Rome apparently did not need grain imports after thirteen forty-five.",
-  "t0": 53.218,
-  "t1": 58.422
+  "t0": 51.905,
+  "t1": 57.108
  },
  {
   "line": "They were most probably not affected.",
-  "t0": 58.702,
-  "t1": 60.873
+  "t0": 57.388,
+  "t1": 59.56
  },
  {
   "line": "Nobody knows which volcano it was. And some historians are not convinced.",
-  "t0": 61.153,
-  "t1": 66.111
+  "t0": 59.84,
+  "t1": 64.797
  },
  {
-  "line": "Your city is starving. Grain ships arrive. Nobody knows about plague. Open the port?",
-  "t0": 66.391,
-  "t1": 71.925
+  "line": "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?",
+  "t0": 65.077,
+  "t1": 70.879
  },
  {
-  "line": "And it may all have started under a Moon like this.",
-  "t0": 72.205,
-  "t1": 75.0
+  "line": "And Europe's plague may have begun under a Moon like this.",
+  "t0": 71.159,
+  "t1": 74.378
  }
 ]
