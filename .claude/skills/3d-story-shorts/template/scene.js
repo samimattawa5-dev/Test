@@ -346,7 +346,7 @@ function drawOverlays(t) {
     if (o.type === 'title') el.querySelectorAll('.w').forEach((w, i) => { const k = spring(lt - i * 0.07); w.style.transform = `translateY(${(1 - k) * 110}%)`; });
     else if (o.type === 'counter') {
       const k = o.roll === false ? 1 : clamp01(lt / (o.dur || 1.1)); const e = 1 - Math.pow(1 - k, 3);
-      el.querySelector('.n').textContent = (o.prefix || '') + fmt(o.from + (o.to - o.from) * e) + (o.suffix || '');
+      const v = o.from + (o.to - o.from) * e; el.querySelector('.n').textContent = (o.prefix || '') + (o.raw || (o.to >= 1000 && o.to <= 2100 && Number.isInteger(o.to)) ? String(Math.round(v)) : fmt(v)) + (o.suffix || ''); // years print without commas
       const p = spring(lt - 0.1); el.querySelector('.n').style.transform = `scale(${0.6 + 0.4 * p})`;
       el.querySelector('.l').style.transform = `scale(${spring(lt - 0.35)})`;
     } else { const p = spring(lt, 16, 0.5); el.querySelector('.b').style.transform = `scale(${p}) rotate(${(1 - p) * -8 + Math.sin(lt * 3) * 1.5}deg)`; }

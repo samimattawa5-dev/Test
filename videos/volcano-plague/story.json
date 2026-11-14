@@ -1,0 +1,2918 @@
+{
+ "title": "A Volcano Brought the Plague?",
+ "preset": "mystery",
+ "voice": "Kokoro v1.0 (hexgrad/Kokoro-82M, Apache-2.0 incl. voice packs), voice bm_george, local ONNX",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "audio": "voiceover.wav",
+ "bed": "bed.wav",
+ "cast": {
+  "hist": {
+   "color": "#3c8a4f",
+   "glasses": true,
+   "hair": {
+    "style": "tuft",
+    "color": "#5a3a22"
+   },
+   "skin": "#e8b48c"
+  },
+  "clim": {
+   "color": "#ff8c3a",
+   "hair": {
+    "style": "bob",
+    "color": "#2a1a12"
+   },
+   "skin": "#c98e62"
+  },
+  "bo": {
+   "color": "#ffd86b",
+   "hair": {
+    "style": "cap",
+    "color": "#4a90e2"
+   },
+   "skin": "#f6c9a8",
+   "scale": 0.7
+  },
+  "mara": {
+   "color": "#9b59b6",
+   "hair": {
+    "style": "long",
+    "color": "#5a3a22"
+   },
+   "skin": "#f9d7bd"
+  },
+  "tomas": {
+   "color": "#2f6db5",
+   "hair": {
+    "style": "cap",
+    "color": "#f4f4ef"
+   },
+   "skin": "#c98e62"
+  },
+  "folk": {
+   "color": "#c0392b",
+   "hair": {
+    "style": "bun",
+    "color": "#3a2618"
+   },
+   "skin": "#8f5a3a"
+  }
+ },
+ "captions": {
+  "words": 3,
+  "highlight": [
+   "VOLCANO",
+   "PLAGUE",
+   "BLACK",
+   "DEATH",
+   "SULPHUR",
+   "ERUPTION",
+   "ERUPTIONS",
+   "GRAIN",
+   "FLEAS",
+   "VENICE",
+   "GENOA",
+   "PISA",
+   "MILAN",
+   "ROME",
+   "MOON",
+   "TRADE"
+  ]
+ },
+ "shots": [
+  {
+   "start": 0,
+   "end": 3.4,
+   "line": "A lost volcano may have helped bring the Black Death.",
+   "words": [
+    {
+     "w": "A",
+     "t0": 0.25,
+     "t1": 0.39
+    },
+    {
+     "w": "lost",
+     "t0": 0.39,
+     "t1": 0.67
+    },
+    {
+     "w": "volcano",
+     "t0": 0.67,
+     "t1": 1.091
+    },
+    {
+     "w": "may",
+     "t0": 1.091,
+     "t1": 1.325
+    },
+    {
+     "w": "have",
+     "t0": 1.325,
+     "t1": 1.605
+    },
+    {
+     "w": "helped",
+     "t0": 1.605,
+     "t1": 1.979
+    },
+    {
+     "w": "bring",
+     "t0": 1.979,
+     "t1": 2.306
+    },
+    {
+     "w": "the",
+     "t0": 2.306,
+     "t1": 2.539
+    },
+    {
+     "w": "Black",
+     "t0": 2.539,
+     "t1": 2.866
+    },
+    {
+     "w": "Death.",
+     "t0": 2.866,
+     "t1": 3.24
+    }
+   ],
+   "characters": [
+    {
+     "cast": "bo",
+     "pos": [
+      -0.9,
+      0,
+      1.6
+     ],
+     "anim": "point",
+     "expr": "wow",
+     "wander": false
+    },
+    {
+     "cast": "tomas",
+     "pos": [
+      0.8,
+      0,
+      1.2
+     ],
+     "anim": "lookup",
+     "expr": "wow"
+    }
+   ],
+   "world": "harbour",
+   "props": [
+    {
+     "type": "moon",
+     "size": [
+      12
+     ],
+     "pos": [
+      -1.5,
+      15,
+      -34
+     ]
+    },
+    {
+     "type": "ship",
+     "size": [
+      5
+     ],
+     "pos": [
+      4.2,
+      -0.3,
+      -5.5
+     ],
+     "rot": [
+      0,
+      0.25,
+      0
+     ],
+     "cross": true
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     1.0,
+     9.5
+    ],
+    "to": [
+     0,
+     1.2,
+     8.6
+    ],
+    "look": [
+     -0.6,
+     6.5,
+     -10
+    ]
+   },
+   "energy": 1,
+   "shimmer": true,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "A VOLCANO BROUGHT THE PLAGUE?",
+     "t0": -0.6,
+     "t1": 3.6,
+     "y": 220,
+     "size": 96
+    },
+    {
+     "type": "badge",
+     "text": "HYPOTHESIS \u00b7 2025 STUDY",
+     "t0": 1.0,
+     "t1": 3.4,
+     "y": 600,
+     "size": 46,
+     "accent": "#444444"
+    }
+   ]
+  },
+  {
+   "start": 3.4,
+   "end": 5.02,
+   "line": "You've never heard of it.",
+   "words": [
+    {
+     "w": "You've",
+     "t0": 3.52,
+     "t1": 3.867
+    },
+    {
+     "w": "never",
+     "t0": 3.867,
+     "t1": 4.17
+    },
+    {
+     "w": "heard",
+     "t0": 4.17,
+     "t1": 4.474
+    },
+    {
+     "w": "of",
+     "t0": 4.474,
+     "t1": 4.647
+    },
+    {
+     "w": "it.",
+     "t0": 4.647,
+     "t1": 4.864
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.3,
+     "barren": false
+    },
+    {
+     "type": "volcano",
+     "size": [
+      0.5,
+      0.5
+     ],
+     "pos": [
+      0.1,
+      0.05,
+      1.52
+     ],
+     "rot": [
+      1.5,
+      0,
+      0
+     ],
+     "erupt": 3.6
+    }
+   ],
+   "camera": {
+    "from": [
+     0.4,
+     0.4,
+     6.2
+    ],
+    "to": [
+     0.2,
+     0.2,
+     5.2
+    ],
+    "look": [
+     0,
+     0,
+     0.6
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "THE VOLCANO: UNKNOWN",
+     "t0": 3.6999999999999997,
+     "t1": 5.02,
+     "y": 420,
+     "size": 50,
+     "accent": "#6b4226"
+    }
+   ]
+  },
+  {
+   "start": 5.02,
+   "end": 8.19,
+   "line": "In some regions, up to sixty percent died.",
+   "words": [
+    {
+     "w": "In",
+     "t0": 5.144,
+     "t1": 5.37
+    },
+    {
+     "w": "some",
+     "t0": 5.37,
+     "t1": 5.709
+    },
+    {
+     "w": "regions,",
+     "t0": 5.709,
+     "t1": 6.275
+    },
+    {
+     "w": "up",
+     "t0": 6.275,
+     "t1": 6.501
+    },
+    {
+     "w": "to",
+     "t0": 6.501,
+     "t1": 6.727
+    },
+    {
+     "w": "sixty",
+     "t0": 6.727,
+     "t1": 7.123
+    },
+    {
+     "w": "percent",
+     "t0": 7.123,
+     "t1": 7.631
+    },
+    {
+     "w": "died.",
+     "t0": 7.631,
+     "t1": 8.027
+    }
+   ],
+   "characters": [],
+   "world": "harbour",
+   "props": [
+    {
+     "type": "houses",
+     "size": [
+      9
+     ],
+     "n": 5,
+     "pos": [
+      0,
+      0,
+      -2
+     ],
+     "dark": {
+      "t0": 5.319999999999999,
+      "t1": 7.789999999999999,
+      "n": 6
+     },
+     "shutters": true
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2.6,
+     8
+    ],
+    "to": [
+     0,
+     2.4,
+     7
+    ],
+    "look": [
+     0,
+     2.0,
+     -2
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "counter",
+     "from": 60,
+     "to": 60,
+     "prefix": "UP TO ",
+     "suffix": "%",
+     "roll": false,
+     "size": 130,
+     "label": "IN SOME REGIONS",
+     "t0": 6.527,
+     "t1": 8.19,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "start": 8.19,
+   "end": 11.25,
+   "line": "Yet some big cities may have been spared. Why?",
+   "words": [
+    {
+     "w": "Yet",
+     "t0": 8.307,
+     "t1": 8.555
+    },
+    {
+     "w": "some",
+     "t0": 8.555,
+     "t1": 8.853
+    },
+    {
+     "w": "big",
+     "t0": 8.853,
+     "t1": 9.101
+    },
+    {
+     "w": "cities",
+     "t0": 9.101,
+     "t1": 9.498
+    },
+    {
+     "w": "may",
+     "t0": 9.498,
+     "t1": 9.746
+    },
+    {
+     "w": "have",
+     "t0": 9.746,
+     "t1": 10.043
+    },
+    {
+     "w": "been",
+     "t0": 10.043,
+     "t1": 10.341
+    },
+    {
+     "w": "spared.",
+     "t0": 10.341,
+     "t1": 10.787
+    },
+    {
+     "w": "Why?",
+     "t0": 10.787,
+     "t1": 11.085
+    }
+   ],
+   "characters": [
+    {
+     "cast": "mara",
+     "pos": [
+      -0.9,
+      0,
+      1.0
+     ],
+     "anim": "shrug",
+     "expr": "worried"
+    },
+    {
+     "cast": "tomas",
+     "pos": [
+      0.9,
+      0,
+      1.0
+     ],
+     "anim": "shrug",
+     "expr": "neutral"
+    }
+   ],
+   "world": "harbour",
+   "props": [
+    {
+     "type": "houses",
+     "size": [
+      12
+     ],
+     "n": 6,
+     "pos": [
+      0,
+      0,
+      -6
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     -1.5,
+     2.2,
+     8
+    ],
+    "to": [
+     1.5,
+     2.2,
+     7.5
+    ],
+    "look": [
+     0,
+     1.6,
+     -2
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "WHY?",
+     "t0": 10.587000000000002,
+     "t1": 11.25,
+     "y": 300,
+     "size": 150,
+     "color": "#FFE14D"
+    }
+   ]
+  },
+  {
+   "start": 11.25,
+   "end": 14.82,
+   "line": "In twenty twenty-five, two researchers followed the clues.",
+   "words": [
+    {
+     "w": "In",
+     "t0": 11.365,
+     "t1": 11.561
+    },
+    {
+     "w": "twenty",
+     "t0": 11.561,
+     "t1": 11.954
+    },
+    {
+     "w": "twenty-five,",
+     "t0": 11.954,
+     "t1": 12.642
+    },
+    {
+     "w": "two",
+     "t0": 12.642,
+     "t1": 12.887
+    },
+    {
+     "w": "researchers",
+     "t0": 12.887,
+     "t1": 13.526
+    },
+    {
+     "w": "followed",
+     "t0": 13.526,
+     "t1": 14.017
+    },
+    {
+     "w": "the",
+     "t0": 14.017,
+     "t1": 14.262
+    },
+    {
+     "w": "clues.",
+     "t0": 14.262,
+     "t1": 14.655
+    }
+   ],
+   "characters": [
+    {
+     "cast": "hist",
+     "pos": [
+      -1.0,
+      0,
+      0.9
+     ],
+     "anim": "talk",
+     "to": [
+      -0.7,
+      0,
+      1.1
+     ],
+     "walk": {
+      "t0": 11.25,
+      "t1": 12.35
+     }
+    },
+    {
+     "cast": "clim",
+     "pos": [
+      1.0,
+      0,
+      0.9
+     ],
+     "anim": "point",
+     "expr": "grin"
+    }
+   ],
+   "world": "lab",
+   "props": [
+    {
+     "type": "box",
+     "color": "#e9eef2",
+     "size": [
+      3,
+      0.1,
+      1.3
+     ],
+     "pos": [
+      0,
+      1.05,
+      -1.2
+     ]
+    },
+    {
+     "type": "box",
+     "color": "#7d8a96",
+     "size": [
+      2.8,
+      1,
+      1.1
+     ],
+     "pos": [
+      0,
+      0.5,
+      -1.2
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2.2,
+     8.8
+    ],
+    "to": [
+     0,
+     2.1,
+     8.0
+    ],
+    "look": [
+     0,
+     1.4,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "counter",
+     "from": 2025,
+     "to": 2025,
+     "roll": false,
+     "size": 150,
+     "label": "NEW STUDY",
+     "t0": 11.45,
+     "t1": 13.05,
+     "y": 260
+    },
+    {
+     "type": "badge",
+     "text": "STUDY: BAUCH & B\u00dcNTGEN \u00b7 DEC 2025",
+     "t0": 13.05,
+     "t1": 14.82,
+     "y": 300,
+     "size": 48,
+     "accent": "#2f6db5"
+    }
+   ]
+  },
+  {
+   "start": 14.82,
+   "end": 19.6,
+   "line": "Clue one: ice cores. Around thirteen forty-five, a spike of sulphur.",
+   "words": [
+    {
+     "w": "Clue",
+     "t0": 14.935,
+     "t1": 15.273
+    },
+    {
+     "w": "one:",
+     "t0": 15.273,
+     "t1": 15.611
+    },
+    {
+     "w": "ice",
+     "t0": 15.611,
+     "t1": 15.892
+    },
+    {
+     "w": "cores.",
+     "t0": 15.892,
+     "t1": 16.343
+    },
+    {
+     "w": "Around",
+     "t0": 16.343,
+     "t1": 16.793
+    },
+    {
+     "w": "thirteen",
+     "t0": 16.793,
+     "t1": 17.356
+    },
+    {
+     "w": "forty-five,",
+     "t0": 17.356,
+     "t1": 18.089
+    },
+    {
+     "w": "a",
+     "t0": 18.089,
+     "t1": 18.257
+    },
+    {
+     "w": "spike",
+     "t0": 18.257,
+     "t1": 18.652
+    },
+    {
+     "w": "of",
+     "t0": 18.652,
+     "t1": 18.877
+    },
+    {
+     "w": "sulphur.",
+     "t0": 18.877,
+     "t1": 19.44
+    }
+   ],
+   "characters": [
+    {
+     "cast": "clim",
+     "pos": [
+      -0.9,
+      0,
+      0.8
+     ],
+     "anim": "kneel",
+     "expr": "wow",
+     "face": 25
+    }
+   ],
+   "world": "ice",
+   "props": [
+    {
+     "type": "icecore",
+     "size": [
+      0.32,
+      2.6
+     ],
+     "pos": [
+      0.6,
+      1.2,
+      0.8
+     ],
+     "rot": [
+      0,
+      0,
+      0.35
+     ],
+     "bandAt": 0.12,
+     "glowAt": 18.257
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     1.8,
+     6.2
+    ],
+    "to": [
+     0.2,
+     1.6,
+     5.4
+    ],
+    "look": [
+     0,
+     1.1,
+     0.5
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "CLUE 1: ICE CORES",
+     "t0": 14.92,
+     "t1": 16.243,
+     "y": 420,
+     "size": 50,
+     "accent": "#2f9bff"
+    },
+    {
+     "type": "counter",
+     "from": 1345,
+     "to": 1345,
+     "prefix": "AROUND ",
+     "roll": false,
+     "size": 110,
+     "label": "SULPHUR SPIKE",
+     "t0": 16.243,
+     "t1": 19.6,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "start": 19.6,
+   "end": 22.24,
+   "line": "An eruption, or series of eruptions.",
+   "words": [
+    {
+     "w": "An",
+     "t0": 19.72,
+     "t1": 19.939
+    },
+    {
+     "w": "eruption,",
+     "t0": 19.939,
+     "t1": 20.543
+    },
+    {
+     "w": "or",
+     "t0": 20.543,
+     "t1": 20.762
+    },
+    {
+     "w": "series",
+     "t0": 20.762,
+     "t1": 21.201
+    },
+    {
+     "w": "of",
+     "t0": 21.201,
+     "t1": 21.42
+    },
+    {
+     "w": "eruptions.",
+     "t0": 21.42,
+     "t1": 22.078
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.25,
+     "barren": false
+    },
+    {
+     "type": "volcano",
+     "size": [
+      0.5,
+      0.5
+     ],
+     "pos": [
+      -0.35,
+      0.05,
+      1.48
+     ],
+     "rot": [
+      1.5,
+      0,
+      0.2
+     ],
+     "erupt": 19.700000000000003
+    },
+    {
+     "type": "volcano",
+     "size": [
+      0.45,
+      0.45
+     ],
+     "pos": [
+      0.4,
+      -0.15,
+      1.45
+     ],
+     "rot": [
+      1.6,
+      0,
+      -0.25
+     ],
+     "erupt": 20.700000000000003
+    },
+    {
+     "type": "volcano",
+     "size": [
+      0.4,
+      0.4
+     ],
+     "pos": [
+      0.05,
+      -0.45,
+      1.42
+     ],
+     "rot": [
+      1.8,
+      0,
+      0
+     ],
+     "erupt": 21.5
+    },
+    {
+     "type": "shadowband",
+     "size": [
+      3,
+      1.2
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "color": "#c9c3b5",
+     "opacity": 0.35,
+     "appear": {
+      "t0": 20.8,
+      "t1": 22.24
+     }
+    }
+   ],
+   "camera": {
+    "from": [
+     0.3,
+     0.2,
+     6.8
+    ],
+    "to": [
+     0,
+     0.1,
+     5.6
+    ],
+    "look": [
+     0,
+     -0.1,
+     0.5
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "ONE OR MORE ERUPTIONS \u00b7 LIKELY TROPICAL",
+     "t0": 19.8,
+     "t1": 22.24,
+     "y": 420,
+     "size": 46,
+     "accent": "#6b4226"
+    }
+   ]
+  },
+  {
+   "start": 22.24,
+   "end": 25.43,
+   "line": "Clue two: pale blue rings in Pyrenees trees.",
+   "words": [
+    {
+     "w": "Clue",
+     "t0": 22.358,
+     "t1": 22.687
+    },
+    {
+     "w": "two:",
+     "t0": 22.687,
+     "t1": 23.017
+    },
+    {
+     "w": "pale",
+     "t0": 23.017,
+     "t1": 23.346
+    },
+    {
+     "w": "blue",
+     "t0": 23.346,
+     "t1": 23.675
+    },
+    {
+     "w": "rings",
+     "t0": 23.675,
+     "t1": 24.059
+    },
+    {
+     "w": "in",
+     "t0": 24.059,
+     "t1": 24.279
+    },
+    {
+     "w": "Pyrenees",
+     "t0": 24.279,
+     "t1": 24.828
+    },
+    {
+     "w": "trees.",
+     "t0": 24.828,
+     "t1": 25.267
+    }
+   ],
+   "characters": [
+    {
+     "cast": "hist",
+     "pos": [
+      -0.45,
+      0,
+      1.2
+     ],
+     "anim": "inspect",
+     "hold": "magnifier",
+     "expr": "wow"
+    }
+   ],
+   "world": "lab",
+   "props": [
+    {
+     "type": "treering",
+     "size": [
+      2.2,
+      0.35
+     ],
+     "pos": [
+      0.6,
+      1.7,
+      -0.2
+     ],
+     "glowAt": 23.346
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     1.9,
+     6.8
+    ],
+    "to": [
+     0.2,
+     1.8,
+     6.0
+    ],
+    "look": [
+     0.2,
+     1.5,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "CLUE 2: PYRENEES TREE RINGS",
+     "t0": 22.34,
+     "t1": 25.43,
+     "y": 380,
+     "size": 50,
+     "accent": "#2f9bff"
+    }
+   ]
+  },
+  {
+   "start": 25.43,
+   "end": 27.09,
+   "line": "Cold, wet summers.",
+   "words": [
+    {
+     "w": "Cold,",
+     "t0": 25.547,
+     "t1": 25.986
+    },
+    {
+     "w": "wet",
+     "t0": 25.986,
+     "t1": 26.3
+    },
+    {
+     "w": "summers.",
+     "t0": 26.3,
+     "t1": 26.928
+    }
+   ],
+   "characters": [
+    {
+     "cast": "bo",
+     "pos": [
+      -0.6,
+      0,
+      1.0
+     ],
+     "anim": "shiver",
+     "expr": "worried"
+    },
+    {
+     "cast": "mara",
+     "pos": [
+      0.6,
+      0,
+      0.8
+     ],
+     "anim": "hug",
+     "expr": "worried"
+    }
+   ],
+   "world": "rainfield",
+   "props": [
+    {
+     "type": "frost",
+     "size": [
+      7
+     ],
+     "pos": [
+      0,
+      0.05,
+      0
+     ],
+     "appear": {
+      "t0": 25.43,
+      "t1": 27.09,
+      "grow": true
+     }
+    },
+    {
+     "type": "sphere",
+     "color": "#9fd3ff",
+     "size": [
+      0.06
+     ],
+     "pos": [
+      -2,
+      0,
+      0
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#9fd3ff",
+     "size": [
+      0.06
+     ],
+     "pos": [
+      -1,
+      0,
+      -1
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#9fd3ff",
+     "size": [
+      0.06
+     ],
+     "pos": [
+      0.5,
+      0,
+      0.5
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#9fd3ff",
+     "size": [
+      0.06
+     ],
+     "pos": [
+      1.6,
+      0,
+      -0.6
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#9fd3ff",
+     "size": [
+      0.06
+     ],
+     "pos": [
+      0,
+      0,
+      1.6
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#9fd3ff",
+     "size": [
+      0.06
+     ],
+     "pos": [
+      -1.4,
+      0,
+      1
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#9fd3ff",
+     "size": [
+      0.06
+     ],
+     "pos": [
+      2.2,
+      0,
+      1
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#9fd3ff",
+     "size": [
+      0.06
+     ],
+     "pos": [
+      1,
+      0,
+      -2
+     ],
+     "fall": 6
+    },
+    {
+     "type": "sphere",
+     "color": "#9fd3ff",
+     "size": [
+      0.06
+     ],
+     "pos": [
+      -2.4,
+      0,
+      -1.5
+     ],
+     "fall": 6
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2.0,
+     7
+    ],
+    "to": [
+     0,
+     1.9,
+     6.4
+    ],
+    "look": [
+     0,
+     1.1,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "COLD, WET SUMMERS",
+     "t0": 25.53,
+     "t1": 27.09,
+     "y": 420,
+     "size": 54,
+     "accent": "#4a6a8a"
+    }
+   ]
+  },
+  {
+   "start": 27.09,
+   "end": 31.32,
+   "line": "And writers saw strange clouds, and dark eclipses of the Moon.",
+   "words": [
+    {
+     "w": "And",
+     "t0": 27.208,
+     "t1": 27.475
+    },
+    {
+     "w": "writers",
+     "t0": 27.475,
+     "t1": 27.957
+    },
+    {
+     "w": "saw",
+     "t0": 27.957,
+     "t1": 28.224
+    },
+    {
+     "w": "strange",
+     "t0": 28.224,
+     "t1": 28.705
+    },
+    {
+     "w": "clouds,",
+     "t0": 28.705,
+     "t1": 29.187
+    },
+    {
+     "w": "and",
+     "t0": 29.187,
+     "t1": 29.454
+    },
+    {
+     "w": "dark",
+     "t0": 29.454,
+     "t1": 29.775
+    },
+    {
+     "w": "eclipses",
+     "t0": 29.775,
+     "t1": 30.309
+    },
+    {
+     "w": "of",
+     "t0": 30.309,
+     "t1": 30.523
+    },
+    {
+     "w": "the",
+     "t0": 30.523,
+     "t1": 30.791
+    },
+    {
+     "w": "Moon.",
+     "t0": 30.791,
+     "t1": 31.165
+    }
+   ],
+   "characters": [
+    {
+     "cast": "hist",
+     "pos": [
+      0,
+      0,
+      1.2
+     ],
+     "anim": "lookup",
+     "expr": "wow",
+     "actions": [
+      {
+       "t": 27.09,
+       "anim": "lookup"
+      },
+      {
+       "t": 29.69,
+       "anim": "talk"
+      }
+     ]
+    }
+   ],
+   "world": "harbour",
+   "props": [
+    {
+     "type": "moon",
+     "size": [
+      12
+     ],
+     "pos": [
+      1.5,
+      8,
+      -30
+     ]
+    },
+    {
+     "type": "ship",
+     "size": [
+      5
+     ],
+     "pos": [
+      -3,
+      -0.3,
+      -5
+     ],
+     "rot": [
+      0,
+      0.25,
+      0
+     ],
+     "cross": true
+    }
+   ],
+   "camera": {
+    "from": [
+     1.2,
+     1.2,
+     7.5
+    ],
+    "to": [
+     0.4,
+     1.4,
+     6.6
+    ],
+    "look": [
+     0.6,
+     4.5,
+     -8
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "CLUE 3: WRITTEN ACCOUNTS",
+     "t0": 27.29,
+     "t1": 31.32,
+     "y": 600,
+     "size": 50,
+     "accent": "#2f9bff"
+    }
+   ]
+  },
+  {
+   "start": 31.32,
+   "end": 34.29,
+   "line": "Crops could have failed across the Mediterranean.",
+   "words": [
+    {
+     "w": "Crops",
+     "t0": 31.445,
+     "t1": 31.775
+    },
+    {
+     "w": "could",
+     "t0": 31.775,
+     "t1": 32.104
+    },
+    {
+     "w": "have",
+     "t0": 32.104,
+     "t1": 32.387
+    },
+    {
+     "w": "failed",
+     "t0": 32.387,
+     "t1": 32.764
+    },
+    {
+     "w": "across",
+     "t0": 32.764,
+     "t1": 33.141
+    },
+    {
+     "w": "the",
+     "t0": 33.141,
+     "t1": 33.376
+    },
+    {
+     "w": "Mediterranean.",
+     "t0": 33.376,
+     "t1": 34.13
+    }
+   ],
+   "characters": [
+    {
+     "cast": "mara",
+     "pos": [
+      0.4,
+      0,
+      1.4
+     ],
+     "anim": "no",
+     "expr": "worried"
+    }
+   ],
+   "world": "rainfield",
+   "props": [
+    {
+     "type": "wheat",
+     "size": [
+      5
+     ],
+     "n": 60,
+     "pos": [
+      0,
+      0,
+      -0.6
+     ],
+     "wilt": {
+      "t0": 31.52,
+      "t1": 33.99
+     }
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     1.6,
+     6.5
+    ],
+    "to": [
+     0,
+     1.4,
+     5.6
+    ],
+    "look": [
+     0,
+     0.9,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "CROPS COULD HAVE FAILED",
+     "t0": 31.52,
+     "t1": 34.29,
+     "y": 420,
+     "size": 50,
+     "accent": "#8a6a2a"
+    }
+   ]
+  },
+  {
+   "start": 34.29,
+   "end": 40.37,
+   "line": "So in thirteen forty-seven, Venice, Genoa and Pisa imported grain from the Black Sea.",
+   "words": [
+    {
+     "w": "So",
+     "t0": 34.41,
+     "t1": 34.642
+    },
+    {
+     "w": "in",
+     "t0": 34.642,
+     "t1": 34.874
+    },
+    {
+     "w": "thirteen",
+     "t0": 34.874,
+     "t1": 35.454
+    },
+    {
+     "w": "forty-seven,",
+     "t0": 35.454,
+     "t1": 36.266
+    },
+    {
+     "w": "Venice,",
+     "t0": 36.266,
+     "t1": 36.788
+    },
+    {
+     "w": "Genoa",
+     "t0": 36.788,
+     "t1": 37.194
+    },
+    {
+     "w": "and",
+     "t0": 37.194,
+     "t1": 37.483
+    },
+    {
+     "w": "Pisa",
+     "t0": 37.483,
+     "t1": 37.831
+    },
+    {
+     "w": "imported",
+     "t0": 37.831,
+     "t1": 38.411
+    },
+    {
+     "w": "grain",
+     "t0": 38.411,
+     "t1": 38.817
+    },
+    {
+     "w": "from",
+     "t0": 38.817,
+     "t1": 39.165
+    },
+    {
+     "w": "the",
+     "t0": 39.165,
+     "t1": 39.455
+    },
+    {
+     "w": "Black",
+     "t0": 39.455,
+     "t1": 39.861
+    },
+    {
+     "w": "Sea.",
+     "t0": 39.861,
+     "t1": 40.209
+    }
+   ],
+   "characters": [],
+   "world": "studio",
+   "props": [
+    {
+     "type": "map",
+     "size": [
+      7.5
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "view": [
+      4,
+      42
+     ],
+     "cities": [
+      {
+       "id": "tana",
+       "t0": 34.29
+      },
+      {
+       "id": "venice",
+       "t0": 36.266
+      },
+      {
+       "id": "genoa",
+       "t0": 36.788
+      },
+      {
+       "id": "pisa",
+       "t0": 37.483
+      }
+     ],
+     "routes": [
+      {
+       "to": "venice",
+       "t0": 37.531000000000006,
+       "t1": 41.169999999999995
+      },
+      {
+       "to": "genoa",
+       "t0": 37.831,
+       "t1": 41.37
+      },
+      {
+       "to": "pisa",
+       "t0": 38.031000000000006,
+       "t1": 41.57
+      }
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     0,
+     14.5
+    ],
+    "to": [
+     0,
+     0,
+     13.2
+    ],
+    "look": [
+     0,
+     0,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "counter",
+     "from": 1347,
+     "to": 1347,
+     "roll": false,
+     "size": 120,
+     "label": "GRAIN FROM THE BLACK SEA",
+     "t0": 34.49,
+     "t1": 40.37,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "start": 40.37,
+   "end": 41.96,
+   "line": "Food for the hungry.",
+   "words": [
+    {
+     "w": "Food",
+     "t0": 40.489,
+     "t1": 40.803
+    },
+    {
+     "w": "for",
+     "t0": 40.803,
+     "t1": 41.065
+    },
+    {
+     "w": "the",
+     "t0": 41.065,
+     "t1": 41.326
+    },
+    {
+     "w": "hungry.",
+     "t0": 41.326,
+     "t1": 41.797
+    }
+   ],
+   "characters": [
+    {
+     "cast": "tomas",
+     "pos": [
+      -1.2,
+      0,
+      1.0
+     ],
+     "anim": "throw",
+     "expr": "grin"
+    },
+    {
+     "cast": "bo",
+     "pos": [
+      0.1,
+      0,
+      1.4
+     ],
+     "anim": "jump",
+     "expr": "grin",
+     "wander": false
+    },
+    {
+     "cast": "mara",
+     "pos": [
+      1.2,
+      0,
+      1.0
+     ],
+     "anim": "cheer",
+     "expr": "grin"
+    }
+   ],
+   "world": "harbourday",
+   "props": [
+    {
+     "type": "ship",
+     "size": [
+      5
+     ],
+     "pos": [
+      0,
+      -0.3,
+      -4.5
+     ],
+     "rot": [
+      0,
+      0.25,
+      0
+     ],
+     "cross": true
+    },
+    {
+     "type": "sack",
+     "size": [
+      0.55
+     ],
+     "pos": [
+      -2.2,
+      0.3,
+      0.2
+     ]
+    },
+    {
+     "type": "sack",
+     "size": [
+      0.55
+     ],
+     "pos": [
+      -1.8,
+      0.3,
+      -0.4
+     ]
+    },
+    {
+     "type": "sack",
+     "size": [
+      0.55
+     ],
+     "pos": [
+      2.0,
+      0.3,
+      0.0
+     ]
+    },
+    {
+     "type": "sack",
+     "size": [
+      0.55
+     ],
+     "pos": [
+      2.4,
+      0.3,
+      -0.5
+     ]
+    },
+    {
+     "type": "sack",
+     "size": [
+      0.55
+     ],
+     "pos": [
+      0,
+      0.3,
+      -1.2
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     2.0,
+     8.6
+    ],
+    "to": [
+     0,
+     1.9,
+     7.8
+    ],
+    "look": [
+     0,
+     1.4,
+     0
+    ]
+   },
+   "energy": 2,
+   "shimmer": true
+  },
+  {
+   "start": 41.96,
+   "end": 45.22,
+   "line": "Less than two months after the last grain ships,",
+   "words": [
+    {
+     "w": "Less",
+     "t0": 42.077,
+     "t1": 42.385
+    },
+    {
+     "w": "than",
+     "t0": 42.385,
+     "t1": 42.693
+    },
+    {
+     "w": "two",
+     "t0": 42.693,
+     "t1": 42.95
+    },
+    {
+     "w": "months",
+     "t0": 42.95,
+     "t1": 43.361
+    },
+    {
+     "w": "after",
+     "t0": 43.361,
+     "t1": 43.72
+    },
+    {
+     "w": "the",
+     "t0": 43.72,
+     "t1": 43.977
+    },
+    {
+     "w": "last",
+     "t0": 43.977,
+     "t1": 44.285
+    },
+    {
+     "w": "grain",
+     "t0": 44.285,
+     "t1": 44.644
+    },
+    {
+     "w": "ships,",
+     "t0": 44.644,
+     "t1": 45.055
+    }
+   ],
+   "characters": [],
+   "world": "harbourday",
+   "props": [
+    {
+     "type": "ship",
+     "size": [
+      5
+     ],
+     "pos": [
+      -6,
+      -0.3,
+      -4.5
+     ],
+     "rot": [
+      0,
+      0.25,
+      0
+     ],
+     "cross": true,
+     "move": [
+      0,
+      -0.3,
+      -4.5
+     ]
+    },
+    {
+     "type": "sack",
+     "size": [
+      0.55
+     ],
+     "pos": [
+      -2.2,
+      0.3,
+      0.2
+     ]
+    },
+    {
+     "type": "sack",
+     "size": [
+      0.55
+     ],
+     "pos": [
+      2.0,
+      0.3,
+      0.0
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     1.6,
+     9
+    ],
+    "to": [
+     0,
+     1.7,
+     8.2
+    ],
+    "look": [
+     0,
+     1.6,
+     -3
+    ]
+   },
+   "drop": true,
+   "overlays": [
+    {
+     "type": "counter",
+     "from": 2,
+     "to": 2,
+     "prefix": "< ",
+     "suffix": " MONTHS",
+     "roll": false,
+     "size": 120,
+     "label": "AFTER THE LAST GRAIN SHIPS",
+     "t0": 42.26,
+     "t1": 45.22,
+     "y": 280
+    }
+   ]
+  },
+  {
+   "start": 45.22,
+   "end": 48.25,
+   "line": "Venice reported its first plague cases.",
+   "words": [
+    {
+     "w": "Venice",
+     "t0": 45.335,
+     "t1": 45.813
+    },
+    {
+     "w": "reported",
+     "t0": 45.813,
+     "t1": 46.411
+    },
+    {
+     "w": "its",
+     "t0": 46.411,
+     "t1": 46.71
+    },
+    {
+     "w": "first",
+     "t0": 46.71,
+     "t1": 47.129
+    },
+    {
+     "w": "plague",
+     "t0": 47.129,
+     "t1": 47.608
+    },
+    {
+     "w": "cases.",
+     "t0": 47.608,
+     "t1": 48.086
+    }
+   ],
+   "characters": [],
+   "world": "studio",
+   "props": [
+    {
+     "type": "map",
+     "size": [
+      7.5
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "view": [
+      4,
+      42
+     ],
+     "cities": [
+      {
+       "id": "tana"
+      },
+      {
+       "id": "venice",
+       "redAt": 45.335
+      },
+      {
+       "id": "genoa"
+      },
+      {
+       "id": "pisa"
+      }
+     ],
+     "routes": [
+      {
+       "to": "venice",
+       "t0": 0,
+       "t1": 0.01,
+       "redAt": 45.335
+      },
+      {
+       "to": "genoa",
+       "t0": 0,
+       "t1": 0.01
+      },
+      {
+       "to": "pisa",
+       "t0": 0,
+       "t1": 0.01
+      }
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     -1.6,
+     0.9,
+     5.5
+    ],
+    "to": [
+     -2.1,
+     1.1,
+     2.6
+    ],
+    "look": [
+     -2.1,
+     1.1,
+     0
+    ]
+   },
+   "kicks": [
+    45.335
+   ],
+   "overlays": [
+    {
+     "type": "title",
+     "text": "THE TWIST",
+     "t0": 45.12,
+     "t1": 48.25,
+     "y": 280,
+     "size": 124,
+     "color": "#FFE14D"
+    }
+   ]
+  },
+  {
+   "start": 48.25,
+   "end": 52.2,
+   "line": "The ships most likely carried fleas, feeding on grain dust.",
+   "words": [
+    {
+     "w": "The",
+     "t0": 48.366,
+     "t1": 48.628
+    },
+    {
+     "w": "ships",
+     "t0": 48.628,
+     "t1": 48.995
+    },
+    {
+     "w": "most",
+     "t0": 48.995,
+     "t1": 49.31
+    },
+    {
+     "w": "likely",
+     "t0": 49.31,
+     "t1": 49.729
+    },
+    {
+     "w": "carried",
+     "t0": 49.729,
+     "t1": 50.201
+    },
+    {
+     "w": "fleas,",
+     "t0": 50.201,
+     "t1": 50.62
+    },
+    {
+     "w": "feeding",
+     "t0": 50.62,
+     "t1": 51.092
+    },
+    {
+     "w": "on",
+     "t0": 51.092,
+     "t1": 51.302
+    },
+    {
+     "w": "grain",
+     "t0": 51.302,
+     "t1": 51.669
+    },
+    {
+     "w": "dust.",
+     "t0": 51.669,
+     "t1": 52.036
+    }
+   ],
+   "characters": [],
+   "world": "harbour",
+   "props": [
+    {
+     "type": "sack",
+     "size": [
+      1.6
+     ],
+     "pos": [
+      0,
+      0.8,
+      0
+     ]
+    },
+    {
+     "type": "rat",
+     "pos": [
+      1.3,
+      0,
+      0.6
+     ],
+     "rot": [
+      0,
+      -2.4,
+      0
+     ]
+    },
+    {
+     "type": "flea",
+     "pos": [
+      -0.4,
+      1.2,
+      0.7
+     ],
+     "hop": {
+      "h": 0.7,
+      "speed": 1.6,
+      "phase": 0.0,
+      "dx": 0.8
+     }
+    },
+    {
+     "type": "flea",
+     "pos": [
+      0.2,
+      1.2,
+      0.8
+     ],
+     "hop": {
+      "h": 0.8999999999999999,
+      "speed": 1.8,
+      "phase": 0.13,
+      "dx": 0.8
+     }
+    },
+    {
+     "type": "flea",
+     "pos": [
+      0.5,
+      1.2,
+      0.5
+     ],
+     "hop": {
+      "h": 1.1,
+      "speed": 2.0,
+      "phase": 0.26,
+      "dx": 0.8
+     }
+    },
+    {
+     "type": "flea",
+     "pos": [
+      -0.1,
+      1.2,
+      0.9
+     ],
+     "hop": {
+      "h": 1.3,
+      "speed": 2.2,
+      "phase": 0.39,
+      "dx": 0.8
+     }
+    },
+    {
+     "type": "flea",
+     "pos": [
+      0.8,
+      1.2,
+      0.7
+     ],
+     "hop": {
+      "h": 1.5,
+      "speed": 2.4000000000000004,
+      "phase": 0.52,
+      "dx": 0.8
+     }
+    }
+   ],
+   "camera": {
+    "from": [
+     0.2,
+     1.4,
+     4.2
+    ],
+    "to": [
+     0.4,
+     1.2,
+     3.4
+    ],
+    "look": [
+     0.3,
+     0.9,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "MOST LIKELY: FLEAS IN THE GRAIN DUST",
+     "t0": 48.45,
+     "t1": 52.2,
+     "y": 420,
+     "size": 46,
+     "accent": "#6b4226"
+    }
+   ]
+  },
+  {
+   "start": 52.2,
+   "end": 55.52,
+   "line": "Milan and Rome did not need to import grain.",
+   "words": [
+    {
+     "w": "Milan",
+     "t0": 52.316,
+     "t1": 52.711
+    },
+    {
+     "w": "and",
+     "t0": 52.711,
+     "t1": 52.993
+    },
+    {
+     "w": "Rome",
+     "t0": 52.993,
+     "t1": 53.331
+    },
+    {
+     "w": "did",
+     "t0": 53.331,
+     "t1": 53.613
+    },
+    {
+     "w": "not",
+     "t0": 53.613,
+     "t1": 53.895
+    },
+    {
+     "w": "need",
+     "t0": 53.895,
+     "t1": 54.234
+    },
+    {
+     "w": "to",
+     "t0": 54.234,
+     "t1": 54.459
+    },
+    {
+     "w": "import",
+     "t0": 54.459,
+     "t1": 54.911
+    },
+    {
+     "w": "grain.",
+     "t0": 54.911,
+     "t1": 55.362
+    }
+   ],
+   "characters": [],
+   "world": "studio",
+   "props": [
+    {
+     "type": "map",
+     "size": [
+      7.5
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "view": [
+      4,
+      42
+     ],
+     "cities": [
+      {
+       "id": "venice",
+       "redAt": 0
+      },
+      {
+       "id": "genoa",
+       "redAt": 0
+      },
+      {
+       "id": "pisa",
+       "redAt": 0
+      },
+      {
+       "id": "milan",
+       "t0": 52.316
+      },
+      {
+       "id": "rome",
+       "t0": 52.993
+      }
+     ],
+     "routes": [
+      {
+       "to": "venice",
+       "t0": 0,
+       "t1": 0.01,
+       "redAt": 0
+      },
+      {
+       "to": "genoa",
+       "t0": 0,
+       "t1": 0.01,
+       "redAt": 0
+      },
+      {
+       "to": "pisa",
+       "t0": 0,
+       "t1": 0.01,
+       "redAt": 0
+      }
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     -2.2,
+     0.8,
+     3.4
+    ],
+    "to": [
+     -2.3,
+     0.7,
+     2.9
+    ],
+    "look": [
+     -2.3,
+     0.7,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "NO GRAIN IMPORTS NEEDED",
+     "t0": 53.331,
+     "t1": 55.52,
+     "y": 300,
+     "size": 50,
+     "accent": "#c99a2e"
+    }
+   ]
+  },
+  {
+   "start": 55.52,
+   "end": 57.97,
+   "line": "They were most probably not affected.",
+   "words": [
+    {
+     "w": "They",
+     "t0": 55.642,
+     "t1": 55.938
+    },
+    {
+     "w": "were",
+     "t0": 55.938,
+     "t1": 56.234
+    },
+    {
+     "w": "most",
+     "t0": 56.234,
+     "t1": 56.531
+    },
+    {
+     "w": "probably",
+     "t0": 56.531,
+     "t1": 57.024
+    },
+    {
+     "w": "not",
+     "t0": 57.024,
+     "t1": 57.271
+    },
+    {
+     "w": "affected.",
+     "t0": 57.271,
+     "t1": 57.814
+    }
+   ],
+   "characters": [
+    {
+     "cast": "mara",
+     "pos": [
+      -1.0,
+      0,
+      1.0
+     ],
+     "anim": "wave",
+     "expr": "grin"
+    },
+    {
+     "cast": "folk",
+     "pos": [
+      0.2,
+      0,
+      1.3
+     ],
+     "anim": "cheer",
+     "expr": "grin"
+    },
+    {
+     "cast": "bo",
+     "pos": [
+      1.1,
+      0,
+      1.2
+     ],
+     "anim": "jump",
+     "expr": "grin",
+     "wander": false
+    }
+   ],
+   "world": "harbourday",
+   "props": [
+    {
+     "type": "houses",
+     "size": [
+      12
+     ],
+     "n": 6,
+     "pos": [
+      0,
+      0,
+      -4
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     1.2,
+     2.0,
+     8.6
+    ],
+    "to": [
+     -0.8,
+     2.0,
+     8.0
+    ],
+    "look": [
+     0,
+     1.5,
+     0
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "MOST PROBABLY NOT AFFECTED",
+     "t0": 55.620000000000005,
+     "t1": 57.97,
+     "y": 420,
+     "size": 50,
+     "accent": "#2fbf71"
+    }
+   ]
+  },
+  {
+   "start": 57.97,
+   "end": 60.92,
+   "line": "Nobody knows which volcano it was.",
+   "words": [
+    {
+     "w": "Nobody",
+     "t0": 58.094,
+     "t1": 58.614
+    },
+    {
+     "w": "knows",
+     "t0": 58.614,
+     "t1": 59.069
+    },
+    {
+     "w": "which",
+     "t0": 59.069,
+     "t1": 59.523
+    },
+    {
+     "w": "volcano",
+     "t0": 59.523,
+     "t1": 60.108
+    },
+    {
+     "w": "it",
+     "t0": 60.108,
+     "t1": 60.368
+    },
+    {
+     "w": "was.",
+     "t0": 60.368,
+     "t1": 60.758
+    }
+   ],
+   "characters": [],
+   "world": "space",
+   "props": [
+    {
+     "type": "earth",
+     "size": [
+      3
+     ],
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "spin": 0.3,
+     "barren": false
+    },
+    {
+     "type": "volcano",
+     "size": [
+      0.5,
+      0.5
+     ],
+     "pos": [
+      0.1,
+      0.05,
+      1.52
+     ],
+     "rot": [
+      1.5,
+      0,
+      0
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     -0.4,
+     0.5,
+     6.5
+    ],
+    "to": [
+     0,
+     0.3,
+     5.6
+    ],
+    "look": [
+     0,
+     0,
+     0.6
+    ]
+   },
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "WHICH VOLCANO?",
+     "t0": 58.07,
+     "t1": 60.92,
+     "y": 300,
+     "size": 110,
+     "color": "#FFE14D"
+    },
+    {
+     "type": "badge",
+     "text": "HYPOTHESIS \u00b7 SOME HISTORIANS ARE CAUTIOUS",
+     "t0": 58.57,
+     "t1": 60.92,
+     "y": 560,
+     "size": 46,
+     "accent": "#444444"
+    }
+   ]
+  },
+  {
+   "start": 60.92,
+   "end": 64.37,
+   "line": "So what brought the plague: the volcano, or the trade?",
+   "words": [
+    {
+     "w": "So",
+     "t0": 61.038,
+     "t1": 61.233
+    },
+    {
+     "w": "what",
+     "t0": 61.233,
+     "t1": 61.526
+    },
+    {
+     "w": "brought",
+     "t0": 61.526,
+     "t1": 61.964
+    },
+    {
+     "w": "the",
+     "t0": 61.964,
+     "t1": 62.208
+    },
+    {
+     "w": "plague:",
+     "t0": 62.208,
+     "t1": 62.647
+    },
+    {
+     "w": "the",
+     "t0": 62.647,
+     "t1": 62.891
+    },
+    {
+     "w": "volcano,",
+     "t0": 62.891,
+     "t1": 63.378
+    },
+    {
+     "w": "or",
+     "t0": 63.378,
+     "t1": 63.573
+    },
+    {
+     "w": "the",
+     "t0": 63.573,
+     "t1": 63.817
+    },
+    {
+     "w": "trade?",
+     "t0": 63.817,
+     "t1": 64.207
+    }
+   ],
+   "characters": [
+    {
+     "cast": "clim",
+     "pos": [
+      -1.2,
+      0,
+      1.0
+     ],
+     "anim": "point",
+     "expr": "grin"
+    },
+    {
+     "cast": "mara",
+     "pos": [
+      0.4,
+      0,
+      1.2
+     ],
+     "anim": "talk",
+     "expr": "smile"
+    },
+    {
+     "cast": "hist",
+     "pos": [
+      1.4,
+      0,
+      0.9
+     ],
+     "anim": "nod",
+     "expr": "smile"
+    }
+   ],
+   "world": "lab",
+   "props": [
+    {
+     "type": "volcano",
+     "size": [
+      0.6,
+      0.6
+     ],
+     "pos": [
+      -1.9,
+      1.3,
+      0.3
+     ],
+     "erupt": 61.22
+    },
+    {
+     "type": "sack",
+     "size": [
+      0.6
+     ],
+     "pos": [
+      2.1,
+      0.3,
+      0.2
+     ]
+    }
+   ],
+   "camera": {
+    "from": [
+     0.8,
+     2.1,
+     8.6
+    ],
+    "to": [
+     -0.6,
+     2.1,
+     8.0
+    ],
+    "look": [
+     0,
+     1.4,
+     0
+    ]
+   },
+   "energy": 2,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "VOLCANO OR TRADE?",
+     "t0": 61.120000000000005,
+     "t1": 64.37,
+     "y": 280,
+     "size": 110,
+     "color": "#FFE14D"
+    }
+   ]
+  },
+  {
+   "start": 64.37,
+   "end": 66.27499999999999,
+   "line": "Look at that Moon again.",
+   "words": [
+    {
+     "w": "Look",
+     "t0": 64.487,
+     "t1": 64.785
+    },
+    {
+     "w": "at",
+     "t0": 64.785,
+     "t1": 64.983
+    },
+    {
+     "w": "that",
+     "t0": 64.983,
+     "t1": 65.281
+    },
+    {
+     "w": "Moon",
+     "t0": 65.281,
+     "t1": 65.578
+    },
+    {
+     "w": "again.",
+     "t0": 65.578,
+     "t1": 65.975
+    }
+   ],
+   "characters": [
+    {
+     "cast": "bo",
+     "pos": [
+      -0.9,
+      0,
+      1.6
+     ],
+     "anim": "point",
+     "expr": "wow",
+     "wander": false
+    },
+    {
+     "cast": "tomas",
+     "pos": [
+      0.8,
+      0,
+      1.2
+     ],
+     "anim": "lookup",
+     "expr": "wow"
+    }
+   ],
+   "world": "harbour",
+   "props": [
+    {
+     "type": "moon",
+     "size": [
+      12
+     ],
+     "pos": [
+      -1.5,
+      15,
+      -34
+     ]
+    },
+    {
+     "type": "ship",
+     "size": [
+      5
+     ],
+     "pos": [
+      4.2,
+      -0.3,
+      -5.5
+     ],
+     "rot": [
+      0,
+      0.25,
+      0
+     ],
+     "cross": true
+    }
+   ],
+   "camera": {
+    "from": [
+     0,
+     1.4,
+     10.6
+    ],
+    "to": [
+     0,
+     1.0,
+     9.5
+    ],
+    "look": [
+     -0.6,
+     6.5,
+     -10
+    ]
+   },
+   "energy": 1
+  }
+ ]
+}

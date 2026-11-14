@@ -78,7 +78,7 @@ if (process.argv.includes('--verify')) {
     if (r.cap && r.flash > 0.6) fails.push(`${tm.toFixed(1)}s flash ${r.flash.toFixed(2)} over a caption`);
     if (r.whiteFrac > 0.85) fails.push(`${tm.toFixed(1)}s frame is ${(r.whiteFrac * 100).toFixed(0)}% near-white (white-out)`); }
   // long holds: a shot over 5.5 s needs something new inside it (overlay, action, walk, appear, counter)
-  for (const s of S) { const len = s.end - s.start, busy = (s.overlays || []).length + (s.characters || []).filter(c => c.actions || c.walk).length + (s.props || []).filter(p => p.appear || p.move || p.dotsReveal || p.ice).length;
+  for (const s of S) { const len = s.end - s.start, busy = (s.overlays || []).length + (s.characters || []).filter(c => c.actions || c.walk).length + (s.props || []).filter(p => p.appear || p.move || p.dotsReveal || p.ice || p.routes || p.dark || p.wilt || p.erupt !== undefined || p.hop || p.glowAt !== undefined).length;
     if (len > 5.5 && busy < 2) fails.push(`${s.start.toFixed(1)}s shot holds ${len.toFixed(1)} s with too little new on screen - cut it or add a beat`); }
   // art must match the numbers: a "21 ... 30°" claim needs 21 crater dots inside +-30 degrees
   for (const s of S) { const claim = (s.overlays || []).map(o => (o.text || '') + ' ' + (o.label || '') + ' ' + (o.to || '')).join(' ');

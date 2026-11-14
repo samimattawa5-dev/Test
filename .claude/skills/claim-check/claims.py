@@ -65,7 +65,7 @@ def main():
         low = text.lower(); notes = []
         for n in nums(text):
             if n not in fact_nums and n > 3: notes.append(f"number {n:,.0f} not found in the fact list")
-        sup = SUPERLATIVE.findall(text)
+        sup = [w for w in SUPERLATIVE.findall(text) if not re.search(r"\bmost\s+(likely|probably)\b", low) or w.lower() != "most"]  # "most likely/probably" are hedges, not superlatives
         if sup and not any(q in low for q in ("one of", "among", "about", "nearly", "almost", "close to")):
             for w in set(x.lower() for x in sup):
                 pat = re.search(r"(one of|among)[^.\n]{0,40}" + w, fl)

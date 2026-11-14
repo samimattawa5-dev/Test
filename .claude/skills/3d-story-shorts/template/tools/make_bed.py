@@ -84,7 +84,8 @@ def add(buf, x, at, gain=1.0, pan=0.0):
 
 def main():
     story = json.load(open(sys.argv[1])); voice = read_wav(sys.argv[2]); out = sys.argv[3]
-    mood = sys.argv[sys.argv.index("--mood") + 1] if "--mood" in sys.argv else story.get("mood", "wonder")
+    PRESET_MOOD = {"science-explainer": "wonder", "mystery": "tense", "collage-history": "playful", "money-explainer": "tense", "kids-cartoon": "playful"}
+    mood = sys.argv[sys.argv.index("--mood") + 1] if "--mood" in sys.argv else story.get("mood") or PRESET_MOOD.get(story.get("preset"), "wonder")
     bpm, root, prog = MOODS[mood]
     N = len(voice); dur = N / SR
     music = np.zeros((2, N)); sfx = np.zeros((2, N))
