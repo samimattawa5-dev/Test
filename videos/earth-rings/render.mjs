@@ -42,6 +42,27 @@ const frames = Math.round(total * fps);
 const hasAudio = story.audio && fs.existsSync(path.join(ROOT, story.audio));
 say(`Story "${story.title}": ${story.shots.length} shots, ${total}s, ${frames} frames, audio: ${hasAudio ? story.audio : 'none'}`);
 
+if (process.argv.includes('--verify')) {
+  // after-render QA: every planned overlay visible in its window, captions present while words are spoken,
+  // heads inside the frame (x 60-1020, y 150-1700), no head touching a prop
+  const fails = []; const S = story.shots;
+  for (const s of S) {
+    for (const o of (s.overlays || [])) { const tm = (o.t0 + o.t1) / 2; const r = await page.evaluate((x) => window.__verify(x), tm);
+      const ov = r.overlays.find(v => v.t0 === o.t0 && v.type === o.type);
+      if (!ov || ov.op < 0.5) fails.push(`${tm.toFixed(1)}s overlay "${o.text || o.label}" not visible`);
+      else if (ov.x0 < 20 || ov.x1 > story.width - 20) fails.push(`${tm.toFixed(1)}s overlay "${ov.text}" touches the frame edge (x ${ov.x0.toFixed(0)}-${ov.x1.toFixed(0)})`); }
+    for (const w of (s.words || [])) { if (w.t1 - w.t0 < 0.12) continue; const tm = (w.t0 + w.t1) / 2;
+      if (Math.round(tm * 2) % 3) continue; // sample about every 1.5 s of speech
+      const r = await page.evaluate((x) => window.__verify(x), tm); if (!r.cap) fails.push(`${tm.toFixed(1)}s no caption while "${w.w}" is spoken`); }
+    for (const tm of [s.start + 0.3, (s.start + s.end) / 2, s.end - 0.3]) { const r = await page.evaluate((x) => window.__verify(x), tm);
+      for (const h of r.heads) if (!h.behind && (h.x < 60 || h.x > story.width - 60 || h.y < 150 || h.y > 1700)) fails.push(`${tm.toFixed(1)}s ${h.name} head at (${h.x.toFixed(0)}, ${h.y.toFixed(0)}) is cut by the frame`);
+      for (const h of r.hits) fails.push(`${tm.toFixed(1)}s ${h}`); }
+  }
+  const uniq = [...new Set(fails)]; uniq.forEach(f => say('VERIFY FAIL ' + f));
+  say(uniq.length ? `VERIFY: ${uniq.length} problem(s)` : 'VERIFY OK');
+  await browser.close(); server.close(); process.exit(uniq.length ? 1 : 0);
+}
+
 if (checkOnly) {
   // one preview frame from the middle of every shot
   for (let i = 0; i < story.shots.length; i++) {

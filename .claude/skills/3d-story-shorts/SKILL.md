@@ -125,3 +125,20 @@ Save as `voiceover.mp3` (or .wav; set `"audio"` in story.json). Remind: check Yo
 3. Captions per platform: `/tt-caption` (TikTok), `/ig-caption` (Instagram), `/yt-package` + `/yt-seo` (YouTube title, description).
 4. Scripts for the next video can start from `/tt-script`, `/ig-reel` or `/yt-script` (scored hooks), then come back here to build.
 For money on TikTok, plan 61-90 s; keep hair simple and spend detail on bodies, props and worlds.
+
+## Acting, cast and story effects (added after the v4 review panel)
+- **Cast** (keeps faces consistent - reviewers flagged a scientist whose hair changed between shots): top-level
+  `"cast": {"maya": {"color": "#ff9f43", "hair": {"style": "bob"}, "outfit": "labcoat", "glasses": true}}`, then in shots
+  `{"cast": "maya", "pos": [...], "anim": "talk"}`. Any field in the shot overrides the cast (e.g. `expr`).
+- **Acting timed to words:** `"actions": [{"t": 20.4, "anim": "cheer"}]` switches pose at a global time.
+  Poses: idle, talk, point, nod, no, shrug, cheer, jump, wave, inspect, kneel, throw, scared, hug, shiver, lookup, run, walk, bounce, spin.
+- **Walking:** `"to": [x,y,z], "walk": {"t0": 5.4, "t1": 7.0}` walks from `pos` to `to`, facing the way.
+- Put 2-4 characters in character shots and give each a different pose; nobody stands still through a whole line.
+- **Story effects** (show the event the line describes, not a preset): `shadowband` (ring shadow on a globe, size [diameter, height]),
+  `frost` (ice disc on the ground), `roche` (dashed circle, size [diameter]), `skyring` (ring arch seen from the ground, size [radius], `tilt`),
+  `breakup` (rubble asteroid that flies apart at `"at"` seconds, `pieces`, `spread`), `earth` with `"barren": true` (no green land before land plants).
+  Any prop: `"appear": {"t0", "t1", "grow": true}` fades/grows it in during the shot.
+- **Counters:** `"roll": false` pops the final number (no unsourced in-between values).
+- **Before voice:** `python3 ../claim-check/claims.py story.json script.md`.
+- **After render:** `node render.mjs --verify` checks every overlay is visible and inside the frame, captions are on while words
+  are spoken, heads are not cut by the frame, and no head touches a prop. Fix every VERIFY FAIL before `/video-review`.

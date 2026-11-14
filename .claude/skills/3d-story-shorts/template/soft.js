@@ -210,9 +210,9 @@ export function makeCharacter(spec) {
 }
 
 // ---------- props ----------
-function earthTexture() {
+function earthTexture(barren) {
   return canvasTex(1024, 512, (ctx, w, h) => { const img = ctx.createImageData(w, h);
-    const deep = C('#0d3b78'), shallow = C('#1f78c8'), sand = C('#e3cc94'), green = C('#5cab4a'), dark = C('#3d7d33'), ice = C('#f2f6fa');
+    const deep = C('#0d3b78'), shallow = C('#1f78c8'), sand = C('#e3cc94'), green = C(barren ? '#a8876a' : '#5cab4a'), dark = C(barren ? '#7c6a5a' : '#3d7d33'), ice = C('#f2f6fa');
     for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const u = x / w * Math.PI * 2, lat = (y / h - 0.5) * Math.PI;
       const px = Math.cos(lat) * Math.cos(u), py = Math.sin(lat), pz = Math.cos(lat) * Math.sin(u);
       const n = (N(px * 1.7 + 5, py * 1.7 + 5, 6) + N(pz * 1.7 + 9, px * 1.7 + 2, 6) + N(py * 1.7 + 1, pz * 1.7 + 7, 6)) / 3 * 1.25 - 0.12; let c;
@@ -230,7 +230,7 @@ function cloudTexture() {
       const i = (y * w + x) * 4; img.data[i] = img.data[i + 1] = img.data[i + 2] = 255; img.data[i + 3] = Math.min(255, a * 255); }
     ctx.putImageData(img, 0, 0); });
 }
-let EARTH_TEX, CLOUD_TEX, RING_TEX;
+let EARTH_TEX, EARTH_TEX_B, CLOUD_TEX, RING_TEX;
 function atmosphere(r, color = '#6fb6ff') {
   return new THREE.Mesh(new THREE.SphereGeometry(r * 1.06, 48, 32), new THREE.ShaderMaterial({
     uniforms: { c: { value: C(color) } }, transparent: true, side: THREE.BackSide, blending: THREE.AdditiveBlending, depthWrite: false,
@@ -252,8 +252,8 @@ export function makeProp(p) {
   const s = p.size || [1, 1, 1]; let m;
   switch (p.type) {
     case 'earth': { const r = s[0] / 2; m = new THREE.Group();
-      EARTH_TEX ??= earthTexture(); CLOUD_TEX ??= cloudTexture();
-      const globe = part(new THREE.SphereGeometry(r, 64, 48), new THREE.MeshPhysicalMaterial({ map: EARTH_TEX, roughness: 0.55, clearcoat: 0.35, clearcoatRoughness: 0.4 })); m.add(globe);
+      EARTH_TEX ??= earthTexture(false); EARTH_TEX_B ??= earthTexture(true); CLOUD_TEX ??= cloudTexture();
+      const globe = part(new THREE.SphereGeometry(r, 64, 48), new THREE.MeshPhysicalMaterial({ map: p.barren ? EARTH_TEX_B : EARTH_TEX, roughness: 0.55, clearcoat: 0.35, clearcoatRoughness: 0.4 })); m.add(globe);
       const clouds = new THREE.Mesh(new THREE.SphereGeometry(r * 1.015, 64, 48), new THREE.MeshStandardMaterial({ map: CLOUD_TEX, transparent: true, depthWrite: false, roughness: 1 })); clouds.name = 'clouds'; m.add(clouds);
       m.add(atmosphere(r));
       if (p.equator) { const band = new THREE.Mesh(new THREE.TorusGeometry(r * 1.02, r * 0.03, 12, 128), M.glow(p.equator, 2.5)); band.rotation.x = Math.PI / 2; m.add(band); }
@@ -264,6 +264,21 @@ export function makeProp(p) {
       // remap UVs radially so the canvas rings follow the geometry
       const uv = m.geometry.attributes.uv, pos = m.geometry.attributes.position; for (let i = 0; i < uv.count; i++) { const x = pos.getX(i), y = pos.getY(i); uv.setXY(i, 0.5 + x / (2 * s[1]), 0.5 + y / (2 * s[1])); }
       m.rotation.x = -Math.PI / 2; m.receiveShadow = true; break; }
+    case 'shadowband': { // the ring's shadow on the globe: a dark band over the tropics (size [earthDiameter, bandHeight])
+      m = new THREE.Mesh(new THREE.CylinderGeometry(s[0] / 2 * 1.012, s[0] / 2 * 1.012, s[1] || s[0] * 0.25, 96, 1, true), new THREE.MeshBasicMaterial({ color: '#05060f', transparent: true, opacity: 0.55, depthWrite: false, side: THREE.DoubleSide }));
+      break; }
+    case 'frost': { m = part(new THREE.CircleGeometry(s[0] / 2, 64), new THREE.MeshPhysicalMaterial({ color: '#eef8ff', roughness: 0.15, clearcoat: 1, transparent: true, opacity: 0.9 }), false); m.rotation.x = -Math.PI / 2; m.position.y = 0.02; break; }
+    case 'roche': { const pts = []; for (let i = 0; i <= 128; i++) { const a = i / 128 * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a) * s[0] / 2, 0, Math.sin(a) * s[0] / 2)); }
+      m = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineDashedMaterial({ color: p.color || '#ff6b6b', dashSize: 0.25, gapSize: 0.15, transparent: true })); m.computeLineDistances(); break; }
+    case 'skyring': { // the ring seen from the ground: a banded arch across the sky (size [radius])
+      m = new THREE.Group(); const R0 = s[0] || 60; RING_TEX ??= ringTexture();
+      [[1, 0.9, '#fbf0d4'], [0.965, 0.5, '#e8d6ae'], [0.93, 0.7, '#f6e7c3']].forEach(([k, w, col]) => { const arc = new THREE.Mesh(new THREE.TorusGeometry(R0 * k, w, 8, 200, Math.PI), new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.85, fog: false })); m.add(arc); });
+      m.rotation.x = -(p.tilt ?? 0.35); break; }
+    case 'breakup': { // rubble-pile asteroid: a cluster that flies apart at p.at (global s) into an orbiting swarm
+      m = new THREE.Group(); const r4 = rngFrom(77), n = p.pieces || 14;
+      for (let i = 0; i < n; i++) { const f = part(rockGeo(0.12 + r4() * 0.16, i + 5, 1), M.matte(p.color || '#8d7b6a', 0.9)); const dir = new THREE.Vector3(r4() - 0.5, (r4() - 0.5) * 0.4, r4() - 0.5).normalize();
+        f.position.copy(dir.clone().multiplyScalar(0.18 + r4() * 0.12)); f.userData.dir = dir; f.userData.home = f.position.clone(); m.add(f); }
+      break; }
     case 'rock': m = part(rockGeo(s[0] / 2, Math.round((p.pos?.[0] || 0) * 13 + 7)), M.matte(p.color || '#8a7a6a', 0.9)); break;
     case 'crater': { m = new THREE.Group(); const R0 = s[0] / 2;
       const rim = part(new THREE.TorusGeometry(R0, R0 * 0.16, 16, 64), new THREE.MeshStandardMaterial({ map: noiseTex('#a07a52', '#7a5a3a', 8, 2), roughness: 0.95 })); rim.rotation.x = Math.PI / 2; rim.scale.z = 0.55; m.add(rim);
@@ -281,7 +296,7 @@ export function makeProp(p) {
   if (p.glow && m.material && !m.material.emissiveIntensity) m.material = M.glow(p.color, 1.6);
   m.position.set(...(p.pos || [0, 0, 0]));
   if (p.rot) m.rotation.set(m.rotation.x + p.rot[0], m.rotation.y + p.rot[1], m.rotation.z + p.rot[2]);
-  m.userData = { spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit };
+  m.userData = { type: p.type, spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit, appear: p.appear, at: p.at, spread: p.spread };
   return m;
 }
 
@@ -355,4 +370,10 @@ export function setupScene(scene, worldName, seed) {
       const plant = part(new THREE.SphereGeometry(0.5, 20, 14), M.fabric('#3c8a4f')); plant.position.set(-6.5, 1.3, -3.5); world.add(plant); const pot = part(new THREE.CylinderGeometry(0.35, 0.28, 0.6, 20), M.gloss('#d9764f')); pot.position.set(-6.5, 0.3, -3.5); world.add(pot); }
   }
 }
-export function animateProp(m, t) { const cl = m.getObjectByName && m.getObjectByName('clouds'); if (cl) cl.rotation.y = t * 0.05; }
+export function animateProp(m, t) {
+  const cl = m.getObjectByName && m.getObjectByName('clouds'); if (cl) cl.rotation.y = t * 0.05;
+  const u = m.userData;
+  if (u.type === 'breakup' && u.at !== undefined) { const d = Math.max(0, t - u.at);
+    m.children.forEach((f, i) => { const k = d * (u.spread || 1.6); f.position.copy(f.userData.home).addScaledVector(f.userData.dir, k);
+      f.scale.set(1 + Math.min(d, 0.6), 1, 1); f.rotation.set(t * (1 + i % 3), t * 0.7, 0); }); }
+}

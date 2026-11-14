@@ -28,12 +28,12 @@ It writes `review/` with:
 - `PACK.md` - duration, size, codec, loudness, the spoken script with timings, every on-screen
   text with its time, the fact list from `script.md`, and the `tt-check` result if available.
 
-Look at the sheets yourself first. If something is plainly broken (black frame, missing audio,
+Run `node render.mjs --verify` and `python3 ../claim-check/claims.py story.json script.md` first; fix their findings before spending a panel. Look at the sheets yourself too. If something is plainly broken (black frame, missing audio,
 cut-off text), fix and re-render before spending a panel on it.
 
-## 2. AI panel (5 independent reviewers)
+## 2. AI panel (6 independent reviewers)
 
-Spawn five fresh subagents (Agent tool, run in parallel, no shared context). Give each ONLY: the
+Spawn six fresh subagents (Agent tool, run in parallel, no shared context). Give each ONLY: the
 path to `review/`, its role prompt from `reviewers.md`, and the output format. Never give them the
 build history or your own opinion - that is what makes them independent.
 
@@ -44,9 +44,10 @@ build history or your own opinion - that is what makes them independent.
 | Retention editor | Hook, pacing, dead holds, the twist, the loop, the length | no |
 | Visual critic | Characters, glitches, legibility, safe zone, consistency, audio mix | no |
 | Platform & policy | AI label, music/SFX licences, ad-safety, misleading claims, Creator Rewards length | **yes** |
+| Virality strategist | Comment / share / rewatch / follow triggers; what is missing to go viral | no |
 
 Each returns: `SCORE n/10`, `VERDICT PUBLISH|FIX|BLOCK`, up to 3 issues with timestamps and the
-exact fix, and one thing that works.
+exact fix, one thing that works, **MISSING FOR VIRAL** and **SKILL GAP**.
 
 ## 3. Real people (optional, recommended before a channel's first posts)
 
@@ -60,7 +61,21 @@ AI reviewers are not an audience. When the user wants real opinions:
    ArtifactData and add them to the verdict as a sixth voice: **"Real viewers"**.
 Never invent viewer feedback. If nobody answered yet, say so and give the AI verdict alone.
 
-## 4. Verdict rules
+## 4. Close the skill gaps
+
+Collect every SKILL GAP the panel named and merge duplicates. For each one:
+1. Check `.claude/skills/` first - the toolkit may already have it (say which skill, and why it was
+   not used).
+2. Search GitHub: `gh api -X GET search/repositories -f q="<capability> claude skill" -f sort=stars`.
+   Clone the best 1-3 into the scratchpad, READ every SKILL.md and scan scripts for network calls,
+   credentials and `curl | sh` before installing. Prefer MIT/Apache/CC0. Install into
+   `.claude/skills/<name>/` with its LICENSE and an INSTALL_NOTE.md (source, date, what was left out).
+3. Nothing suitable or safe? Build the skill yourself: SKILL.md (name, description with trigger
+   phrases, steps, rules) + a small tool that actually runs, tested once on this video.
+4. Link it from `3d-story-shorts/SKILL.md` so the next video uses it, and tell the user what was
+   added and from where. Never install a skill that needs a paid key without asking.
+
+## 5. Verdict rules
 
 - **DO NOT PUBLISH** if the fact-checker or platform & policy reviewer says BLOCK (a false or
   unsourced claim, a missing licence, a policy problem). Name the blocker.
@@ -69,6 +84,9 @@ Never invent viewer feedback. If nobody answered yet, say so and give the AI ver
 - **PUBLISH** otherwise. Still list the top fix for next time.
 
 ## Hand back
+
+A table of the six reviewers, the verdict, the fixes, then **VIRAL GAPS** (what is missing) and
+**SKILLS ADDED** (installed from GitHub / built here / already present).
 
 ```
 VIDEO REVIEW  final.mp4  (56.5 s)

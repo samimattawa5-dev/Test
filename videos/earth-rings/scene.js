@@ -119,6 +119,16 @@ function animate(g, anim, t, base) {
   else if (anim === 'no') g.userData.head.rotation.y = Math.sin(t * 8) * 0.5;
   else if (anim === 'lookup') { g.userData.head.rotation.x = -0.5; armR.rotation.z = Math.PI * 0.7; }
   else if (anim === 'run') { g.position.x = base.x + ((t * 1.5) % 4) - 2; g.rotation.y = Math.PI / 2; armL.rotation.x = Math.sin(t * 16) * 0.9; armR.rotation.x = -Math.sin(t * 16) * 0.9; g.position.y = base.y + Math.abs(Math.sin(t * 16)) * 0.1; }
+  else if (anim === 'walkto') { const w = Math.sin(t * 9); armL.rotation.x = w * 0.6; armR.rotation.x = -w * 0.6; g.position.y = base.y + Math.abs(w) * 0.05; }
+  else if (anim === 'talk') { armR.rotation.x = -0.7 + Math.sin(t * 4) * 0.35; armR.rotation.z = 0.3; armL.rotation.x = -0.3 + Math.sin(t * 3 + 1) * 0.2; g.userData.head.rotation.x = Math.sin(t * 5) * 0.06; g.userData.head.rotation.y = Math.sin(t * 1.7) * 0.2; }
+  else if (anim === 'cheer') { const j = Math.abs(Math.sin(t * 7)); g.position.y = base.y + j * 0.35; armL.rotation.z = -2.6 + Math.sin(t * 7) * 0.2; armR.rotation.z = 2.6 - Math.sin(t * 7) * 0.2; }
+  else if (anim === 'jump') { g.position.y = base.y + Math.max(0, Math.sin(t * 5)) * 0.6; armL.rotation.z = -1.2; armR.rotation.z = 1.2; }
+  else if (anim === 'shrug') { const k = (Math.sin(t * 3) + 1) / 2; armL.rotation.z = -0.5 - k * 0.5; armR.rotation.z = 0.5 + k * 0.5; armL.rotation.x = armR.rotation.x = -0.5; g.userData.head.rotation.z = (k - 0.5) * 0.3; }
+  else if (anim === 'nod') { g.userData.head.rotation.x = Math.abs(Math.sin(t * 5)) * 0.3; armR.rotation.x = -0.4; }
+  else if (anim === 'throw') { const ph = (t * 1.2) % 1; armR.rotation.x = ph < 0.6 ? -2.6 * (ph / 0.6) : -2.6 + (ph - 0.6) * 6; g.rotation.y = -0.3; }
+  else if (anim === 'kneel') { g.position.y = base.y - 0.25; g.rotation.x = 0.15; armR.rotation.x = -1.0; g.userData.head.rotation.x = 0.4; }
+  else if (anim === 'scared') { g.position.x = base.x + Math.sin(t * 40) * 0.02; armL.rotation.z = -2.2; armR.rotation.z = 2.2; armL.rotation.x = armR.rotation.x = -0.8; g.userData.head.rotation.x = -0.2; }
+  else if (anim === 'hug') { armL.rotation.x = armR.rotation.x = -1.3; armL.rotation.z = 0.6; armR.rotation.z = -0.6; g.position.x = base.x + Math.sin(t * 40) * 0.015; }
   else if (anim === 'walk') { g.position.x = base.x + Math.sin(t * 2) * 0.8; g.rotation.y = Math.cos(t * 2) > 0 ? Math.PI / 2 : -Math.PI / 2; armL.rotation.x = Math.sin(t * 8) * 0.6; armR.rotation.x = -Math.sin(t * 8) * 0.6; }
   else { g.position.y = base.y + Math.sin(t * 2) * 0.03; g.userData.head.rotation.z = Math.sin(t * 1.5) * 0.08; }
   // breathing + small head life for every pose
@@ -173,11 +183,14 @@ function makeProp(p) {
   if (p.glow && m.material) m.material = glowMat(p.color);
   m.position.set(...(p.pos || [0, 0, 0]));
   if (p.rot) m.rotation.set(m.rotation.x + p.rot[0], m.rotation.y + p.rot[1], m.rotation.z + p.rot[2]);
-  m.userData = { spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit };
+  m.userData = { type: p.type, spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit, appear: p.appear };
   return m;
 }
 function animateProp(m, t, k) {
   const u = m.userData, b = u.base;
+  if (u.appear) { const a = Math.max(0, Math.min(1, (t - u.appear.t0) / (u.appear.t1 - u.appear.t0)));
+    m.traverse(x => { if (x.material) { x.material.transparent = true; x.material.opacity = (x.userData.op0 ??= x.material.opacity) * a; } });
+    if (u.appear.grow) m.scale.setScalar(Math.max(0.001, a)); }
   if (u.spin) m.rotation.y = u.baseRot.y + t * u.spin;
   if (u.move) { const to = u.move; m.position.set(b.x + (to[0] - b.x) * k, b.y + (to[1] - b.y) * k, b.z + (to[2] - b.z) * k); }
   if (u.fall) { const h = u.fall; const ph = ((t * 0.6 + b.x * 0.37 + b.z * 0.21) % 1 + 1) % 1; m.position.y = b.y + h * (1 - ph); m.rotation.x = t * 3; }
@@ -218,12 +231,23 @@ function makeWorld(name, seed) {
   return g;
 }
 
+// ---------- cast: one fixed look per named character, reused in every shot ----------
+// story.cast = {"maya": {color, hair, outfit, glasses, ...}};  shot character = {"cast": "maya", pos, anim, expr?, actions?, to?, walk?}
+function castSpec(c) { return c.cast && story.cast && story.cast[c.cast] ? { ...story.cast[c.cast], ...c } : c; }
+// actions: [{t: 20.3, anim: 'cheer'}] switches the pose at a global time (acting timed to words)
+function animAt(c, t) { let a = c.anim; for (const x of (c.actions || [])) if (t >= x.t) a = x.anim; return a; }
+// walk: {t0, t1} moves the character from pos to "to" (eased), facing the walking direction
+function baseAt(o, t) {
+  const c = o.c; if (!c.to || !c.walk) return o.base;
+  const k = Math.max(0, Math.min(1, (t - c.walk.t0) / (c.walk.t1 - c.walk.t0))); const e = k * k * (3 - 2 * k);
+  return new THREE.Vector3(...c.pos).lerp(new THREE.Vector3(...c.to), e);
+}
 // ---------- shots ----------
 const scenes = story.shots.map((shot, i) => {
   const scene = new THREE.Scene();
   if (SOFTSTYLE) {
     SOFT.setupScene(scene, shot.world, i + 1);
-    const chars = (shot.characters || []).map(c => { const g = SOFT.makeCharacter(c); scene.add(g); return { g, c, base: new THREE.Vector3(...(c.pos || [0, 0, 0])) }; });
+    const chars = (shot.characters || []).map(c0 => { const c = castSpec(c0); const g = SOFT.makeCharacter(c); scene.add(g); return { g, c, base: new THREE.Vector3(...(c.pos || [0, 0, 0])) }; });
     const props = (shot.props || []).map(p => { const m = SOFT.makeProp(p); scene.add(m); return m; });
     return { shot, scene, chars, props };
   }
@@ -235,7 +259,7 @@ const scenes = story.shots.map((shot, i) => {
   sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8 });
   scene.add(sun);
   scene.add(makeWorld(shot.world, i + 1));
-  const chars = (shot.characters || []).map(c => { const g = makeCharacter(c); scene.add(g); return { g, c, base: new THREE.Vector3(...(c.pos || [0, 0, 0])) }; });
+  const chars = (shot.characters || []).map(c0 => { const c = castSpec(c0); const g = makeCharacter(c); scene.add(g); return { g, c, base: new THREE.Vector3(...(c.pos || [0, 0, 0])) }; });
   const props = (shot.props || []).map(p => { const m = makeProp(p); scene.add(m); return m; });
   return { shot, scene, chars, props };
 });
@@ -290,7 +314,7 @@ story.shots.forEach(sh => (sh.overlays || []).forEach(o => {
   if (o.type === 'title') {
     el.innerHTML = o.text.split(' ').map(w => `<span style="display:inline-block;overflow:hidden;vertical-align:top;padding:0 10px"><span class="w" style="display:inline-block;font-size:${o.size || 112}px;line-height:1.1;-webkit-text-stroke:16px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);color:${o.color || '#fff'}">${w}</span></span>`).join('');
   } else if (o.type === 'counter') {
-    el.innerHTML = `<div class="n" style="font-size:${o.size || 170}px;line-height:1;color:${o.color || '#ffd84d'};-webkit-text-stroke:18px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);font-variant-numeric:tabular-nums"></div><div class="l" style="display:inline-block;margin-top:14px;font-size:60px;padding:10px 30px;border-radius:40px;background:${o.accent || '#ff4d6d'};border:6px solid #120c18">${o.label || ''}</div>`;
+    el.innerHTML = `<div class="n" style="display:inline-block;font-size:${o.size || 170}px;line-height:1;color:${o.color || '#ffd84d'};-webkit-text-stroke:18px #120c18;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.45);font-variant-numeric:tabular-nums"></div><br><div class="l" style="display:inline-block;margin-top:14px;font-size:60px;padding:10px 30px;border-radius:40px;background:${o.accent || '#ff4d6d'};border:6px solid #120c18">${o.label || ''}</div>`;
   } else {
     el.innerHTML = `<div class="b" style="display:inline-block;font-size:${o.size || 58}px;padding:14px 34px;border-radius:50px;background:${o.accent || '#2f47ff'};border:7px solid #120c18;box-shadow:0 10px 0 #120c18">${o.text}</div>`;
   }
@@ -304,7 +328,7 @@ function drawOverlays(t) {
     el.style.transform = `translateY(${-out * 60}px)`; el.style.opacity = 1 - out;
     if (o.type === 'title') el.querySelectorAll('.w').forEach((w, i) => { const k = spring(lt - i * 0.07); w.style.transform = `translateY(${(1 - k) * 110}%)`; });
     else if (o.type === 'counter') {
-      const k = clamp01(lt / (o.dur || 1.1)); const e = 1 - Math.pow(1 - k, 3);
+      const k = o.roll === false ? 1 : clamp01(lt / (o.dur || 1.1)); const e = 1 - Math.pow(1 - k, 3);
       el.querySelector('.n').textContent = (o.prefix || '') + fmt(o.from + (o.to - o.from) * e) + (o.suffix || '');
       const p = spring(lt - 0.1); el.querySelector('.n').style.transform = `scale(${0.6 + 0.4 * p})`;
       el.querySelector('.l').style.transform = `scale(${spring(lt - 0.35)})`;
@@ -312,6 +336,17 @@ function drawOverlays(t) {
   }
 }
 
+// ---------- verification hook for render.mjs --verify ----------
+window.__verify = (t) => {
+  window.renderFrame(t);
+  const entry = scenes.find(s => t >= s.shot.start && t < s.shot.end) || scenes[scenes.length - 1];
+  const vis = (el) => { const kids = [...el.querySelectorAll('.w,.n,.l,.b')]; const rs = (kids.length ? kids : [el]).map(k => k.getBoundingClientRect()); const r = { left: Math.min(...rs.map(x => x.left)), right: Math.max(...rs.map(x => x.right)), top: Math.min(...rs.map(x => x.top)), bottom: Math.max(...rs.map(x => x.bottom)) }; return { op: Number(getComputedStyle(el).opacity), x0: r.left / SC, x1: r.right / SC, y0: r.top / SC, y1: r.bottom / SC, text: el.textContent.trim().slice(0, 40) }; };
+  const heads = entry.chars.map(o => { const p = new THREE.Vector3(); o.g.userData.head.getWorldPosition(p); const q = p.clone().project(camera);
+    return { name: o.c.cast || o.c.color, x: (q.x + 1) / 2 * story.width, y: (1 - q.y) / 2 * story.height, behind: q.z > 1 }; });
+  const hits = []; entry.chars.forEach(o => { const hp = new THREE.Vector3(); o.g.userData.head.getWorldPosition(hp);
+    entry.props.forEach(p => { const box = new THREE.Box3().setFromObject(p); if (!box.isEmpty() && box.distanceToPoint(hp) < 0.25) hits.push((o.c.cast || o.c.color) + ' head touches a ' + (p.userData.type || 'prop')); }); });
+  return { overlays: ovEls.map(({ o, el }) => ({ ...vis(el), t0: o.t0, t1: o.t1, type: o.type })), cap: capEl.textContent.trim(), heads, hits };
+};
 window.__total = story.shots[story.shots.length - 1].end;
 await document.fonts.load('900 100px Montserrat').catch(() => {});
 window.__ready = true;
@@ -319,7 +354,10 @@ window.renderFrame = (t) => {
   const entry = scenes.find(s => t >= s.shot.start && t < s.shot.end) || scenes[scenes.length - 1];
   const { shot, scene, chars, props } = entry;
   const lt = t - shot.start, k = ease(Math.min(1, lt / (shot.end - shot.start)));
-  chars.forEach(o => animate(o.g, o.c.anim, t, o.base));
+  chars.forEach(o => { const b = baseAt(o, t), c = o.c, walking = c.walk && t > c.walk.t0 && t < c.walk.t1;
+    animate(o.g, walking ? 'walkto' : animAt(c, t), t, b);
+    if (walking) o.g.rotation.y = Math.atan2(c.to[0] - c.pos[0], c.to[2] - c.pos[2]);
+    else if (c.face !== undefined) o.g.rotation.y += c.face * Math.PI / 180; });
   props.forEach(p => { animateProp(p, t, k); if (SOFTSTYLE) SOFT.animateProp(p, t); });
   const cam = shot.camera, f = cam.from, to = cam.to || cam.from;
   camera.position.set(f[0] + (to[0] - f[0]) * k, f[1] + (to[1] - f[1]) * k, f[2] + (to[2] - f[2]) * k);

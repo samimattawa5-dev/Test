@@ -23,9 +23,14 @@ def main():
     for t in (0.0, 0.5, 1.0, 2.0, 3.0):
         run(["ffmpeg", "-v", "error", "-y", "-ss", str(t), "-i", video, "-frames:v", "1", "-vf",
              f"scale=540:-2,drawtext=text='{t:.1f}s':{font}", f"{out}/hook_{t:.1f}.png"])
-    # a frame every 2 s, 6 per sheet, each labelled with its time
-    run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf",
-         f"fps=1/2,scale=360:-2,drawtext=text='%{{pts\\:hms}}':{font},tile=6x1", f"{out}/sheet_%02d.png"])
+    # a frame every 2 s (exact seek per frame, labelled with that time), 6 per sheet
+    tmp = os.path.join(out, "_f"); os.makedirs(tmp, exist_ok=True); n = 0; t = 0.0
+    while t < dur - 0.05:
+        run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t:.2f}", "-i", video, "-frames:v", "1", "-vf",
+             f"scale=360:-2,drawtext=text='{t:.1f}s':{font}", f"{tmp}/{n:03d}.png"]); n += 1; t += 2.0
+    run(["ffmpeg", "-v", "error", "-y", "-framerate", "1", "-i", f"{tmp}/%03d.png", "-vf", "tile=6x1", f"{out}/sheet_%02d.png"])
+    for f in os.listdir(tmp): os.remove(os.path.join(tmp, f))
+    os.rmdir(tmp)
     err = run(["ffmpeg", "-hide_banner", "-nostats", "-i", video, "-af", "ebur128=peak=true", "-f", "null", "-"]).stderr
     lufs = (re.findall(r"I:\s+(-?[\d.]+) LUFS", err) or ["?"])[-1]; peak = (re.findall(r"Peak:\s+(-?[\d.]+) dBFS", err) or ["?"])[-1]
     v = next((s for s in info["streams"] if s["codec_type"] == "video"), {}); a = next((s for s in info["streams"] if s["codec_type"] == "audio"), {})

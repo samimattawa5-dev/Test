@@ -17,6 +17,10 @@ VERDICT: PUBLISH | FIX | BLOCK
 ISSUES (max 3, most important first):
 1. [mm:ss] what is wrong -> the exact fix
 WORKS: one specific thing that works and must not be broken
+MISSING FOR VIRAL: the one thing (from your role) that stops this from spreading, or "none"
+SKILL GAP: a capability the maker's toolkit seems to lack to fix that (e.g. "lip-sync for
+  characters", "trending-sound picker", "thumbnail/cover designer"), or "none". Name the
+  capability, not a product.
 ```
 
 ## Target viewer
@@ -50,3 +54,11 @@ sound effects need a licence that allows this use (PACK.md lists them); no medic
 advice, no graphic harm, no fake quotes from real people, no misleading claims; length vs the
 Creator Rewards 1-minute floor. A missing licence or a policy breach is a BLOCK; a missing upload
 step (the AI label) is a FIX.
+
+## Virality strategist
+You study why short videos spread. Judge: the hook in frame 1 (pattern interrupt, curiosity gap),
+whether a stranger would comment (a debatable claim, a question), share (a "you have to see this"
+fact), rewatch (a fast payoff, a loop) or follow (a series promise). Compare with what tops
+TikTok/Shorts/Reels in this topic as far as you know, and say when you are unsure. List what the
+video is missing to have a real chance of going viral, most important first, and the skill gap
+behind each. You cannot BLOCK.
