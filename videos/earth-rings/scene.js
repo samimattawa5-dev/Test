@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import * as SOFT from '/soft.js';
 
 const story = await (await fetch('/story.json')).json();
 const SC = Number(new URLSearchParams(location.search).get('scale') || 1);
@@ -14,7 +15,9 @@ renderer.shadowMap.enabled = true;
 wrap.prepend(renderer.domElement);
 capEl.style.fontSize = Math.round(W * 0.14) + 'px';
 
-const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 100);
+const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 200);
+const SOFTSTYLE = story.style === 'soft'; // semi-realistic cartoon look (soft.js)
+if (SOFTSTYLE) { SOFT.init(renderer, story, W, H); vigEl.style.background = 'radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 60%, rgba(0,0,0,.28) 100%)'; }
 // cartoon look: 3-step toon shading + ink outline (normal-extruded back faces)
 const GRAD = (() => { const t = new THREE.DataTexture(new Uint8Array([110, 190, 255]), 3, 1, THREE.RedFormat); t.minFilter = t.magFilter = THREE.NearestFilter; t.needsUpdate = true; return t; })();
 const mat = (c) => new THREE.MeshToonMaterial({ color: c, gradientMap: GRAD });
@@ -103,7 +106,8 @@ function makeCharacter(spec) {
 }
 function animate(g, anim, t, base) {
   g.position.copy(base); g.rotation.set(0, 0, 0);
-  const bl = ((t + g.userData.seed) % 2.6) < 0.13 ? 0.1 : 1; g.userData.eyes.forEach(e => { e.scale.y = bl; });
+  const blink = ((t + g.userData.seed) % 2.6) < 0.13; const bl = blink ? 0.1 : 1; g.userData.eyes.forEach(e => { e.scale.y = bl; });
+  if (g.userData.lids) g.userData.lids.forEach(l => { l.rotation.x = blink ? 1.45 : -0.55; });
   const armL = g.getObjectByName('armL'), armR = g.getObjectByName('armR');
   if (anim === 'bounce') g.position.y = base.y + Math.abs(Math.sin(t * 6)) * 0.3;
   else if (anim === 'wave') armR.rotation.z = Math.PI * 0.8 + Math.sin(t * 10) * 0.4;
@@ -213,6 +217,12 @@ function makeWorld(name, seed) {
 // ---------- shots ----------
 const scenes = story.shots.map((shot, i) => {
   const scene = new THREE.Scene();
+  if (SOFTSTYLE) {
+    SOFT.setupScene(scene, shot.world, i + 1);
+    const chars = (shot.characters || []).map(c => { const g = SOFT.makeCharacter(c); scene.add(g); return { g, c, base: new THREE.Vector3(...(c.pos || [0, 0, 0])) }; });
+    const props = (shot.props || []).map(p => { const m = SOFT.makeProp(p); scene.add(m); return m; });
+    return { shot, scene, chars, props };
+  }
   const wd = WORLDS[shot.world] || WORLDS.office;
   scene.background = new THREE.Color(wd.sky);
   if (wd.deco !== 'stars') scene.fog = new THREE.Fog(wd.sky, 15, 60);
@@ -279,7 +289,7 @@ window.renderFrame = (t) => {
   const { shot, scene, chars, props } = entry;
   const lt = t - shot.start, k = ease(Math.min(1, lt / (shot.end - shot.start)));
   chars.forEach(o => animate(o.g, o.c.anim, t, o.base));
-  props.forEach(p => animateProp(p, t, k));
+  props.forEach(p => { animateProp(p, t, k); if (SOFTSTYLE) SOFT.animateProp(p, t); });
   const cam = shot.camera, f = cam.from, to = cam.to || cam.from;
   camera.position.set(f[0] + (to[0] - f[0]) * k, f[1] + (to[1] - f[1]) * k, f[2] + (to[2] - f[2]) * k);
   camera.lookAt(...(cam.look || [0, 1, 0]));
@@ -291,7 +301,7 @@ window.renderFrame = (t) => {
   }
   drawOverlays(t);
   flashEl.style.opacity = shot.flash ? Math.max(0, 1 - lt / 0.35).toFixed(3) : 0;
-  renderer.render(scene, camera);
+  if (SOFTSTYLE) SOFT.render(scene, camera); else renderer.render(scene, camera);
   const w = wordsFor(shot).find(x => t >= x.t0 && t < x.t1);
   capEl.textContent = w ? w.w.replace(/[.,!?]/g, '') : '';
   capEl.style.transform = w ? `scale(${0.85 + 0.15 * Math.min(1, (t - w.t0) * 12)})` : '';

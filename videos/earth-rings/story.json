@@ -6,6 +6,7 @@
  "audio": "voiceover.wav",
  "bed": "bed.wav",
  "mood": "wonder",
+ "style": "soft",
  "shots": [
   {
    "start": 0,
@@ -1477,25 +1478,6 @@
       0,
       0,
       0
-     ]
-    },
-    {
-     "type": "box",
-     "color": "#0a0a1e",
-     "size": [
-      3.4,
-      0.35,
-      0.2
-     ],
-     "pos": [
-      0,
-      -0.4,
-      1.55
-     ],
-     "rot": [
-      0,
-      0,
-      0.2
      ]
     }
    ],
