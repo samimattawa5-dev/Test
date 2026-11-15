@@ -23,7 +23,7 @@ LINES = [
  "They were most probably not affected.",
  "Nobody knows which volcano it was. And some historians are cautious.",
  "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?",
- "And Europe's plague may have begun under a Moon like this.",
+ "And Europe's plague may have begun with a sky like this.",
 ]
 style = k.get_voice_style("bm_george"); sr = 24000; chunks = []; t = 0.25; meta = []
 chunks.append(np.zeros(int(0.25 * sr), dtype=np.float32))

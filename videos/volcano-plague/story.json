@@ -1,5 +1,5 @@
 {
- "title": "A Volcano Brought the Plague?",
+ "title": "Did a Volcano Bring the Black Death to Europe?",
  "preset": "mystery",
  "voice": "Kokoro v1.0 (hexgrad/Kokoro-82M, Apache-2.0 incl. voice packs), voice bm_george, local ONNX",
  "fps": 30,
@@ -206,13 +206,13 @@
     {
      "type": "volcano",
      "size": [
-      17,
-      13
+      34,
+      24
      ],
      "pos": [
-      -5.0,
-      -1.2,
-      -26
+      -13.0,
+      -3.0,
+      -60
      ],
      "erupt": -20,
      "loopPlume": true,
@@ -275,7 +275,7 @@
      "text": "HYPOTHESIS \u00b7 2025 STUDY",
      "t0": -1.5,
      "t1": 3.91,
-     "y": 640,
+     "y": 700,
      "size": 44,
      "accent": "#444444"
     }
@@ -654,8 +654,8 @@
    "overlays": [
     {
      "type": "title",
-     "text": "SOME CITIES SPARED. WHY?",
-     "t0": 11.638,
+     "text": "SOME CITIES MAY HAVE BEEN SPARED. WHY?",
+     "t0": 9.68,
      "t1": 12.64,
      "y": 280,
      "size": 104,
@@ -3269,7 +3269,7 @@
   {
    "start": 51.79,
    "end": 57.27,
-   "capBottom": 22,
+   "capBottom": 20,
    "line": "Milan and Rome apparently did not need grain imports after thirteen forty-five.",
    "words": [
     {
@@ -3426,7 +3426,7 @@
      "text": "GOLD: GRAIN SHIPS 1347 \u00b7 RED: VENICE CASES",
      "t0": 51.89,
      "t1": 57.27,
-     "y": 250,
+     "y": 200,
      "size": 44,
      "accent": "#5a3a22"
     },
@@ -3435,7 +3435,7 @@
      "text": "GREEN: APPARENTLY NO IMPORTS NEEDED AFTER 1345",
      "t0": 52.923,
      "t1": 57.27,
-     "y": 390,
+     "y": 400,
      "size": 44,
      "accent": "#2fbf71"
     }
@@ -3915,8 +3915,8 @@
      "text": "OPEN THE PORT?",
      "t0": 64.58000000000001,
      "t1": 70.77,
-     "y": 250,
-     "size": 120,
+     "y": 200,
+     "size": 104,
      "color": "#FFE14D"
     },
     {
@@ -3924,7 +3924,7 @@
      "text": "YES: FEED THE CITY",
      "t0": 64.68,
      "t1": 70.77,
-     "y": 430,
+     "y": 520,
      "size": 50,
      "accent": "#2fbf71"
     },
@@ -3933,7 +3933,7 @@
      "text": "NO: CLOSE IT",
      "t0": 64.98,
      "t1": 70.77,
-     "y": 560,
+     "y": 640,
      "size": 50,
      "accent": "#c62828"
     }
@@ -3941,64 +3941,64 @@
   },
   {
    "start": 70.77,
-   "end": 74.40299999999999,
+   "end": 74.356,
    "capBottom": 40,
-   "line": "And Europe's plague may have begun under a Moon like this.",
+   "line": "And Europe's plague may have begun with a sky like this.",
    "words": [
     {
      "w": "And",
      "t0": 70.885,
-     "t1": 71.115
+     "t1": 71.118
     },
     {
      "w": "Europe's",
-     "t0": 71.115,
-     "t1": 71.575
+     "t0": 71.118,
+     "t1": 71.584
     },
     {
      "w": "plague",
-     "t0": 71.575,
-     "t1": 71.942
+     "t0": 71.584,
+     "t1": 71.958
     },
     {
      "w": "may",
-     "t0": 71.942,
-     "t1": 72.172
+     "t0": 71.958,
+     "t1": 72.191
     },
     {
      "w": "have",
-     "t0": 72.172,
-     "t1": 72.448
+     "t0": 72.191,
+     "t1": 72.471
     },
     {
      "w": "begun",
-     "t0": 72.448,
-     "t1": 72.77
+     "t0": 72.471,
+     "t1": 72.797
     },
     {
-     "w": "under",
-     "t0": 72.77,
-     "t1": 73.092
+     "w": "with",
+     "t0": 72.797,
+     "t1": 73.077
     },
     {
      "w": "a",
-     "t0": 73.092,
-     "t1": 73.23
+     "t0": 73.077,
+     "t1": 73.217
     },
     {
-     "w": "Moon",
-     "t0": 73.23,
-     "t1": 73.505
+     "w": "sky",
+     "t0": 73.217,
+     "t1": 73.45
     },
     {
      "w": "like",
-     "t0": 73.505,
-     "t1": 73.781
+     "t0": 73.45,
+     "t1": 73.73
     },
     {
      "w": "this.",
-     "t0": 73.781,
-     "t1": 74.103
+     "t0": 73.73,
+     "t1": 74.056
     }
    ],
    "characters": [
@@ -4059,13 +4059,13 @@
     {
      "type": "volcano",
      "size": [
-      17,
-      13
+      34,
+      24
      ],
      "pos": [
-      -5.0,
-      -1.2,
-      -26
+      -13.0,
+      -3.0,
+      -60
      ],
      "erupt": -20,
      "loopPlume": true,
@@ -4111,7 +4111,26 @@
      -10
     ]
    },
-   "energy": 1
+   "energy": 1,
+   "overlays": [
+    {
+     "type": "title",
+     "text": "A VOLCANO MAY HAVE BROUGHT THE BLACK DEATH TO EUROPE",
+     "t0": 73.356,
+     "t1": 75.356,
+     "y": 200,
+     "size": 90
+    },
+    {
+     "type": "badge",
+     "text": "HYPOTHESIS \u00b7 2025 STUDY",
+     "t0": 73.356,
+     "t1": 75.356,
+     "y": 700,
+     "size": 44,
+     "accent": "#444444"
+    }
+   ]
   }
  ]
 }

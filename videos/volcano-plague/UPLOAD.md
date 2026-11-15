@@ -1,4 +1,4 @@
-# Upload: A Volcano Brought the Plague?
+# Upload: Did a Volcano Bring the Black Death to Europe?
 
 - File: final.mp4, 74.4 s, 1080x1920. Cover: cover.jpg (from 0.5 s).
 - On-screen hook: A VOLCANO MAY HAVE BROUGHT THE BLACK DEATH TO EUROPE

@@ -29,7 +29,7 @@
 20. [57.3-59.7s] "They were most probably not affected."  | world: harbourday | characters: mara grin  (wave), folk grin  (cheer), tomas grin  (wave)
 21. [59.7-64.7s] "Nobody knows which volcano it was. And some historians are cautious."  | world: space
 22. [64.7-70.8s] "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?"  | world: harbour | characters: clim grin  (point), mara worried  (shrug), hist worried  (no)
-23. [70.8-74.4s] "And Europe's plague may have begun under a Moon like this."  | world: harbour | characters: bo wow  (point), tomas wow  (lookup)
+23. [70.8-74.4s] "And Europe's plague may have begun with a sky like this."  | world: harbour | characters: bo wow  (point), tomas wow  (lookup)
 
 ## On-screen text (besides word-by-word captions)
 
@@ -37,7 +37,7 @@
 - -1.5-3.9s badge: HYPOTHESIS · 2025 STUDY
 - 4.1-6.4s badge: GRAIN SHIPS · 1347
 - 7.9-9.6s counter: UP TO 60% [IN SOME REGIONS]
-- 11.6-12.6s title: SOME CITIES SPARED. WHY?
+- 9.7-12.6s title: SOME CITIES MAY HAVE BEEN SPARED. WHY?
 - 12.7-14.4s badge: 2025 STUDY: BAUCH & BÜNTGEN
 - 12.7-14.4s badge: CLUE 1: ICE CORES
 - 14.5-17.6s counter: AROUND 1345 [SULPHUR SPIKE]
@@ -58,13 +58,15 @@
 - 64.6-70.8s title: OPEN THE PORT?
 - 64.7-70.8s badge: YES: FEED THE CITY
 - 65.0-70.8s badge: NO: CLOSE IT
+- 73.4-75.4s title: A VOLCANO MAY HAVE BROUGHT THE BLACK DEATH TO EUROPE
+- 73.4-75.4s badge: HYPOTHESIS · 2025 STUDY
 
 - Style: mystery; captions: {"words": 3, "highlight": ["VOLCANO", "PLAGUE", "BLACK", "DEATH", "SULPHUR", "ERUPTION", "ERUPTIONS", "GRAIN", "FLEAS", "VENICE", "GENOA", "PISA", "MILAN", "ROM
 - Voice file: voiceover.wav; music/SFX bed: bed.wav
 
 ## Motion inside long shots (mean picture change start->end; under 0.03 = nearly frozen)
 
-- 0.0-3.9s: 0.092
+- 0.0-3.9s: 0.093
 - 6.4-9.6s: 0.061
 - 9.6-12.6s: 0.089
 - 14.4-17.6s: 0.047
@@ -76,7 +78,7 @@
 - 51.8-57.3s: 0.088
 - 59.7-64.7s: 0.286
 - 64.7-70.8s: 0.063
-- 70.8-74.4s: 0.090
+- 70.8-74.4s: 0.089
 
 ## Fact list and sources (from script.md)
 
@@ -113,10 +115,10 @@ Re-run once the real story.json exists.
 - [x] **Credibility beat early:** badge "2025 STUDY: BAUCH & BÜNTGEN" over the ice-core action (about 12 s); no separate intro shot.
 - [x] **Every number shown:** 60% (counter + windows going dark), around 1345 (counter + glowing band in the ice core), 1347 (counter + map routes), under 2 months (timeline bar LAST SHIP -> VENICE: PLAGUE turning red).
 - [x] **Twist shown as an event:** the harbour street goes dark and shutters close under "VENICE: FIRST PLAGUE CASES"; then fleas hop out of a grain sack; then the map: Venice red, Genoa and Pisa gold (also imported, no plague claim made), Milan and Rome green with the key "GREEN: APPARENTLY NO IMPORTS NEEDED".
-- [x] **Doubt said aloud:** "Nobody knows which volcano it was. And some historians are not convinced." + badge "HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS".
+- [x] **Doubt said aloud:** "Nobody knows which volcano it was. And some historians are cautious." + badge "HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS".
 - [x] **Turn on the word:** on "problem" the picture cuts from the sunny quay to the night harbour, a flea hops off a sack, faces drop.
 - [x] **Comment trigger (no hindsight):** "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?" with YES: FEED THE CITY / NO: CLOSE IT.
-- [x] **Loop:** "And Europe's plague may have begun under a Moon like this." The last shot pulls back into frame 1's exact camera, Moon, ship, sacks and characters.
+- [x] **Loop:** "And Europe's plague may have begun with a sky like this." The last shot pulls back into frame 1's exact camera, Moon, ship, sacks and characters.
 - [x] **Length:** about 75 s (over the 61 s Creator Rewards floor).
 
 ## New sets needed
@@ -150,18 +152,20 @@ Re-run once the real story.json exists.
    Fact-checker + policy (round 4) required "to Europe", not "started".
 2. **Volcano visible in frame 0**: an erupting cone (lava streams, glow, ash column) left of the red Moon.
 3. **Only Venice is red** on the map: fact 8 covers only Venice's first cases. Genoa and Pisa are gold
-   (importers, fact 7). Milan and Rome green with "NO GRAIN IMPORTS NEEDED" (fact 10).
+   (importers, fact 7). Milan and Rome green with "APPARENTLY NO IMPORTS NEEDED AFTER 1345" (fact 10, its hedge and time limit kept).
 4. **Comment question**: "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?"
    (no hindsight; two sides).
 5. **Length about 75 s** - over the 61 s Creator Rewards floor on purpose; do not cut below 62 s.
 6. **Hedges stay** exactly as the sources use them (may, up to, most likely, apparently, most probably, debated).
 7. **Cartoon style and cast** (Hist, Clim, Mara, Tomas, Bo, folk) are fixed for this channel.
+8. **Doubt line** says "some historians are cautious" (fact 11 wording).
+9. **Text stays in the platform safe zone** (x 65-950, y 115-1536): overlays are laid out in that box and `--verify` fails anything outside.
 
 
 ## Automatic checks
 
 ```
-Story "A Volcano Brought the Plague?": 23 shots, 74.40299999999999s, 2232 frames, audio: voiceover.wav
+Story "Did a Volcano Bring the Black Death to Europe?": 23 shots, 74.356s, 2231 frames, audio: voiceover.wav
 VERIFY OK
 ```
 
@@ -178,7 +182,7 @@ Judge against /home/user/Test/.claude/skills/video-review/CRITERIA.md (platform 
 
 ## Upload plan (UPLOAD.md)
 
-# Upload: A Volcano Brought the Plague?
+# Upload: Did a Volcano Bring the Black Death to Europe?
 
 - File: final.mp4, 74.4 s, 1080x1920. Cover: cover.jpg (from 0.5 s).
 - On-screen hook: A VOLCANO MAY HAVE BROUGHT THE BLACK DEATH TO EUROPE

@@ -72,6 +72,13 @@ if (process.argv.includes('--verify')) {
       if (!ov || ov.op < 0.5) fails.push(`${tm.toFixed(1)}s overlay "${o.text || o.label}" not visible`);
       else if (ov.x0 < 20 || ov.x1 > story.width - 20) fails.push(`${tm.toFixed(1)}s overlay "${ov.text}" touches the frame edge (x ${ov.x0.toFixed(0)}-${ov.x1.toFixed(0)})`);
       else if (ov.x1 > story.width * 0.88 + 2 || ov.y0 < story.height * 0.06 - 2 || ov.y1 > story.height * 0.8) fails.push(`${tm.toFixed(1)}s overlay "${ov.text}" is in the platform UI zone (box x ${ov.x0.toFixed(0)}-${ov.x1.toFixed(0)}, y ${ov.y0.toFixed(0)}-${ov.y1.toFixed(0)}; keep x<950, y 115-1536)`); }
+    { // overlays on screen together must not overlap each other (checked 0.5 s after the later one enters)
+      const ovs = s.overlays || [];
+      for (let i = 0; i < ovs.length; i++) for (let j = i + 1; j < ovs.length; j++) { const A = ovs[i], B = ovs[j]; const settle = (o) => o.t0 + (o.type === 'title' ? 0.4 + 0.07 * (o.text || '').split(' ').length : 0.5); // titles enter word by word
+        const t1 = Math.min(A.t1, B.t1, story.shots[story.shots.length - 1].end - 0.02), t0 = Math.min(Math.max(settle(A), settle(B)), t1 - 0.01);
+        if (t0 >= t1) continue; const r = await page.evaluate((x) => window.__verify(x), t0);
+        const a = r.overlays.find(v => v.t0 === A.t0 && v.type === A.type), b = r.overlays.find(v => v.t0 === B.t0 && v.type === B.type);
+        if (a && b && a.op > 0.5 && b.op > 0.5 && a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1) fails.push(`${t0.toFixed(1)}s overlays "${a.text}" and "${b.text}" overlap - move one`); } }
     for (const w of (s.words || [])) { if (w.t1 - w.t0 < 0.12) continue; const tm = (w.t0 + w.t1) / 2; if (s.capFrom !== undefined && tm < s.capFrom) continue;
       if (Math.round(tm * 2) % 3) continue; // sample about every 1.5 s of speech
       const r = await page.evaluate((x) => window.__verify(x), tm); if (!r.cap) fails.push(`${tm.toFixed(1)}s no caption while "${w.w}" is spoken`); }

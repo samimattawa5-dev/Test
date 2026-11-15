@@ -11,7 +11,7 @@ Cast (fixed looks, cartoon only, no real person's likeness): **Hist** (historian
 | # | Voiceover | On screen (world, characters + actions, props/effects, overlays with approx. times) |
 |---|---|---|
 | 1 | A lost volcano may have helped bring the Black Death. | **0.0-3.2** NEW medieval harbour set (dusk world) at night. A huge dark red eclipsed Moon sits low over the water, and a grain ship silhouette is moored at the quay. Bo **points** up and Tomas **looks up**. Slow push in. Title **"A VOLCANO BROUGHT THE PLAGUE?"** 0.0-3.4. Badge **"HYPOTHESIS · 2025 STUDY"** 1.0-3.2. |
-| 2 | You've never heard of it. | **3.2-6.4** Space: the globe spins, and a tiny smoke puff (sphere + cone) rises from the tropics with a pulsing **"?"** marker. Badge **"VOLCANO: UNKNOWN"** 3.6-6.2. |
+| 2 | And it may have started with a lost volcano. | **3.2-6.4** Space: the globe spins, and a tiny smoke puff (sphere + cone) rises from the tropics with a pulsing **"?"** marker. Badge **"VOLCANO: UNKNOWN"** 3.6-6.2. |
 | 3 | In some regions, up to sixty percent died. | **6.4-9.8** City world at night: a row of 10 lit house windows (lamps). 6 of them go dark one by one, with no people shown. Counter **"UP TO 60%"** (roll: false, pops) with label "IN SOME REGIONS" 6.8-9.8. |
 | 4 | Yet some big cities may have been spared. Why? | **9.8-13.8** City world: the camera pans to two distant city gates whose lamps stay lit. Mara and Tomas **shrug**. Title **"WHY?"** 12.2-13.8. The open loop: these cities are not named yet. |
 | 5 | In twenty twenty-five, two researchers followed the clues. | **13.8-17.2** Lab: Hist and Clim **walk in**. Hist slaps a book on the table and Clim **points** at a wall map. Counter **"2025"** (pop) 14.0-15.6. Badge **"BAUCH & BÜNTGEN · COMMUNICATIONS EARTH & ENVIRONMENT · DEC 2025"** 14.4-17.2. |
@@ -36,7 +36,7 @@ Cast (fixed looks, cartoon only, no real person's likeness): **Hist** (historian
 
 | Score | Hook | Formula |
 |---|---|---|
-| **76.6 STRONG (used)** | A lost volcano may have helped bring the Black Death. You've never heard of it. | curiosity gap + address |
+| **76.6 STRONG (used)** | A lost volcano may have helped bring the Black Death. And it may have started with a lost volcano. | curiosity gap + address |
 | 78.7 STRONG (runner-up) | Up to sixty percent dead. A volcano you've never heard of may explain why. | number shock. Not used because "60%" is a regional figure, and the hook would drop "in some regions". |
 | 57.2 OK | A volcano nobody has ever found may have helped bring the Black Death to Europe. | impossible claim |
 | 42.2 WEAK | What does a missing volcano have to do with the Black Death? | visual/question |
@@ -78,10 +78,10 @@ Re-run once the real story.json exists.
 - [x] **Credibility beat early:** badge "2025 STUDY: BAUCH & BÜNTGEN" over the ice-core action (about 12 s); no separate intro shot.
 - [x] **Every number shown:** 60% (counter + windows going dark), around 1345 (counter + glowing band in the ice core), 1347 (counter + map routes), under 2 months (timeline bar LAST SHIP -> VENICE: PLAGUE turning red).
 - [x] **Twist shown as an event:** the harbour street goes dark and shutters close under "VENICE: FIRST PLAGUE CASES"; then fleas hop out of a grain sack; then the map: Venice red, Genoa and Pisa gold (also imported, no plague claim made), Milan and Rome green with the key "GREEN: APPARENTLY NO IMPORTS NEEDED".
-- [x] **Doubt said aloud:** "Nobody knows which volcano it was. And some historians are not convinced." + badge "HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS".
+- [x] **Doubt said aloud:** "Nobody knows which volcano it was. And some historians are cautious." + badge "HYPOTHESIS · SOME HISTORIANS ARE CAUTIOUS".
 - [x] **Turn on the word:** on "problem" the picture cuts from the sunny quay to the night harbour, a flea hops off a sack, faces drop.
 - [x] **Comment trigger (no hindsight):** "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?" with YES: FEED THE CITY / NO: CLOSE IT.
-- [x] **Loop:** "And Europe's plague may have begun under a Moon like this." The last shot pulls back into frame 1's exact camera, Moon, ship, sacks and characters.
+- [x] **Loop:** "And Europe's plague may have begun with a sky like this." The last shot pulls back into frame 1's exact camera, Moon, ship, sacks and characters.
 - [x] **Length:** about 75 s (over the 61 s Creator Rewards floor).
 
 ## New sets needed
