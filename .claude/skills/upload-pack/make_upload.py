@@ -16,7 +16,7 @@ def main():
         dur = story["shots"][-1]["end"]; print(f"final.mp4 missing or older than story.json: duration {dur:.1f} s taken from story.json (re-run after the render)")
     script = open(os.path.join(d, "script.md"), encoding="utf-8").read() if os.path.exists(os.path.join(d, "script.md")) else ""
     srcs = list(dict.fromkeys(re.findall(r"\[([^\]]+)\]\((https?://[^)]+)\)", script)))  # every cited source, deduplicated
-    doi = re.findall(r"DOI\s*(10\.\S+?)[,)\s]", script)
+    doi = [d.rstrip(".") for d in re.findall(r"DOI\s*(10\.\S+?)[,)\s]", script)]
     titles = [o["text"] for s in story["shots"] for o in s.get("overlays", []) if o["type"] == "title"]
     voice_ai = story.get("voice_human") is not True  # TTS unless story.json says "voice_human": true
     credits = ""

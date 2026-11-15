@@ -59,7 +59,7 @@ SH = [
       props=[dict(type="icecore", size=[0.32, 2.6], pos=[0.4, 1.2, 0.2], rot=[0, 0, 0.35], bandAt=0.12)],
       camera={"from": [0, 2.0, 7.4], "to": [0.1, 1.8, 6.4], "look": [0, 1.2, 0.3]}, energy=2,
       overlays=[dict(type="badge", text="2025 STUDY: BAUCH & BÜNTGEN", t0=s(5) + 0.1, t1=e(5), y=300, size=48, accent="#2f6db5"),
-                dict(type="chain", items=[dict(text="VOLCANO?", t=s(5) + 0.2), dict(text="COLD", t=s(9)), dict(text="CROPS FAIL", t=s(11) + 0.2), dict(text="GRAIN SHIPS", t=s(12) + 0.3), dict(text="?", t=s(13))], redAt=SPLIT13, redText="PLAGUE?", t0=s(5) + 0.1, t1=SPLIT13 + 1.4, y=125, size=30),
+                dict(type="chain", items=[dict(text="VOLCANO?", t=s(5) + 0.2), dict(text="COLD", t=s(9)), dict(text="NO CROPS", t=s(11) + 0.2), dict(text="GRAIN SHIPS", t=s(12) + 0.3), dict(text="?", t=s(13))], redAt=SPLIT13, redText="PLAGUE?", t0=s(5) + 0.1, t1=SPLIT13 + 1.4, y=125, size=32),
                 dict(type="badge", text="CLUE 1: ICE CORES", t0=wt("clue", lt(5)[0]) - 0.1, t1=e(5), y=430, size=52, accent="#2f9bff")]),
  # 6 around 1345 a sulphur spike: the core fills the frame, the band lights up on "spike"
  dict(world="ice", characters=[],
