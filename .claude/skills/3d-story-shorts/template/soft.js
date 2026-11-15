@@ -260,6 +260,7 @@ export function makeCharacter(spec) {
   return g;
 }
 
+const flatM = (col, r = 0.85) => new THREE.MeshStandardMaterial({ color: col, roughness: r, metalness: 0, flatShading: true });
 // ---------- props ----------
 function earthTexture(barren) {
   return canvasTex(1024, 512, (ctx, w, h) => { const img = ctx.createImageData(w, h);
@@ -369,6 +370,35 @@ export function makeProp(p) {
       const bark = M.matte('#5a3b26', 0.95); const body = part(new THREE.CylinderGeometry(R0, R0, th, 48), [bark, new THREE.MeshStandardMaterial({ map: face, roughness: 0.8 }), bark]); m.add(body);
       const band = new THREE.Mesh(new THREE.TorusGeometry(R0 * blue, R0 * 0.025, 8, 96), new THREE.MeshStandardMaterial({ color: '#2f8fff', emissive: C('#2f8fff'), emissiveIntensity: 0.9, transparent: true }));
       band.rotation.x = Math.PI / 2; band.position.y = th / 2 + 0.005; band.name = 'blueband'; m.add(band); m.rotation.x = Math.PI / 2 - 0.25; break; }
+    case 'ocean': { // animated sea: size [width, depth]; level: {t0, t1, from, to} raises the water (a basin refilling)
+      const Wd = s[0] || 40, Dp = s[1] || 40; const geo = new THREE.PlaneGeometry(Wd, Dp, 90, 90); geo.rotateX(-Math.PI / 2);
+      const mat = new THREE.MeshStandardMaterial({ color: p.color || '#1f6fb5', roughness: 0.25, metalness: 0.1, flatShading: true, transparent: true, opacity: 0.95 });
+      m = new THREE.Mesh(geo, mat); m.receiveShadow = true; m.userData.p0 = Float32Array.from(geo.attributes.position.array); m.userData.wave = p.wave ?? 0.35; break; }
+    case 'waterfall': { // a sheet of falling water with streaks, a foam cloud at the base: size [width, height]
+      m = new THREE.Group(); const Wf = s[0] || 6, Hf = s[1] || 8;
+      const tex = canvasTex(128, 256, (ctx, w, h) => { ctx.fillStyle = '#3d8fd6'; ctx.fillRect(0, 0, w, h); for (let i = 0; i < 70; i++) { ctx.fillStyle = `rgba(255,255,255,${0.15 + (i % 5) * 0.08})`; ctx.fillRect((i * 37) % w, (i * 71) % h, 2 + i % 4, 30 + (i * 13) % 60); } });
+      tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(Wf / 3, Hf / 4);
+      const sheet = new THREE.Mesh(new THREE.PlaneGeometry(Wf, Hf, 1, 1), new THREE.MeshStandardMaterial({ map: tex, emissive: C('#2a6fb0'), emissiveIntensity: 0.35, transparent: true, opacity: 0.92, roughness: 0.2, side: THREE.DoubleSide }));
+      sheet.position.y = Hf / 2; sheet.name = 'fallsheet'; m.add(sheet);
+      const smoke = canvasTex(128, 128, (ctx, w) => { const g2 = ctx.createRadialGradient(w / 2, w / 2, 0, w / 2, w / 2, w / 2); g2.addColorStop(0, 'rgba(255,255,255,0.9)'); g2.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = g2; ctx.fillRect(0, 0, w, w); });
+      for (let k = 0; k < 16; k++) { const f = new THREE.Sprite(new THREE.SpriteMaterial({ map: smoke, transparent: true, opacity: 0.7, depthWrite: false })); f.userData.k = k; f.userData.sz = Wf * (0.18 + (k % 4) * 0.05); f.name = 'foam'; m.add(f); }
+      m.userData.wf = Wf; break; }
+    case 'saltflat': { // white cracked salt crust with crystals: size [width, depth]
+      m = new THREE.Group(); const Wd = s[0] || 30, Dp = s[1] || 30;
+      const tex = canvasTex(512, 512, (ctx, w, h) => { ctx.fillStyle = '#f1ede4'; ctx.fillRect(0, 0, w, h); ctx.strokeStyle = 'rgba(150,140,125,0.55)'; ctx.lineWidth = 3; const r = rngFrom(7);
+        for (let i = 0; i < 70; i++) { const cx = r() * w, cy = r() * h; ctx.beginPath(); for (let k = 0; k < 6; k++) { const a = k / 6 * Math.PI * 2 + r() * 0.3, rr = 26 + r() * 16; ctx[k ? 'lineTo' : 'moveTo'](cx + Math.cos(a) * rr, cy + Math.sin(a) * rr); } ctx.closePath(); ctx.stroke(); } });
+      tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(Wd / 8, Dp / 8);
+      const gnd = new THREE.Mesh(new THREE.PlaneGeometry(Wd, Dp), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.95 })); gnd.rotation.x = -Math.PI / 2; gnd.position.y = 0.01; gnd.receiveShadow = true; m.add(gnd);
+      const r = rngFrom(11), cm = new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: 0.15, metalness: 0.05, flatShading: true, emissive: C('#cfe6ff'), emissiveIntensity: 0.12 });
+      for (let i = 0; i < (p.n || 40); i++) { const c = part(new THREE.OctahedronGeometry(0.12 + r() * 0.22, 0), cm); c.position.set((r() - 0.5) * Wd * 0.8, 0.1, (r() - 0.5) * Dp * 0.8); c.scale.y = 1.4 + r(); c.rotation.set(r(), r() * 6, r()); m.add(c); } break; }
+    case 'tree': { // blocky tree: box trunk + leaf cubes (palm: true = tall trunk, flat leaf slabs)
+      m = new THREE.Group(); const Ht = s[0] || 3, leaf = flatM(p.leaf || '#3f9a46'), bark = flatM(p.bark || '#6b4a2b');
+      const tr = part(new THREE.BoxGeometry(Ht * 0.12, Ht * (p.palm ? 0.85 : 0.55), Ht * 0.12), bark); tr.position.y = Ht * (p.palm ? 0.425 : 0.275); m.add(tr);
+      if (p.palm) for (let k = 0; k < 5; k++) { const sl = part(new THREE.BoxGeometry(Ht * 0.5, Ht * 0.04, Ht * 0.14), leaf); const a = k / 5 * Math.PI * 2; sl.position.set(Math.cos(a) * Ht * 0.2, Ht * 0.86, Math.sin(a) * Ht * 0.2); sl.rotation.set(0, -a, -0.35); m.add(sl); }
+      else { for (const [x, y, z, w] of [[0, 0.7, 0, 0.6], [0.18, 0.92, 0.05, 0.42], [-0.15, 0.88, -0.1, 0.4]]) { const b = part(new THREE.BoxGeometry(Ht * w, Ht * w * 0.8, Ht * w), leaf); b.position.set(Ht * x, Ht * y, Ht * z); m.add(b); } } break; }
+    case 'cliff': { // blocky rock wall: size [width, height, depth]
+      m = new THREE.Group(); const Wc = s[0] || 6, Hc = s[1] || 4, Dc = s[2] || 2, r = rngFrom(Math.round(Wc * 13)), rock = flatM(p.color || '#8a7a68');
+      for (let i = 0; i < 18; i++) { const bw = Wc * (0.15 + r() * 0.2), bh = Hc * (0.2 + r() * 0.35); const b = part(new THREE.BoxGeometry(bw, bh, Dc * (0.5 + r() * 0.5)), rock); b.position.set((r() - 0.5) * (Wc - bw), bh / 2 + r() * (Hc - bh), (r() - 0.5) * Dc * 0.4); m.add(b); } break; }
     case 'wheat': { // a patch of stalks; wilt: {t0, t1} bends them over
       m = new THREE.Group(); const n = p.n || 40, W = s[0] || 4, r6 = rngFrom(Math.round(W * 31) + 3);
       for (let i = 0; i < n; i++) { const st = new THREE.Group(); st.position.set((r6() - 0.5) * W, 0, (r6() - 0.5) * W * 0.6); st.rotation.y = r6() * 6.28;
@@ -435,8 +465,9 @@ export function makeProp(p) {
   m.position.set(...(p.pos || [0, 0, 0]));
   if (p.rot) m.rotation.set(m.rotation.x + p.rot[0], m.rotation.y + p.rot[1], m.rotation.z + p.rot[2]);
   if (p.scale) m.scale.setScalar(p.scale);
-  const keepMap = m.userData && m.userData.map; const keepWins = m.userData && m.userData.wins;
+  const keepMap = m.userData && m.userData.map; const keepWins = m.userData && m.userData.wins; const keepX = { p0: m.userData?.p0, wave: m.userData?.wave, wf: m.userData?.wf };
   m.userData = { type: p.type, spin: p.spin || 0, base: m.position.clone(), baseRot: m.rotation.clone(), move: p.move, fall: p.fall, orbit: p.orbit, appear: p.appear, at: p.at, spread: p.spread, dotsReveal: p.dotsReveal, ice: p.ice, r: (s[0] || 1) / 2, dots: p.dots || 0, dotsLat: p.dotsLat ?? 0.25, map: keepMap, wins: keepWins, wilt: p.wilt, hop: p.hop, erupt: p.erupt, loopPlume: p.loopPlume, big: !!p.big, h: s[1] || 1.2, glowAt: p.glowAt, dark: p.dark, shutters: p.shutters, shutters: p.shutters };
+  Object.assign(m.userData, keepX, { level: p.level });
   return m;
 }
 
@@ -556,6 +587,10 @@ function drawMap(st, t) {
   tex.needsUpdate = true;
 }
 export function animateProp(m, t) {
+  if (m.userData.type === 'ocean' && m.geometry) { const pa = m.geometry.attributes.position, p0 = m.userData.p0, A = m.userData.wave; for (let i = 0; i < pa.count; i++) { const x = p0[i * 3], z = p0[i * 3 + 2]; pa.array[i * 3 + 1] = Math.sin(x * 0.35 + t * 1.6) * A + Math.cos(z * 0.5 + t * 1.2) * A * 0.6; } pa.needsUpdate = true; m.geometry.computeVertexNormals();
+    const L = m.userData.level; if (L) { const k = Math.max(0, Math.min(1, (t - L.t0) / (L.t1 - L.t0))); m.position.y = L.from + (L.to - L.from) * (k * k * (3 - 2 * k)); } }
+  if (m.userData.type === 'waterfall') { const sh = m.getObjectByName('fallsheet'); if (sh) sh.material.map.offset.y = t * 1.6; const Wf = m.userData.wf;
+    m.children.filter(c => c.name === 'foam').forEach(f => { const k = f.userData.k, d = ((t * 0.8 + k * 0.13) % 1); f.position.set((k / 15 - 0.5) * Wf, d * Wf * 0.4, 0.3 + Math.sin(k) * 0.4); f.scale.setScalar(f.userData.sz * (0.6 + d)); f.material.opacity = 0.75 * (1 - d); }); }
   const cl = m.getObjectByName && m.getObjectByName('clouds'); if (cl) cl.rotation.y = t * 0.05;
   const u = m.userData;
   if (u.type === 'moon') m.children.filter(c => c.name === 'cloud').forEach(c => { c.position.x = ((t * 0.25 + c.userData.k * 2.2) % 5) - 2.5; });
