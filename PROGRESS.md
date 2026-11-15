@@ -3,6 +3,7 @@
 - [x] توثيق الشخصيات الثمانية (references/characters.md)
 - [x] قاعدة الأزياء: كل شخصية تلبس لباس دوره (references/costumes.md)
 - [x] خط إنتاج مجاني 100% مُختبر: Blender(bpy)+Kokoro TTS+FFmpeg (tools/setup_free_pipeline.sh)
+- [x] بحث مصادر مجانية → references/free-sources.md (الحزمة غالباً Kenney Blocky Characters CC0)
 - [ ] بناء الشخصيات المكعبة (ساحر + روبوت) في Blender باللباس المناسب
 - [ ] مؤثرات/موسيقى مولّدة مجاناً + رندر الحلقة 1 بالصوت
 - [x] بحث شروط الربح وحقوق النشر → references/monetization.md
