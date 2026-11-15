@@ -6,7 +6,7 @@ LINES = [
  "A lost volcano may have helped bring the Black Death to Europe.",
  "Through the grain meant to save them.",
  "In some regions, up to sixty percent died.",
- "Yet some big cities may have been spared. Why?",
+ "Yet some big Italian cities may have been spared. Why?",
  "Clue one: ice cores.",
  "Around thirteen forty-five, a spike of sulphur.",
  "An eruption, or series of eruptions.",
