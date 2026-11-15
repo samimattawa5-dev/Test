@@ -3,6 +3,7 @@
 - [x] توثيق الشخصيات الثمانية (references/characters.md)
 - [x] قاعدة الأزياء: كل شخصية تلبس لباس دوره (references/costumes.md)
 - [ ] توليد صور الشخصيات باللباس المناسب (الساحر + الروبوت للحلقة 1)
+- [x] بحث شروط الربح وحقوق النشر → references/monetization.md
 - [ ] تحميل نماذج الشخصيات (GLB/FBX CC0) واختيار أداة التحريك (Blender / Higgsfield)
 - [x] سكربت الحلقة 1 (إنجليزي) → episodes/ep01-wizard-robot-roommates.md
 - [ ] إنتاج الحلقة 1 (تحميل النماذج + تحريك)
