@@ -2,7 +2,9 @@
 - [x] بحث عن سكلات جاهزة → لا يوجد ما يناسب → بُني سكل `what-if-content`
 - [x] توثيق الشخصيات الثمانية (references/characters.md)
 - [x] قاعدة الأزياء: كل شخصية تلبس لباس دوره (references/costumes.md)
-- [ ] توليد صور الشخصيات باللباس المناسب (الساحر + الروبوت للحلقة 1)
+- [x] خط إنتاج مجاني 100% مُختبر: Blender(bpy)+Kokoro TTS+FFmpeg (tools/setup_free_pipeline.sh)
+- [ ] بناء الشخصيات المكعبة (ساحر + روبوت) في Blender باللباس المناسب
+- [ ] مؤثرات/موسيقى مولّدة مجاناً + رندر الحلقة 1 بالصوت
 - [x] بحث شروط الربح وحقوق النشر → references/monetization.md
 - [ ] تحميل نماذج الشخصيات (GLB/FBX CC0) واختيار أداة التحريك (Blender / Higgsfield)
 - [x] سكربت الحلقة 1 (إنجليزي) → episodes/ep01-wizard-robot-roommates.md
