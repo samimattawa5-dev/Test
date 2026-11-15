@@ -559,17 +559,30 @@ const LAND = [
  [[13.7,45.6],[14.5,45.2],[15.2,44.3],[16.4,43.5],[18.1,42.6],[19.4,41.9],[19.4,40.4],[20.2,39.5],[21.1,38.3],[22,36.8],[23,36.5],[23.2,37.9],[24,38.2],[22.9,39.4],[23.8,40.1],[26,40.8],[26.2,40.1],[26.2,39.4],[27,38.4],[27.3,37],[28.3,36.7],[30.6,36.8],[32.5,36.1],[36,36.6],[35.9,34],[42,34],[42,41.6],[29,41.2],[28,41.6],[27.9,42.9],[28.6,44.3],[29.6,45],[30,45.8],[31,46.6],[24,48],[13.7,48]],
  [[-1,48],[13.7,48],[13.7,45.6],[12.3,45.2],[12.4,44.2],[13.6,43.5],[14,42.6],[15.1,41.9],[16.1,41.9],[15.9,41.6],[16.9,41.2],[18,40.7],[18.5,40.1],[18,40.2],[16.9,40.4],[16.5,39.7],[17.1,39.4],[17.1,39],[16.6,38.4],[16.1,37.9],[15.7,38],[16.2,38.9],[15.7,39.9],[15,40.2],[14.3,40.8],[13.5,41.2],[12.4,41.7],[11.2,42.4],[10.5,42.9],[10.2,43.9],[8.8,44.4],[7.5,44],[6.8,43.2],[4.5,43.4],[3,43.2],[-1,43.4]],
  [[12.4,37.8],[13.3,38.2],[15.6,38.3],[15.1,37.5],[15.2,36.7],[14.3,37],[12.6,37.6]], [[8.2,41.1],[9.6,41],[9.8,40],[9.6,39.2],[8.5,39],[8.4,40]], [[9.4,43],[9.6,42],[9.2,41.4],[8.6,41.9],[8.7,42.6]],
- [[-1,34],[-1,35.5],[5,36.8],[9.8,37.3],[11.1,37],[10.4,35.8],[11,35.2],[10.2,34]],
+ [[-1,28],[-1,35.5],[5,36.8],[9.8,37.3],[11.1,37],[10.4,35.8],[11,35.2],[10.2,34],[11.5,33.2],[13.2,32.9],[15.2,32.3],[17,31],[19,30.3],[20.1,31.5],[20,32.2],[21.5,32.9],[23.1,32.6],[25.1,31.6],[29.9,31.2],[32.3,31.3],[34.2,31.3],[34.9,32.8],[35.9,34.6],[36,34],[42,34],[42,28]],
 ];
+LAND.push(
+ [[-12,48],[-1,48],[-1,46],[-1.5,43.5],[3.2,42.4],[3.2,41.9],[2.2,41.4],[0.9,41],[0.2,40.2],[-0.3,39.5],[0.2,38.8],[-0.7,37.6],[-2,36.8],[-4.4,36.7],[-5.35,36.15],[-6.3,36.5],[-7.4,37.2],[-8.9,37],[-8.8,38.5],[-9.5,38.8],[-8.9,41],[-8.9,42.2],[-9.3,43.2],[-8,43.7],[-4.5,43.5],[-1.8,43.4],[-1.2,46],[-4.5,48.4],[-12,48.4]],
+ [[-12,28],[-9.8,30],[-9.6,31.5],[-8.5,33.3],[-6.8,34],[-6.3,35.2],[-5.95,35.8],[-5.4,35.92],[-4.4,35.2],[-2.9,35.3],[-1,35.5],[-1,28]]
+);
+const CITY_EXTRA = { gibraltar: [-5.35, 36.14, 'GIBRALTAR', 'b'], sicily: [14.2, 37.5, 'SICILY', 'b'], malta: [14.4, 35.9, 'MALTA', 'r'], spain: [-4, 40, 'SPAIN', 'a'], africa: [3, 34.6, 'AFRICA', 'a'] };
 const WATER = [[[35,45.4],[36.6,45.4],[37.5,46.6],[39.2,47.2],[38.2,47.1],[35.5,46.3],[35,45.6]]];
 const CITY = { venice: [12.33, 45.44, 'VENICE', 'a'], genoa: [8.93, 44.41, 'GENOA', 'bl'], pisa: [10.4, 43.72, 'PISA', 'r'], milan: [9.19, 45.46, 'MILAN', 'a'], rome: [12.5, 41.9, 'ROME', 'l'], tana: [39.3, 47.1, 'BLACK SEA PORTS', 'a'] }; // label side: a above, b below, bl below-left, l left, r right
 const ROUTE = { venice: [[39.3,47.1],[36.5,45.6],[33,44],[29,41.2],[26,39.8],[24.5,37.6],[21.5,36.3],[19,39],[17.5,41.8],[14.5,44],[12.6,45.3]], genoa: [[39.3,47.1],[36.5,45.6],[33,44],[29,41.2],[26,39.8],[24.5,37.6],[21.5,36.3],[17,37.6],[15.6,38.2],[12.5,39.8],[10.2,42.4],[9.2,44.1]], pisa: [[39.3,47.1],[36.5,45.6],[33,44],[29,41.2],[26,39.8],[24.5,37.6],[21.5,36.3],[17,37.6],[15.6,38.2],[12.5,39.8],[10.6,42.6],[10.25,43.6]] };
 function drawMap(st, t) {
   const tq = Math.round(t * 15) / 15; if (st.last === tq) return; st.last = tq;
-  const { cv, tex, p } = st, ctx = cv.getContext('2d'), W = cv.width, H = cv.height, L0 = p.view ? p.view[0] : 4, L1 = p.view ? p.view[1] : 42, B0 = 34, B1 = 48;
+  const { cv, tex, p } = st, ctx = cv.getContext('2d'), W = cv.width, H = cv.height, L0 = p.view ? p.view[0] : 4, L1 = p.view ? p.view[1] : 42, B0 = p.lat ? p.lat[0] : 34, B1 = p.lat ? p.lat[1] : 48;
   const X = (lon) => (lon - L0) / (L1 - L0) * W, Y = (lat) => (1 - (lat - B0) / (B1 - B0)) * H;
   ctx.fillStyle = '#2f6fa8'; ctx.fillRect(0, 0, W, H);
   const poly = (pts, fill) => { ctx.beginPath(); pts.forEach(([a, b], i) => i ? ctx.lineTo(X(a), Y(b)) : ctx.moveTo(X(a), Y(b))); ctx.closePath(); ctx.fillStyle = fill; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = '#1b3a5c'; ctx.stroke(); };
+  // dry: {t0,t1} the Mediterranean (east of Gibraltar) drains to white salt; refill: {t0,t1} the Atlantic sweeps back in from Gibraltar
+  const medClip = () => { ctx.beginPath(); ctx.rect(X(-5.5), Y(40.9), X(36.5) - X(-5.5), Y(30) - Y(40.9)); ctx.rect(X(12), Y(45.9), X(20) - X(12), Y(40.9) - Y(45.9)); ctx.rect(X(-5.5), Y(44.6), X(12.2) - X(-5.5), Y(40.9) - Y(44.6)); };
+  if (p.dry) { const kd = Math.max(0, Math.min(1, (t - p.dry.t0) / (p.dry.t1 - p.dry.t0))); ctx.save(); medClip(); ctx.clip(); ctx.globalAlpha = kd; ctx.fillStyle = '#f2eee4'; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
+    if (kd > 0.3) { ctx.strokeStyle = 'rgba(160,150,130,0.6)'; ctx.lineWidth = 2; const r = rngFrom(5); for (let i = 0; i < 120; i++) { const cx = X(-5 + r() * 41), cy = Y(30.5 + r() * 15); ctx.beginPath(); ctx.arc(cx, cy, 8 + r() * 12, 0, Math.PI * 2); ctx.globalAlpha = (kd - 0.3) * 1.4; ctx.stroke(); } ctx.globalAlpha = 1; }
+    ctx.restore(); }
+  if (p.refill) { const kr = Math.max(0, Math.min(1, (t - p.refill.t0) / (p.refill.t1 - p.refill.t0))); if (kr > 0) { const xe = X(-5.5) + (X(36.5) - X(-5.5)) * (kr * kr * (3 - 2 * kr));
+    ctx.save(); medClip(); ctx.clip(); ctx.fillStyle = '#2f6fa8'; ctx.fillRect(X(-5.5), 0, xe - X(-5.5), H); ctx.fillStyle = 'rgba(255,255,255,0.85)'; ctx.fillRect(xe - 6, 0, 12, H); ctx.restore();
+    if (kr < 1) { const gx = X(-5.5), gy = Y(36); ctx.fillStyle = '#ffffff'; for (let i = 0; i < 3; i++) { const ox = ((t * 120 + i * 40) % 120) - 60; ctx.beginPath(); ctx.moveTo(gx - 70 + ox, gy - 14); ctx.lineTo(gx - 40 + ox, gy); ctx.lineTo(gx - 70 + ox, gy + 14); ctx.closePath(); ctx.fill(); } } } }
   LAND.forEach(pg => poly(pg, '#e9d7a8')); WATER.forEach(pg => poly(pg, '#2f6fa8'));
   for (const r of (p.routes || [])) { const pts = ROUTE[r.to]; if (!pts) continue; const k = Math.max(0, Math.min(1, (t - r.t0) / (r.t1 - r.t0))); if (k <= 0) continue;
     const n = pts.length - 1, upto = k * n; ctx.beginPath(); ctx.moveTo(X(pts[0][0]), Y(pts[0][1]));
@@ -580,7 +593,7 @@ function drawMap(st, t) {
       ctx.fillStyle = '#f3e7c9'; ctx.fillRect(hx - 3, hy - 30, 18, 24); ctx.fillStyle = '#4a3324'; ctx.fillRect(hx - 4, hy - 34, 4, 32); } }
   ctx.font = `bold ${p.labelSize || 40}px Montserrat, Arial`; ctx.textAlign = 'center';
   if (p.legend) { ctx.fillStyle = 'rgba(20,16,30,0.75)'; ctx.fillRect(16, H - 64, 520, 48); ctx.beginPath(); ctx.arc(46, H - 40, 13, 0, 7); ctx.fillStyle = '#e53935'; ctx.fill(); ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.font = 'bold 30px Montserrat, Arial'; ctx.fillText(p.legend, 72, H - 30); ctx.textAlign = 'center'; ctx.font = `bold ${p.labelSize || 40}px Montserrat, Arial`; }
-  for (const c of (p.cities || [])) { const d = CITY[c.id]; if (!d || (c.t0 !== undefined && t < c.t0)) continue; const red = c.redAt !== undefined && t >= c.redAt; const x = X(d[0]), y = Y(d[1]);
+  for (const c of (p.cities || [])) { const d = CITY[c.id] || CITY_EXTRA[c.id]; if (!d || (c.t0 !== undefined && t < c.t0)) continue; const red = c.redAt !== undefined && t >= c.redAt; const x = X(d[0]), y = Y(d[1]);
     const pulse = red ? 1 + 0.25 * Math.abs(Math.sin((t - c.redAt) * 5)) : 1; ctx.beginPath(); ctx.arc(x, y, 14 * pulse, 0, Math.PI * 2); ctx.fillStyle = red ? '#e53935' : c.safe ? '#2fbf71' : (c.color || '#ffcc33'); ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = '#3a2a1a'; ctx.stroke();
     if (c.label !== false) { const side = c.side || d[3] || 'a'; ctx.textAlign = side === 'l' || side === 'bl' ? 'right' : side === 'r' ? 'left' : 'center'; const lx = side === 'l' ? x - 24 : side === 'bl' ? x + 30 : side === 'r' ? x + 24 : x, ly = side === 'b' || side === 'bl' ? y + 52 : side === 'a' ? y - 26 : y + 14;
       ctx.lineWidth = 8; ctx.strokeStyle = '#1a1420'; ctx.strokeText(d[2], lx, ly); ctx.fillStyle = '#ffffff'; ctx.fillText(d[2], lx, ly); ctx.textAlign = 'center'; } }
