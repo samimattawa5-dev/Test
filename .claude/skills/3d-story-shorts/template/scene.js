@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import * as SOFT from '/soft.js';
 
 const story = await (await fetch('/story.json')).json();
+window.__castStyle = story.castStyle || ''; // 'blocky' = cube-built cast (soft style)
 // style-presets: one word sets look, captions, music mood and accent colours (fields already in story.json win)
 const PRESETS = {
   'science-explainer': { style: 'soft', mood: 'wonder', bloom: 0.35, exposure: 0.95, accent: '#2f9bff', vignette: 0.25, captions: { active: '#FFE14D', key: '#5CFFB0' } },
@@ -204,7 +205,7 @@ function animateProp(m, t, k) {
   const u = m.userData, b = u.base;
   if (u.appear) { const a = Math.max(0, Math.min(1, (t - u.appear.t0) / (u.appear.t1 - u.appear.t0)));
     m.traverse(x => { if (x.material) { x.material.transparent = true; x.material.opacity = (x.userData.op0 ??= x.material.opacity) * a; } });
-    if (u.appear.grow) m.scale.setScalar(Math.max(0.001, a)); }
+    if (u.appear.grow) { const s0 = (u.s0 ??= m.scale.x), e = a >= 1 ? 1 : 1 + 2.7 * Math.pow(a - 1, 3) + 1.7 * Math.pow(a - 1, 2); m.scale.setScalar(Math.max(0.001, e) * s0); } } // grow: pop in with a small overshoot, keeps the prop's own scale
   if (u.spin) m.rotation.y = u.baseRot.y + t * u.spin;
   if (u.move) { const to = u.move; m.position.set(b.x + (to[0] - b.x) * k, b.y + (to[1] - b.y) * k, b.z + (to[2] - b.z) * k); }
   if (u.fall) { const h = u.fall; const ph = ((t * 0.6 + b.x * 0.37 + b.z * 0.21) % 1 + 1) % 1; m.position.y = b.y + h * (1 - ph); m.rotation.x = t * 3; }

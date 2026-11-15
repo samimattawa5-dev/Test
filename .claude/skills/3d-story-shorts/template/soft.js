@@ -85,8 +85,57 @@ const IRIS = ['#5b3a1e', '#2f6db5', '#3c8a4f', '#7a5230', '#4a4a8a'];
 function hash(str) { let h = 7; for (const ch of String(str)) h = (h * 31 + ch.charCodeAt(0)) % 100003; return h; }
 function lathe(points, seg = 32, start = 0, len = Math.PI * 2) { return new THREE.LatheGeometry(points.map(([x, y]) => new THREE.Vector2(x, y)), seg, start, len); }
 
+// blocky (voxel-style) cast: an original cube-built look - cube head, box body, box limbs, flat painted face.
+// Same skeleton names as the round cast (legL/legR/armL/armR, userData.head/eyes) so every pose and check works.
+function makeBlocky(c) {
+  const hsh = hash(c.color || 'x');
+  const shirtC = c.color || '#3fa7d6', skinC = c.skin || SKINS[hsh % SKINS.length], pantsC = c.pants || '#3b4a6b', shoeC = c.shoes || '#3a2a22', hairC = c.hair?.color || '#3a2618';
+  const flat = (col, r = 0.85) => new THREE.MeshStandardMaterial({ color: col, roughness: r, metalness: 0, flatShading: true });
+  const shade = (col, k) => lerpC(C(col), C('#000000'), k).getStyle(), tint = (col, k) => lerpC(C(col), C('#ffffff'), k).getStyle();
+  const box = (w, h, d, m, x = 0, y = 0, z = 0, parent) => { const b = part(new THREE.BoxGeometry(w, h, d), m); b.position.set(x, y, z); (parent || g).add(b); return b; };
+  const g = new THREE.Group(), skin = flat(skinC, 0.7), shirt = flat(shirtC), pants = flat(pantsC), hair = flat(hairC, 0.9);
+  // legs (hip pivot at y 0.62) with a darker cuff and a sole
+  for (const sx of [-1, 1]) { const lg = new THREE.Group(); lg.position.set(0.13 * sx, 0.62, 0); lg.name = sx < 0 ? 'legL' : 'legR'; g.add(lg);
+    box(0.24, 0.5, 0.26, pants, 0, -0.27, 0, lg); box(0.25, 0.07, 0.27, flat(shade(pantsC, 0.25)), 0, -0.5, 0, lg);
+    box(0.26, 0.1, 0.32, flat(shoeC, 0.6), 0, -0.57, 0.03, lg); box(0.26, 0.025, 0.33, flat('#efe8dc'), 0, -0.615, 0.03, lg); }
+  // body: shirt box, belt, buckle, a pocket and a collar band - detail goes on the body, not the hair
+  box(0.54, 0.66, 0.3, shirt, 0, 0.95, 0); box(0.55, 0.07, 0.31, flat('#3a2a22', 0.6), 0, 0.64, 0); box(0.08, 0.06, 0.02, M.metal('#d4b26a'), 0, 0.64, 0.16);
+  box(0.13, 0.12, 0.015, flat(shade(shirtC, 0.15)), 0.14, 1.06, 0.157); box(0.135, 0.03, 0.02, flat(shade(shirtC, 0.25)), 0.14, 1.12, 0.16);
+  box(0.3, 0.05, 0.31, flat(shade(shirtC, 0.2)), 0, 1.27, 0); box(0.02, 0.4, 0.02, flat(tint(shirtC, 0.35)), 0, 0.98, 0.156);
+  // arms: shoulder pivot, sleeve box, skin box, square hand
+  for (const sx of [-1, 1]) { const arm = new THREE.Group(); arm.position.set(0.37 * sx, 1.24, 0); arm.name = sx < 0 ? 'armL' : 'armR'; g.add(arm);
+    box(0.2, 0.3, 0.22, shirt, 0, -0.14, 0, arm); box(0.205, 0.04, 0.225, flat(shade(shirtC, 0.2)), 0, -0.28, 0, arm);
+    box(0.17, 0.26, 0.19, skin, 0, -0.42, 0, arm); box(0.18, 0.13, 0.2, skin, 0, -0.6, 0.01, arm); arm.rotation.z = 0.08 * sx; }
+  // head cube + flat face
+  const head = new THREE.Group(); head.position.y = 1.62; g.add(head); const H = 0.6;
+  box(H, H, H, skin, 0, 0, 0, head); const fz = H / 2 + 0.006; const eyes = [];
+  for (const sx of [-1, 1]) { const eye = new THREE.Group(); eye.position.set(0.13 * sx, 0.04, fz); head.add(eye); eyes.push(eye);
+    box(0.13, 0.1, 0.012, flat('#fbfbf8', 0.4), 0, 0, 0, eye); box(0.065, 0.1, 0.014, flat(c.iris || IRIS[hsh % IRIS.length], 0.4), 0.025 * -sx, 0, 0.002, eye); box(0.03, 0.05, 0.016, flat('#0c0a10', 0.3), 0.025 * -sx, -0.01, 0.004, eye);
+    const brow = box(0.14, 0.035, 0.014, hair, 0.13 * sx, 0.15, fz, head); brow.name = 'brow' + sx; }
+  box(0.07, 0.07, 0.04, flat(shade(skinC, 0.08), 0.7), 0, -0.06, fz + 0.01, head);
+  const expr = c.expr || 'smile', mouthM = flat('#6b1f2b', 0.5);
+  if (expr === 'wow') { box(0.1, 0.11, 0.014, mouthM, 0, -0.18, fz, head); for (const sx of [-1, 1]) head.getObjectByName('brow' + sx).position.y = 0.19; }
+  else if (expr === 'grin') { box(0.24, 0.07, 0.014, mouthM, 0, -0.17, fz, head); box(0.2, 0.025, 0.016, flat('#ffffff', 0.4), 0, -0.15, fz + 0.002, head); }
+  else if (expr === 'neutral') box(0.14, 0.025, 0.014, mouthM, 0, -0.17, fz, head);
+  else if (expr === 'worried') { box(0.14, 0.03, 0.014, mouthM, 0, -0.19, fz, head); for (const sx of [-1, 1]) { const b = head.getObjectByName('brow' + sx); b.rotation.z = 0.35 * sx; b.position.y = 0.16; } }
+  else { box(0.18, 0.03, 0.014, mouthM, 0, -0.17, fz, head); box(0.03, 0.03, 0.014, mouthM, -0.09, -0.15, fz, head); box(0.03, 0.03, 0.014, mouthM, 0.09, -0.15, fz, head); }
+  // hair: one slab on top (+ fringe / back slab by style); a cap is a coloured slab with a brim
+  const hs = c.hair?.style || ['cap', 'long', 'bob', 'tuft'][hsh % 4];
+  if (hs === 'cap') { const capM = flat(hairC, 0.8); box(H + 0.04, 0.16, H + 0.04, capM, 0, H / 2 + 0.05, 0, head); box(H + 0.04, 0.04, 0.22, capM, 0, H / 2 - 0.01, H / 2 + 0.1, head); }
+  else { box(H + 0.04, 0.12, H + 0.04, hair, 0, H / 2 + 0.03, 0, head); box(H + 0.04, 0.12, 0.05, hair, 0, H / 2 - 0.08, H / 2 + 0.005, head);
+    box(H + 0.04, hs === 'long' ? 0.7 : 0.36, 0.08, hair, 0, hs === 'long' ? -0.05 : 0.12, -H / 2 - 0.03, head);
+    for (const sx of [-1, 1]) box(0.06, hs === 'long' || hs === 'bob' ? 0.4 : 0.2, H + 0.04, hair, (H / 2 + 0.02) * sx, hs === 'long' || hs === 'bob' ? 0.06 : 0.18, -0.02, head);
+    if (hs === 'tuft') box(0.12, 0.12, 0.12, hair, 0.06, H / 2 + 0.15, 0.05, head); }
+  if (c.glasses) { const fm = flat('#1e1a22', 0.4); for (const sx of [-1, 1]) { box(0.17, 0.025, 0.02, fm, 0.13 * sx, 0.105, fz + 0.012, head); box(0.17, 0.025, 0.02, fm, 0.13 * sx, -0.025, fz + 0.012, head); box(0.025, 0.15, 0.02, fm, 0.215 * sx, 0.04, fz + 0.012, head); } box(0.09, 0.025, 0.02, fm, 0, 0.08, fz + 0.012, head); }
+  const blob = new THREE.Mesh(new THREE.CircleGeometry(0.5, 32), new THREE.MeshBasicMaterial({ map: BLOB_TEX ??= blobTex(), transparent: true, depthWrite: false, opacity: 0.55 }));
+  blob.rotation.x = -Math.PI / 2; blob.position.y = 0.012; blob.renderOrder = 1; g.add(blob);
+  g.userData.head = head; g.userData.lids = []; g.userData.eyes = eyes; g.userData.seed = (hsh % 100) / 37;
+  if (c.scale) g.scale.setScalar(c.scale);
+  return g;
+}
 export function makeCharacter(spec) {
   const c = typeof spec === 'string' ? { color: spec } : spec, hsh = hash(c.color || 'x');
+  if (c.style === 'blocky' || (typeof window !== 'undefined' && window.__castStyle === 'blocky')) return makeBlocky(c);
   const shirtC = c.color || '#7ad0ff', skinC = c.skin || SKINS[hsh % SKINS.length], pantsC = c.pants || '#33415c', shoeC = c.shoes || '#3a2a22';
   const hairC = c.hair?.color || '#3a2618', irisC = c.iris || IRIS[hsh % IRIS.length];
   const skin = M.skin(skinC), shirt = M.fabric(shirtC), pants = M.fabric(pantsC), shoe = M.gloss(shoeC), hair = M.hair(hairC);
