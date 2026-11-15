@@ -2,7 +2,7 @@
 
 - Reply to the user in **Arabic, short** (about 20 words) unless they ask for detail. Videos are in English.
 - For any new video, follow the `make-short` skill (`.claude/skills/make-short/SKILL.md`) step by step.
-- Channels: **What if...?** (blocky original cast, `castStyle: "blocky"`) and **History mystery** (round cast).
+- Channels: **What if...?** (blocky original cast, `castStyle: "blocky"`) and **History mystery** (round cast) - history videos follow the `history-mystery-short` skill, made exactly like `videos/volcano-plague`.
 - Reviews use `.claude/skills/video-review/CRITERIA.md` + the video's `DECISIONS.md`; run the pre-render review before any full render.
 - Never use Minecraft names, skins or look-alike characters; our blocky cast is original.
 - Commit and push to the working branch after each step.

@@ -13,7 +13,7 @@ Never start a step the user has said to stop. Ask before the full render only if
 | Channel | Look | Cast | Preset / world | Music mood |
 |---|---|---|---|---|
 | **What if...?** (`videos/<slug>/`, e.g. `med-refill`) | soft 3D, bright | `"castStyle": "blocky"` - our own cube-built characters (never Minecraft names, skins or look-alikes) | `science-explainer`, worlds per scene | wonder / playful |
-| **History mystery** (e.g. `volcano-plague`) | soft 3D, night tones | round cartoon cast (Hist, Clim, Mara, Tomas, Bo, folk) | `mystery` | tense |
+| **History mystery** (e.g. `volcano-plague`) - follow `history-mystery-short` exactly | soft 3D, night tones | round cartoon cast (Hist, Clim, Mara, Tomas, Bo, folk) | `mystery` | tense |
 
 ## Steps
 
