@@ -16,3 +16,5 @@
 9. **Text stays in the platform safe zone** (x 65-950, y 115-1536): overlays are laid out in that box and `--verify` fails anything outside.
 10. **Loop**: the last second shows the frame-0 title and badge again over the frame-0 camera, so the last frame equals frame 0.
 11. **Open question title** keeps the hedge: "SOME CITIES MAY HAVE BEEN SPARED. WHY?" from 9.6 s.
+12. **Loop end card** is shown fully drawn (no entrance) from END-1.0 s, captions stop there; last frame = frame 0.
+13. **Volcano distance**: z -85, behind the sea line, small; the glow and ash column carry it. Globe markers sit in the tropical band only.

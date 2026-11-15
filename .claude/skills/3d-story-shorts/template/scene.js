@@ -303,7 +303,7 @@ let capKey = '';
 function drawCaptions(shot, t) {
   // search every shot: a word that starts just before a cut keeps its caption across the cut
   let g = null; for (const sh of story.shots) { g = groupsFor(sh).find(x => t >= x.t0 && t < x.t1); if (g) { shot = sh; break; } }
-  if (g && shot.capFrom !== undefined && t < shot.capFrom) g = null; // hold captions while a title is read alone
+  if (g && ((shot.capFrom !== undefined && t < shot.capFrom) || (shot.capUntil !== undefined && t >= shot.capUntil))) g = null; // hold captions while a title is read alone
   if (!g) { if (capKey) { capEl.innerHTML = ''; capKey = ''; } return; }
   capEl.style.bottom = (shot.capBottom ?? 27) + '%'; // per-shot caption height: keep faces clear (render.mjs --verify reports covered faces)
   const key = shot.start + ':' + g.t0;
@@ -348,7 +348,7 @@ const fmt = (n) => Math.round(n).toLocaleString('en-US');
 function drawOverlays(t) {
   for (const { o, el } of ovEls) {
     const on = t >= o.t0 && t < o.t1; el.style.opacity = on ? 1 : 0; if (!on) continue;
-    const lt = t - o.t0, out = clamp01((t - (o.t1 - 0.25)) / 0.25);
+    const lt = o.instant ? 99 : t - o.t0, out = clamp01((t - (o.t1 - 0.25)) / 0.25); // instant: shown fully drawn (e.g. the loop frame = frame 0)
     el.style.transform = `translateY(${-out * 60}px)`; el.style.opacity = 1 - out;
     if (o.type === 'title') el.querySelectorAll('.w').forEach((w, i) => { const k = spring(lt - i * 0.07); w.style.transform = `translateY(${(1 - k) * 110}%)`; });
     else if (o.type === 'counter') {

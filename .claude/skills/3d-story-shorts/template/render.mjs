@@ -79,7 +79,7 @@ if (process.argv.includes('--verify')) {
         if (t0 >= t1) continue; const r = await page.evaluate((x) => window.__verify(x), t0);
         const a = r.overlays.find(v => v.t0 === A.t0 && v.type === A.type), b = r.overlays.find(v => v.t0 === B.t0 && v.type === B.type);
         if (a && b && a.op > 0.5 && b.op > 0.5 && a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1) fails.push(`${t0.toFixed(1)}s overlays "${a.text}" and "${b.text}" overlap - move one`); } }
-    for (const w of (s.words || [])) { if (w.t1 - w.t0 < 0.12) continue; const tm = (w.t0 + w.t1) / 2; if (s.capFrom !== undefined && tm < s.capFrom) continue;
+    for (const w of (s.words || [])) { if (w.t1 - w.t0 < 0.12) continue; const tm = (w.t0 + w.t1) / 2; if ((s.capFrom !== undefined && tm < s.capFrom) || (s.capUntil !== undefined && tm >= s.capUntil)) continue;
       if (Math.round(tm * 2) % 3) continue; // sample about every 1.5 s of speech
       const r = await page.evaluate((x) => window.__verify(x), tm); if (!r.cap) fails.push(`${tm.toFixed(1)}s no caption while "${w.w}" is spoken`); }
     for (const tm of [s.start + 0.3, (s.start + s.end) / 2, s.end - 0.3]) { const r = await page.evaluate((x) => window.__verify(x), tm);

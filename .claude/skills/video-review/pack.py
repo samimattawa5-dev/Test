@@ -69,8 +69,15 @@ def main():
     script = open(script_p, encoding="utf-8").read() if script_p and os.path.exists(script_p) else ""
     if pre:
         frames_from_engine(folder, out); dur = story["shots"][-1]["end"]
+        # the true last frame next to frame 0, so reviewers can check the loop (CRITERIA C7)
+        last = round(dur - 0.02, 2); env = dict(os.environ, SCALE=os.environ.get("SCALE", "0.5"))
+        run(["node", "render.mjs", "--frame", f"0,{last}"], cwd=folder, env=env)
+        a0, a1 = os.path.join(folder, "out", "frame_0.png"), os.path.join(folder, "out", f"frame_{last:g}.png")
+        if os.path.exists(a0) and os.path.exists(a1):
+            run(["ffmpeg", "-v", "error", "-y", "-i", a0, "-i", a1, "-filter_complex", f"hstack,drawtext=text='frame 0  |  last frame {last}s':{FONT}", f"{out}/loop_first_last.png"])
         lufs, peak = loudness(os.path.join(folder, story.get("audio", "voiceover.wav")))
         L = [f"# Review pack (PRE-RENDER): {os.path.basename(os.path.abspath(folder))}", "",
+             "`loop_first_last.png` shows frame 0 beside the true last frame (loop check, CRITERIA C7).", "",
              "**These are stills of the planned video, rendered straight from the scene. Motion between stills is not visible: judge story, framing, text, facts and pacing. The full render happens only after this review.**", "",
              f"- Length: {dur:.1f} s" + ("" if dur > 60 else f"  (under the 61 s Creator Rewards floor by {60.5 - dur:.1f} s)"),
              f"- Voice before mixing: {lufs} LUFS (the final mix is normalised to about -14 LUFS)", ""]

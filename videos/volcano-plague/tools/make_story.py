@@ -25,7 +25,7 @@ CAST = {
 def ch(name, pos, anim, **k): return dict(cast=name, pos=pos, anim=anim, **k)
 E = lambda **k: {**dict(type="earth", size=[3], pos=[0, 0, 0], spin=0.15, barren=False), **k}
 MOON = lambda **k: {**dict(type="moon", size=[12], pos=[-1.5, 15, -34], dark=False), **k}
-PLUME = lambda **k: {**dict(type="volcano", size=[34, 24], pos=[-13.0, -3.0, -60], erupt=-20, loopPlume=True, big=True), **k}
+PLUME = lambda **k: {**dict(type="volcano", size=[40, 26], pos=[-9.0, -4.0, -85], erupt=-20, loopPlume=True, big=True), **k}
 SHIP = lambda **k: {**dict(type="ship", size=[4.5], pos=[2.9, -0.3, -3.6], rot=[0, 0.25, 0], cross=True), **k}
 
 # one shot per spoken line (21 lines), cut a hair before each line
@@ -34,11 +34,11 @@ SPLIT12 = round(wt("venice", lt(12)[0]) - 0.1, 2)
 SPLIT13 = round(wt("problem", lt(13)[0]) - 0.05, 2)
 s = lambda i: b[i - 1]; e = lambda i: b[i]   # shot i start / end
 
-SACKS1 = [dict(type="sack", size=[0.5], pos=[-0.2, 0.25, 1.4]), dict(type="sack", size=[0.42], pos=[0.45, 0.21, 1.2])]
+SACKS1 = [dict(type="sack", size=[0.5], pos=[-0.2, 0.25, 1.4]), dict(type="sack", size=[0.42], pos=[0.45, 0.21, 1.2])] + [dict(type="flea", pos=[x, y, z], scale=0.9, hop=dict(h=0.15, speed=1.7 + 0.3 * k, phase=0.3 * k, dx=0.0)) for k, (x, y, z) in enumerate([(-0.25, 0.55, 1.62), (-0.1, 0.45, 1.65)])]
 SH = [
  # 1 hook: red eclipsed Moon over the harbour, grain ship, the claim on frame 0
  dict(world="harbour", characters=[ch("bo", [-0.3, 0, 2.8], "point", expr="wow", wander=False), ch("tomas", [0.85, 0, 2.3], "lookup", expr="wow", wander=False)],
-      props=[MOON(), SHIP(pos=[0.3, -0.3, -4.2]), PLUME(), dict(type="sack", size=[0.5], pos=[-0.2, 0.25, 1.4]), dict(type="sack", size=[0.42], pos=[0.45, 0.21, 1.2])], camera={"from": [0, 1.0, 10.6], "to": [0, 1.2, 8.4], "look": [-0.4, 5.6, -10]}, energy=1, shimmer=True,
+      props=[MOON(), SHIP(pos=[0.3, -0.3, -4.2]), PLUME(), *SACKS1], camera={"from": [0, 1.0, 10.6], "to": [0, 1.2, 8.4], "look": [-0.4, 5.6, -10]}, energy=1, shimmer=True,
       capFrom=e(1), overlays=[dict(type="title", text="A VOLCANO MAY HAVE BROUGHT THE BLACK DEATH TO EUROPE", t0=-1.5, t1=e(1) + 0.2, y=200, size=90),
                 dict(type="badge", text="HYPOTHESIS · 2025 STUDY", t0=-1.5, t1=e(1), y=700, size=44, accent="#444444")]),
  # 2 you've never heard of it: an unknown eruption somewhere in the tropics
@@ -93,7 +93,7 @@ SH = [
       overlays=[dict(type="badge", text="CROPS COULD HAVE FAILED", t0=s(11) + 0.2, t1=e(11), y=330, size=50, accent="#8a6a2a")]),
  # 12 1347: Venice, Genoa and Pisa import Black Sea grain (map, routes draw on)
  dict(world="studio", props=[dict(type="map", size=[7.5], pos=[0, 0, 0], view=[4, 42],
-        cities=[dict(id="tana", t0=s(12)), dict(id="venice", t0=wt("venice", lt(12)[0])), dict(id="genoa", t0=wt("genoa", lt(12)[0])), dict(id="pisa", t0=wt("pisa", lt(12)[0]))],
+        cities=[dict(id="tana", t0=s(12), label=False), dict(id="venice", t0=wt("venice", lt(12)[0])), dict(id="genoa", t0=wt("genoa", lt(12)[0])), dict(id="pisa", t0=wt("pisa", lt(12)[0]))],
         labelSize=48, routes=[dict(to="venice", t0=s(12) + 0.2, t1=e(12) - 0.2), dict(to="genoa", t0=s(12) + 0.6, t1=e(12) - 0.1), dict(to="pisa", t0=s(12) + 1.0, t1=e(12))])],
       camera={"from": [0, 0, 14.5], "to": [0, 0, 13.2], "look": [0, 0, 0]}, energy=2,
       overlays=[dict(type="counter", **{"from": 1347}, to=1347, roll=False, size=120, label="GRAIN FROM THE BLACK SEA", t0=s(12) + 0.2, t1=s(12) + 2.4, y=300)]),
@@ -101,7 +101,7 @@ SH = [
  dict(world="studio", props=[dict(type="map", size=[7.5], pos=[0, 0, 0], view=[4, 42], labelSize=48,
         cities=[dict(id="tana"), dict(id="venice", t0=wt("venice", lt(12)[0])), dict(id="genoa", t0=wt("genoa", lt(12)[0])), dict(id="pisa", t0=wt("pisa", lt(12)[0]))],
         routes=[dict(to="venice", t0=s(12) + 0.2, t1=e(12) + 0.6), dict(to="genoa", t0=s(12) + 0.6, t1=e(12) + 0.8), dict(to="pisa", t0=s(12) + 1.0, t1=e(12) + 1.0)])],
-      camera={"from": [0.6, -0.2, 6.0], "to": [-2.2, 0.5, 4.6], "look": [-2.3, 0.6, 0]}, energy=2),
+      camera={"from": [0.6, -0.2, 6.0], "to": [-2.05, 0.5, 4.9], "look": [-2.1, 0.6, 0]}, energy=2),
  # 13 food for the hungry: sacks come ashore, people cheer
  dict(world="harbourday", characters=[ch("tomas", [-1.2, 0, 1.0], "throw", expr="grin"), ch("bo", [0.1, 0, -1.6], "cheer", expr="grin", wander=False), ch("mara", [1.2, 0, 1.0], "cheer", expr="grin")],
       props=[SHIP(pos=[0.4, -0.3, -6.5], size=[4.5])] + [dict(type="sack", size=[0.55], pos=[x, 0.3, z]) for x, z in [(-2.2, 0.2), (-1.8, -0.4), (2.0, 0.0), (2.4, -0.5), (0, -1.2)]],
@@ -113,14 +113,14 @@ SH = [
  # 14 less than two months after the last grain ships (night harbour, the ship sails away)
  dict(world="harbour", characters=[], props=[SHIP(pos=[0.4, -0.3, -5.0], move=[9, -0.3, -7.0], size=[4.5]), dict(type="houses", size=[11], n=6, pos=[0, 0, -9], dark=dict(t0=s(14) + 1.6, t1=e(14) + 0.6), shutters=True)] + [dict(type="sack", size=[0.55], pos=[x, 0.3, z]) for x, z in [(-1.6, 1.0), (1.5, 0.8)]],
       camera={"from": [0, 2.2, 9.6], "to": [0, 2.0, 8.4], "look": [0, 1.6, -2]},
-      overlays=[dict(type="timeline", text="< 2 MONTHS", left="LAST SHIP", right="VENICE: PLAGUE", labelSize=60, fill=1.6, t0=s(14) + 0.9, t1=e(14), y=250, size=110)]),
+      overlays=[dict(type="timeline", text="< 2 MONTHS", left="LAST SHIP", right="VENICE: PLAGUE", labelSize=60, fill=1.2, t0=s(14) + 0.9, t1=e(14), y=250, size=110)]),
  # 15 the twist as an event: the street goes dark, shutters close, a worried crowd
  dict(world="harbour", characters=[ch("mara", [-1.1, 0, 1.4], "shiver", expr="worried"), ch("tomas", [1.1, 0, 1.2], "lookup", expr="worried")],
       props=[dict(type="houses", size=[11], n=6, pos=[0, 0, -3], dark=dict(t0=s(15) - 0.6, t1=s(15) + 0.8), shutters=True), SHIP(pos=[3.6, -0.3, -6.5])],
       camera={"from": [0, 2.2, 9.2], "to": [0, 2.0, 7.6], "look": [0, 1.8, -2]}, kicks=[wt("venice", lt(15)[0])], drop=True,
       overlays=[dict(type="badge", text="VENICE: FIRST PLAGUE CASES", t0=wt("venice", lt(15)[0]) + 0.1, t1=e(15), y=300, size=54, accent="#c62828")]),
  # 16 fleas in the grain dust (no people)
- dict(world="harbour", props=[dict(type="sack", size=[1.4], pos=[0, 0, 0]), dict(type="rat", pos=[-1.25, 0, 0.75], rot=[0, 0.25, 0], scale=1.5)]
+ dict(world="harbour", props=[dict(type="sack", size=[1.4], pos=[0, 0, 0]), dict(type="rat", pos=[-0.95, 0, 0.8], rot=[0, 0.25, 0], scale=1.5)]
       + [dict(type="flea", pos=[x, y, z], scale=1.3, hop=dict(h=0.3, speed=1.5 + 0.2 * k, phase=0.13 * k, dx=0.0)) for k, (x, y, z) in enumerate([(-0.35, 1.1, 0.45), (0.15, 1.35, 0.4), (0.4, 0.9, 0.55), (-0.15, 0.7, 0.65), (0.6, 0.5, 0.6), (0.3, 1.6, 0.3), (-0.5, 0.5, 0.6), (0.75, 1.2, 0.4), (0.0, 0.3, 0.75)])],
       camera={"from": [0.2, 1.6, 4.6], "to": [0.3, 1.4, 3.9], "look": [0.3, 0.9, 0]}, energy=1,
       overlays=[dict(type="badge", text="MOST LIKELY: FLEAS IN THE GRAIN DUST", t0=s(16) + 0.2, t1=e(16), y=360, size=50, accent="#6b4226")]),
@@ -149,9 +149,9 @@ SH = [
                 dict(type="badge", text="NO: CLOSE IT", t0=s(20) + 0.3, t1=e(20), y=640, size=50, accent="#c62828")]),
  # 21 look at that Moon again -> lands on frame 0
  dict(world="harbour", characters=[ch("bo", [-0.3, 0, 2.8], "point", expr="wow", wander=False), ch("tomas", [0.85, 0, 2.3], "lookup", expr="wow", wander=False)],
-      props=[MOON(), SHIP(pos=[0.3, -0.3, -4.2]), PLUME(), *SACKS1], camera={"from": [0, 1.3, 8.6], "to": [0, 1.0, 10.6], "look": [-0.4, 5.6, -10]}, energy=1,
-      overlays=[dict(type="title", text="A VOLCANO MAY HAVE BROUGHT THE BLACK DEATH TO EUROPE", t0=END - 1.0, t1=END + 1, y=200, size=90),
-                dict(type="badge", text="HYPOTHESIS · 2025 STUDY", t0=END - 1.0, t1=END + 1, y=700, size=44, accent="#444444")]),
+      props=[MOON(), SHIP(pos=[0.3, -0.3, -4.2]), PLUME(), *SACKS1], camera={"from": [0, 1.3, 8.6], "to": [0, 1.0, 10.6], "look": [-0.4, 5.6, -10]}, energy=1, capUntil=END - 1.0,
+      overlays=[dict(type="title", text="A VOLCANO MAY HAVE BROUGHT THE BLACK DEATH TO EUROPE", t0=END - 1.0, t1=END + 1, y=200, size=90, instant=True),
+                dict(type="badge", text="HYPOTHESIS · 2025 STUDY", t0=END - 1.0, t1=END + 1, y=700, size=44, accent="#444444", instant=True)]),
 ]
 b = sorted(b + [SPLIT12, SPLIT13])
 B14 = round(lt(14)[0] - 0.12, 2); b[b.index(B14)] = round(B14 + 0.9, 2)

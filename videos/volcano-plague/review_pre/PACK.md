@@ -1,5 +1,7 @@
 # Review pack (PRE-RENDER): volcano-plague
 
+`loop_first_last.png` shows frame 0 beside the true last frame (loop check, CRITERIA C7).
+
 **These are stills of the planned video, rendered straight from the scene. Motion between stills is not visible: judge story, framing, text, facts and pacing. The full render happens only after this review.**
 
 - Length: 74.4 s
@@ -66,19 +68,19 @@
 
 ## Motion inside long shots (mean picture change start->end; under 0.03 = nearly frozen)
 
-- 0.0-3.9s: 0.093
+- 0.0-3.9s: 0.091
 - 6.4-9.6s: 0.061
 - 9.6-12.6s: 0.089
 - 14.4-17.6s: 0.047
 - 20.3-23.5s: 0.088
 - 25.1-29.4s: 0.067
-- 34.2-38.4s: 0.235
+- 34.2-38.4s: 0.196
 - 44.8-47.8s: 0.070
-- 47.8-51.8s: 0.047
+- 47.8-51.8s: 0.046
 - 51.8-57.3s: 0.088
 - 59.7-64.7s: 0.286
 - 64.7-70.8s: 0.063
-- 70.8-74.4s: 0.089
+- 70.8-74.4s: 0.084
 
 ## Fact list and sources (from script.md)
 
@@ -150,7 +152,7 @@ Re-run once the real story.json exists.
    Round 1 tried the paradox title ("SAVED BY GRAIN. DOOMED BY GRAIN?"); round 2 reviewers found it too
    abstract for frame 0. The grain paradox is line 2 (3.4 s) and the twist at about 42 s.
    Fact-checker + policy (round 4) required "to Europe", not "started".
-2. **Volcano visible in frame 0**: an erupting cone (lava streams, glow, ash column) left of the red Moon.
+2. **Volcano visible in frame 0, far on the horizon** (round 6 fact-check: it was likely tropical, not beside the harbour): an erupting cone with lava streams, glow and ash column, left of the red Moon. The last line says "with a sky like this", not "under a Moon like this".
 3. **Only Venice is red** on the map: fact 8 covers only Venice's first cases. Genoa and Pisa are gold
    (importers, fact 7). Milan and Rome green with "APPARENTLY NO IMPORTS NEEDED AFTER 1345" (fact 10, its hedge and time limit kept).
 4. **Comment question**: "Your city is starving. Grain ships arrive. Nobody knows they carry plague. Open the port?"
@@ -160,6 +162,10 @@ Re-run once the real story.json exists.
 7. **Cartoon style and cast** (Hist, Clim, Mara, Tomas, Bo, folk) are fixed for this channel.
 8. **Doubt line** says "some historians are cautious" (fact 11 wording).
 9. **Text stays in the platform safe zone** (x 65-950, y 115-1536): overlays are laid out in that box and `--verify` fails anything outside.
+10. **Loop**: the last second shows the frame-0 title and badge again over the frame-0 camera, so the last frame equals frame 0.
+11. **Open question title** keeps the hedge: "SOME CITIES MAY HAVE BEEN SPARED. WHY?" from 9.6 s.
+12. **Loop end card** is shown fully drawn (no entrance) from END-1.0 s, captions stop there; last frame = frame 0.
+13. **Volcano distance**: z -85, behind the sea line, small; the glow and ash column carry it. Globe markers sit in the tropical band only.
 
 
 ## Automatic checks
