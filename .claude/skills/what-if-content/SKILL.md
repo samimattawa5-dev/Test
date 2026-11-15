@@ -8,7 +8,7 @@ description: Produce short "ماذا لو / What If" videos with the 8 blocky ch
 ## Always
 1. Read `/PROGRESS.md` first; continue from it. Update it after each step.
 2. Replies ≤20 words unless asked. Shami dialect for chat; video language = ask once, then remember.
-3. Characters: see `references/characters.md`. Keep looks consistent.
+3. Characters: see `references/characters.md`. Costumes: ALWAYS dress each character in their episode role (`references/costumes.md`). Keep face/body consistent.
 
 ## Pipeline (per episode)
 1. **Idea**: "ماذا لو ...؟" absurd + visual + 1 clear twist. Pick 2–3 characters max.
