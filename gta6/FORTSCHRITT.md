@@ -27,4 +27,4 @@ Nutzer: Deutschland, schreibt Arabisch, will kurze Antworten. TikTok, YouTube Sh
 9. Link in 30 Min bei Content Rewards einreichen
 10. Ab 1.500 Aufrufen: Demographics-Ticket im Discord
 11. Auszahlungs-Tracker, dann nächster Clip
-Stand: WoW-Kampagne beigetreten. Konten-Name: nexaclips.hq (Instagram existiert, Bio noch KI/Technik → auf Gaming ändern). TikTok + YouTube mit gleichem Namen anlegen. Clip 1 bereit.
+Stand: TikTok nexaclips.hq fertig (Logo gta6/branding). Nächster: YouTube-Kanal @nexaclips.hq, dann Instagram-Bio, dann Clip 1 posten.
