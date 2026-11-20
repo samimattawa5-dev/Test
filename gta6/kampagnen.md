@@ -30,3 +30,12 @@ Hinweise:
 | [GERMANY] STRANGER THAN HEAVEN – Show Business Mode | 2,00–2,70 $ (Quellen ~1 Monat alt) | 870 $ von 1.000 $ (alt) | beste deutsche Option, kein GTA, prüfen ob noch live | https://clippingalpha.com/platforms/tiktok |
 | Gattouz x 1win | 0,20 $ | nicht angegeben | abgelehnt: Glücksspiel-Sponsor + sehr niedriger Satz | https://contentrewards.com/discover/cb5ea267-0c32-4fda-b010-0cc29512039e |
 | Deniz Inan Clipping | nicht angegeben | nicht angegeben | prüfen | Content Rewards |
+
+## Andere Plattformen (20.11.2026, Websuche, Anbieter-Angaben)
+| Plattform | Land | Satz | Gebühr / Auszahlung | Link |
+|---|---|---|---|---|
+| Clipperz | DE | CPM legt der Creator fest | 25 % Gebühr, Auszahlung ab 50 € (Stripe) | https://clipperz.io/en |
+| ClipTheSystem | DE | 1–15 € / 1.000 | nicht angegeben | https://www.clipthesystem.de/ |
+| Vyro | international | ~1–3 $ / 1.000 | nicht angegeben | – |
+| ClipAffiliates | international | 1–5 $ / 1.000 | nicht angegeben | https://www.clipaffiliates.com |
+| Clipping.io | international | 1–3 $ / 1.000 | nicht angegeben | – |
