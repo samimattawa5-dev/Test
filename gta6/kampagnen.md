@@ -24,6 +24,9 @@ Hinweise:
 ## Deutschsprachige Kampagnen (Nutzer will kein VPN/Englisch, 21.11.2026)
 | Kampagne | Satz je 1.000 | Restbudget | Bewertung | Quelle |
 |---|---|---|---|---|
+| ⭐ [GERMANY] Blizzard – World of Warcraft Forever (Clipping Culture) | 4,00–5,00 $ (nur Aufrufe aus DE zählen), max. 500 $/Clip | 882 $ von 8.000 $ verbraucht, 61 Einreichungen | TOP: Deutsch, kein VPN, Gaming | https://contentrewards.com/clipping-culture |
+| (Deutsch) Call of Duty MW4 | 1,00–1,50 $ (TikTok) | 5.200 $ von 6.500 $ verbraucht (alt) | gut, Budget wird knapp | https://contentrewards.com/articles/call-of-duty-clipping |
+| Sophie Reyer Buch-Promo [German + English] | 1,75 $, max. 150 $/Clip | nicht angegeben | kein Gaming | https://contentrewards.com/c/discover/clipping |
 | [GERMANY] STRANGER THAN HEAVEN – Show Business Mode | 2,00–2,70 $ (Quellen ~1 Monat alt) | 870 $ von 1.000 $ (alt) | beste deutsche Option, kein GTA, prüfen ob noch live | https://clippingalpha.com/platforms/tiktok |
 | Gattouz x 1win | 0,20 $ | nicht angegeben | abgelehnt: Glücksspiel-Sponsor + sehr niedriger Satz | https://contentrewards.com/discover/cb5ea267-0c32-4fda-b010-0cc29512039e |
 | Deniz Inan Clipping | nicht angegeben | nicht angegeben | prüfen | Content Rewards |

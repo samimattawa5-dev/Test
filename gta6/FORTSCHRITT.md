@@ -27,4 +27,4 @@ Nutzer: Deutschland, schreibt Arabisch, will kurze Antworten. TikTok, YouTube Sh
 9. Link in 30 Min bei Content Rewards einreichen
 10. Ab 1.500 Aufrufen: Demographics-Ticket im Discord
 11. Auszahlungs-Tracker, dann nächster Clip
-Stand: Nutzer lehnt VPN/Englisch ab → sucht deutschsprachige Kampagnen. Bobby (Englisch, 40 % Tier 1) passt nicht.
+Stand: Deutsche Kampagnen gefunden → Empfehlung WoW Forever [GERMANY] (4–5 $/1K), Nutzer soll beitreten.
