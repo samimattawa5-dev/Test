@@ -28,3 +28,8 @@ Nutzer: Deutschland, schreibt Arabisch, will kurze Antworten. TikTok, YouTube Sh
 10. Ab 1.500 Aufrufen: Demographics-Ticket im Discord
 11. Auszahlungs-Tracker, dann nächster Clip
 Stand: ALLE 3 verbunden: TikTok (Higgsfield 66367ca8-9ed3-4445-9e59-26fc9017fe57), YouTube (Composio youtube_dido-stapes), Instagram nexaclips.hq (Composio instagram_tunner-ulling, IG-ID 29512188981750575, Creator). Morgen 21.11. 18–21 Uhr Clip 1 posten – nur nach Ja des Nutzers.
+
+## Arbeitsweise (vom Nutzer bestätigt 20.11.2026)
+- Claude: Clip + Caption + Hashtags, postet zur geplanten Zeit (YouTube + Instagram direkt, TikTok-Formular klickt Nutzer), schreibt/postet Antworten auf Kommentare (YT, IG)
+- Nutzer: Clip einmal freigeben („تمام“), TikTok-Button klicken, Links bei Content Rewards einreichen
+- Standard-Postzeit: 18:30 Uhr (Berlin)
