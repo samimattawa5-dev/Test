@@ -27,7 +27,7 @@ Nutzer: Deutschland, schreibt Arabisch, will kurze Antworten. TikTok, YouTube Sh
 9. Link in 30 Min bei Content Rewards einreichen
 10. Ab 1.500 Aufrufen: Demographics-Ticket im Discord
 11. Auszahlungs-Tracker, dann nächster Clip
-Stand: ALLE 3 verbunden: TikTok (Higgsfield 66367ca8-9ed3-4445-9e59-26fc9017fe57), YouTube (Composio youtube_dido-stapes), Instagram nexaclips.hq (Composio instagram_tunner-ulling, IG-ID 29512188981750575, Creator). Morgen 21.11. 18–21 Uhr Clip 1 posten – nur nach Ja des Nutzers. Clip 2 (Action) fertig, wartet auf Freigabe.
+Stand: Clip 2 (Action) FREIGEGEBEN, geplant 21.11. 18:30 (Erinnerung trig_0126jtWZ3NyXafR4Ro6UY1jk um 18:25). Video gehostet: https://d2ol7oe51mr4n9.cloudfront.net/user_3LzCANst8JD2EmDKsPph5Qk1lrU/5eed21db-b8ba-44dc-a3dc-8aa4b8bfdf5e.mp4. Clip 1 (Alles neu) danach.
 
 ## Arbeitsweise (vom Nutzer bestätigt 20.11.2026)
 - Claude: Clip + Caption + Hashtags, postet zur geplanten Zeit (YouTube + Instagram direkt, TikTok-Formular klickt Nutzer), schreibt/postet Antworten auf Kommentare (YT, IG)
