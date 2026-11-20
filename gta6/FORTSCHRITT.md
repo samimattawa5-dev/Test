@@ -27,4 +27,4 @@ Nutzer: Deutschland, schreibt Arabisch, will kurze Antworten. TikTok, YouTube Sh
 9. Link in 30 Min bei Content Rewards einreichen
 10. Ab 1.500 Aufrufen: Demographics-Ticket im Discord
 11. Auszahlungs-Tracker, dann nächster Clip
-Stand: Schritt 0.2 – Guides gelesen (warmup.md, tier1.md). Nächster: 0.2b VPN + Handy auf Englisch/USA, dann TikTok-Konto.
+Stand: Nutzer lehnt VPN/Englisch ab → sucht deutschsprachige Kampagnen. Bobby (Englisch, 40 % Tier 1) passt nicht.

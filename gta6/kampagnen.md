@@ -20,3 +20,10 @@ Hinweise:
 - Content Rewards behält 10 % jeder Auszahlung ein.
 - Rockstar selbst zahlt nicht fürs Clippen.
 - Bei Gattouz0 und Deniz Inan ist unklar, ob es um GTA 6 geht.
+
+## Deutschsprachige Kampagnen (Nutzer will kein VPN/Englisch, 21.11.2026)
+| Kampagne | Satz je 1.000 | Restbudget | Bewertung | Quelle |
+|---|---|---|---|---|
+| [GERMANY] STRANGER THAN HEAVEN – Show Business Mode | 2,00–2,70 $ (Quellen ~1 Monat alt) | 870 $ von 1.000 $ (alt) | beste deutsche Option, kein GTA, prüfen ob noch live | https://clippingalpha.com/platforms/tiktok |
+| Gattouz x 1win | 0,20 $ | nicht angegeben | abgelehnt: Glücksspiel-Sponsor + sehr niedriger Satz | https://contentrewards.com/discover/cb5ea267-0c32-4fda-b010-0cc29512039e |
+| Deniz Inan Clipping | nicht angegeben | nicht angegeben | prüfen | Content Rewards |
