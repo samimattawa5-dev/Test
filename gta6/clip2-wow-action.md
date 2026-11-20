@@ -21,7 +21,7 @@ Schlachtzüge, Dungeons und PvP in WoW Forever ⚔️ Welche Klasse spielst du? 
 ```
 
 ## Instagram Reels (nicht bezahlt)
-gleiche Caption wie TikTok, aber @worldofwarcraft_de nicht nötig
+gleiche Caption wie TikTok, aber ohne Pflicht-Tag
 
 ## Regel-Check
 - [x] offizielles Material, kein KI-Ton, Original-Audio
