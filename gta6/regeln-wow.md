@@ -5,7 +5,7 @@ Satz: 4–5 $ / 1.000 Aufrufe · nur Aufrufe aus **DE, AT, CH** zählen · Budge
 ## Was
 - Clips von WoW: Forever aus dem offiziellen Material (Trailer, Gameplay, Panels)
 - Material: https://f.io/dXkFXJME · Extra: https://f.io/8uBzkEqf (DE oder EN)
-- Plattformen: **TikTok + YouTube Shorts** (kein Instagram)
+- Plattformen: TikTok + YouTube Shorts (bis 5 $/1K) + Instagram (bis 3 $/1K), laut Preistabelle der Kampagne (Screenshot 20.11.). Briefing-Text nennt nur TikTok+YT → Instagram-Tag im Google Doc prüfen
 - Eigene Seite nicht nötig, jede Seite erlaubt
 
 ## Caption (Pflicht)

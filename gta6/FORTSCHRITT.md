@@ -40,3 +40,6 @@ Stand: Clip 2 (Action) FREIGEGEBEN, geplant 21.11. 18:30 (Erinnerung trig_0126jt
 | Fr 21.11. 18:30 | 2 Action | wow_forever_action.mp4 | 5eed21db-b8ba-44dc-a3dc-8aa4b8bfdf5e | freigegeben, geplant |
 | Sa 22.11. 18:30 | 3 Himmelsgeborene | wow_himmelsgeborene.mp4 | 1957edb9-d236-4bd9-8388-1f95ae046b96 | wartet auf Freigabe |
 | So 23.11. 18:30 | 1 Alles neu | wow_forever_alles_neu.mp4 | 73f3dea1-233d-4506-a678-0e20cecb3091 | wartet auf Freigabe |
+
+## Korrektur 20.11.2026 (Screenshot Preistabelle WoW [GERMANY])
+TikTok bis 5 $/1K, YouTube bis 5 $/1K, **Instagram bis 3 $/1K** (min. 1 $, max. 500 $/Clip). Alle 3 Plattformen bezahlt und einreichen. Nur Aufrufe aus DE/AT/CH zählen.
