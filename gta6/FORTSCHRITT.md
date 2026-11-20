@@ -27,4 +27,4 @@ Nutzer: Deutschland, schreibt Arabisch, will kurze Antworten. TikTok, YouTube Sh
 9. Link in 30 Min bei Content Rewards einreichen
 10. Ab 1.500 Aufrufen: Demographics-Ticket im Discord
 11. Auszahlungs-Tracker, dann nächster Clip
-Stand: Nutzer ist WoW Forever [GERMANY] beigetreten, Regeln in regeln-wow.md. Neuer Plan: TikTok + YT-Konto (deutsch, kein VPN), Material von f.io holen, Clip bauen.
+Stand: Clip 1 (WoW) fertig + Captions in gta6/clip1-wow.md. Nächster: Nutzer erstellt TikTok + YouTube-Konto und postet, dann einreichen. Material-Download: Playwright über f.io (Hosts freigegeben).
