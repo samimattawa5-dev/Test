@@ -27,4 +27,4 @@ Nutzer: Deutschland, schreibt Arabisch, will kurze Antworten. TikTok, YouTube Sh
 9. Link in 30 Min bei Content Rewards einreichen
 10. Ab 1.500 Aufrufen: Demographics-Ticket im Discord
 11. Auszahlungs-Tracker, dann nächster Clip
-Stand: TikTok + YouTube (@nexaclips.hq) fertig. Heute 20.11. Warm-up, morgen 21.11. Clip 1 posten (18–21 Uhr).
+Stand: TikTok + YouTube (@nexaclips.hq) fertig. Heute 20.11. Warm-up, morgen 21.11. Clip 1 posten (18–21 Uhr). Strategie in gta6/strategie.md.
