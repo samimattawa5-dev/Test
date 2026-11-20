@@ -27,4 +27,4 @@ Nutzer: Deutschland, schreibt Arabisch, will kurze Antworten. TikTok, YouTube Sh
 9. Link in 30 Min bei Content Rewards einreichen
 10. Ab 1.500 Aufrufen: Demographics-Ticket im Discord
 11. Auszahlungs-Tracker, dann nächster Clip
-Stand: TikTok (Higgsfield connector 66367ca8…) + YouTube (Composio youtube_dido-stapes, Kanal NexaClips @nexaclipsshq) verbunden. Instagram: nexaclips.hq muss Creator werden + über Composio verbinden (aktuell verbunden: viralcuthub1, falsch). Posten nur nach Ja des Nutzers.
+Stand: ALLE 3 verbunden: TikTok (Higgsfield 66367ca8-9ed3-4445-9e59-26fc9017fe57), YouTube (Composio youtube_dido-stapes), Instagram nexaclips.hq (Composio instagram_tunner-ulling, IG-ID 29512188981750575, Creator). Morgen 21.11. 18–21 Uhr Clip 1 posten – nur nach Ja des Nutzers.
