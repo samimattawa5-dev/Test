@@ -27,4 +27,4 @@ Nutzer: Deutschland, schreibt Arabisch, will kurze Antworten. TikTok, YouTube Sh
 9. Link in 30 Min bei Content Rewards einreichen
 10. Ab 1.500 Aufrufen: Demographics-Ticket im Discord
 11. Auszahlungs-Tracker, dann nächster Clip
-Stand: Plan erklärt, warte auf „كمل“ für Schritt 0.
+Stand: Schritt 0.1 – Whop + Discord beigetreten (Discord-Name loco089), Discord-Verify offen.
