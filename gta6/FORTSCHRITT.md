@@ -44,3 +44,4 @@ Stand: Clip 2 (Action) FREIGEGEBEN, geplant 21.11. 18:30 (Erinnerung trig_0126jt
 ## Korrektur 20.11.2026 (Screenshot Preistabelle WoW [GERMANY])
 TikTok bis 5 $/1K, YouTube bis 5 $/1K, **Instagram bis 3 $/1K** (min. 1 $, max. 500 $/Clip). Alle 3 Plattformen bezahlt und einreichen. Nur Aufrufe aus DE/AT/CH zählen.
 - Offen: Briefing nennt nur TikTok + YouTube Shorts, Preistabelle zeigt auch Instagram (3 $). Instagram-Caption ohne @-Tag, nur #werbung #blizzardpartner. Nutzer fragt Clipping-Culture-Support (Whop/Discord), ob Instagram zählt.
+- Instagram-Regel (Screenshot 20.11.): Instagram zahlt nach Land der **Follower des Kontos**, nicht der Zuschauer. Unter 100 Follower = niedrigster Satz pro Aufruf. DE/AT/CH je 3 $/1K, andere Länder nicht bezahlt. Heißt: Instagram erst lohnend mit 100+ deutschsprachigen Followern → Konto aufbauen. TikTok/YT: Land der Zuschauer (DE/AT/CH 5 $/1K). Budget 1.025 $ von 8.000 $ verbraucht.
