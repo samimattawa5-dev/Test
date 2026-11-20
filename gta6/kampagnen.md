@@ -7,7 +7,7 @@ Abgerufen am: 20.11.2026 über Websuche. Die Kampagnenseiten selbst ließen sich
 | Kampagne | Streamer | Satz je 1.000 | Restbudget | Plattformen | Regeln (Länge, Tags, Wasserzeichen) | Link | Abgerufen am |
 |---|---|---|---|---|---|---|---|
 | BOBBY VAN RIPER GTA VI Clipping (Clipping Nation) | Bobby Van Riper | 1,50 $ | 27 $ von 1.000 $ verbraucht, 6 Teilnehmer (Screenshot des Nutzers) | Instagram, TikTok, YouTube | noch prüfen | https://contentrewards.com/c/discover/clipping | 20.11.2026 |
-| TOMO GTA VI Clipping (auf Content Rewards nicht gefunden) | Tomo | 1,50–2,00 $ (die Quellen widersprechen sich) | nicht angegeben | TikTok, Instagram, YouTube Shorts | nicht angegeben | https://contentrewards.com/c/discover/clipping | 20.11.2026 |
+| TOMO GTA VI Clipping – PAUSIERT, Budget voll | Tomo | 1,50 $ (Seite) / 2,00 $ (Discord) | 994 $ von 1.000 $ verbraucht | TikTok, Instagram, YouTube Shorts | nicht angegeben | https://contentrewards.com/c/discover/clipping | 20.11.2026 |
 | Kai Cenat GTA 6 | Kai Cenat | Pool 10.000 $ | nicht angegeben | nicht angegeben | nicht angegeben | https://contentrewards.com/c/discover/clipping | 20.11.2026 |
 | Lacy Marathon | Lacy | Pool 12.500 $ (wird nach Anteil der freigegebenen Aufrufe verteilt) | nicht angegeben | nicht angegeben | nicht angegeben | https://contentrewards.com/c/discover/clipping | 20.11.2026 |
 | Clix GTA 6 Marathon | Clix | nicht angegeben | nicht angegeben | nicht angegeben | nicht angegeben | https://contentrewards.com/c/discover/clipping | 20.11.2026 |
