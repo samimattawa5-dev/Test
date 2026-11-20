@@ -43,3 +43,4 @@ Stand: Clip 2 (Action) FREIGEGEBEN, geplant 21.11. 18:30 (Erinnerung trig_0126jt
 
 ## Korrektur 20.11.2026 (Screenshot Preistabelle WoW [GERMANY])
 TikTok bis 5 $/1K, YouTube bis 5 $/1K, **Instagram bis 3 $/1K** (min. 1 $, max. 500 $/Clip). Alle 3 Plattformen bezahlt und einreichen. Nur Aufrufe aus DE/AT/CH zählen.
+- Offen: Briefing nennt nur TikTok + YouTube Shorts, Preistabelle zeigt auch Instagram (3 $). Instagram-Caption ohne @-Tag, nur #werbung #blizzardpartner. Nutzer fragt Clipping-Culture-Support (Whop/Discord), ob Instagram zählt.

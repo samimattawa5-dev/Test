@@ -21,7 +21,10 @@ Schlachtzüge, Dungeons und PvP in WoW Forever ⚔️ Welche Klasse spielst du? 
 ```
 
 ## Instagram Reels (nicht bezahlt)
-gleiche Caption wie TikTok, aber ohne Pflicht-Tag
+Schlachtzüge, Dungeons und PvP in WoW Forever ⚔️ Welche Klasse spielst du?
+#werbung #blizzardpartner
+#worldofwarcraft #wowforever #gaming
+(ohne @-Tag: Briefing nennt keinen Instagram-Tag)
 
 ## Regel-Check
 - [x] offizielles Material, kein KI-Ton, Original-Audio
