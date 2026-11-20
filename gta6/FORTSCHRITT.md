@@ -33,3 +33,10 @@ Stand: Clip 2 (Action) FREIGEGEBEN, geplant 21.11. 18:30 (Erinnerung trig_0126jt
 - Claude: Clip + Caption + Hashtags, postet zur geplanten Zeit (YouTube + Instagram direkt, TikTok-Formular klickt Nutzer), schreibt/postet Antworten auf Kommentare (YT, IG)
 - Nutzer: Clip einmal freigeben („تمام“), TikTok-Button klicken, Links bei Content Rewards einreichen
 - Standard-Postzeit: 18:30 Uhr (Berlin)
+
+## Clip-Warteschlange
+| Datum | Clip | Datei | Gehostet (Higgsfield media_id) | Status |
+|---|---|---|---|---|
+| Fr 21.11. 18:30 | 2 Action | wow_forever_action.mp4 | 5eed21db-b8ba-44dc-a3dc-8aa4b8bfdf5e | freigegeben, geplant |
+| Sa 22.11. 18:30 | 3 Himmelsgeborene | wow_himmelsgeborene.mp4 | 1957edb9-d236-4bd9-8388-1f95ae046b96 | wartet auf Freigabe |
+| So 23.11. 18:30 | 1 Alles neu | wow_forever_alles_neu.mp4 | 73f3dea1-233d-4506-a678-0e20cecb3091 | wartet auf Freigabe |
