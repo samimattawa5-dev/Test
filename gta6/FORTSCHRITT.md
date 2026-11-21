@@ -39,7 +39,7 @@ Stand: Clip 2 (Action) FREIGEGEBEN, geplant 21.11. 18:30 (Erinnerung trig_0126jt
 |---|---|---|---|---|
 | Sa 21.11. | 2 Action | wow_forever_action.mp4 | 5eed21db-b8ba-44dc-a3dc-8aa4b8bfdf5e | YouTube gepostet 18:24: https://youtube.com/shorts/M55QG0KNeE4 · TikTok manuell durch Nutzer · Instagram 19:10 geplant |
 | So 22.11. 18:30 | 3 Himmelsgeborene | wow_himmelsgeborene_v2.mp4 (langsamer, 33 s) | 542f7465-1e0d-4b64-9bd6-a66ecde209c8 | YT + IG geplant (send_later), TikTok manuell durch Nutzer |
-| Mo 23.11. 18:30 | 1 Alles neu | wow_forever_alles_neu.mp4 | 73f3dea1-233d-4506-a678-0e20cecb3091 | YT + IG geplant (send_later), TikTok manuell durch Nutzer |
+| Mo 23.11. 18:30 | 1 Alles neu | wow_forever_alles_neu_v2.mp4 (ein Stück, 25,5 s) | 6a939bbd-0335-4c9d-b637-d320fecce4bf | YT + IG geplant (send_later), TikTok manuell durch Nutzer |
 
 ## Korrektur 20.11.2026 (Screenshot Preistabelle WoW [GERMANY])
 TikTok bis 5 $/1K, YouTube bis 5 $/1K, **Instagram bis 3 $/1K** (min. 1 $, max. 500 $/Clip). Alle 3 Plattformen bezahlt und einreichen. Nur Aufrufe aus DE/AT/CH zählen.
@@ -52,3 +52,6 @@ TikTok bis 5 $/1K, YouTube bis 5 $/1K, **Instagram bis 3 $/1K** (min. 1 $, max. 
 - 21.11. TikTok + YouTube Clip 2 bei Content Rewards eingereicht und akzeptiert (Konten TikTok+YT verknüpft). Instagram Clip 2 per send_later um 19:10; Nutzer verknüpft IG in Content Rewards. Morgen So 22.11.: Clip 3 (Himmelsgeborene) — TikTok-Schritte: Hashtag-Emoji entfernen, Inhaltsoffenlegung EIN, Markenpartner Blizzard Entertainment.
 - 21.11. 19:11 Instagram Reel Clip 2 live: https://www.instagram.com/reel/DgA18wFBMzC/ (ig_media_id 17922130113531083). Nutzer muss bei Content Rewards einreichen (IG-Konto dort verknüpfen). Nächster: So 22.11. Clip 3 Himmelsgeborene.
 - 21.11. 19:16 Stats Clip 2: IG 4 Views, 2 Likes, 1 Kommentar (noramuller6, beantwortet). YouTube: 0 Kommentare; YouTube-API-Quota erschöpft (Stats nicht lesbar). TikTok 40 Views nach ~15 Min (Nutzer-Angabe). Kommentare: Claude antwortet auf IG/YT per Composio, TikTok nicht möglich.
+
+## Regel vom Nutzer (21.11.)
+Clips NICHT aus mehreren Teilen zusammenschneiden, nur ein zusammenhängendes Stück aus der Quelle, außer es ist wirklich nötig.
