@@ -55,3 +55,5 @@ TikTok bis 5 $/1K, YouTube bis 5 $/1K, **Instagram bis 3 $/1K** (min. 1 $, max. 
 
 ## Regel vom Nutzer (21.11.)
 Clips NICHT aus mehreren Teilen zusammenschneiden, nur ein zusammenhängendes Stück aus der Quelle, außer es ist wirklich nötig.
+
+## Entscheidung 21.11.: Zuerst 1 Clip/Tag, Reaktion beobachten, danach 2 Clips/Tag (12:30 + 18:30). Kriterium: Clips erreichen regelmäßig >1.000 Aufrufe oder Wachstum erkennbar. Routine-Check (trig_01RZhfVpgWr4t6Am7DHSJTrm) liefert Zahlen.
