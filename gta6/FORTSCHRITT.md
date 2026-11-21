@@ -38,7 +38,7 @@ Stand: Clip 2 (Action) FREIGEGEBEN, geplant 21.11. 18:30 (Erinnerung trig_0126jt
 | Datum | Clip | Datei | Gehostet (Higgsfield media_id) | Status |
 |---|---|---|---|---|
 | Sa 21.11. | 2 Action | wow_forever_action.mp4 | 5eed21db-b8ba-44dc-a3dc-8aa4b8bfdf5e | YouTube gepostet 18:24: https://youtube.com/shorts/M55QG0KNeE4 · TikTok manuell durch Nutzer · Instagram 19:10 geplant |
-| So 22.11. 18:30 | 3 Himmelsgeborene | wow_himmelsgeborene.mp4 | 1957edb9-d236-4bd9-8388-1f95ae046b96 | wartet auf Freigabe |
+| So 22.11. 18:30 | 3 Himmelsgeborene | wow_himmelsgeborene.mp4 | 1957edb9-d236-4bd9-8388-1f95ae046b96 | YT + IG geplant (send_later), TikTok manuell durch Nutzer |
 | Mo 23.11. 18:30 | 1 Alles neu | wow_forever_alles_neu.mp4 | 73f3dea1-233d-4506-a678-0e20cecb3091 | wartet auf Freigabe |
 
 ## Korrektur 20.11.2026 (Screenshot Preistabelle WoW [GERMANY])

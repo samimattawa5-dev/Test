@@ -21,6 +21,13 @@ Die Himmelsgeborenen sind das neue Volk in WoW Forever ✨ Allianz oder Horde? @
 #worldofwarcraft #wowforever #gaming
 ```
 
+## Instagram Reels (ohne @-Tag)
+```
+Die Himmelsgeborenen sind das neue Volk in WoW Forever ✨ Allianz oder Horde?
+#werbung #blizzardpartner
+#worldofwarcraft #wowforever #gaming
+```
+
 ## Regel-Check
 - [x] offizielles Material, Blizzard-Sprecher (keine KI-Stimme)
 - [x] wahr, „Jetzt verfügbar“
