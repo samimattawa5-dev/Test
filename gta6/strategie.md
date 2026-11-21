@@ -46,9 +46,9 @@ Ziel: Aufrufe aus DE/AT/CH (nur die werden bezahlt), TikTok + YouTube Shorts bez
 ## Wochenplan (Start 21.11.2026)
 | Tag | Clip |
 |---|---|
-| Fr 21.11. | Clip 1: Alles neu (fertig) |
-| Sa 22.11. | Zonen-Flug |
-| So 23.11. | Feature: Neue Dungeons/Schlachtzüge |
+| Sa 21.11. | Clip 2: Action (fertig) |
+| So 22.11. | Clip 3: Himmelsgeborene |
+| Mo 23.11. | Clip 1: Alles neu |
 | Mo 24.11. | Trailer-Highlight |
 | Di 25.11. | Need to Know |
 | Mi 26.11. | Zonen-Flug 2 |
