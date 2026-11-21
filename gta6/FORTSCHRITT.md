@@ -65,3 +65,4 @@ Clips NICHT aus mehreren Teilen zusammenschneiden, nur ein zusammenhängendes St
 | 12:30 | Dun Morogh (wow_dun_morogh.mp4, YT/IG geplant) | offen | offen |
 | 18:30 | Himmelsgeborene v2 (YT/IG geplant) | Alles neu v2 (YT/IG geplant) | Zonen & Dungeons (YT/IG geplant) |
 Nächste Mittagsclips: Zonenflüge Elwynn, Durotar, Mulgore, Tirisfal, Teldrassil (9:16 fertig im Ordner Zone Flythroughs). Neue Clips immer vorher als Datei an Nutzer senden (er postet TikTok).
+- 21.11. 21:09 Routine-Check: IG 126 Views/119 Reach/3 Likes, keine neuen Kommentare. YouTube-API 403 (Quota), nicht wiederholt.
