@@ -58,3 +58,10 @@ Clips NICHT aus mehreren Teilen zusammenschneiden, nur ein zusammenhängendes St
 
 ## Entscheidung 21.11.: Zuerst 1 Clip/Tag, Reaktion beobachten, danach 2 Clips/Tag (12:30 + 18:30). Kriterium: Clips erreichen regelmäßig >1.000 Aufrufe oder Wachstum erkennbar. Routine-Check (trig_01RZhfVpgWr4t6Am7DHSJTrm) liefert Zahlen.
 - 21.11. Tool: gta6/tools/tiktok-antworten.html (Kommentar einfügen → deutsche Antwortvorschläge zum Kopieren; Spam/Hate → nicht antworten). TikTok bietet keine API zum Kommentar-Antworten; Bot mit Login = Ban-Risiko, deshalb nicht gebaut.
+
+## 21.11. abends: Nutzer startet 2 Clips/Tag (12:30 + 18:30), ab So 22.11.
+| Slot | So 22.11. | Mo 23.11. | Di 24.11. |
+|---|---|---|---|
+| 12:30 | Dun Morogh (wow_dun_morogh.mp4, YT/IG geplant) | offen | offen |
+| 18:30 | Himmelsgeborene v2 (YT/IG geplant) | Alles neu v2 (YT/IG geplant) | Zonen & Dungeons (YT/IG geplant) |
+Nächste Mittagsclips: Zonenflüge Elwynn, Durotar, Mulgore, Tirisfal, Teldrassil (9:16 fertig im Ordner Zone Flythroughs). Neue Clips immer vorher als Datei an Nutzer senden (er postet TikTok).
