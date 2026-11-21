@@ -37,7 +37,7 @@ Stand: Clip 2 (Action) FREIGEGEBEN, geplant 21.11. 18:30 (Erinnerung trig_0126jt
 ## Clip-Warteschlange
 | Datum | Clip | Datei | Gehostet (Higgsfield media_id) | Status |
 |---|---|---|---|---|
-| Sa 21.11. 18:30 | 2 Action | wow_forever_action.mp4 | 5eed21db-b8ba-44dc-a3dc-8aa4b8bfdf5e | freigegeben, geplant |
+| Sa 21.11. | 2 Action | wow_forever_action.mp4 | 5eed21db-b8ba-44dc-a3dc-8aa4b8bfdf5e | YouTube gepostet 18:24: https://youtube.com/shorts/M55QG0KNeE4 · TikTok manuell durch Nutzer · Instagram 19:10 geplant |
 | So 22.11. 18:30 | 3 Himmelsgeborene | wow_himmelsgeborene.mp4 | 1957edb9-d236-4bd9-8388-1f95ae046b96 | wartet auf Freigabe |
 | Mo 23.11. 18:30 | 1 Alles neu | wow_forever_alles_neu.mp4 | 73f3dea1-233d-4506-a678-0e20cecb3091 | wartet auf Freigabe |
 
@@ -47,3 +47,4 @@ TikTok bis 5 $/1K, YouTube bis 5 $/1K, **Instagram bis 3 $/1K** (min. 1 $, max. 
 - Instagram-Regel (Screenshot 20.11.): Instagram zahlt nach Land der **Follower des Kontos**, nicht der Zuschauer. Unter 100 Follower = niedrigster Satz pro Aufruf. DE/AT/CH je 3 $/1K, andere Länder nicht bezahlt. Heißt: Instagram erst lohnend mit 100+ deutschsprachigen Followern → Konto aufbauen. TikTok/YT: Land der Zuschauer (DE/AT/CH 5 $/1K). Budget 1.025 $ von 8.000 $ verbraucht.
 - Auszahlung (Recherche 20.11., Anbieter-Quellen): Content Rewards zahlt in Runden: 7 Tage Verdienst + 3 Tage Hold ≈ alle 10 Tage → Content-Rewards-Balance → Whop-Balance (gratis, ab 1 $) → Bank/PayPal (Standard bis 5 Werktage, Instant gegen Gebühr). 10 % Creator-Gebühr. Whop-KYC + IBAN (EUR) nötig. PayPal-Verfügbarkeit unklar → unter Balances prüfen. Nutzer muss Whop Payout-Methode einrichten.
 - 21.11. Test: TikTok-Publish-Formular (Higgsfield tiktok_prepare_publish) erscheint im Client des Nutzers NICHT; Composio hat kein Managed-Auth für TikTok. → TikTok immer manuell durch Nutzer (Video aus Chat + Caption kopieren). YouTube + Instagram postet Claude per Composio.
+- 21.11. 18:24 YouTube Clip 2 live (M55QG0KNeE4). Reminder trig_0126… gelöscht (Duplikat-Gefahr), Instagram per send_later 19:10.
