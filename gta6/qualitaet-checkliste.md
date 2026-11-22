@@ -10,6 +10,7 @@
 - [ ] Je Plattform eigene Datei (_tt/_ig/_yt), eigener Hook-Text, eigene Caption, eigene Zeit
 - [ ] Captions: #werbung #blizzardpartner in eigener Zeile, TikTok @blizzard_de, YouTube @WorldofWarcraftDE, IG ohne Tag
 - [ ] Letzten Frame und Audio-Ende nach dem Rendern ansehen (nicht abgeschnitten)
+- [ ] MITTE: Pattern Interrupt alle 6–8 s, Open Loop (Versprechen bei 3–5 s, Auflösung ~75 %), Re-Hook ~40–50 %, 20–25 s
 - [ ] Nutzer-Freigabe vor dem Planen
 
 ## Encoding-Standard (ab 22.11., wegen Nutzerfeedback „gepostet sieht schlechter aus“)

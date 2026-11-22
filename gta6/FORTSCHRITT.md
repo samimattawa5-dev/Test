@@ -83,3 +83,4 @@ Nächste Mittagsclips: Zonenflüge Elwynn, Durotar, Mulgore, Tirisfal, Teldrassi
 - 22.11. 19:16 Instagram Himmelsgeborene v5 live: https://www.instagram.com/reel/DgDbV1Kz0Bw/ (ig_media_id 18060159692807256). Alle 3 Plattformen für Clip 'volk' live.
 - 22.11. 19:22 Runde: v5 TikTok 300 Views, IG 162 Views Skip 33,6 % (bester Hook bisher). IG-Kommentare Dun Morogh (noramuller6) beantwortet. TikTok-Kommentar skeptisch („zahlt extra dafür…niemals“) → Nutzer informiert, nicht antworten/oder neutral.
 - 22.11. 21:11 TikTok v5 (Nutzer-Screenshot, 2 h nach Post): 422 Views, 7 Likes, 5 Kommentare, 1 Save, 1 Share. Rekord bisher (Action: 241 nach 25 h). Hook-Text ab Sekunde 0 bestätigt.
+- 22.11. 21:20 Phase 2 beschlossen: Fokus auf Mitte/Retention (Hook gelöst). Regeln in gta6/lernen.md + Checkliste.

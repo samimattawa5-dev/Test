@@ -13,6 +13,18 @@ Ablauf jeden Morgen (09:07): 1) Zahlen jedes Clips holen (data.json), 2) Fehler/
 7. Pünktlich posten (Verzögerung kostet Reichweite).
 8. Aktion (Kampf) schlägt Landschaft; Landschaftsclips nur mit starkem Hook.
 
+## Phase 2 (ab 22.11. abends): Fokus MITTE halten (Hook ist gelöst)
+Ziel: Ø-Wiedergabe von ~29 % auf ≥ 45 % bringen (IG ig_reels_avg_watch_time / Dauer; YouTube-Retentionskurve ab 24.11.).
+Maßnahmen (nur wahre Aussagen, offizielles Material):
+1. Open Loop: bei 3–5 s Versprechen („Gleich: …“), Auflösung bei ~75 % der Laufzeit.
+2. Pattern Interrupt alle 6–8 s (Zoom-Punch, Text-Pop, Farbblitz, 1-Wort-Einblendung), nie länger als 8 s ohne Veränderung.
+3. Nummerierte Struktur („1/3 … 2/3 … 3/3“) bei Feature-Clips.
+4. Länge 20–25 s: ruhige Passagen/Laufszenen raus, Einstellungen 1–1,5 s.
+5. Re-Hook bei ~40–50 %: kurze Frage/Spannungstext in der Mitte.
+6. Große Wort-für-Wort-Untertitel (2–3 Wörter, Safe-Zone) statt kleiner Einheits-Untertitel, falls Transkript vorhanden.
+7. Schluss: Auflösung + Endfrage, kein Leerlauf.
+Messen: pro Clip Ø-Wiedergabe in %, Skip-Rate 3 s, Views je Plattform; täglich in data.json/dashboard; Vergleich mit v5 (Referenz: IG 8,9 s von 30,4 s = 29 %, Skip 33,6 %).
+
 ## Einträge
 
 ### 21.11. Action – „So sehen die Kämpfe aus“
