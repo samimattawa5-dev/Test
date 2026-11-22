@@ -21,7 +21,7 @@ Gut: TikTok-Verteilung okay, Kommentare/Saves vorhanden, Zusammenschnitt mit Akt
 Nächstes Mal: stärkster Treffer in Frame 0, Banner/Laufszenen raus, Endfrage statt Logo.
 
 ### 22.11. Dun Morogh – Zonenflug
-Zahlen: TikTok 13 Views (nach 1 h), IG 3 Views, YT 0. Nach 1 h kaum Verteilung.
+Zahlen (22.11. 17:30): TikTok 13 Views (nach 1 h; im öffentlichen Feed noch nicht gelistet), IG 3 Views (Skip-Rate 100 % bei nur 3 Zuschauern, Ø 8,8 s), YT 0. Kaum Verteilung.
 Fehler: statische Titelkarte in den ersten 3 s, ruhige Landschaft, kein Hook-Text am Anfang, Post 2 h verspätet (14:33 statt 12:28), „Anzeige“-Label sichtbar.
 Nächstes Mal: Landschaftsclips nur mit Hook-Text oben + Start ab bewegter Stelle; pünktlich.
 
@@ -29,6 +29,7 @@ Nächstes Mal: Landschaftsclips nur mit Hook-Text oben + Start ab bewegter Stell
 Fehler beim Bauen: Bild zu klein (608 px), Ende abgeschnitten (Satz/Szene), Emoji-Glyph im Text fehlte, Text in der UI-Zone.
 Fix: 1080×1080 Mitte, Schnitt bis Szenenende (27,4 s Quelle), Safe-Zone-Layout, plattformspezifische Hooks.
 Zahlen: folgen nach Posting (TikTok 18:30 via vidIQ, YT 18:28, IG 19:15).
+v5 (22.11. 17:35, Anwendung der Lektionen): Hook-Text ab Sekunde 0 (TikTok „Allianz ODER Horde?“), langsamer Zoom 1,00→1,08 gegen Standbild-Wirkung, Fortschrittsbalken, 2 Zwischentexte als Pattern Interrupt (10,5–14 s „Du wählst deine Fraktion“, 19,5–23 s „Krieger · Schurke · Druide · Jäger“, beides durch den Sprecher belegt), Endfrage 25,5 s. Grenze: Quelle ist ein ruhiger Erklärclip → Hook bleibt die Schwachstelle, künftig mehr Kampf-/Feature-Material.
 
 ### Prozess
 - Worker-Neustart verschob einen Termin um 2 h → bei Verspätung sofort melden und nachholen.
