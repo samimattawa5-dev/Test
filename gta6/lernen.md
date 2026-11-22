@@ -13,6 +13,15 @@ Ablauf jeden Morgen (09:07): 1) Zahlen jedes Clips holen (data.json), 2) Fehler/
 7. Pünktlich posten (Verzögerung kostet Reichweite).
 8. Aktion (Kampf) schlägt Landschaft; Landschaftsclips nur mit starkem Hook.
 
+## Gewinner-Rezept (Stand 22.11. 21:25, Basis: Clip „Himmelsgeborene v5“ – TikTok 422 Views/2 h, IG 162 Views, Skip 33,6 %)
+Inhalt: Entscheidungs-/Debatten-Thema, das jeder sofort beantworten kann (Allianz ODER Horde, Volk/Klasse wählen), neue Spielinhalte mit Wahlmöglichkeit.
+Quelle: offizielles „Need to Know“-Erklärvideo (DE-Sprecher, 16:9), Mittelquadrat 1080×1080 bei y=480 auf unscharfem Hintergrund.
+Bearbeitung: Hook-Frage ab Sekunde 0 (gelb, groß), langsamer Zoom 1,00→1,08, Fortschrittsbalken, 2 Zwischentexte als Pattern Interrupt, Endfrage ab 25,5 s, Sprecher 90 %, ~30 s, Ende bei Szenenwechsel.
+Caption: Frage + @blizzard_de, #werbung #blizzardpartner, 3 Hashtags; Veröffentlichung 18:30 (Abendspitze).
+Kommentare kommen durch die Frage (5 auf TikTok in 2 h).
+Vorsicht (Stichprobe klein): Welche einzelnen Szenen genau halten, wissen wir erst mit Retention-Kurven (YouTube ab 24.11., TikTok-Studio-Screenshots).
+Schwach war: ruhige Zonenflüge mit statischer Titelkarte (Dun Morogh), allgemeiner Trailer-Zusammenschnitt ohne Frage im Hook (Action: Skip 56,5 %).
+
 ## Phase 2 (ab 22.11. abends): Fokus MITTE halten (Hook ist gelöst)
 Ziel: Ø-Wiedergabe von ~29 % auf ≥ 45 % bringen (IG ig_reels_avg_watch_time / Dauer; YouTube-Retentionskurve ab 24.11.).
 Maßnahmen (nur wahre Aussagen, offizielles Material):
