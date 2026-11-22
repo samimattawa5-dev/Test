@@ -11,3 +11,9 @@
 - [ ] Captions: #werbung #blizzardpartner in eigener Zeile, TikTok @blizzard_de, YouTube @WorldofWarcraftDE, IG ohne Tag
 - [ ] Letzten Frame und Audio-Ende nach dem Rendern ansehen (nicht abgeschnitten)
 - [ ] Nutzer-Freigabe vor dem Planen
+
+## Encoding-Standard (ab 22.11., wegen Nutzerfeedback „gepostet sieht schlechter aus“)
+- Export: H.264 High, 1080×1920, 30 fps, `-crf 14 -preset slow` (Ziel ≈ 10–14 Mbit/s), `-maxrate 16M -bufsize 32M`, AAC 192k, yuv420p, +faststart
+- Skalierung/Zoom mit `flags=lanczos` (nicht bilinear), Zoom nur bis 1,06
+- Quelle in voller Auflösung verwenden (1920×1080 horizontal oder 1080×1920 vertikal), nie vorher komprimierte Zwischenstufen
+- Vergleich: Datei im Chat (Original) vs. Plattform-Wiedergabe erst 30–60 Min nach Upload prüfen (TikTok/YouTube verarbeiten HD verspätet)
