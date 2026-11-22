@@ -66,3 +66,4 @@ Clips NICHT aus mehreren Teilen zusammenschneiden, nur ein zusammenhängendes St
 | 18:30 | Himmelsgeborene v2 (YT/IG geplant) | Alles neu v2 (YT/IG geplant) | Zonen & Dungeons (YT/IG geplant) |
 Nächste Mittagsclips: Zonenflüge Elwynn, Durotar, Mulgore, Tirisfal, Teldrassil (9:16 fertig im Ordner Zone Flythroughs). Neue Clips immer vorher als Datei an Nutzer senden (er postet TikTok).
 - 21.11. 21:09 Routine-Check: IG 126 Views/119 Reach/3 Likes, keine neuen Kommentare. YouTube-API 403 (Quota), nicht wiederholt.
+- 22.11. 09:07 Routine: IG Clip2 132 Views/119 Reach/4 Likes/3 Kommentare (neuer von nssfadi „👌“ beantwortet). YT Clip2 16 Views/3 Likes/0 Kommentare. TikTok Clip2 118 Views (Nutzer-Screenshot 21.11. 21:10, 3 Follower).
