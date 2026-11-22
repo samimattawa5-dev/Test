@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T19:22:00+01:00",
+  "updated": "2026-11-22T21:12:00+01:00",
   "notes": "TikTok: nur öffentliche Zahlen (vidIQ) bzw. Nutzer-Screenshot, keine Retention. IG: Insights per API. YouTube-Retention kommt ab ca. 24.11. (Datenverzögerung).",
   "clips": [
     {
@@ -71,9 +71,9 @@
       "duration": 30.4,
       "tiktok": {
         "url": "https://www.tiktok.com/@nexaclips.hq/video/7711049702074027296",
-        "views": 300,
-        "likes": 4,
-        "comments": 1,
+        "views": 422,
+        "likes": 7,
+        "comments": 5,
         "shares": 1,
         "saves": 1
       },
