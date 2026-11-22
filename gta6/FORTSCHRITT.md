@@ -69,3 +69,4 @@ Nächste Mittagsclips: Zonenflüge Elwynn, Durotar, Mulgore, Tirisfal, Teldrassi
 - 22.11. 09:07 Routine: IG Clip2 132 Views/119 Reach/4 Likes/3 Kommentare (neuer von nssfadi „👌“ beantwortet). YT Clip2 16 Views/3 Likes/0 Kommentare. TikTok Clip2 118 Views (Nutzer-Screenshot 21.11. 21:10, 3 Follower).
 - 22.11. 14:33 (verspätet, Worker-Neustart; geplant 12:28) Dun-Morogh-Clip live: YouTube https://youtube.com/shorts/BcopD84wwAY · Instagram https://www.instagram.com/reel/DgC6_Edhi39/ (ig_media_id 18108594485634931). TikTok durch Nutzer. Abend-Clip 18:28 Himmelsgeborene v2 geplant.
 - 22.11. 16:30 Abend-Clip Himmelsgeborene v3 (Retention-Regeln) gebaut, YT/IG per send_later 18:28 (trig neu), TikTok durch Nutzer. Alter v2-Trigger gelöscht.
+- 22.11. 16:45 Himmelsgeborene v4 (Ende nicht mehr abgeschnitten; Regel: Clip erst nach Szenen-/Satzende schneiden, vor Export Ende prüfen). YT/IG per send_later 18:28 (v3-Trigger gelöscht).
