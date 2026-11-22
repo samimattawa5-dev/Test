@@ -3,6 +3,7 @@
 Ablauf jeden Morgen (09:07): 1) Zahlen jedes Clips holen (data.json), 2) Fehler/Erfolge benennen, 3) hier eintragen, 4) die nächsten Clips nach diesen Regeln bauen (+ gta6/qualitaet-checkliste.md), 5) dem Nutzer zur Freigabe schicken.
 
 ## Aktuelle Regeln (aus allen Einträgen, neueste oben)
+0. BESTÄTIGT (22.11.): Hook-Text ab Sekunde 0 + Zoom + Fortschrittsbalken + Zwischentexte senken die 3-s-Abbruchrate deutlich (56,5 % → 33,6 %). Beibehalten.
 1. Erste Sekunde = stärkster Moment (Treffer/Zauber/Boss), kein ruhiger Auftakt, keine statische Titelkarte.
 2. Hook-Text in den ersten 2–4 s, mittig-oben in der Safe-Zone; Endfrage in den letzten 5 s.
 3. Laufende/ruhige Passagen und eingeblendete Info-Banner kürzen; Einstellungen 1–1,5 s.
@@ -28,7 +29,7 @@ Nächstes Mal: Landschaftsclips nur mit Hook-Text oben + Start ab bewegter Stell
 ### 22.11. Himmelsgeborene – neues Volk (Iterationen v1–v4)
 Fehler beim Bauen: Bild zu klein (608 px), Ende abgeschnitten (Satz/Szene), Emoji-Glyph im Text fehlte, Text in der UI-Zone.
 Fix: 1080×1080 Mitte, Schnitt bis Szenenende (27,4 s Quelle), Safe-Zone-Layout, plattformspezifische Hooks.
-Zahlen: folgen nach Posting (TikTok 18:30 via vidIQ, YT 18:28, IG 19:15).
+Zahlen (22.11. 19:22, 1 h nach Post): TikTok 300 Views (Action: 241 nach 25 h), IG 162 Views, **Skip-Rate 3 s 33,6 % (Action 56,5 %) = starker Hook**, Ø-Wiedergabe 8,9 s von 30,4 s (29 %); YT 2 Views. v5-Maßnahmen wirken auf den Hook (Skip −23 Punkte). Offen: Ø-Wiedergabe noch ~29 % → Mitte/Ende dynamischer. TikTok-Kommentar skeptisch („zahlt extra dafür“) → nicht streiten.
 v5 (22.11. 17:35, Anwendung der Lektionen): Hook-Text ab Sekunde 0 (TikTok „Allianz ODER Horde?“), langsamer Zoom 1,00→1,08 gegen Standbild-Wirkung, Fortschrittsbalken, 2 Zwischentexte als Pattern Interrupt (10,5–14 s „Du wählst deine Fraktion“, 19,5–23 s „Krieger · Schurke · Druide · Jäger“, beides durch den Sprecher belegt), Endfrage 25,5 s. Grenze: Quelle ist ein ruhiger Erklärclip → Hook bleibt die Schwachstelle, künftig mehr Kampf-/Feature-Material.
 
 ### Prozess
