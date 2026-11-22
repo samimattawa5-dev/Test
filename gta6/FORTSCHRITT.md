@@ -70,3 +70,5 @@ Nächste Mittagsclips: Zonenflüge Elwynn, Durotar, Mulgore, Tirisfal, Teldrassi
 - 22.11. 14:33 (verspätet, Worker-Neustart; geplant 12:28) Dun-Morogh-Clip live: YouTube https://youtube.com/shorts/BcopD84wwAY · Instagram https://www.instagram.com/reel/DgC6_Edhi39/ (ig_media_id 18108594485634931). TikTok durch Nutzer. Abend-Clip 18:28 Himmelsgeborene v2 geplant.
 - 22.11. 16:30 Abend-Clip Himmelsgeborene v3 (Retention-Regeln) gebaut, YT/IG per send_later 18:28 (trig neu), TikTok durch Nutzer. Alter v2-Trigger gelöscht.
 - 22.11. 16:45 Himmelsgeborene v4 (Ende nicht mehr abgeschnitten; Regel: Clip erst nach Szenen-/Satzende schneiden, vor Export Ende prüfen). YT/IG per send_later 18:28 (v3-Trigger gelöscht).
+- 22.11. vidIQ-MCP verbunden (Konto des Nutzers, Kanal NexaClips UCdctn-Iw3eqpAK5RA6mlSMw, 150 Credits/Monat, 15 verbraucht). YouTube-Analytics (Retention/Geografie/Traffic) am 22.11. leer (Datenverzögerung 1–2 Tage) → ab 23.11. erneut. Routine-Trigger um vidIQ-Schritt erweitert.
+- 22.11. IG-Analyse: Action-Reel avg. Watch-Time 6,6 s (Reel 26,8 s) → Hook zu schwach; Dun-Morogh-Reel 3 Views (IG verteilt kaum). Konto: 4 Follower, Demografie erst ab 100 Follower.
