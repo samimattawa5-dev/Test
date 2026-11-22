@@ -53,6 +53,13 @@ Fix: 1080×1080 Mitte, Schnitt bis Szenenende (27,4 s Quelle), Safe-Zone-Layout,
 Zahlen (22.11. 19:22, 1 h nach Post): TikTok 300 Views (Action: 241 nach 25 h), IG 162 Views, **Skip-Rate 3 s 33,6 % (Action 56,5 %) = starker Hook**, Ø-Wiedergabe 8,9 s von 30,4 s (29 %); YT 2 Views. v5-Maßnahmen wirken auf den Hook (Skip −23 Punkte). Offen: Ø-Wiedergabe noch ~29 % → Mitte/Ende dynamischer. TikTok-Kommentar skeptisch („zahlt extra dafür“) → nicht streiten.
 v5 (22.11. 17:35, Anwendung der Lektionen): Hook-Text ab Sekunde 0 (TikTok „Allianz ODER Horde?“), langsamer Zoom 1,00→1,08 gegen Standbild-Wirkung, Fortschrittsbalken, 2 Zwischentexte als Pattern Interrupt (10,5–14 s „Du wählst deine Fraktion“, 19,5–23 s „Krieger · Schurke · Druide · Jäger“, beides durch den Sprecher belegt), Endfrage 25,5 s. Grenze: Quelle ist ein ruhiger Erklärclip → Hook bleibt die Schwachstelle, künftig mehr Kampf-/Feature-Material.
 
+### 22.11. 23:00 TikTok-Studio v5 (Volk), ~4,5 h nach Post
+Zahlen: 703 Views, 11 Likes, 11 Komm., 3 Shares, 1 Save, Ø 8,2 s von 30,4 s (27 %), ganz angeschaut 8,24 %, 0 neue Follower.
+Länder: DE 60,4 %, AT 10,1 %, CH 3,7 % = DACH ≈74 % (zählt), Rest ≈26 %. Alter: 35+ ≈58 % -> Veteranen, Nostalgie wirkt.
+Like-Kurve: Peak bei 0:01-0:03 (Hook), kleine Spitzen ~0:07-0:10 und ~0:21 (Pop-up Klassen), dazwischen und nach 0:22 fast nichts.
+Kommentare: Nico (Veteran, Taurenkrieger, Raptor-Mount, spielt nur normales WoW) -> 4-Wechsel-Gespräch; Nostalgie-Fragen bringen Antworten.
+Folgerung: Mitte 0:10-0:20 braucht neuen Reiz/Frage, Endfrage früher (~0:22), Nostalgie-Hook testen (Mulgore/erster Char).
+
 ### Prozess
 - Worker-Neustart verschob einen Termin um 2 h → bei Verspätung sofort melden und nachholen.
 - TikTok-Formular im Client nicht verfügbar → jetzt über vidIQ (Draft → Nutzerfreigabe → publish).
