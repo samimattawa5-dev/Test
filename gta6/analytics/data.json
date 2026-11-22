@@ -3,22 +3,97 @@
   "notes": "TikTok: nur öffentliche Zahlen (vidIQ) bzw. Nutzer-Screenshot, keine Retention. IG: Insights per API. YouTube-Retention kommt ab ca. 24.11. (Datenverzögerung).",
   "clips": [
     {
-      "id": "action", "title": "Action – So sehen die Kämpfe aus", "posted": "2026-11-21", "duration": 26.8,
-      "tiktok": {"url": "https://www.tiktok.com/@nexaclips.hq/video/7710678881627393312", "views": 238, "likes": 3, "comments": 5, "shares": 1, "saves": 2},
-      "instagram": {"url": "https://www.instagram.com/reel/DgA18wFBMzC/", "views": 134, "reach": 121, "likes": 4, "comments": 4, "shares": 0, "saves": 0, "avg_watch_s": 6.63, "skip_rate_3s": 56.9},
-      "youtube": {"url": "https://youtube.com/shorts/M55QG0KNeE4", "views": 16, "likes": 3, "comments": 0}
+      "id": "action",
+      "title": "Action – So sehen die Kämpfe aus",
+      "posted": "2026-11-21",
+      "duration": 26.8,
+      "tiktok": {
+        "url": "https://www.tiktok.com/@nexaclips.hq/video/7710678881627393312",
+        "views": 238,
+        "likes": 3,
+        "comments": 5,
+        "shares": 1,
+        "saves": 2
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/reel/DgA18wFBMzC/",
+        "views": 134,
+        "reach": 121,
+        "likes": 4,
+        "comments": 4,
+        "shares": 0,
+        "saves": 0,
+        "avg_watch_s": 6.63,
+        "skip_rate_3s": 56.9
+      },
+      "youtube": {
+        "url": "https://youtube.com/shorts/M55QG0KNeE4",
+        "views": 16,
+        "likes": 3,
+        "comments": 0
+      }
     },
     {
-      "id": "dun", "title": "Dun Morogh – Zonenflug", "posted": "2026-11-22", "duration": 33.5,
-      "tiktok": {"url": "", "views": 13, "likes": 0, "comments": 0, "shares": 0, "saves": 0},
-      "instagram": {"url": "https://www.instagram.com/reel/DgC6_Edhi39/", "views": 3, "reach": 2, "likes": 1, "comments": 0, "shares": 0, "saves": 0, "avg_watch_s": 8.83, "skip_rate_3s": 100},
-      "youtube": {"url": "https://youtube.com/shorts/BcopD84wwAY", "views": 0, "likes": 0, "comments": 0}
+      "id": "dun",
+      "title": "Dun Morogh – Zonenflug",
+      "posted": "2026-11-22",
+      "duration": 33.5,
+      "tiktok": {
+        "url": "",
+        "views": 13,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/reel/DgC6_Edhi39/",
+        "views": 3,
+        "reach": 2,
+        "likes": 1,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "avg_watch_s": 8.83,
+        "skip_rate_3s": 100
+      },
+      "youtube": {
+        "url": "https://youtube.com/shorts/BcopD84wwAY",
+        "views": 0,
+        "likes": 0,
+        "comments": 0
+      }
     },
     {
-      "id": "volk", "title": "Himmelsgeborene – neues Volk", "posted": "2026-11-22 (18:28–19:15 geplant)", "duration": 30.4,
-      "tiktok": {"url": "", "views": null, "likes": null, "comments": null, "shares": null, "saves": null},
-      "instagram": {"url": "", "views": null, "reach": null, "likes": null, "comments": null, "shares": null, "saves": null, "avg_watch_s": null, "skip_rate_3s": null},
-      "youtube": {"url": "", "views": null, "likes": null, "comments": null}
+      "id": "volk",
+      "title": "Himmelsgeborene – neues Volk",
+      "posted": "2026-11-22 (YT 18:29, TikTok 18:30 geplant, IG 19:15 geplant)",
+      "duration": 30.4,
+      "tiktok": {
+        "url": "",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "shares": null,
+        "saves": null
+      },
+      "instagram": {
+        "url": "",
+        "views": null,
+        "reach": null,
+        "likes": null,
+        "comments": null,
+        "shares": null,
+        "saves": null,
+        "avg_watch_s": null,
+        "skip_rate_3s": null
+      },
+      "youtube": {
+        "url": "https://youtube.com/shorts/TalP-06yLU8",
+        "views": 0,
+        "likes": 0,
+        "comments": 0
+      }
     }
   ]
 }
