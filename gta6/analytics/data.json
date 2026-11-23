@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T21:12:00+01:00",
+  "updated": "2026-11-23T09:20:00+01:00",
   "notes": "TikTok: nur öffentliche Zahlen (vidIQ) bzw. Nutzer-Screenshot, keine Retention. IG: Insights per API. YouTube-Retention kommt ab ca. 24.11. (Datenverzögerung).",
   "clips": [
     {
@@ -9,7 +9,7 @@
       "duration": 26.8,
       "tiktok": {
         "url": "https://www.tiktok.com/@nexaclips.hq/video/7710678881627393312",
-        "views": 241,
+        "views": 244,
         "likes": 3,
         "comments": 5,
         "shares": 1,
@@ -17,18 +17,18 @@
       },
       "instagram": {
         "url": "https://www.instagram.com/reel/DgA18wFBMzC/",
-        "views": 134,
-        "reach": 121,
+        "views": 135,
+        "reach": 122,
         "likes": 4,
         "comments": 4,
         "shares": 0,
         "saves": 0,
         "avg_watch_s": 6.63,
-        "skip_rate_3s": 56.9
+        "skip_rate_3s": 56.5
       },
       "youtube": {
         "url": "https://youtube.com/shorts/M55QG0KNeE4",
-        "views": 16,
+        "views": 12,
         "likes": 3,
         "comments": 0
       }
@@ -51,10 +51,10 @@
         "views": 7,
         "reach": 4,
         "likes": 1,
-        "comments": 2,
+        "comments": 3,
         "shares": 0,
-        "saves": 0,
-        "avg_watch_s": 11.52,
+        "saves": 1,
+        "avg_watch_s": 9.69,
         "skip_rate_3s": 75
       },
       "youtube": {
@@ -71,22 +71,22 @@
       "duration": 30.4,
       "tiktok": {
         "url": "https://www.tiktok.com/@nexaclips.hq/video/7711049702074027296",
-        "views": 422,
-        "likes": 7,
-        "comments": 5,
-        "shares": 1,
+        "views": 747,
+        "likes": 11,
+        "comments": 11,
+        "shares": 3,
         "saves": 1
       },
       "instagram": {
         "url": "https://www.instagram.com/reel/DgDbV1Kz0Bw/",
-        "views": 162,
-        "reach": 129,
+        "views": 166,
+        "reach": 140,
         "likes": 3,
         "comments": 0,
         "shares": 0,
         "saves": 0,
-        "avg_watch_s": 8.86,
-        "skip_rate_3s": 33.6
+        "avg_watch_s": 8.725,
+        "skip_rate_3s": 35.5
       },
       "youtube": {
         "url": "https://youtube.com/shorts/TalP-06yLU8",
