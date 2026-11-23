@@ -3,6 +3,7 @@
 Ablauf jeden Morgen (09:07): 1) Zahlen jedes Clips holen (data.json), 2) Fehler/Erfolge benennen, 3) hier eintragen, 4) die nächsten Clips nach diesen Regeln bauen (+ gta6/qualitaet-checkliste.md), 5) dem Nutzer zur Freigabe schicken.
 
 ## Aktuelle Regeln (aus allen Einträgen, neueste oben)
+0a. NUTZERREGEL (23.11.): Alle Clips ab jetzt im Stil des Gewinners v5 (Himmelsgeborene: meiste Views + Kommentare), siehe Abschnitt „Gewinner-Rezept“. Pflicht: Quelle mit deutschem Erzähler (Need-to-Know u. ä.), Entscheidungs-/Auswahlfrage als Hook ab Sekunde 0, Kommentar-Frage am Ende, Skript: gta6/tools/build_features.sh als Vorlage. Reine Landschaft/Musik ohne Erzähler (Dun Morogh, Mulgore: wenig Likes/Kommentare) nicht mehr, außer der Nutzer will einen Test.
 0. BESTÄTIGT (22.11.): Hook-Text ab Sekunde 0 + Zoom + Fortschrittsbalken + Zwischentexte senken die 3-s-Abbruchrate deutlich (56,5 % → 33,6 %). Beibehalten.
 1. Erste Sekunde = stärkster Moment (Treffer/Zauber/Boss), kein ruhiger Auftakt, keine statische Titelkarte.
 2. Hook-Text in den ersten 2–4 s, mittig-oben in der Safe-Zone; Endfrage in den letzten 5 s.
@@ -63,3 +64,6 @@ Folgerung: Mitte 0:10-0:20 braucht neuen Reiz/Frage, Endfrage früher (~0:22), N
 ### Prozess
 - Worker-Neustart verschob einen Termin um 2 h → bei Verspätung sofort melden und nachholen.
 - TikTok-Formular im Client nicht verfügbar → jetzt über vidIQ (Draft → Nutzerfreigabe → publish).
+
+### 23.11. Abend – Vergleich Mulgore (Landschaft+Musik) vs. v5
+TikTok nach ~8 h: Mulgore 483 Views/2 Likes/2 Komm.; v5 777 Views/12 Likes/11 Komm. IG Mulgore erst 21:43 nachgeholt (Termin 13:54 wegen Worker-Neustart verpasst). Dun Morogh IG Skip 80 %. Ergebnis: Erzähler + Auswahlfrage = Interaktion; Landschaft zieht Views, aber kaum Reaktion. Features-Clip (Erzähler, Hook-Frage, Open Loop) wartet auf Freigabe, Post 24.11. 12:30.
