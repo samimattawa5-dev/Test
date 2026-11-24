@@ -125,6 +125,37 @@
         "likes": 0,
         "comments": 0
       }
+    },
+    {
+      "id": "features",
+      "title": "Features – Dungeons ODER neue Kombis? (v5-Stil, Erzähler)",
+      "posted": "2026-11-24 (YT 12:58, TikTok ~13:00, IG 13:40)",
+      "duration": 29.2,
+      "tiktok": {
+        "url": "https://www.tiktok.com/@nexaclips.hq/video/7711706225020390689",
+        "views": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/reel/DgH5yb3B_W-/",
+        "views": 0,
+        "reach": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "avg_watch_s": 0,
+        "skip_rate_3s": 0
+      },
+      "youtube": {
+        "url": "https://youtube.com/shorts/X_XXGdY4kOk",
+        "views": 0,
+        "likes": 0,
+        "comments": 0
+      }
     }
   ]
 }
