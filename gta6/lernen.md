@@ -61,6 +61,14 @@ Like-Kurve: Peak bei 0:01-0:03 (Hook), kleine Spitzen ~0:07-0:10 und ~0:21 (Pop-
 Kommentare: Nico (Veteran, Taurenkrieger, Raptor-Mount, spielt nur normales WoW) -> 4-Wechsel-Gespräch; Nostalgie-Fragen bringen Antworten.
 Folgerung: Mitte 0:10-0:20 braucht neuen Reiz/Frage, Endfrage früher (~0:22), Nostalgie-Hook testen (Mulgore/erster Char).
 
+### 24.11. 09:20 Mulgore – Zonenflug (Test: Landschaft + Musik, kein Erzähler), ~20 h nach Post
+Zahlen: TikTok 674 Views/2 Likes/2 Komm./1 Share/1 Save; IG 149 Views, Skip 3 s 57,5 % (v5: 35,9 %), Ø 4,9 s von 24,5 s (20 %, v5: 29 %); YouTube 0 Views.
+Fehler: kein Erzähler, keine Aktion, keine Auswahlfrage im Hook (Nostalgie-Frage allein zieht nicht), IG 8 h verspätet (Worker-Neustart), ruhiges Bild.
+Gut: TikTok verteilt Landschaft durchaus (674 Views), aber Likes/Kommentare fehlen -> Views ohne Interaktion bringen wenig (Engagement ≥0,5 % ist Kampagnenregel).
+Regel bestätigt: Nur v5-Rezept (Erzähler + Auswahlfrage). Mulgore nicht wiederholen.
+Weitere Zahlen 24.11. 09:20: v5 TikTok 777 Views/12 Likes/11 Komm. (TikTok-Hinweis: übertrifft 90 % ähnlicher Creator), IG v5 172 Views/Skip 35,9 %; Dun Morogh IG Skip 83 %; YouTube insgesamt ≤13 Views je Short, Retention/Geografie weiter leer (zu wenig Views).
+vidIQ-Credits: 65 (YouTube-Analytics erst sinnvoll ab ~100 Views je Short, vorerst nicht abfragen).
+
 ### Prozess
 - Worker-Neustart verschob einen Termin um 2 h → bei Verspätung sofort melden und nachholen.
 - TikTok-Formular im Client nicht verfügbar → jetzt über vidIQ (Draft → Nutzerfreigabe → publish).

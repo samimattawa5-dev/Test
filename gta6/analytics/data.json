@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23T09:20:00+01:00",
+  "updated": "2026-11-24T09:20:00+01:00",
   "notes": "TikTok: nur öffentliche Zahlen (vidIQ) bzw. Nutzer-Screenshot, keine Retention. IG: Insights per API. YouTube-Retention kommt ab ca. 24.11. (Datenverzögerung).",
   "clips": [
     {
@@ -9,7 +9,7 @@
       "duration": 26.8,
       "tiktok": {
         "url": "https://www.tiktok.com/@nexaclips.hq/video/7710678881627393312",
-        "views": 244,
+        "views": 246,
         "likes": 3,
         "comments": 5,
         "shares": 1,
@@ -17,18 +17,18 @@
       },
       "instagram": {
         "url": "https://www.instagram.com/reel/DgA18wFBMzC/",
-        "views": 135,
-        "reach": 122,
+        "views": 136,
+        "reach": 123,
         "likes": 4,
         "comments": 4,
         "shares": 0,
         "saves": 0,
-        "avg_watch_s": 6.63,
-        "skip_rate_3s": 56.5
+        "avg_watch_s": 6.77,
+        "skip_rate_3s": 56.0
       },
       "youtube": {
         "url": "https://youtube.com/shorts/M55QG0KNeE4",
-        "views": 12,
+        "views": 13,
         "likes": 3,
         "comments": 0
       }
@@ -48,14 +48,14 @@
       },
       "instagram": {
         "url": "https://www.instagram.com/reel/DgC6_Edhi39/",
-        "views": 7,
-        "reach": 4,
+        "views": 9,
+        "reach": 6,
         "likes": 1,
         "comments": 3,
         "shares": 0,
         "saves": 1,
-        "avg_watch_s": 9.69,
-        "skip_rate_3s": 75
+        "avg_watch_s": 7.87,
+        "skip_rate_3s": 83.3
       },
       "youtube": {
         "url": "https://youtube.com/shorts/BcopD84wwAY",
@@ -71,27 +71,58 @@
       "duration": 30.4,
       "tiktok": {
         "url": "https://www.tiktok.com/@nexaclips.hq/video/7711049702074027296",
-        "views": 747,
-        "likes": 11,
+        "views": 777,
+        "likes": 12,
         "comments": 11,
         "shares": 3,
         "saves": 1
       },
       "instagram": {
         "url": "https://www.instagram.com/reel/DgDbV1Kz0Bw/",
-        "views": 166,
-        "reach": 140,
-        "likes": 3,
-        "comments": 0,
+        "views": 172,
+        "reach": 144,
+        "likes": 5,
+        "comments": 2,
         "shares": 0,
         "saves": 0,
-        "avg_watch_s": 8.725,
-        "skip_rate_3s": 35.5
+        "avg_watch_s": 8.825,
+        "skip_rate_3s": 35.9
       },
       "youtube": {
         "url": "https://youtube.com/shorts/TalP-06yLU8",
-        "views": 2,
+        "views": 1,
         "likes": 1,
+        "comments": 0
+      }
+    },
+    {
+      "id": "mulgore",
+      "title": "Mulgore – Zonenflug (Landschaft+Musik, Test)",
+      "posted": "2026-11-23 (YT 13:08, TikTok 13:09, IG 21:42)",
+      "duration": 24.5,
+      "tiktok": {
+        "url": "https://www.tiktok.com/@nexaclips.hq/video/7711337624413293857",
+        "views": 674,
+        "likes": 2,
+        "comments": 2,
+        "shares": 1,
+        "saves": 1
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/reel/DgFWH4bhHgs/",
+        "views": 149,
+        "reach": 133,
+        "likes": 4,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "avg_watch_s": 4.855,
+        "skip_rate_3s": 57.5
+      },
+      "youtube": {
+        "url": "https://youtube.com/shorts/lthjy3AVaQo",
+        "views": 0,
+        "likes": 0,
         "comments": 0
       }
     }
