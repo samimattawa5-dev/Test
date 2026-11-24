@@ -156,6 +156,37 @@
         "likes": 0,
         "comments": 0
       }
+    },
+    {
+      "id": "zones",
+      "title": "Zonen & Dungeons (v5-Stil, Erzähler)",
+      "posted": "2026-11-24 (YT 18:29, TikTok 18:30, IG 19:15)",
+      "duration": 28.8,
+      "tiktok": {
+        "url": "https://www.tiktok.com/@nexaclips.hq/video/7711791856346041633",
+        "views": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/reel/DgIk43Wh6sI/",
+        "views": 0,
+        "reach": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "avg_watch_s": 0,
+        "skip_rate_3s": 0
+      },
+      "youtube": {
+        "url": "https://youtube.com/shorts/_dqyY1Q70aw",
+        "views": 0,
+        "likes": 0,
+        "comments": 0
+      }
     }
   ]
 }
