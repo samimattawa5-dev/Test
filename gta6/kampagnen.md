@@ -39,3 +39,10 @@ Hinweise:
 | Vyro | international | ~1–3 $ / 1.000 | nicht angegeben | – |
 | ClipAffiliates | international | 1–5 $ / 1.000 | nicht angegeben | https://www.clipaffiliates.com |
 | Clipping.io | international | 1–3 $ / 1.000 | nicht angegeben | – |
+
+## Update 25.11.2026 (Websuche, Drittquellen, Seiten selbst nicht geöffnet)
+- Keine GTA-6-Kampagne speziell für Deutschland gefunden; GTA-6-Kampagnen sind international. Länder-/Aufruf-Regeln je Kampagne auf der Kampagnenseite prüfen (Seiten nicht erreichbar: Netzwerk gesperrt).
+- Satz: Median ~1,00 $/1.000 (Spanne 0,35-2,00 $) laut FindClout 18.11. / Content Rewards 15.11. Content Rewards zählt 10-13 GTA-6-Kampagnen (18./19.11.), FindClout 12 live, 45.080 $ Budget gesamt.
+- Bestätigt auf Content-Rewards-Artikel (12.11.): "GTA 6 Clipping Campaign - Tokyo Girl" (Musik), 0,70 $/1K, max 35 $/Clip, 2.000 $ Budget. Weitere: StoryCut GTA-RP 1,50 $/1K max 150 $; Tomo (Clipping Nation) 1,50-2,00 $/1K, laut Notiz Budget voll; Kai Cenat Pool 10.000 $; Lacy Marathon Pool 12.500 $; Clix Marathon.
+- Regeln laut OpenClip: Werbehinweis am Anfang, Einreichung innerhalb 30 Min, kein Clip in mehreren Kampagnen.
+- Quellen: https://contentrewards.com/articles/gta-6-clipping · https://findclout.com/gta-6-clipping/campaigns/ · https://findclout.com/gta-6-clipping/pay-rates/ · https://openclip.app/clipping/gta-6-clipping
