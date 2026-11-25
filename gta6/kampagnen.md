@@ -46,3 +46,13 @@ Hinweise:
 - Bestätigt auf Content-Rewards-Artikel (12.11.): "GTA 6 Clipping Campaign - Tokyo Girl" (Musik), 0,70 $/1K, max 35 $/Clip, 2.000 $ Budget. Weitere: StoryCut GTA-RP 1,50 $/1K max 150 $; Tomo (Clipping Nation) 1,50-2,00 $/1K, laut Notiz Budget voll; Kai Cenat Pool 10.000 $; Lacy Marathon Pool 12.500 $; Clix Marathon.
 - Regeln laut OpenClip: Werbehinweis am Anfang, Einreichung innerhalb 30 Min, kein Clip in mehreren Kampagnen.
 - Quellen: https://contentrewards.com/articles/gta-6-clipping · https://findclout.com/gta-6-clipping/campaigns/ · https://findclout.com/gta-6-clipping/pay-rates/ · https://openclip.app/clipping/gta-6-clipping
+
+## Content-Rewards-Seiten selbst gelesen (25.11.2026, 17:xx, Host freigeschaltet)
+| Kampagne | Satz/1K | Budget | Länder | Hinweis |
+|---|---|---|---|---|
+| GTA 6 Clipping Campaign – Tokyo Girl (Placements) | 0,70 $ (TikTok, IG), min 2 $, max 35 $ | 379/2.000 $, 7 Clipper | keine Einschränkung sichtbar | Musik-Promo, Briefing erst nach Beitritt |
+| BenDaDonnn x Puffco GTA 6 (Launch Clipping) | 1,00 $ (TT, IG, YT, X, FB), min 2 $, max 400 $ | 2.364/10.000 $, 160 Clipper | keine Einschränkung sichtbar | Puffco = Vaporizer-Produkte (Werbung/Plattformregeln prüfen) |
+| GTA 6 x GTA Clipper Logo | 0,50 $, max 200 $, ab 10.000 Aufrufen | 263/1.000 $ | nur US, UK, CA, AU | Deutschland NICHT bezahlt |
+| GTA VI Clipup Logo | 0,30 $, max 150 $ | 3.172/15.000 $ | nur Tier-1 (CA, US, UK +1) | Deutschland NICHT bezahlt |
+| FR BICHOU MIAMI GTA 6 (Risor) | 1,00 $ | 4,2K/7K, 206 Clipper | französisch | nicht passend |
+Zum Vergleich CoD MW4 German (pausiert, 6.500 $ voll): Clipper verdienen im Schnitt 9,76 $, Top-Clipper 1,1K $ (45 Clipper, 4,2M Aufrufe).
