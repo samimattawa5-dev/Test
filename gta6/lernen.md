@@ -70,6 +70,10 @@ Regel bestätigt: Nur v5-Rezept (Erzähler + Auswahlfrage). Mulgore nicht wieder
 Weitere Zahlen 24.11. 09:20: v5 TikTok 777 Views/12 Likes/11 Komm. (TikTok-Hinweis: übertrifft 90 % ähnlicher Creator), IG v5 172 Views/Skip 35,9 %; Dun Morogh IG Skip 83 %; YouTube insgesamt ≤13 Views je Short, Retention/Geografie weiter leer (zu wenig Views).
 vidIQ-Credits: 65 (YouTube-Analytics erst sinnvoll ab ~100 Views je Short, vorerst nicht abfragen).
 
+### 25.11. 09:15 Features (24.11. 13:00) und Zonen (24.11. 18:30), ~20 h bzw. ~14 h danach
+IG: Features 160 Views, Skip 47,6 %, Ø 5,5 s von 29 s (19 %); Zonen 153 Views, Skip **58,8 %** (schlechter als v5 mit 35,9 %), Ø 5,3 s (18 %). YouTube je ≤3 Views. TikTok-Zahlen per Nutzer-Screenshot (vidIQ-Credits nur 35, unter Schwelle 40 -> keine vidIQ-Abfragen mehr).
+Beobachtung: beide Erzähler-Clips mit Hook-Frage haben auf IG schwächeren Hook als v5. Unterschied zu v5: v5-Hook war eine Streitfrage (Allianz ODER Horde) mit klarer Bild-Aussage; Features/Zonen waren Aufzählungen (Dungeons/Zonen/Kombis) -> weniger Reibung. Folgerung: Hook muss eine Streit-/Wahlfrage sein, die jeder sofort beantworten will (Klasse? Fraktion? Volk?).
+
 ### Prozess
 - Worker-Neustart verschob einen Termin um 2 h → bei Verspätung sofort melden und nachholen.
 - TikTok-Formular im Client nicht verfügbar → jetzt über vidIQ (Draft → Nutzerfreigabe → publish).

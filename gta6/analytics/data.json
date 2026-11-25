@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24T09:20:00+01:00",
+  "updated": "2026-11-25T09:20:00+01:00",
   "notes": "TikTok: nur öffentliche Zahlen (vidIQ) bzw. Nutzer-Screenshot, keine Retention. IG: Insights per API. YouTube-Retention kommt ab ca. 24.11. (Datenverzögerung).",
   "clips": [
     {
@@ -141,18 +141,18 @@
       },
       "instagram": {
         "url": "https://www.instagram.com/reel/DgH5yb3B_W-/",
-        "views": 0,
-        "reach": 0,
-        "likes": 0,
-        "comments": 0,
+        "views": 160,
+        "reach": 143,
+        "likes": 2,
+        "comments": 2,
         "shares": 0,
         "saves": 0,
-        "avg_watch_s": 0,
-        "skip_rate_3s": 0
+        "avg_watch_s": 5.544,
+        "skip_rate_3s": 47.6
       },
       "youtube": {
         "url": "https://youtube.com/shorts/X_XXGdY4kOk",
-        "views": 0,
+        "views": 3,
         "likes": 0,
         "comments": 0
       }
@@ -172,14 +172,14 @@
       },
       "instagram": {
         "url": "https://www.instagram.com/reel/DgIk43Wh6sI/",
-        "views": 0,
-        "reach": 0,
-        "likes": 0,
-        "comments": 0,
-        "shares": 0,
+        "views": 153,
+        "reach": 134,
+        "likes": 2,
+        "comments": 2,
+        "shares": 1,
         "saves": 0,
-        "avg_watch_s": 0,
-        "skip_rate_3s": 0
+        "avg_watch_s": 5.343,
+        "skip_rate_3s": 58.8
       },
       "youtube": {
         "url": "https://youtube.com/shorts/_dqyY1Q70aw",
