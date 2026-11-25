@@ -3,6 +3,7 @@
 Ablauf jeden Morgen (09:07): 1) Zahlen jedes Clips holen (data.json), 2) Fehler/Erfolge benennen, 3) hier eintragen, 4) die nächsten Clips nach diesen Regeln bauen (+ gta6/qualitaet-checkliste.md), 5) dem Nutzer zur Freigabe schicken.
 
 ## Aktuelle Regeln (aus allen Einträgen, neueste oben)
+00. NUTZERREGEL (25.11., höchste Priorität): NICHTS auf eigene Faust entscheiden. Vor jeder neuen Quelle, Sprache, Änderung des Plans, Löschung, Umgebungs-/Netzwerk-Änderung oder Aktion, die der Nutzer nicht ausdrücklich beauftragt hat, ZUERST fragen und die Antwort abwarten. Beim Material: Tonspur-Sprache prüfen (deutsch bevorzugt), Quelle und Hook dem Nutzer vorlegen, erst nach "تمام" bauen/posten. Gelöscht wird nichts, was bei Content Rewards eingereicht ist (30-Tage-Regel).
 0b. EXPERIMENT ab 25.11. (Nutzer: "جرّب"): Ø-Wiedergabe ist bei ALLEN Clips ~8 s (IG 8,8 s von 30 s, 5,6 s von 29 s, 6,6 s von 27 s) -> Kurzclips 12-15 s testen (gleiche Rezeptur: Erzähler, Hook-Frage, Endfrage), 3 Clips/Tag (12:30, 15:30, 18:30). Vergleich nach 24 h: Ø-Wiedergabe in %, Skip-Rate, Views, Kommentare gegen v5 (29 %, 35,9 %). Außerdem Nutzer-/Community-Interaktion: auf Kommentare antworten, auf WoW-DE-Videos kommentieren (Nutzer manuell). Ehrliche Einordnung: 700-800 Views = Test-Batch eines 3 Tage alten Kontos mit 6 Followern, ca. 3 USD pro Clip -> Ergebnis offen.
 0a. NUTZERREGEL (23.11.): Alle Clips ab jetzt im Stil des Gewinners v5 (Himmelsgeborene: meiste Views + Kommentare), siehe Abschnitt „Gewinner-Rezept“. Pflicht: Quelle mit deutschem Erzähler (Need-to-Know u. ä.), Entscheidungs-/Auswahlfrage als Hook ab Sekunde 0, Kommentar-Frage am Ende, Skript: gta6/tools/build_features.sh als Vorlage. Reine Landschaft/Musik ohne Erzähler (Dun Morogh, Mulgore: wenig Likes/Kommentare) nicht mehr, außer der Nutzer will einen Test.
 0. BESTÄTIGT (22.11.): Hook-Text ab Sekunde 0 + Zoom + Fortschrittsbalken + Zwischentexte senken die 3-s-Abbruchrate deutlich (56,5 % → 33,6 %). Beibehalten.
@@ -80,3 +81,6 @@ Beobachtung: beide Erzähler-Clips mit Hook-Frage haben auf IG schwächeren Hook
 
 ### 23.11. Abend – Vergleich Mulgore (Landschaft+Musik) vs. v5
 TikTok nach ~8 h: Mulgore 483 Views/2 Likes/2 Komm.; v5 777 Views/12 Likes/11 Komm. IG Mulgore erst 21:43 nachgeholt (Termin 13:54 wegen Worker-Neustart verpasst). Dun Morogh IG Skip 80 %. Ergebnis: Erzähler + Auswahlfrage = Interaktion; Landschaft zieht Views, aber kaum Reaktion. Features-Clip (Erzähler, Hook-Frage, Open Loop) wartet auf Freigabe, Post 24.11. 12:30.
+
+### 25.11. Klassen-Clip mit englischer Tonspur (Fehler)
+Quelle: Ordner SUBTITLES ONLY (englisches Original zum Untertiteln). Ich habe Tonspur-Sprache nicht geprüft und die Quelle selbst gewählt. Folge: YT live (YqReoeByrJA), TikTok live, IG gestoppt. Nutzer: Clips bleiben (30-Tage-Regel, YT eingereicht). Regel 00 gilt jetzt.
