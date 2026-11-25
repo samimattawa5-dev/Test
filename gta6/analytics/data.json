@@ -187,6 +187,37 @@
         "likes": 0,
         "comments": 0
       }
+    },
+    {
+      "id": "klassen",
+      "title": "Klassen – Krieger, Schurke oder Schamane? (Gameplay, EN-Ton)",
+      "posted": "2026-11-25 (YT 12:30, TikTok ~12:31, IG 13:16)",
+      "duration": 19.1,
+      "tiktok": {
+        "url": "https://www.tiktok.com/@nexaclips.hq/video/7712069978232491297",
+        "views": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/reel/DgKbaQ_AsLI/",
+        "views": 0,
+        "reach": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "avg_watch_s": 0,
+        "skip_rate_3s": 0
+      },
+      "youtube": {
+        "url": "https://youtube.com/shorts/YqReoeByrJA",
+        "views": 0,
+        "likes": 0,
+        "comments": 0
+      }
     }
   ]
 }
