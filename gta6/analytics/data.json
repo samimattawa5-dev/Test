@@ -249,6 +249,37 @@
         "likes": 1,
         "comments": 0
       }
+    },
+    {
+      "id": "kombi",
+      "title": "Klasse + Volk Kombi (11 s, DE-Erzähler)",
+      "posted": "2026-11-26 (YT 20:26, TikTok ~20:27, IG 20:09 Berlin)",
+      "duration": 11.1,
+      "tiktok": {
+        "url": "https://www.tiktok.com/@nexaclips.hq/video/7712548236916952353",
+        "views": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/reel/DgNvwOiMsrs/",
+        "views": 0,
+        "reach": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "avg_watch_s": 0,
+        "skip_rate_3s": 0
+      },
+      "youtube": {
+        "url": "https://youtube.com/shorts/09iwAJ3gj_w",
+        "views": 0,
+        "likes": 0,
+        "comments": 0
+      }
     }
   ]
 }
