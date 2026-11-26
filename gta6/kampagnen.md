@@ -56,3 +56,7 @@ Hinweise:
 | GTA VI Clipup Logo | 0,30 $, max 150 $ | 3.172/15.000 $ | nur Tier-1 (CA, US, UK +1) | Deutschland NICHT bezahlt |
 | FR BICHOU MIAMI GTA 6 (Risor) | 1,00 $ | 4,2K/7K, 206 Clipper | französisch | nicht passend |
 Zum Vergleich CoD MW4 German (pausiert, 6.500 $ voll): Clipper verdienen im Schnitt 9,76 $, Top-Clipper 1,1K $ (45 Clipper, 4,2M Aufrufe).
+
+## [GERMANY] Blizzard WoW Forever – Stand 26.11.2026 (Seite gelesen)
+Budget 4.511 $ von 8.000 $ verbraucht (21.11.: 882 $), 104 Creator verdienen, Start vor 3 Wochen. Satz bis 5 $/1K (TikTok, YouTube), IG bis 3 $; nur DE/AT/CH bezahlt; min 1 $, max 500 $/Clip. Briefing: "Show the visuals, the footage highlights, the gameplay, or the world. Some files have no spoken language. You can use those too." Verbrauch ~725 $/Tag -> Restbudget (3.489 $) reicht bei gleichem Tempo bis ca. 1.12.
+Schwesterkampagnen (Clipping Culture): FRANCE 3,2K/8K, UK 1,5K/8K (258 Creator), NORDICS 441/8K.
