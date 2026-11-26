@@ -76,6 +76,11 @@ vidIQ-Credits: 65 (YouTube-Analytics erst sinnvoll ab ~100 Views je Short, vorer
 IG: Features 160 Views, Skip 47,6 %, Ø 5,5 s von 29 s (19 %); Zonen 153 Views, Skip **58,8 %** (schlechter als v5 mit 35,9 %), Ø 5,3 s (18 %). YouTube je ≤3 Views. TikTok-Zahlen per Nutzer-Screenshot (vidIQ-Credits nur 35, unter Schwelle 40 -> keine vidIQ-Abfragen mehr).
 Beobachtung: beide Erzähler-Clips mit Hook-Frage haben auf IG schwächeren Hook als v5. Unterschied zu v5: v5-Hook war eine Streitfrage (Allianz ODER Horde) mit klarer Bild-Aussage; Features/Zonen waren Aufzählungen (Dungeons/Zonen/Kombis) -> weniger Reibung. Folgerung: Hook muss eine Streit-/Wahlfrage sein, die jeder sofort beantworten will (Klasse? Fraktion? Volk?).
 
+### 26.11. 09:30 Kurzclip-Hinweis (IG, ~17 h bzw. ~9 h nach Post)
+Magier ODER Schamane (13,9 s): IG 197 Views, Skip 46,4 %, Ø 6,85 s = **49 % Wiedergabe** (v5: 29 %, Features 19 %, Zonen 18 %, Klassen 26 %). Klassen (19 s, EN-Ton): 159 Views, Skip 59,3 %, Ø 4,9 s = 26 %. Zonen 154 Views, Skip 59,1 %.
+Folgerung: Kürzere Clips (~14 s) erhöhen die Ø-Wiedergabe in % deutlich (nur ein Datenpunkt, gleiche Quelle wie v5). Hook-Skip bleibt ~46-59 %. B-roll-Proben (Pally, Druide, Skyborne-Abilities, Wildhammer, Drowned City): still/statisch, kein Ton -> schwach.
+vidIQ-Credits 35 (unter 40, keine Abfragen); TikTok-Zahlen nur per Nutzer-Screenshot.
+
 ### Prozess
 - Worker-Neustart verschob einen Termin um 2 h → bei Verspätung sofort melden und nachholen.
 - TikTok-Formular im Client nicht verfügbar → jetzt über vidIQ (Draft → Nutzerfreigabe → publish).
