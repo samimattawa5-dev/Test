@@ -15,3 +15,4 @@ Arabische Gaming-Videos ansehen/liken, 5-10 Min/Tag, keine CoD-/Clipper-Konten f
 Quelle: "Campaign Trailer.mp4" (Nutzer-Drive-Kopie, 1920x1080, 145 s, arabische Untertitel eingebrannt). Ausschnitt 40.5-53.0 s, 12.5 s, Mitte-Crop 1000x800 + Blur-BG, 1080x1920. Texte (PIL/raqm): Hook "هل ستنجو من هذه المعركة؟", Pop-up "حرب كاملة في MW4", Ende "وش رايكم؟ اكتبوا بالتعليقات". Original-Audio. Konto-Handle laut App: lahaza.gaming.
 Caption: #إعلان لقطة تجنن من MW4 🔥 هل تقدر تنجو؟ @callofdutyarabic #MW4 #كود #ألعاب
 Lernen: Arabisch mit PIL raqm direction="rtl",language="ar" rendern, NICHT arabic_reshaper+get_display (doppelt gedreht).
+- Clip 1 v2 (27.11. ~03:05): auf 14.4 s verlaengert (40.5-54.9 s), Fade-out Bild+Ton, Nutzer: Ende war abgeschnitten.
