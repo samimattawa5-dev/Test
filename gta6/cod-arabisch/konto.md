@@ -10,3 +10,8 @@ Quellen: Twitch-VOD 2852433807 existiert nicht mehr (Fehler "does not exist"), T
 Arabische Gaming-Videos ansehen/liken, 5-10 Min/Tag, keine CoD-/Clipper-Konten folgen, nichts kommentieren bei CoD-Videos.
 ## Caption-Vorlage
 #إعلان لقطة تجنن من Call of Duty MW4 🔥 شو رأيكم؟ @callofdutyarabic #MW4 #كود #ألعاب
+
+## Clip 1 (27.11. 02:55) - gebaut, NICHT gepostet (Warmup)
+Quelle: "Campaign Trailer.mp4" (Nutzer-Drive-Kopie, 1920x1080, 145 s, arabische Untertitel eingebrannt). Ausschnitt 40.5-53.0 s, 12.5 s, Mitte-Crop 1000x800 + Blur-BG, 1080x1920. Texte (PIL/raqm): Hook "هل ستنجو من هذه المعركة؟", Pop-up "حرب كاملة في MW4", Ende "وش رايكم؟ اكتبوا بالتعليقات". Original-Audio. Konto-Handle laut App: lahaza.gaming.
+Caption: #إعلان لقطة تجنن من MW4 🔥 هل تقدر تنجو؟ @callofdutyarabic #MW4 #كود #ألعاب
+Lernen: Arabisch mit PIL raqm direction="rtl",language="ar" rendern, NICHT arabic_reshaper+get_display (doppelt gedreht).
