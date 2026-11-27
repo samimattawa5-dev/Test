@@ -1,0 +1,285 @@
+{
+ "updated": "2026-11-27 09:10 Berlin",
+ "notes": "TikTok: nur öffentliche Zahlen (vidIQ) bzw. Nutzer-Screenshot, keine Retention. IG: Insights per API. YouTube-Retention kommt ab ca. 24.11. (Datenverzögerung).",
+ "clips": [
+  {
+   "id": "action",
+   "title": "Action – So sehen die Kämpfe aus",
+   "posted": "2026-11-21",
+   "duration": 26.8,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7710678881627393312",
+    "views": 250,
+    "likes": 4,
+    "comments": 5,
+    "shares": 1,
+    "saves": 3
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgA18wFBMzC/",
+    "views": 136,
+    "reach": 123,
+    "likes": 4,
+    "comments": 4,
+    "shares": 0,
+    "saves": 0,
+    "avg_watch_s": 6.8,
+    "skip_rate_3s": 56.0
+   },
+   "youtube": {
+    "url": "https://youtube.com/shorts/M55QG0KNeE4",
+    "views": 13,
+    "likes": 3,
+    "comments": 0
+   }
+  },
+  {
+   "id": "dun",
+   "title": "Dun Morogh – Zonenflug",
+   "posted": "2026-11-22",
+   "duration": 33.5,
+   "tiktok": {
+    "url": "",
+    "views": 13,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgC6_Edhi39/",
+    "views": 9,
+    "reach": 6,
+    "likes": 1,
+    "comments": 3,
+    "shares": 0,
+    "saves": 1,
+    "avg_watch_s": 7.9,
+    "skip_rate_3s": 83.3
+   },
+   "youtube": {
+    "url": "https://youtube.com/shorts/BcopD84wwAY",
+    "views": 2,
+    "likes": 1,
+    "comments": 0
+   }
+  },
+  {
+   "id": "volk",
+   "title": "Himmelsgeborene – neues Volk",
+   "posted": "2026-11-22 (YT 18:29, TikTok 18:31, IG 19:16)",
+   "duration": 30.4,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7711049702074027296",
+    "views": 780,
+    "likes": 12,
+    "comments": 11,
+    "shares": 3,
+    "saves": 1
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgDbV1Kz0Bw/",
+    "views": 172,
+    "reach": 144,
+    "likes": 5,
+    "comments": 2,
+    "shares": 0,
+    "saves": 0,
+    "avg_watch_s": 8.8,
+    "skip_rate_3s": 35.9
+   },
+   "youtube": {
+    "url": "https://youtube.com/shorts/TalP-06yLU8",
+    "views": 1,
+    "likes": 1,
+    "comments": 0
+   }
+  },
+  {
+   "id": "mulgore",
+   "title": "Mulgore – Zonenflug (Landschaft+Musik, Test)",
+   "posted": "2026-11-23 (YT 13:08, TikTok 13:09, IG 21:42)",
+   "duration": 24.5,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7711337624413293857",
+    "views": 678,
+    "likes": 3,
+    "comments": 3,
+    "shares": 1,
+    "saves": 1
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgFWH4bhHgs/",
+    "views": 149,
+    "reach": 134,
+    "likes": 4,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0,
+    "avg_watch_s": 4.8,
+    "skip_rate_3s": 57.5
+   },
+   "youtube": {
+    "url": "https://youtube.com/shorts/lthjy3AVaQo",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   }
+  },
+  {
+   "id": "features",
+   "title": "Features – Dungeons ODER neue Kombis? (v5-Stil, Erzähler)",
+   "posted": "2026-11-24 (YT 12:58, TikTok ~13:00, IG 13:40)",
+   "duration": 29.2,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7711706225020390689",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgH5yb3B_W-/",
+    "views": 162,
+    "reach": 144,
+    "likes": 2,
+    "comments": 2,
+    "shares": 0,
+    "saves": 0,
+    "avg_watch_s": 5.7,
+    "skip_rate_3s": 47.6
+   },
+   "youtube": {
+    "url": "https://youtube.com/shorts/X_XXGdY4kOk",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   }
+  },
+  {
+   "id": "zones",
+   "title": "Zonen & Dungeons (v5-Stil, Erzähler)",
+   "posted": "2026-11-24 (YT 18:29, TikTok 18:30, IG 19:15)",
+   "duration": 28.8,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7711791856346041633",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgIk43Wh6sI/",
+    "views": 155,
+    "reach": 136,
+    "likes": 2,
+    "comments": 2,
+    "shares": 1,
+    "saves": 0,
+    "avg_watch_s": 5.3,
+    "skip_rate_3s": 59.1
+   },
+   "youtube": {
+    "url": "https://youtube.com/shorts/_dqyY1Q70aw",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   }
+  },
+  {
+   "id": "klassen",
+   "title": "Klassen – Krieger, Schurke oder Schamane? (Gameplay, EN-Ton)",
+   "posted": "2026-11-25 (YT 12:30, TikTok ~12:31, IG 13:16)",
+   "duration": 19.1,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7712069978232491297",
+    "views": 685,
+    "likes": 4,
+    "comments": 4,
+    "shares": 1,
+    "saves": 2
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgKbaQ_AsLI/",
+    "views": 159,
+    "reach": 132,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0,
+    "avg_watch_s": 4.9,
+    "skip_rate_3s": 59.3
+   },
+   "youtube": {
+    "url": "https://youtube.com/shorts/YqReoeByrJA",
+    "views": 2,
+    "likes": 0,
+    "comments": 0
+   }
+  },
+  {
+   "id": "volk2",
+   "title": "Magier ODER Schamane? (DE-Erzähler, Teil von v5-Quelle)",
+   "posted": "2026-11-25 (YT 15:58, TikTok ~15:59, IG 16:42)",
+   "duration": 13.9,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7712123703642967335",
+    "views": 713,
+    "likes": 6,
+    "comments": 2,
+    "shares": 2,
+    "saves": 0
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgKzO50sYgD/",
+    "views": 198,
+    "reach": 151,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saves": 1,
+    "avg_watch_s": 6.8,
+    "skip_rate_3s": 46.4
+   },
+   "youtube": {
+    "url": "https://youtube.com/shorts/1KtvY7uHyoY",
+    "views": 4,
+    "likes": 1,
+    "comments": 0
+   }
+  },
+  {
+   "id": "kombi",
+   "title": "Klasse + Volk Kombi (11 s, DE-Erzähler)",
+   "posted": "2026-11-26 (YT 20:26, TikTok ~20:27, IG 20:09 Berlin)",
+   "duration": 11.1,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7712548236916952353",
+    "views": 684,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgNvwOiMsrs/",
+    "views": 231,
+    "reach": 179,
+    "likes": 2,
+    "comments": 1,
+    "shares": 0,
+    "saves": 1,
+    "avg_watch_s": 5.6,
+    "skip_rate_3s": 0
+   },
+   "youtube": {
+    "url": "https://youtube.com/shorts/09iwAJ3gj_w",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   }
+  }
+ ]
+}

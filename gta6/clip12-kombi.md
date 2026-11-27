@@ -1,0 +1,5 @@
+# Clip 18:30 (26.11.): Klasse + Volk Kombi (11 s, DE-Erzähler, 90 %)
+Quelle: Need-to-Know General Features (bereits für Features-Clip 24.11. genutzt), Abschnitt 12,2-22,2 s, Build gta6/tools/build_kombi.sh. Dateien gta6/clips/wow_kombi_tt/ig/yt.mp4. Erzähler: "Wählt euren Weg: Als Himmelsgeborene des Hohen Ordens oder als Windformer. Ihr könnt jetzt auch eine neue Kombination aus Klasse und Volk auf eure Dungeonerkundungen mitnehmen."
+TikTok: Welche Klasse + welches Volk? Neu in WoW Forever: Du kannst jetzt eine neue Kombination aus Klasse und Volk wählen. Deine Kombi? @blizzard_de / #werbung #blizzardpartner / #worldofwarcraft #wowforever #gaming
+YouTube: Titel "Welche Kombi aus Klasse und Volk? WoW Forever #Shorts"; Beschreibung "Neu in WoW Forever: eine neue Kombination aus Klasse und Volk. Welche Kombi spielst du? @WorldofWarcraftDE / #werbung #blizzardpartner / #WoWForever #WorldOfWarcraft #Shorts"
+Instagram: Klasse und Volk: Welche Kombi spielst du? Neu in WoW Forever. / #werbung #blizzardpartner / #wowforever #worldofwarcraft
