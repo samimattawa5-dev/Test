@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 09:10 Berlin",
+ "updated": "2026-11-28 09:10 Berlin",
  "notes": "TikTok: nur öffentliche Zahlen (vidIQ) bzw. Nutzer-Screenshot, keine Retention. IG: Insights per API. YouTube-Retention kommt ab ca. 24.11. (Datenverzögerung).",
  "clips": [
   {
@@ -71,7 +71,7 @@
    "duration": 30.4,
    "tiktok": {
     "url": "https://www.tiktok.com/@nexaclips.hq/video/7711049702074027296",
-    "views": 780,
+    "views": 782,
     "likes": 12,
     "comments": 11,
     "shares": 3,
@@ -195,11 +195,11 @@
    "duration": 19.1,
    "tiktok": {
     "url": "https://www.tiktok.com/@nexaclips.hq/video/7712069978232491297",
-    "views": 685,
-    "likes": 4,
+    "views": 686,
+    "likes": 5,
     "comments": 4,
     "shares": 1,
-    "saves": 2
+    "saves": 3
    },
    "instagram": {
     "url": "https://www.instagram.com/reel/DgKbaQ_AsLI/",
@@ -226,7 +226,7 @@
    "duration": 13.9,
    "tiktok": {
     "url": "https://www.tiktok.com/@nexaclips.hq/video/7712123703642967335",
-    "views": 713,
+    "views": 714,
     "likes": 6,
     "comments": 2,
     "shares": 2,
@@ -257,7 +257,7 @@
    "duration": 11.1,
    "tiktok": {
     "url": "https://www.tiktok.com/@nexaclips.hq/video/7712548236916952353",
-    "views": 684,
+    "views": 693,
     "likes": 3,
     "comments": 0,
     "shares": 0,
@@ -265,10 +265,10 @@
    },
    "instagram": {
     "url": "https://www.instagram.com/reel/DgNvwOiMsrs/",
-    "views": 231,
-    "reach": 179,
+    "views": 232,
+    "reach": 180,
     "likes": 2,
-    "comments": 1,
+    "comments": 2,
     "shares": 0,
     "saves": 1,
     "avg_watch_s": 5.6,
@@ -276,6 +276,99 @@
    },
    "youtube": {
     "url": "https://youtube.com/shorts/09iwAJ3gj_w",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   }
+  },
+  {
+   "id": "zonen2",
+   "title": "Welche neue Zone zuerst? (Kurz, 11,7 s)",
+   "posted": "2026-11-27 12:31 Berlin",
+   "duration": 11.7,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7712812521765342497",
+    "views": 676,
+    "likes": 12,
+    "comments": 4,
+    "shares": 0,
+    "saves": 1
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgPlQWzNr4H/",
+    "views": 169,
+    "reach": 136,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0,
+    "avg_watch_s": 5.8,
+    "skip_rate_3s": 0
+   },
+   "youtube": {
+    "url": "",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   }
+  },
+  {
+   "id": "volkshort",
+   "title": "Allianz ODER Horde? (Kurz, 15,1 s, Wiederholung v5)",
+   "posted": "2026-11-27 15:57 Berlin",
+   "duration": 15.1,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7712865374659726631",
+    "views": 684,
+    "likes": 1,
+    "comments": 2,
+    "shares": 1,
+    "saves": 0
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgP3I3lBBxC/",
+    "views": 180,
+    "reach": 151,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0,
+    "avg_watch_s": 5.5,
+    "skip_rate_3s": 0
+   },
+   "youtube": {
+    "url": "",
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+   }
+  },
+  {
+   "id": "lordaeron",
+   "title": "Lordaeron ODER Sumpfland? (Kurz, 10,9 s)",
+   "posted": "2026-11-27 18:29 Berlin",
+   "duration": 10.9,
+   "tiktok": {
+    "url": "https://www.tiktok.com/@nexaclips.hq/video/7712904714127428897",
+    "views": 698,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0
+   },
+   "instagram": {
+    "url": "https://www.instagram.com/reel/DgP9DUcB4q5/",
+    "views": 163,
+    "reach": 135,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saves": 0,
+    "avg_watch_s": 4.8,
+    "skip_rate_3s": 0
+   },
+   "youtube": {
+    "url": "",
     "views": 0,
     "likes": 0,
     "comments": 0
